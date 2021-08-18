@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.2.1.0';
+OSRIC.VERSION = '2.2.1.1';
 
 /* List of items handled by choiceRules method. */
 OSRIC.CHOICES = [
@@ -765,12 +765,12 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=C5 ' +
     'Description="Touched relieved of consequences of unwilling alignment violation"',
-  'Audible Glamer':
+  'Audible Glamour':
     'School=Illusion ' +
     'Level=I1,M2 ' +
     'Description="R$L10plus60\' Sounds of ${(lvl-2)*4} shouting for $D (save disbelieve)" ' +
     'Duration="$L3 rd"',
-  'Audible Glamer M2':
+  'Audible Glamour M2':
     'Duration="$L2 rd"',
   'Augury':
     'School=Divination ' +
@@ -874,7 +874,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=M5 ' +
     'Description="R10\' Poisonous 40\'x20\'x20\' cloud kills (5+2 HD save, 4+1 HD -4 save neg) moves 10\'/rd for $L rd"',
-  'Color Spray':
+  'Colour Spray':
     'School=Alteration ' +
     'Level=I1 ' +
     'Description=" 6 targets in $E unconscious (fewer than $Lplus1 HD), blinded 1d4 rd ($Lplus1-$Lplus2 HD) or stunned 2d4 seg (greater than $Lplus2 HD) (save neg)" ' +
@@ -1018,12 +1018,12 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=I1,M1 ' +
     'Description="R$L10plus40\' Up to 4 movable lights for $L2 rd"',
-  'Darkness':
+  "Darkness 15' Radius":
     'School=Alteration ' +
     'Level=I1,M2 ' +
     'Description="R$L10\' 15\' radius lightless for $D" ' +
     'Duration="$Lplus10 rd"',
-  'Darkness I1':
+  "Darkness 15' Radius I1":
     'Duration="2d4+$L rd" ' +
     'Range="$L10plus40\'"',
   'Deafness':
@@ -1332,11 +1332,11 @@ OSRIC.SPELLS = {
     'Level=M6 ' +
     'Description="$R fulfill quest or sicken and die in 1d4 wk" ' +
     'Range="Touched"',
-  'Glassteel':
+  'Glass-steel':
     'School=Alteration ' +
     'Level=M8 ' +
     'Description="Touched $L10 lb glass gains steel strength"',
-  'Glassee':
+  'Glasseye':
     'School=Alteration ' +
     'Level=M6 ' +
     'Description="Touched 3\'x2\' area becomes transparent for $L rd"',
@@ -1441,7 +1441,7 @@ OSRIC.SPELLS = {
     'Level=M1 ' +
     'Description="$E determine magical properties of touched w/in $L hr of discovery (save neg or mislead), requires rest afterward" ' +
     'Effect="$L5plus15%"',
-  'Illusionary Script':
+  'Illusory Script':
     'School=Illusion ' +
     'Level=I3 ' +
     'Description="Obscured writing causes 5d4 rd confusion (save neg) for readers other than specified"',
@@ -1717,7 +1717,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D2 ' +
     'Description="Mist limits vision in $L10\' cu for $L4 rd"',
-  'Paralyzation':
+  'Paralysation':
     'School=Illusion ' +
     'Level=I3 ' +
     'Description="R$L10\' Immobilize $L2 HD creatures in 20\' sq"',
@@ -1787,7 +1787,7 @@ OSRIC.SPELLS = {
   'Plant Growth D3':
     'Effect="$L20\' sq" ' +
     'Range="160\'"',
-  'Polymorph Any Object':
+  'Polymorph Object':
     'School=Alteration ' +
     'Level=M8 ' +
     'Description="R$L5\' Transform any object (save -4 neg)"',
@@ -2091,7 +2091,7 @@ OSRIC.SPELLS = {
     'Level=M1 ' +
     'Description="Touched move 30\'/rd on walls and ceilings for $D" ' +
     'Duration="$Lplus1 rd"',
-  'Spiritwrack':
+  'Spirit-rack':
     'School=Abjuration ' +
     'Level=M6 ' +
     'Description="R$Lplus10\' Banish extraplanar for $L yr"',
