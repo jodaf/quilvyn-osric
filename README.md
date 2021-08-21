@@ -25,4 +25,5 @@ following lines to the file plugins/plugins.js:
 ### Usage
 
 Once the quilvyn-osric plugin is installed as described above, start Quilvyn and
-check the box next to "OSRIC" from the rule sets menu in the initial window.
+check the box next to "OSRIC - Old School Reference and Index Compilation (1E)"
+from the rule sets menu in the initial window.
