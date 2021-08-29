@@ -452,9 +452,18 @@ OSRIC.FEATURES = {
   'Bow Precision':'Section=combat Note="+1 attack w/bows"',
   'Burrow Tongue':'Section=feature Note="Speak w/burrowing animals"',
   'Deadly Aim':'Section=combat Note="+3 attack w/bows and slings"',
+  'Detect Construction':
+    'Section=feature Note="R10\' 75% Detect new construction"',
+  'Detect Hazard':
+    'Section=feature Note="R10\' 70% Detect unsafe wall, ceiling, floor"',
   'Detect Secret Doors':
     'Section=feature Note="1in6 passing, 2in6 searching, 3in6 concealed"',
-  'Direction Sense':
+  'Detect Sliding':'Section=feature Note="R10\' 66% Detect sliding walls"',
+  'Detect Slope':'Section=feature Note="R10\' %V% Detect slope and grade"',
+  'Detect Traps':'Section=feature Note="R10\' 50% Detect stonework traps"',
+  'Determine Depth':
+    'Section=feature Note="%V% Determine approximate depth underground"',
+  'Determine Direction':
     'Section=feature Note="50% Determine direction underground"',
   'Dwarf Ability Adjustment':
     'Section=ability Note="+1 Constitution/-1 Charisma"',
@@ -472,25 +481,16 @@ OSRIC.FEATURES = {
   'Halfling Ability Adjustment':
     'Section=ability Note="+1 Dexterity/-1 Strength"',
   'Infravision':'Section=feature Note="60\' vision in darkness"',
-  'Know Depth':
-    'Section=feature Note="%V% Determine approximate depth underground"',
   'Resist Charm':'Section=save Note="%V% vs. charm"',
   'Resist Magic':'Section=save Note="+%V vs. spells and wands"',
   'Resist Poison':'Section=save Note="+%V vs. poison"',
   'Resist Sleep':'Section=save Note="%V% vs. sleep"',
-  'Sense Construction':
-    'Section=feature Note="R10\' 75% Detect new construction"',
-  'Sense Hazard':
-    'Section=feature Note="R10\' 70% Detect unsafe wall, ceiling, floor"',
-  'Sense Sliding':'Section=feature Note="R10\' 66% Detect sliding walls"',
-  'Sense Slope':'Section=feature Note="R10\' %V% Detect slope and grade"',
   'Slow':'Section=ability Note="-30 Speed"',
   'Stealthy':
     'Section=combat ' +
     'Note="Surprise 4in6 when traveling quietly, 2in6 when opening doors"',
   'Sword Precision':
-    'Section=combat Note="+1 attack w/Long Sword and Short Sword"',
-  'Trap Sense':'Section=feature Note="R10\' 50% Detect stonework traps"'
+    'Section=combat Note="+1 attack w/Long Sword and Short Sword"'
 
 };
 OSRIC.GOODIES = {
@@ -603,10 +603,10 @@ OSRIC.RACES = {
       '"charisma <= 16","constitution >= 12","dexterity <= 17",' +
       '"strength >= 8" ' +
     'Features=' +
-      '"1:Dwarf Ability Adjustment","1:Dwarf Dodge","1:Dwarf Enmity",' +
-      '1:Infravision,"1:Know Depth","1:Resist Magic","1:Resist Poison",' +
-      '"1:Sense Construction","1:Sense Sliding","1:Sense Slope",1:Slow,' +
-      '"1:Trap Sense" ' +
+      '"1:Determine Depth","1:Dwarf Ability Adjustment","1:Dwarf Dodge",' +
+      '"1:Dwarf Enmity",1:Infravision,"1:Resist Magic","1:Resist Poison",' +
+      '"1:Detect Construction","1:Detect Sliding","1:Detect Slope",' +
+      '"1:Detect Traps",1:Slow ' +
     'Languages=' +
       'Common,Dwarf,Gnome,Goblin,Kobold,Orc',
   'Elf':
@@ -623,9 +623,10 @@ OSRIC.RACES = {
     'Require=' +
       '"constitution >= 8","intelligence >= 7","strength >= 6" ' +
     'Features=' +
-      '"1:Burrow Tongue","1:Direction Sense","1:Gnome Dodge",' +
-      '"1:Gnome Enmity",1:Infravision,"1:Know Depth","1:Resist Magic",' +
-      '"1:Resist Poison","1:Sense Hazard","1:Sense Slope",1:Slow ' +
+      '"1:Burrow Tongue","1:Detect Hazard","1:Detect Slope",' +
+      '"1:Determine Depth","1:Determine Direction","1:Gnome Dodge",' +
+      '"1:Gnome Enmity",1:Infravision,"1:Resist Magic","1:Resist Poison",' +
+      '1:Slow ' +
     'Languages=' +
       'Common,Dwarf,Gnome,Goblin,Halfling,Kobold',
   'Half-Elf':
@@ -3394,8 +3395,8 @@ OSRIC.raceRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
 
   if(name == 'Dwarf') {
-    rules.defineRule('featureNotes.knowDepth', raceLevel, '+=', '50');
-    rules.defineRule('featureNotes.senseSlope', raceLevel, '+=', '75');
+    rules.defineRule('featureNotes.detectSlope', raceLevel, '+=', '75');
+    rules.defineRule('featureNotes.determineDepth', raceLevel, '+=', '50');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, 'v', '2',
       '', '^', '0'
@@ -3416,8 +3417,8 @@ OSRIC.raceRulesExtra = function(rules, name) {
         '"-5% Climb Walls/+5% Find Traps/+5% Hear Noise/+10% Hide In Shadows/+5% Move Silently/-5% Open Locks/+5% Pick Pockets/+10% Read Languages"'
     );
   } else if(name == 'Gnome') {
-    rules.defineRule('featureNotes.knowDepth', raceLevel, '+=', '60');
-    rules.defineRule('featureNotes.senseSlope', raceLevel, '+=', '80');
+    rules.defineRule('featureNotes.detectSlope', raceLevel, '+=', '80');
+    rules.defineRule('featureNotes.determineDepth', raceLevel, '+=', '60');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, 'v', '2',
       '', '^', '0'
@@ -3441,7 +3442,7 @@ OSRIC.raceRulesExtra = function(rules, name) {
         '"+5% Climb Walls/+5% Find Traps/+5% Hear Noise/+5% Open Locks/-5% Pick Pockets/-10% Read Languages"'
     );
   } else if(name == 'Halfling') {
-    rules.defineRule('featureNotes.senseSlope', raceLevel, '+=', '75');
+    rules.defineRule('featureNotes.detectSlope', raceLevel, '+=', '75');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, '+', '-5',
       '', '^', '0'
