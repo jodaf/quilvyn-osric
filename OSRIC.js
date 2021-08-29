@@ -603,10 +603,10 @@ OSRIC.RACES = {
       '"charisma <= 16","constitution >= 12","dexterity <= 17",' +
       '"strength >= 8" ' +
     'Features=' +
-      '"1:Determine Depth","1:Dwarf Ability Adjustment","1:Dwarf Dodge",' +
-      '"1:Dwarf Enmity",1:Infravision,"1:Resist Magic","1:Resist Poison",' +
       '"1:Detect Construction","1:Detect Sliding","1:Detect Slope",' +
-      '"1:Detect Traps",1:Slow ' +
+      '"1:Detect Traps","1:Determine Depth","1:Dwarf Ability Adjustment",' +
+      '"1:Dwarf Dodge","1:Dwarf Enmity",1:Infravision,"1:Resist Magic",' +
+      '"1:Resist Poison",1:Slow ' +
     'Languages=' +
       'Common,Dwarf,Gnome,Goblin,Kobold,Orc',
   'Elf':
