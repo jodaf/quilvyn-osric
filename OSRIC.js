@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.2.1.1';
+OSRIC.VERSION = '2.3.1.0';
 
 /* List of items handled by choiceRules method. */
 OSRIC.CHOICES = [
@@ -211,11 +211,11 @@ OSRIC.CLASSES = {
     'HitDie=d8,14,1 Attack=0,2,3,- WeaponProficiency=2,3,4 ' +
     'Breath=16,1,3 Death=10,1,3 Petrification=13,1,3 Spell=15,1,3 Wand=14,1,3 '+
     'Features=' +
-      '"1:Armor Proficiency (Leather)","1:Shield Proficiency (Small Shield)",' +
+      '"1:Armor Proficiency (Leather)","1:Shield Proficiency (All)",' +
       '"charisma >= 16/wisdom >= 16 ? 1:Bonus Druid Experience",' +
       '"wisdom >= 13 ? 1:Bonus Druid Spells",' +
-      '"1:Resist Fire","1:Resist Lightning","3:Nature Knowledge",' +
-      '"3:Wilderness Movement","7:Fey Immunity",' +
+      '"1:Resist Fire","1:Resist Lightning","3:Druid\'s Knowledge",' +
+      '"3:Wilderness Movement","7:Immunity To Fey Charm",' +
       '7:Shapeshift ' +
     'Experience=0,2,4,8,12,20,35,60,90,125,200,300,750,1500 ' +
     'CasterLevelDivine=levels.Druid ' +
@@ -237,7 +237,7 @@ OSRIC.CLASSES = {
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16 ? 1:Bonus Fighter Experience",' +
-      '"1:Fighting The Unskilled" ' +
+      '"1:Fighting The Unskilled","7:Bonus Attacks" ' +
     'Experience=' +
       '0,1.9,4.25,7.75,16,35,75,125,250,500,750,1000,1250,1500,1750,2000,' +
       '2250,2500,2750,3000,3250,3500,3750,4000',
@@ -271,7 +271,7 @@ OSRIC.CLASSES = {
     'Wand=11,2,5 '+
     'Features=' +
       '"intelligence >= 16 ? 1:Bonus Magic User Experience",' +
-      '"7:Eldritch Craft" ' +
+      '"7:Eldritch Craft","12:Eldritch Power" ' +
     'Experience=' +
       '0,2.4,4.8,10.25,22,40,60,80,140,250,375,750,1125,1500,1875,2250,' +
       '2625,3000,3375,3750,4125,4500,4875,5250 ' +
@@ -298,9 +298,10 @@ OSRIC.CLASSES = {
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16/wisdom >= 16 ? 1:Bonus Paladin Experience",' +
       '"1:Cure Disease","1:Detect Evil",1:Discriminating,"1:Divine Health",' +
-      '"1:Fighting The Unskilled","1:Lay On Hands",1:Non-Materialist,' +
-      '1:Philanthropist,"1:Protection From Evil",' +
-      '"3:Turn Undead","4:Summon Warhorse" ' +
+      '"1:Fighting The Unskilled","1:Improved Saving Throws",' +
+      '"1:Lay On Hands",1:Non-Materialist,1:Philanthropist,' +
+      '"1:Protection From Evil","3:Turn Undead","4:Summon Warhorse",' +
+      '"8:Bonus Attacks" ' +
     'Experience=' +
       '0,2.55,5.5,12.5,25,45,95,175,325,600,1000,1350,1700,2050,2400,' +
       '2750,3100,3450,3800,4150,4500,4850,5200,5550 ' +
@@ -321,9 +322,9 @@ OSRIC.CLASSES = {
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16/intelligence >= 16/wisdom >= 16 ? 1:Bonus Ranger Experience",' +
-      '1:Alert,"1:Delayed Henchmen","1:Favored Enemy",' +
-      '"1:Fighting The Unskilled",1:Loner,1:Selective,1:Track,' +
-      '"1:Travel Light",10:Scrying ' +
+      '"1:Alert Against Surprise","1:Damage Bonus","1:Delayed Henchmen",' +
+      '"1:Fighting The Unskilled",1:Loner,1:Selective,1:Tracking,' +
+      '"1:Travel Light","8:Bonus Attacks","10:Scrying Device Use" ' +
     'Experience=' +
       '0,2.25,4.5,9.5,20,40,90,150,225,325,650,975,1300,1625,1950,2275,' +
       '2600,2925,3250,3575,3900,4225,4550,4875 ' +
@@ -342,7 +343,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Neutral|Evil\'","dexterity >= 9" ' +
     'Require=' +
-      '"alignent =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
+      '"alignment =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
       '"dexterity >= 9","intelligence >= 6","strength >= 6" ' +
     'HitDie=d6,10,2 Attack=-1,2,4,+1@9 WeaponProficiency=2,4,3 ' +
     'Breath=16,1,4 Death=13,1,4 Petrification=12,1,4 Spell=15,2,4 Wand=14,2,4 '+
@@ -357,11 +358,13 @@ OSRIC.CLASSES = {
 OSRIC.FEATURES = {
 
   // Class
-  'Alert':'Section=combat Note="Surprised 1in6, surprise 3in6"',
+  'Alert Against Surprise':
+    'Section=combat Note="Surprised 1in6, surprise 3in6"',
   'Assassination':
     'Section=combat Note="Strike kills surprised target %V% - 5%/2 foe levels"',
   'Backstab':
     'Section=combat Note="+4 melee attack, x%V damage when surprising"',
+  'Bonus Attacks':'Section=combat Note="+%V attacks/rd"',
   'Bonus Cleric Experience':
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Cleric Spells':'Section=magic Note="%V"',
@@ -383,6 +386,9 @@ OSRIC.FEATURES = {
     'Section=ability Note="10% added to awarded experience"',
   'Cleric Spell Failure':'Section=magic Note="%V%"',
   'Cure Disease':'Section=magic Note="<i>Cure Disease</i> %V/wk"',
+  'Damage Bonus':
+    'Section=combat ' +
+    'Note="+%V melee damage vs. evil humanoids and giantish foes"',
   'Delayed Henchmen':
     'Section=ability Note="May not hire henchmen until level %V"',
   'Detect Evil':'Section=magic Note="R60\' <i>Detect Evil</i> at will"',
@@ -392,20 +398,21 @@ OSRIC.FEATURES = {
   'Divine Health':'Section=save Note="Immune to disease"',
   'Double Specialization':
     'Section=combat Note="+3 %V Attack Modifier/+3 %V Damage Modifier"',
+  "Druid's Knowledge":
+    'Section=feature ' +
+    'Note="Identify plant and animal types, determine water purity"',
   'Eldritch Craft':
     'Section=magic ' +
     'Note="May create magical potions and scrolls and recharge rods, staves, and wands%1"',
-  'Favored Enemy':
-    'Section=combat Note="+%V melee damage vs. evil humanoids and giant foes"',
-  'Fey Immunity':'Section=save Note="Immune to fey enchantment"',
+  'Eldritch Power':
+    'Section=magic ' +
+    'Note="May create magical items via <i>Enchant An Item</i> spell"',
   'Fighting The Unskilled':
     'Section=combat Note="%V attacks/rd vs. creatures with w/HD less than 1d8"',
+  'Immunity To Fey Charm':'Section=save Note="Immune to fey enchantment"',
   'Lay On Hands':'Section=magic Note="Touch heals %V HP 1/dy"',
   'Limited Henchmen Classes':'Section=ability Note="Henchmen must be %V"',
   'Loner':'Section=feature Note="Will not work with more than 2 other rangers"',
-  'Nature Knowledge':
-    'Section=feature ' +
-    'Note="Identify plant and animal types, determine water purity"',
   'Non-Materialist':
     'Section=feature Note="Owns at most 10 magic items w/1 armor suit and 1 shield"',
   'Philanthropist':
@@ -419,16 +426,16 @@ OSRIC.FEATURES = {
   'Read Scrolls':'Section=magic Note="%V% cast arcane spell from scroll"',
   'Resist Fire':'Section=save Note="+2 vs. fire"',
   'Resist Lightning':'Section=save Note="+2 vs. lightning"',
-  'Scrying':'Section=magic Note="May use scrying magic items"',
+  'Scrying Device Use':'Section=magic Note="May use scrying magic items"',
   'Selective':'Section=feature Note="Must employ only good henchmen"',
   'Shapeshift':
-    'Section=magic Note="Change into natural animal 3/dy, healing d6x10% HP"',
+    'Section=magic Note="Change into natural animal 3/dy, healing 1d6x10% HP"',
   'Summon Warhorse':
     'Section=feature Note="Call warhorse w/enhanced features"',
   'Thief Skills':
     'Section=skill ' +
     'Note="Climb Walls, Find Traps, Hear Noise, Hide In Shadows, Move Silently, Open Locks, Pick Pockets, Read Languages"',
-  'Track':
+  'Tracking':
     'Section=feature Note="90% rural, 65%+ urban or dungeon creature tracking"',
   'Travel Light':
     'Section=feature Note="Will not possess more than can be carried"',
@@ -642,8 +649,8 @@ OSRIC.RACES = {
       '"constitution >= 10","dexterity >= 8","intelligence >= 6",' +
       '"strength >= 6","wisdom <= 17" ' +
     'Features=' +
-      '"1:Deadly Aim","1:Halfling Ability Adjustment","1:Resist Magic",' +
-      '"1:Resist Poison",1:Slow,1:Stealthy ' +
+      '"1:Deadly Aim","1:Halfling Ability Adjustment",1:Infravision,' +
+      '"1:Resist Magic","1:Resist Poison",1:Slow,1:Stealthy ' +
     'Languages=' +
       'Common,Dwarf,Gnome,Goblin,Halfling,Orc',
   'Human':
@@ -874,7 +881,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=M5 ' +
     'Description="R10\' Poisonous 40\'x20\'x20\' cloud kills (5+2 HD save, 4+1 HD -4 save neg) moves 10\'/rd for $L rd"',
-  'Colour Spray':
+  'Color Spray':
     'School=Alteration ' +
     'Level=I1 ' +
     'Description=" 6 targets in $E unconscious (fewer than $Lplus1 HD), blinded 1d4 rd ($Lplus1-$Lplus2 HD) or stunned 2d4 seg (greater than $Lplus2 HD) (save neg)" ' +
@@ -1717,7 +1724,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D2 ' +
     'Description="Mist limits vision in $L10\' cu for $L4 rd"',
-  'Paralysation':
+  'Paralyzation':
     'School=Illusion ' +
     'Level=I3 ' +
     'Description="R$L10\' Immobilize $L2 HD creatures in 20\' sq"',
@@ -2374,8 +2381,9 @@ OSRIC.WEAPONS = {
   'Scimitar':'Category=1h Damage=d8',
   'Short Bow':'Category=R Damage=d6 Range=50',
   'Short Sword':'Category=Li Damage=d6',
-  'Sling':'Category=R Damage=d4 Range=35',
+  'Sling':'Category=R Damage=d4+1 Range=35',
   'Spear':'Category=2h Damage=d6 Range=15',
+  'Staff':'Category=2h Damage=d6',
   'Trident':'Category=1h Damage=d6+1',
   'Two-Handed Sword':'Category=2h Damage=d10',
   'Unarmed':'Category=Un Damage=d2'
@@ -2453,7 +2461,7 @@ OSRIC.abilityRules = function(rules) {
         'source<11 ? (source - 11) * 5 + "% Open Locks" : "",' +
         'source>15 ? "+" + (source - 15) * 5 + "% Open Locks" : "",' +
         'source<12 ? (source - 12) * 5 + "% Pick Pockets" : "",' +
-        'source>17 ? "+" + (source - 17) * 5 + "% Pick Pockets" : "",' +
+        'source>17 ? "+" + ((source - 17) * 10 - 5) + "% Pick Pockets" : "",' +
       '].filter(x => x != "").join("/")'
   );
   rules.defineRule
@@ -2627,7 +2635,7 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   }
   rules.defineRule
     ('skillNotes.armorSkillModifiers', 'sumThiefSkills', '?', '1');
-  // Replace SRD35's two-handeWeapon validation note
+  // Replace SRD35's two-handedWeapon validation note
   delete rules.choices.notes['validationNotes.two-handedWeapon'];
   rules.defineChoice
     ('notes', 'validationNotes.two-handedWeapon:Requires shield == "None"');
@@ -3221,14 +3229,15 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Fighter') {
 
-    rules.defineRule('attacksPerRound',
-      classLevel, '+', 'source<7 ? null : source<13 ? 0.5 : 1'
-    );
+    rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
     rules.defineRule('classFighterBreathSaveAdjustment',
       classLevel, '=', 'source>=17 ? -2 : -Math.floor((source - 1) / 4)'
     );
     rules.defineRule
       ('classFighterSaveAdjustment', classLevel, '=', 'source<17 ? null : 1');
+    rules.defineRule('combatNotes.bonusAttacks',
+      classLevel, '+=', 'source<7 ? null : source<13 ? 0.5 : 1'
+    );
     rules.defineRule('warriorLevel', classLevel, '+', null);
 
   } else if(name == 'Illusionist') {
@@ -3251,15 +3260,16 @@ OSRIC.classRulesExtra = function(rules, name) {
           'source==18 ? 85 : source==17 ? 75 : source>=15 ? 65 : ' +
           'source>=13 ? 55 : source>=10 ? 45 : 35'
     );
-    rules.defineRule('magicNotes.craftMinorMagic.1', '', '=', '""');
-    rules.defineRule('magicNotes.craftMinorMagic.1',
+    rules.defineRule('magicNotes.eldritchCraft.1', '', '=', '""');
+    rules.defineRule('magicNotes.eldritchCraft.1',
       classLevel, '=', 'source<11 ? " with aid of an alchemist" : null'
     );
 
   } else if(name == 'Paladin') {
 
-    rules.defineRule('attacksPerRound',
-      classLevel, '+', 'source<8 ? null : source<15 ? 0.5 : 1'
+    rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
+    rules.defineRule('combatNotes.bonusAttacks',
+      classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
     );
     rules.defineRule('paladinSaveMin', classLevel, '=', '2');
     rules.defineRule('save.Breath', 'paladinSaveMin', '^', null);
@@ -3279,10 +3289,11 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Ranger') {
 
-    rules.defineRule('attacksPerRound',
-      classLevel, '+', 'source<8 ? null : source<15 ? 0.5 : 1'
+    rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
+    rules.defineRule('combatNotes.bonusAttacks',
+      classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
     );
-    rules.defineRule('combatNotes.favoredEnemy', classLevel, '=', null);
+    rules.defineRule('combatNotes.damageBonus', classLevel, '=', null);
     rules.defineRule('abilityNotes.delayedHenchmen', classLevel, '=', '8');
     rules.defineRule('classRangerBreathSaveAdjustment',
       classLevel, '=', 'source>=17 ? -2 : -Math.floor((source - 1) / 4)'
@@ -3737,9 +3748,7 @@ OSRIC.initialEditorElements = function() {
     ['experiencePoints', 'Experience', 'bag', 'levels'],
     ['alignment', 'Alignment', 'select-one', 'alignments'],
     ['origin', 'Origin', 'text', [20]],
-    ['player', 'Player', 'text', [20]]
-  ];
-  editorElements.push(
+    ['player', 'Player', 'text', [20]],
     ['languages', 'Languages', 'set', 'languages'],
     ['hitPoints', 'Hit Points', 'text', [4, '(\\+?\\d+)']],
     ['armor', 'Armor', 'select-one', 'armors'],
@@ -3752,7 +3761,7 @@ OSRIC.initialEditorElements = function() {
     ['spells', 'Spells', 'fset', 'spells'],
     ['notes', 'Notes', 'textarea', [40,10]],
     ['hiddenNotes', 'Hidden Notes', 'textarea', [40,10]]
-  );
+  ];
   return editorElements;
 };
 
@@ -3953,7 +3962,7 @@ OSRIC.ruleNotes = function() {
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
-    '    For convenience, Quilvyn reports THAC0 values for and OSRIC ' +
+    '    For convenience, Quilvyn reports THAC0 values for OSRIC ' +
     '    characters. It also reports THAC10 ("To Hit Armor Class 10"), ' +
     '    which can be more useful with characters who need a 20 to hit AC 0.\n'+
     '  </li><li>\n' +
@@ -3969,8 +3978,7 @@ OSRIC.ruleNotes = function() {
     '    Unskilled feature applies to Paladins and Rangers. Quilvyn assumes\n' +
     '    that it does.\n' +
     '  </li><li>\n' +
-    '    Quilvyn assumes that Halfling characters are of pure Stoutish blood\n'+
-    '    for the Direction Sense, Infravision, and Sense Slope features.\n' +
+    '    Quilvyn uses American word spellings.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '\n' +
