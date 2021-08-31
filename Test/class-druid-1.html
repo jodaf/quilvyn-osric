@@ -7,11 +7,11 @@
   <script>
 var attributes = {
   "_path":"ztest/oldschool/class/druid 1", 
-  "alignment":"Neutral", "armor":"Leather", "charisma":15, "constitution":13, "dexterity":11, 
+  "alignment":"Neutral", "armor":"Leather", "charisma":16, "constitution":13, "dexterity":11, 
   "experiencePoints.Druid":100, "gender":"Female", "hitPoints":1, "intelligence":13, "languages.Elf":1, 
   "languages.Gnome":1, "languages.Orc":1, "name":"Class-Druid 1", "race":"Human", "shield":"None", 
-  "spells.Detect Magic(D1 Divi)":1, "spells.Entangle(D1 Alte)":1, "strength":9, "weaponProficiency.Javelin":1, 
-  "weaponProficiency.Morning Star":1, "weapons.Javelin":1, "weapons.Morning Star":1, "wisdom":18
+  "strength":9, "weaponProficiency.Javelin":1, "weaponProficiency.Morning Star":1, 
+  "weapons.Javelin":1, "weapons.Morning Star":1, "wisdom":18
 };
   </script>
 </head>
@@ -29,13 +29,13 @@ var attributes = {
       <td><b>Constitution</b>: 13</td>
       <td><b>Intelligence</b>: 13</td>
       <td><b>Wisdom</b>: 18</td>
-      <td><b>Charisma</b>: 15</td>
+      <td><b>Charisma</b>: 16</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
     <td>    <table id="Description" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Maximum Henchmen</b>: 7</td>
+      <td><b>Maximum Henchmen</b>: 8</td>
       <td><b>Alignment</b>: Neutral</td>
     </tr></table>
 </td>
@@ -52,9 +52,11 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Ability Notes</b>:     <table id="AbilityNotes" style="width:100%">
     <tr style="text-align:center">
-      <td>Charisma Loyalty Adjustment: +15</td>
+      <td>Bonus Druid Experience: 10% added to awarded experience</td>
     </tr><tr style="text-align:center">
-      <td>Charisma Reaction Adjustment: +15</td>
+      <td>Charisma Loyalty Adjustment: +20</td>
+    </tr><tr style="text-align:center">
+      <td>Charisma Reaction Adjustment: +25</td>
     </tr></table>
 </td>
   </tr></table>
@@ -66,7 +68,7 @@ var attributes = {
     <tr style="text-align:center">
       <td>      <table id="FeatLists" style="width:100%">
       <tr style="text-align:center">
-        <td><b>Druid Features</b>: Armor Proficiency (Leather); Bonus Druid Spells; Resist Fire; Resist Lightning; Shield Proficiency (All)</td>
+        <td><b>Druid Features</b>: Armor Proficiency (Leather); Bonus Druid Experience; Bonus Druid Spells; Resist Fire; Resist Lightning; Shield Proficiency (All)</td>
       </tr></table>
 </td>
     </tr></table>
@@ -142,14 +144,6 @@ var attributes = {
         <td><b>Spell Slots</b>: D1: 4</td>
       </tr></table>
 </td>
-    </tr></table>
-</td>
-  </tr><tr style="text-align:center">
-    <td><b>Spells</b>:     <table id="Spells" style="width:100%">
-    <tr style="text-align:left">
-      <td>Detect Magic (D1 Divi): Self discern magical auras in 10'x40' path for 12 rd</td>
-    </tr><tr style="text-align:left">
-      <td>Entangle (D1 Alte): R80' Plants in 20' radius hold passers (save move half) for 1 tn</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
