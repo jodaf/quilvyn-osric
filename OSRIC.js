@@ -2099,7 +2099,7 @@ OSRIC.SPELLS = {
     'Level=M1 ' +
     'Description="Touched move 30\'/rd on walls and ceilings for $D" ' +
     'Duration="$Lplus1 rd"',
-  'Spirit-rack':
+  'Spirit-Rack':
     'School=Abjuration ' +
     'Level=M6 ' +
     'Description="R$Lplus10\' Banish extraplanar for $L yr"',
