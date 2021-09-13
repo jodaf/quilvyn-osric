@@ -17,7 +17,7 @@ subdirectory within the Quilvyn installation directory, then append
 following lines to the file plugins/plugins.js:
 
     RULESETS['OSRIC - Old School Reference and Index Compilation (1E)'] = {
-      url:'OSRIC.js',
+      url:'plugins/OSRIC.js',
       group:'Old School D&D',
       require:'v3.5 (SRD only)'
     };
