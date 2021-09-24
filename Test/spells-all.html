@@ -41,7 +41,7 @@ var attributes = {
   "spells.Create Food And Water(C3 Alte)":1, "spells.Create Water(C1 Alte)":1, "spells.Create Water(D2 Alte)":1, 
   "spells.Creeping Doom(D7 Conj)":1, "spells.Crushing Hand(M9 Evoc)":1, "spells.Cure Blindness(C3 Abju)":1, 
   "spells.Cure Critical Wounds(C5 Necr)":1, "spells.Cure Critical Wounds(D6 Necr)":1, "spells.Cure Disease(C3 Abju)":1, 
-  "spells.Cure Disease(D3 Abju)":1, "spells.Cure Light Wounds(C1 Necr)":1, 
+  "spells.Cure Disease(D3 Necr)":1, "spells.Cure Light Wounds(C1 Necr)":1, 
   "spells.Cure Light Wounds(D2 Necr)":1, "spells.Cure Serious Wounds(C4 Necr)":1, 
   "spells.Cure Serious Wounds(D4 Necr)":1, "spells.Dancing Lights(I1 Alte)":1, "spells.Dancing Lights(M1 Alte)":1, 
   "spells.Darkness 15' Radius(I1 Alte)":1, "spells.Darkness 15' Radius(M2 Alte)":1, "spells.Deafness(I2 Illu)":1, 
@@ -53,7 +53,7 @@ var attributes = {
   "spells.Detect Magic(M1 Divi)":1, "spells.Detect Pits And Snares(D1 Divi)":1, "spells.Dig(M4 Evoc)":1, 
   "spells.Dimension Door(M4 Alte)":1, "spells.Disintegrate(M6 Alte)":1, "spells.Dispel Evil(C5 Abju)":1, 
   "spells.Dispel Exhaustion(I4 Illu)":1, "spells.Dispel Illusion(I3 Abju)":1, "spells.Dispel Magic(C3 Alte)":1, 
-  "spells.Dispel Magic(D4 Alte)":1, "spells.Dispel Magic(M3 Alte)":1, "spells.Distance Distortion(M5 Alte)":1, 
+  "spells.Dispel Magic(D4 Abju)":1, "spells.Dispel Magic(M3 Abju)":1, "spells.Distance Distortion(M5 Alte)":1, 
   "spells.Divination(C4 Divi)":1, "spells.Duo-Dimension(M7 Alte)":1, "spells.ESP(M2 Divi)":1, 
   "spells.Earthquake(C7 Alte)":1, "spells.Emotion(I4 Ench)":1, "spells.Enchant An Item(M6 Conj)":1, 
   "spells.Enchanted Weapon(M4 Alte)":1, "spells.Enlarge(M1 Alte)":1, "spells.Entangle(D1 Alte)":1, 
@@ -349,17 +349,17 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Alter Reality (I7 Illu): Use <i>Phantasmal Force</i> to fulfill limited wish</td>
     </tr><tr style="text-align:left">
-      <td>Animal Friendship (D1 Ench): R10' Recruit animal companion (Save neg)</td>
+      <td>Animal Friendship (D1 Ench): R10' Recruits animal companion (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Animal Growth (D5 Alte): R80' Dbl (Reverse halve) size, HD, and damage of 8 animals for 8 rd</td>
+      <td>Animal Growth (D5 Alte): R80' 8 animals dbl (Reverse halve) size, HD, and damage for 8 rd</td>
     </tr><tr style="text-align:left">
-      <td>Animal Growth (M5 Alte): R60' Dbl (Reverse halve) size, HD, and damage of 8 animals for 6 rd</td>
+      <td>Animal Growth (M5 Alte): R60' 8 animals dbl (Reverse halve) size, HD, and damage for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Animal Summoning I (D4 Conj): R480' Draw 8 4 HD animals to assist</td>
+      <td>Animal Summoning I (D4 Conj): R480' Draws 8 4 HD animals to assist self</td>
     </tr><tr style="text-align:left">
-      <td>Animal Summoning II (D5 Conj): R720' Draw 6 8 HD or 12 4 HD animals to assist</td>
+      <td>Animal Summoning II (D5 Conj): R720' Draws 6 8 HD or 12 4 HD animals to assist self</td>
     </tr><tr style="text-align:left">
-      <td>Animal Summoning III (D6 Conj): R960' Draw 4 16 HD, 8 8 HD, or 16 4 HD animals to assist</td>
+      <td>Animal Summoning III (D6 Conj): R960' Draws 4 16 HD or 16 4 HD animals to assist self</td>
     </tr><tr style="text-align:left">
       <td>Animate Dead (C3 Necr): R10' Creates from corpses 3 skeletons or zombies that obey self</td>
     </tr><tr style="text-align:left">
@@ -367,13 +367,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Animate Object (C6 Alte): R30' Target object obeys self for 3 rd</td>
     </tr><tr style="text-align:left">
-      <td>Animate Rock (D7 Alte): R40' Target 8' cu rock obeys simple commands for 4 rd</td>
+      <td>Animate Rock (D7 Alte): R40' Target 8' cu rock obeys self for 4 rd</td>
     </tr><tr style="text-align:left">
-      <td>Anti-Animal Shell (D6 Abju): Self 10' radius blocks animal matter for 4 tn</td>
+      <td>Anti-Animal Shell (D6 Abju): 10' radius blocks animal matter for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Anti-Magic Shell (M6 Abju): 30' radius allows no magic inside, moves with self for 6 tn</td>
     </tr><tr style="text-align:left">
-      <td>Anti-Plant Shell (D5 Abju): Self 80' radius blocks plant matter for 4 tn</td>
+      <td>Anti-Plant Shell (D5 Abju): 80' radius blocks plant matter for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Antipathy/Sympathy (M8 Ench): R30' 60' cu or object repels or attracts specified creature type or alignment for 12 hr (Save reduces effect)</td>
     </tr><tr style="text-align:left">
@@ -391,7 +391,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Augury (C2 Divi): Self has 73% chance to learn weal or woe outcome of act up to 30 min in the future</td>
     </tr><tr style="text-align:left">
-      <td>Barkskin (D2 Alte): Touched +1 AC, non-spell saves for 8 rd</td>
+      <td>Barkskin (D2 Alte): Touched gains +1 AC and non-spell saves for 8 rd</td>
     </tr><tr style="text-align:left">
       <td>Blade Barrier (C6 Evoc): R30' 2' - 10' radius blade wall inflicts 8d8 HP/rd for 3 rd</td>
     </tr><tr style="text-align:left">
@@ -407,9 +407,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Cacodemon (M7 Conj): R10' Summon demon or devil</td>
     </tr><tr style="text-align:left">
-      <td>Call Lightning (D3 Alte): R360' Clouds release 6d8 (Save half) 10' bolt 1/tn for 4 tn</td>
+      <td>Call Lightning (D3 Alte): R360' Clouds release 10' bolt that inflicts 6d8 HP (Save half) 1/tn for 4 tn</td>
     </tr><tr style="text-align:left">
-      <td>Call Woodland Beings (D4 Conj): R480' Draw forest denizens to assist (Save neg)</td>
+      <td>Call Woodland Beings (D4 Conj): R480' Draws forest denizens to assist self (Save -4 neg)</td>
     </tr><tr style="text-align:left">
       <td>Change Self (I1 Illu): Self take any humanoid appearance for 2d6+10 rd</td>
     </tr><tr style="text-align:left">
@@ -417,7 +417,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Chaos (I5 Ench): R25' Creatures in 40' sq unpredictable for 5 rd (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Chariot Of Fire (D7 Evoc): R10' Flaming chariot and horse pair (ea AC 2, HP 30) drive self and 8 others 240'/rd, fly 480'/rd for 10 tn</td>
+      <td>Chariot Of Fire (D7 Evoc): R10' Flaming chariot and horse pair (ea AC 2, HP 30) drive self and 8 others 240'/rd or fly 480'/rd for 10 tn</td>
     </tr><tr style="text-align:left">
       <td>Charm Monster (M4 Ench): R60' Target 2d4 HD creatures treat self as trusted friend (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -443,27 +443,27 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Commune (C5 Divi): Deity answers 3 yes/no questions</td>
     </tr><tr style="text-align:left">
-      <td>Commune With Nature (D5 Divi): Self discern nature info in 2 mi radius</td>
+      <td>Commune With Nature (D5 Divi): Self learns nature info about 2 mile radius</td>
     </tr><tr style="text-align:left">
       <td>Comprehend Languages (M1 Alte): Self understand unknown writing and speech for 30 rd (Reverse obscures)</td>
     </tr><tr style="text-align:left">
       <td>Cone Of Cold (M5 Evoc): Self 30'-long cone 6d4+6 HP (Save half)</td>
     </tr><tr style="text-align:left">
-      <td>Confusion (D7 Ench): R80' 2d4 or more creatures in 20' radius unpredictable for 4 rd (Save neg 1 rd)</td>
+      <td>Confusion (D7 Ench): R80' 2d4 or more creatures in 20' radius 10% attack self or allies/10% act normally/30% babble/20% wander way/30% attack nearest creature for 4 rd (Save neg 1 rd)</td>
     </tr><tr style="text-align:left">
-      <td>Confusion (I4 Ench): R80' 2d8 or more creatures in 40' sq unpredictable for 5 rd (Save neg 1 rd)</td>
+      <td>Confusion (I4 Ench): R80' 2d8 or more creatures in 40' sq 10% attack self or allies/10% act normally/30% babble/20% wander way/30% attack nearest creature for 5 rd (Save neg 1 rd)</td>
     </tr><tr style="text-align:left">
-      <td>Confusion (M4 Ench): R120' 2d8 or more creatures in 60' sq unpredictable for 8 rd (Save neg 1 rd)</td>
+      <td>Confusion (M4 Ench): R120' 2d8 or more creatures in 60' sq 10% attack self or allies/10% act normally/30% babble/20% wander way/30% attack nearest creature for 8 rd (Save neg 1 rd)</td>
     </tr><tr style="text-align:left">
       <td>Conjure Animals (C6 Conj): R30' 3 HD of animals appear and fight for 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Conjure Animals (I6 Conj): R30' 5 HD of animals appear and fight for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Conjure Earth Elemental (D7 Conj): R40' 16 HD elemental assists for 4 tn (Reverse dismisses)</td>
+      <td>Conjure Earth Elemental (D7 Conj): R40' Summons 16 HD elemental that assists self for 4 tn (Reverse dismisses)</td>
     </tr><tr style="text-align:left">
       <td>Conjure Elemental (M5 Conj): R60' Summoned elemental obeys commands for conc or 6 tn</td>
     </tr><tr style="text-align:left">
-      <td>Conjure Fire Elemental (D6 Conj): R80' 16 HD elemental assists for 4 tn (Reverse dismisses)</td>
+      <td>Conjure Fire Elemental (D6 Conj): R80' Summons 16 HD elemental that assists self for 4 tn (Reverse dismisses)</td>
     </tr><tr style="text-align:left">
       <td>Contact Other Plane (M5 Divi): Self gain answers to 3 yes/no questions</td>
     </tr><tr style="text-align:left">
@@ -475,7 +475,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Continual Light (M2 Alte): R60' Target emits 60' radius light (Reverse darkness) until dispelled</td>
     </tr><tr style="text-align:left">
-      <td>Control Temperature 10' Radius (D4 Alte): Change temperature in 10' radius by 36F for 8 tn</td>
+      <td>Control Temperature 10' Radius (D4 Alte): Changes temperature in 10' radius by 36F for 8 tn</td>
     </tr><tr style="text-align:left">
       <td>Control Weather (C7 Alte): Self controls precipitation, temp, and wind within 4d4 mi sq for 4d12 hr</td>
     </tr><tr style="text-align:left">
@@ -483,7 +483,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Control Weather (M6 Alte): Self controls precipitation, temp, and wind within 4d4 mi sq for 4d6 hr</td>
     </tr><tr style="text-align:left">
-      <td>Control Winds (D5 Alte): Winds in 160' radius speed or slow for 4 tn</td>
+      <td>Control Winds (D5 Alte): Changes wind speed in 160' radius by 12 MPH for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Create Food And Water (C3 Alte): R10' Creates 3 person/dy food and drink</td>
     </tr><tr style="text-align:left">
@@ -491,7 +491,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Create Water (D2 Alte): R10' Creates (Reverse destroys) 4' cu of potable water</td>
     </tr><tr style="text-align:left">
-      <td>Creeping Doom (D7 Conj): Bugs erupt, attack w/in 80' radius for 16 rd</td>
+      <td>Creeping Doom (D7 Conj): Bugs erupt, attack as self directs w/in 80' radius for 16 rd</td>
     </tr><tr style="text-align:left">
       <td>Crushing Hand (M9 Evoc): R30' Force absorbs attacks, squeezes 1d10-4d10 HP for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -503,7 +503,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Cure Disease (C3 Abju): Touched cured of disease (Reverse infects) (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Cure Disease (D3 Abju): Touched cured of disease (Reverse infects) (Save neg)</td>
+      <td>Cure Disease (D3 Necr): Touched cured of disease (Reverse infects) (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Cure Light Wounds (C1 Necr): Touched heals 1d8 HP (Reverse inflicts)</td>
     </tr><tr style="text-align:left">
@@ -553,7 +553,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Detect Magic (M1 Divi): Self discern magical auras in 10'x60' path for 12 rd</td>
     </tr><tr style="text-align:left">
-      <td>Detect Pits And Snares (D1 Divi): Self discern outdoor traps, indoor pits in 10'x40' path for 16 rd</td>
+      <td>Detect Pits And Snares (D1 Divi): Self discerns outdoor traps or indoor pits in 10'x40' path for 16 rd</td>
     </tr><tr style="text-align:left">
       <td>Dig (M4 Evoc): R30' Excavate 5' cube/rd for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -569,9 +569,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Dispel Magic (C3 Alte): R60' Extinguishes magic in 30' radius (50% chance each effect +5%/-2% per caster level delta)</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Magic (D4 Alte): R80' Extinguishes magic in 160' cu (50% chance each effect +5%/-2% per caster level delta)</td>
+      <td>Dispel Magic (D4 Abju): R80' Extinguishes magic in 160' cu (50% chance each effect +5%/-2% per caster level delta)</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Magic (M3 Alte): R120' Extinguishes magic in 30' cu (50% chance each effect +5%/-2% per caster level delta)</td>
+      <td>Dispel Magic (M3 Abju): R120' Extinguishes magic in 30' cu (50% chance each effect +5%/-2% per caster level delta)</td>
     </tr><tr style="text-align:left">
       <td>Distance Distortion (M5 Alte): R60' Travel through 600' sq half or dbl for 6 tn</td>
     </tr><tr style="text-align:left">
@@ -591,7 +591,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Enlarge (M1 Alte): R30' Creature grows 200% or object 100% for 6 tn (Reverse shrinks, Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Entangle (D1 Alte): R80' Plants in 20' radius hold passers (Save move half) for 1 tn</td>
+      <td>Entangle (D1 Alte): R80' Plants in 20' radius immobilize passers (Save move half) for 1 tn</td>
     </tr><tr style="text-align:left">
       <td>Erase (M1 Alte): R30' Erase magical (62% chance) or normal (74%) writing from 2-page area (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -605,7 +605,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Extension III (M6 Alte): Existing level 1-3 spell lasts 100% longer or level 4-5 50%</td>
     </tr><tr style="text-align:left">
-      <td>Faerie Fire (D1 Alte): R80' Outlines targets, allowing +2 attack, for 16 rd</td>
+      <td>Faerie Fire (D1 Alte): R80' Outlines targets in light, giving foes +2 attack, for 16 rd</td>
     </tr><tr style="text-align:left">
       <td>False Trap (M2 Illu): Touched appears trapped (Save disbelieve)</td>
     </tr><tr style="text-align:left">
@@ -615,15 +615,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Feather Fall (M1 Alte): R60' Objects in 10' cu fall 2'/sec for 36 secs</td>
     </tr><tr style="text-align:left">
-      <td>Feeblemind (D6 Ench): R40' Target Int 2 (Save Cleric +1, Druid -1, MU -4, Illusionist -5 and non-human -2 neg)</td>
+      <td>Feeblemind (D6 Ench): R40' Reduces target Intelligence to 2 (Save Cleric +1, Druid -1, MU -4, Illusionist -4 neg)</td>
     </tr><tr style="text-align:left">
-      <td>Feeblemind (M5 Ench): R60' Target Int 2 (Save Cleric +1, Druid -1, MU -4, Illusionist -5 and non-human -2 neg)</td>
+      <td>Feeblemind (M5 Ench): R60' Reduces target Intelligence to 2 (Save Cleric +1, Druid -1, MU -4, Illusionist -4 neg)</td>
     </tr><tr style="text-align:left">
-      <td>Feign Death (C3 Necr): Touched appears dead, takes half damage, gains immunity to draining for 13 rd</td>
+      <td>Feign Death (C3 Necr): Willing touched appears dead, takes half damage, gains immunity to draining for 13 rd</td>
     </tr><tr style="text-align:left">
-      <td>Feign Death (D2 Necr): Touched appears dead, takes half damage, gains immunity to draining for 12 rd</td>
+      <td>Feign Death (D2 Necr): Willing touched appears dead, takes half damage, gains immunity to draining for 12 rd</td>
     </tr><tr style="text-align:left">
-      <td>Feign Death (M3 Necr): Touched appears dead, takes half damage, gains immunity to draining for 12 rd</td>
+      <td>Feign Death (M3 Necr): Willing touched appears dead, takes half damage, gains immunity to draining for 12 rd</td>
     </tr><tr style="text-align:left">
       <td>Find Familiar (M1 Conj): Call beast to serve as familiar (HP 1d3+1, AC 7)</td>
     </tr><tr style="text-align:left">
@@ -635,15 +635,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Fire Charm (M4 Ench): R10' Fire mesmerizes viewers (Save neg) in 15' radius, makes suggestible for 12 rd</td>
     </tr><tr style="text-align:left">
-      <td>Fire Seeds (D6 Conj): R40' 4 acorn missiles 2d8 HP in 5' area or 8 holly berries 1d8 in 5' sq for 4 tn (Save half)</td>
+      <td>Fire Seeds (D6 Conj): R40' 4 acorn grenades inflict 2d8 HP in 5' radius or 8 holly berry bombs detonate on command to inflict 1d8 in 5' radius (Save half) for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Fire Shield (M4 Evoc): Self +2 save and half damage vs. fire (Reverse cold), dbl damage vs. cold (Reverse fire) for 8 rd</td>
     </tr><tr style="text-align:left">
-      <td>Fire Storm (D7 Evoc): R150' Fire in 80' cu  area 2d8 HP (Save half) for 1 rd (Reverse extinguishes)</td>
+      <td>Fire Storm (D7 Evoc): R150' Fire in 80' cu inflicts 2d8 HP (Save half) for 1 rd (Reverse extinguishes)</td>
     </tr><tr style="text-align:left">
-      <td>Fire Trap (D2 Evoc): Touched causes 1d4+4 HP (Save half) in 5' radius when opened</td>
+      <td>Fire Trap (D2 Evoc): Opening touched object inflicts 1d4+4 HP in 5' radius (Save half)</td>
     </tr><tr style="text-align:left">
-      <td>Fire Trap (M4 Evoc): Touched causes 1d4+6 HP (Save half) in 5' radius when opened</td>
+      <td>Fire Trap (M4 Evoc): Opening touched object inflicts 1d4+6 HP in 5' radius (Save half)</td>
     </tr><tr style="text-align:left">
       <td>Fireball (M3 Evoc): R160' 6d6 HP in 20' radius (Save half)</td>
     </tr><tr style="text-align:left">
@@ -691,7 +691,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Gust Of Wind (M3 Alte): Wind in 10'x60' path extinguishes flames, moves small objects for 6 secs</td>
     </tr><tr style="text-align:left">
-      <td>Hallucinatory Forest (D4 Illu): R80' Illusion of 160' sq forest</td>
+      <td>Hallucinatory Forest (D4 Illu): R80' Creates an illusionary, 160' sq forest</td>
     </tr><tr style="text-align:left">
       <td>Hallucinatory Terrain (I3 Illu): R100' 50' sq mimics other terrain until touched</td>
     </tr><tr style="text-align:left">
@@ -701,9 +701,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Heal (C6 Necr): Touched heals all but 1d4 HP, cured of blindness, disease, and feeblemind (Reverse causes disease and drains all but 1d4 HP)</td>
     </tr><tr style="text-align:left">
-      <td>Heat Metal (D2 Necr): R40' Metal dangerously hot (Reverse cold) for 7 rd</td>
+      <td>Heat Metal (D2 Necr): R40' Metal on 4 creatures inflicts 0/1d4/2d4/2d4/2d4/1d4/0 HP for 7 rd (Reverse chills, inflicting half)</td>
     </tr><tr style="text-align:left">
-      <td>Hold Animal (D3 Ench): R80' Immobilize 4 animals for 8 rd</td>
+      <td>Hold Animal (D3 Ench): R80' Immobilizes 4 animals for 8 rd (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Hold Monster (M5 Ench): R30' Immobilize 4 creatures (Save neg) for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -711,7 +711,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Hold Person (M3 Ench): R120' Immobilizes 1-3 medium targets (Save neg) for 12 rd</td>
     </tr><tr style="text-align:left">
-      <td>Hold Plant (D4 Ench): R80' Mobile plants in 16 sq yd immobile for 4 rd</td>
+      <td>Hold Plant (D4 Ench): R80' Immobilizes plants in 16 sq yd for 4 rd (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Hold Portal (M1 Alte): R120' 480' sq item held shut for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -863,7 +863,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Non-Detection (I3 Abju): 5' radius invisible to divination for 5 tn</td>
     </tr><tr style="text-align:left">
-      <td>Obscurement (D2 Alte): Mist limits vision in 40' cu for 16 rd</td>
+      <td>Obscurement (D2 Alte): Mist limits vision in 4 10'x10' cu for 16 rd</td>
     </tr><tr style="text-align:left">
       <td>Paralyzation (I3 Illu): R50' Immobilize 10 HD creatures in 20' sq</td>
     </tr><tr style="text-align:left">
@@ -871,9 +871,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Part Water (M6 Alte): R60' Forms 20'x180'x3' water trench for 30 rd</td>
     </tr><tr style="text-align:left">
-      <td>Pass Plant (D5 Alte): Self teleport between trees</td>
+      <td>Pass Plant (D5 Alte): Self teleports up to 600 yd between trees of the same species</td>
     </tr><tr style="text-align:left">
-      <td>Pass Without Trace (D1 Ench): Touched leaves no sign of passage for 4 tn</td>
+      <td>Pass Without Trace (D1 Ench): Touched leaves no tracks or scent for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Passwall (M5 Alte): R30' Create 5'x8'x10' passage through dirt and rock for 12 tn</td>
     </tr><tr style="text-align:left">
@@ -895,7 +895,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Plant Growth (D3 Alte): R160' Vegetation in 80' sq becomes thick and entangled</td>
     </tr><tr style="text-align:left">
-      <td>Plant Growth (M4 Alte): R60' Vegetation in 60' sq becomes thick and entangled</td>
+      <td>Plant Growth (M4 Alte): R60' Vegetation in 6 10' sq becomes thick and entangled</td>
     </tr><tr style="text-align:left">
       <td>Polymorph Object (M8 Alte): R30' Transform any object (Save -4 neg)</td>
     </tr><tr style="text-align:left">
@@ -911,7 +911,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Prayer (C3 Conj): R60' Allies gain +1 attack, damage, and saves, foes -1, for 3 rd</td>
     </tr><tr style="text-align:left">
-      <td>Predict Weather (D1 Divi): Discern local weather for next 8 hr</td>
+      <td>Predict Weather (D1 Divi): Forecast weather in 9 sq miles for next 8 hr</td>
     </tr><tr style="text-align:left">
       <td>Prismatic Sphere (M9 Abju): Self 10' radius impenetrable for 6 tn</td>
     </tr><tr style="text-align:left">
@@ -919,9 +919,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Prismatic Wall (I7 Abju): R10' 200'x100' multicolored wall blinds viewers 2d4 rd, blocks attacks for 5 tn</td>
     </tr><tr style="text-align:left">
-      <td>Produce Fire (D4 Alte): R40' Fire in 60' radius 1d4 HP for 1 rd (Reverse extinguishes)</td>
+      <td>Produce Fire (D4 Alte): R40' Fire in 60' radius inflicts 1d4 HP for 1 rd (Reverse extinguishes)</td>
     </tr><tr style="text-align:left">
-      <td>Produce Flame (D2 Alte): Flame from burning hand can be thrown 40' for 8 rd</td>
+      <td>Produce Flame (D2 Alte): Flame from burning hand can be thrown 40', igniting 15' radius, for 8 rd</td>
     </tr><tr style="text-align:left">
       <td>Programmed Illusion (I6 Illu): R50' Target responds to trigger, shows 90' sq scene for 5 rd</td>
     </tr><tr style="text-align:left">
@@ -937,9 +937,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Protection From Evil 10' Radius (M3 Abju): Creatures in 10' radius of touched become untouchable by evil outsiders and gain +2 saves vs evil, evil foes suffer -2 attacks, for 12 rd (Reverse good)</td>
     </tr><tr style="text-align:left">
-      <td>Protection From Fire (D3 Abju): Self immune normal, ignore 48 HP magic fire or touched immune normal, +4 save and half damage vs magic fire for 4 tn</td>
+      <td>Protection From Fire (D3 Abju): Touched gains immunity to normal fire and +4 saves and half damage from magic fire (self instead ignores first 48 HP from magic fire) for 4 tn</td>
     </tr><tr style="text-align:left">
-      <td>Protection From Lightning (D4 Abju): Self immune normal, ignore 48 HP magic electricity or touched immune normal, +4 save and half damage vs magic electricity for 4 tn</td>
+      <td>Protection From Lightning (D4 Abju): Touched gains immunity to normal lightning and +4 saves and half damage from magic lightning (self instead ignores first 48 HP from magic lightning) for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Protection From Normal Missiles (M3 Abju): Touched invulnerable to arrows and bolts for 6 tn</td>
     </tr><tr style="text-align:left">
@@ -949,9 +949,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Push (M1 Conj): R28' Target 6 lb object moves away from self</td>
     </tr><tr style="text-align:left">
-      <td>Pyrotechnics (D3 Alte): R160' Target fire emits fireworks (blind 1d4+1 rd) or obscuring smoke for 4 rd</td>
+      <td>Pyrotechnics (D3 Alte): R160' Target fire emits fireworks (blinds 120' radius 1d4+1 rd) or obscuring smoke for 4 rd</td>
     </tr><tr style="text-align:left">
-      <td>Pyrotechnics (M2 Alte): R120' Target fire emits fireworks (blind 1d4+1 rd) or obscuring smoke for 6 rd</td>
+      <td>Pyrotechnics (M2 Alte): R120' Target fire emits fireworks (blinds 120' radius 1d4+1 rd) or obscuring smoke for 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Quest (C5 Ench): R60' Target suffers -1 saves each dy until quest is fulfilled (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -963,9 +963,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Regenerate (C7 Necr): Touched reattaches or regrows appendages in 2d4 tn (Reverse withers)</td>
     </tr><tr style="text-align:left">
-      <td>Reincarnate (D7 Necr): Soul dead at most 7 dy inhabits new body</td>
+      <td>Reincarnate (D7 Necr): Soul dead up to 7 dy inhabits new body</td>
     </tr><tr style="text-align:left">
-      <td>Reincarnation (M6 Necr): Soul dead at most 6 dy inhabits new body</td>
+      <td>Reincarnation (M6 Necr): Soul dead up to 6 dy inhabits new body</td>
     </tr><tr style="text-align:left">
       <td>Remove Curse (C3 Abju): Dispels all curses from touched (Reverse cursed for 3 tn)</td>
     </tr><tr style="text-align:left">
@@ -973,7 +973,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Remove Fear (C1 Abju): Touched gains +4 vs. fear for 1 tn or new +3 save if already afraid (Reverse cause fear)</td>
     </tr><tr style="text-align:left">
-      <td>Repel Insects (D4 Abju): Self 10' radius expels normal insects, wards giant (Save neg) for 4 tn</td>
+      <td>Repel Insects (D4 Abju): 10' radius expels normal insects, wards giant ones (Save inflicts 1d6 HP) for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>Repulsion (M6 Abju): R60' Move all in 10' path away 30'/rd for 3 rd</td>
     </tr><tr style="text-align:left">
@@ -1011,7 +1011,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Shield (M1 Evoc): Self frontal AC 2 vs thrown, AC 3 vs arrow or bolt, AC 4 vs melee, +1 save for 30 rd</td>
     </tr><tr style="text-align:left">
-      <td>Shillelagh (D1 Alte): Touched club +1 attack, 2d4 damage for 4 rd</td>
+      <td>Shillelagh (D1 Alte): Touched club gains +1 attack and inflicts 2d4 damage for 4 rd</td>
     </tr><tr style="text-align:left">
       <td>Shocking Grasp (M1 Alte): Touched 1d8+6 HP</td>
     </tr><tr style="text-align:left">
@@ -1027,7 +1027,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Snake Charm (C2 Ench): R30' Charm angry snakes up to 62 HP for 1d4+4 rd</td>
     </tr><tr style="text-align:left">
-      <td>Snare (D3 Ench): Touched snare 90% undetectable</td>
+      <td>Snare (D3 Ench): Touched snare becomes 90% undetectable until triggered</td>
     </tr><tr style="text-align:left">
       <td>Speak With Animals (C2 Alte): R30' Self converses w/1 type of animal for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -1035,11 +1035,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Speak With Dead (C3 Necr): R10' Self asks 3 questions of corpse</td>
     </tr><tr style="text-align:left">
-      <td>Speak With Monsters (C6 Alte): R30' Self converse w/intelligent creatures for 3 rd</td>
+      <td>Speak With Monsters (C6 Alte): R30' Self converses w/intelligent creatures for 3 rd</td>
     </tr><tr style="text-align:left">
-      <td>Speak With Plants (C4 Alte): Self converse w/plants for 3 rd</td>
+      <td>Speak With Plants (C4 Alte): Self converses w/plants for 3 rd</td>
     </tr><tr style="text-align:left">
-      <td>Speak With Plants (D4 Alte): Self converse w/plants for 4 rd</td>
+      <td>Speak With Plants (D4 Alte): Self converses w/plants for 8 rd</td>
     </tr><tr style="text-align:left">
       <td>Spectral Force (I3 Illu): R110' 90' sq sight, sound, smell, temperature illusion for conc + 3 rd</td>
     </tr><tr style="text-align:left">
@@ -1053,19 +1053,19 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Statue (M7 Alte): Touched become stone at will for 6 hr</td>
     </tr><tr style="text-align:left">
-      <td>Sticks To Snakes (C4 Alte): R30' 3 sticks in 10' cu become snakes (15% venomous) (rev) for 6 rd</td>
+      <td>Sticks To Snakes (C4 Alte): R30' 3 sticks in 10' cu become snakes (15% venomous) (Reverse snakes become sticks) for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Sticks To Snakes (D5 Alte): R40' 4 sticks in 10' cu become snakes (20% venomous) (rev) for 8 rd</td>
+      <td>Sticks To Snakes (D5 Alte): R40' 4 sticks in 5' radius become snakes (20% venomous) (Reverse snakes become sticks) for 8 rd</td>
     </tr><tr style="text-align:left">
       <td>Stinking Cloud (M2 Evoc): R30' Creatures w/in 20' radius retch for 1d4+1 rd (Save neg) for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Stone Shape (D3 Alte): Touched 7' cu rock reshaped</td>
+      <td>Stone Shape (D3 Alte): Self reshapes 7' cu stone</td>
     </tr><tr style="text-align:left">
-      <td>Stone Shape (M5 Alte): Touched 6' cu rock reshaped</td>
+      <td>Stone Shape (M5 Alte): Self reshapes 6' cu stone</td>
     </tr><tr style="text-align:left">
       <td>Stone Tell (C6 Divi): Self converses w/3' cu rock for 1 tn</td>
     </tr><tr style="text-align:left">
-      <td>Stone To Flesh (M6 Alte): R60' Restore stoned creature or convert 60' cu (rev)</td>
+      <td>Stone To Flesh (M6 Alte): R60' Restore stoned creature or convert 60' cu (Reverse stone becomes flesh)</td>
     </tr><tr style="text-align:left">
       <td>Strength (M2 Alte): Touched Str +1d4 (HD d4), +1d6 (HD d8), or +1d8 (HD d10) for 6 hr</td>
     </tr><tr style="text-align:left">
@@ -1073,7 +1073,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Suggestion (M3 Ench): R30' Target carries out reasonable suggestion for 7 hr (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Summon Insects (D3 Conj): R30' Target covered w/insects, 2 HP/rd for 4 rd</td>
+      <td>Summon Insects (D3 Conj): R30' Target becomes covered w/insects and suffers 2 HP/rd for 4 rd</td>
     </tr><tr style="text-align:left">
       <td>Summon Shadow (I5 Conj): R10' 5 shadows obey commands for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -1097,25 +1097,25 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Transformation (M6 Alte): Self become warrior (HP x2, AC +4, 2/rd dagger +2 damage) for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Transmute Metal To Wood (D7 Alte): R80' 32 lb object becomes wood</td>
+      <td>Transmute Metal To Wood (D7 Alte): R80' 32 lb metal object becomes wood</td>
     </tr><tr style="text-align:left">
-      <td>Transmute Rock To Mud (D5 Alte): R160' 80' cu rock becomes mud (rev)</td>
+      <td>Transmute Rock To Mud (D5 Alte): R160' 80' cu rock becomes mud (Reverse mud becomes rock)</td>
     </tr><tr style="text-align:left">
-      <td>Transmute Rock To Mud (M5 Alte): R60' 120' cu rock becomes mud (rev)</td>
+      <td>Transmute Rock To Mud (M5 Alte): R60' 120' cu rock becomes mud (Reverse mud becomes rock)</td>
     </tr><tr style="text-align:left">
-      <td>Transport Via Plants (D6 Alte): Self teleport between plants</td>
+      <td>Transport Via Plants (D6 Alte): Self teleports any distance between plants of the same species</td>
     </tr><tr style="text-align:left">
       <td>Trap The Soul (M8 Conj): R10' Target soul trapped in gem (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Tree (D3 Alte): Self polymorph into tree for 10 tn</td>
+      <td>Tree (D3 Alte): Self polymorphs into a tree for 10 tn</td>
     </tr><tr style="text-align:left">
-      <td>Trip (D2 Ench): Touched trips passers (Save neg), 1d6 HP damage, stunned 1d4+1 rd for 4 tn</td>
+      <td>Trip (D2 Ench): Touched trips passers, inflicting 1d6 HP and stunning for 1d4+1 rd (Save neg) for 4 tn</td>
     </tr><tr style="text-align:left">
       <td>True Seeing (C5 Divi): Touched sees deceptions and alignment auras in 120' radius for 3 rd (Reverse obscures)</td>
     </tr><tr style="text-align:left">
       <td>True Sight (I6 Divi): Touched sees through deceptions w/in 60' for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Turn Wood (D6 Alte): Wood in 120'x80' area forced away for 16 rd</td>
+      <td>Turn Wood (D6 Alte): Repels wood in 120'x80' area for 16 rd</td>
     </tr><tr style="text-align:left">
       <td>Unseen Servant (M1 Conj): Invisible force does simple tasks w/in 30' for 12 tn</td>
     </tr><tr style="text-align:left">
@@ -1129,9 +1129,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Vision (I7 Divi): Self seek answer to question, may cause geas</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Fire (D5 Evoc): R80' 80' sq wall or 20' radius circle 4d4+4 HP to passers, 2d4 w/in 10', 1d4 w/in 20' for conc or 4 rd</td>
+      <td>Wall Of Fire (D5 Evoc): R80' 80' sq wall or 20' radius circle inflicts 4d4+4 HP to passers, 2d4 HP to creatures w/in 10', and 1d4 to creatures w/in 20' for conc + 4 rd</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Fire (M4 Evoc): R60' 120' sq wall or 9' radius circle 2d6+6 HP to passers, 2d6 w/in 10', 1d6 w/in 20' for conc or 6 rd</td>
+      <td>Wall Of Fire (M4 Evoc): R60' 120' sq wall or 9' radius circle inflicts 2d6+6 HP to passers, 2d6 HP to creatures w/in 10', and 1d6 HP to creatures w/in 20' for conc + 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Fog (I1 Alte): R30' Fog in 100' cu obscures for 2d4+5 rd</td>
     </tr><tr style="text-align:left">
@@ -1143,15 +1143,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Wall Of Stone (M5 Evoc): R30' 1.5 in thick, 120' sq wall emerges from stone</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Thorns (D6 Conj): R80' Briars in 400' cu 8 + AC HP for 4 tn</td>
+      <td>Wall Of Thorns (D6 Conj): R80' Briars in 400' cu inflict 8 + AC HP for 4 tn</td>
     </tr><tr style="text-align:left">
-      <td>Warp Wood (D2 Alte): R40' Bends 4 in x 60 in wood</td>
+      <td>Warp Wood (D2 Alte): R40' Bends 4 inch x 60 inch wood</td>
     </tr><tr style="text-align:left">
-      <td>Water Breathing (D3 Alte): Touched breathe water (Reverse air) for 4 hr</td>
+      <td>Water Breathing (D3 Alte): Touched can breathe water (Reverse can breathe air) for 4 hr</td>
     </tr><tr style="text-align:left">
-      <td>Water Breathing (M3 Alte): Touched breathe water (Reverse air) for 6 rd</td>
+      <td>Water Breathing (M3 Alte): Touched can breathe water (Reverse can breathe air) for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Weather Summoning (D6 Conj): Self directs precipitation, temp, and wind within d100 mi sq</td>
+      <td>Weather Summoning (D6 Conj): Self controls precipitation, temp, and wind within d100 sq miles for 4d12 hr</td>
     </tr><tr style="text-align:left">
       <td>Web (M2 Evoc): R30' 80' cu webbing for 12 tn</td>
     </tr><tr style="text-align:left">
