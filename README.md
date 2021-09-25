@@ -19,7 +19,7 @@ following lines to the file plugins/plugins.js:
     RULESETS['OSRIC - Old School Reference and Index Compilation (1E)'] = {
       url:'plugins/OSRIC.js',
       group:'Old School D&D',
-      require:'v3.5 (SRD only)'
+      require:'SRD35.js'
     };
 
 ### Usage
