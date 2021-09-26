@@ -44,7 +44,7 @@ var attributes = {
   "spells.Cure Disease(D3 Necr)":1, "spells.Cure Light Wounds(C1 Necr)":1, 
   "spells.Cure Light Wounds(D2 Necr)":1, "spells.Cure Serious Wounds(C4 Necr)":1, 
   "spells.Cure Serious Wounds(D4 Necr)":1, "spells.Dancing Lights(I1 Alte)":1, "spells.Dancing Lights(M1 Alte)":1, 
-  "spells.Darkness 15' Radius(I1 Alte)":1, "spells.Darkness 15' Radius(M2 Alte)":1, "spells.Deafness(I2 Illu)":1, 
+  "spells.Darkness 15' Radius(M2 Alte)":1, "spells.Darkness(I1 Alte)":1, "spells.Deafness(I2 Illu)":1, 
   "spells.Death Spell(M6 Necr)":1, "spells.Delayed Blast Fireball(M7 Evoc)":1, 
   "spells.Demi-Shadow Magic(I6 Illu)":1, "spells.Demi-Shadow Monsters(I5 Illu)":1, "spells.Detect Charm(C2 Divi)":1, 
   "spells.Detect Evil(C1 Divi)":1, "spells.Detect Evil(M2 Divi)":1, "spells.Detect Illusion(I1 Divi)":1, 
@@ -347,7 +347,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Airy Water (M5 Alte): Water in 10' radius becomes breathable for 6 tn</td>
     </tr><tr style="text-align:left">
-      <td>Alter Reality (I7 Illu): Use <i>Phantasmal Force</i> to fulfill limited wish</td>
+      <td>Alter Reality (I7 Illu): Uses <i>Phantasmal Force</i> to fulfill limited wish</td>
     </tr><tr style="text-align:left">
       <td>Animal Friendship (D1 Ench): R10' Recruits animal companion (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -397,11 +397,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Bless (C1 Conj): R60' Unengaged allies in 50' sq gain +1 attack and morale (Reverse foes -1) for 6 rds</td>
     </tr><tr style="text-align:left">
-      <td>Blindness (I2 Illu): R30' Target blinded (Save neg)</td>
+      <td>Blindness (I2 Illu): R30' Blinds target (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Blink (M3 Alte): Self teleports randomly 2'/rd, preventing direct attacks, for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Blur (I2 Illu): Self +1 magical saves, foes -4 first attack, -2 thereafter for 8 rd</td>
+      <td>Blur (I2 Illu): Self gains +1 saves vs. targeted magic, foes suffer -4 first attack on self, -2 thereafter for 8 rd</td>
     </tr><tr style="text-align:left">
       <td>Burning Hands (M1 Alte): 3' cone inflicts 6 HP</td>
     </tr><tr style="text-align:left">
@@ -415,7 +415,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Chant (C2 Conj): R30' Allies gain +1 attack, damage, and saves, foes -1, during chant</td>
     </tr><tr style="text-align:left">
-      <td>Chaos (I5 Ench): R25' Creatures in 40' sq unpredictable for 5 rd (Save neg)</td>
+      <td>Chaos (I5 Ench): R25' Creatures in 40' sq 10% attack self or allies/10% act normally/30% babble/20% wander way/30% attack nearest creature for 5 rd (Save by illusionists and fighters neg 1 rd)</td>
     </tr><tr style="text-align:left">
       <td>Chariot Of Fire (D7 Evoc): R10' Flaming chariot and horse pair (ea AC 2, HP 30) drive self and 8 others 240'/rd or fly 480'/rd for 10 tn</td>
     </tr><tr style="text-align:left">
@@ -437,7 +437,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Cloudkill (M5 Evoc): R10' Poisonous 40'x20'x20' cloud moves 10'/rd and kills (5+2 HD Save neg, 4+1 HD -4 Save neg) for 6 rd</td>
     </tr><tr style="text-align:left">
-      <td>Color Spray (I1 Alte):  6 targets in 50' cone unconscious (fewer than 6 HD), blinded 1d4 rd (6-7 HD) or stunned 2d4 seg (greater than 7 HD) (Save neg)</td>
+      <td>Color Spray (I1 Alte):  1d6 targets in 50' cone unconscious (up to 5 HD), blinded 1d4 rd (6 - 7 HD) or stunned 2d4 seg (8+ HD) (Save 6 HD+ neg)</td>
     </tr><tr style="text-align:left">
       <td>Command (C1 Ench): R10' Target obeys single-word command from self (Save neg for Intelligence 13+ or HD 6+)</td>
     </tr><tr style="text-align:left">
@@ -467,7 +467,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Contact Other Plane (M5 Divi): Self asks 3 questions of extraplanar entity</td>
     </tr><tr style="text-align:left">
-      <td>Continual Darkness (I3 Alte): R60' 30' radius opaque</td>
+      <td>Continual Darkness (I3 Alte): R60' Suppresses all light in 30' radius</td>
     </tr><tr style="text-align:left">
       <td>Continual Light (C3 Alte): R120' Target emits 60' radius light (Reverse darkness) until dispelled</td>
     </tr><tr style="text-align:left">
@@ -517,19 +517,19 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Dancing Lights (M1 Alte): R100' Creates up to 4 movable lights for 12 rd</td>
     </tr><tr style="text-align:left">
-      <td>Darkness 15' Radius (I1 Alte): R50' Suppresses all light in 15' radius for 2d4+5 rd</td>
+      <td>Darkness (I1 Alte): R90' Suppresses all light in 15' radius for 2d4+5 rd</td>
     </tr><tr style="text-align:left">
       <td>Darkness 15' Radius (M2 Alte): R60' Suppresses all light in 15' radius for 16 rd</td>
     </tr><tr style="text-align:left">
-      <td>Deafness (I2 Illu): R60' Target deafened (Save neg)</td>
+      <td>Deafness (I2 Illu): R60' Deafens target (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Death Spell (M6 Necr): R60' Kills 4d20 points of creatures up to 8 HD in 30' sq</td>
     </tr><tr style="text-align:left">
       <td>Delayed Blast Fireball (M7 Evoc): R160' 20' radius inflicts 6d6+6 HP (Save half) after up to 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Demi-Shadow Magic (I6 Illu): R110' Mimics <i>Cloudkill</i> (die, Save neg), <i>Cone Of Cold</i> (5d4+5 HP), <i>Fireball</i> (5d6 HP), <i>Lightning Bolt</i> (5d6 HP), <i>Magic Missile</i> (3x1d4+1 HP) (ea Save 10 HP), <i>Wall Of Fire</i> (2d6+5 HP, Save 5d4), or <i>Wall Of Ice</i></td>
+      <td>Demi-Shadow Magic (I6 Illu): R110' Mimics <i>Cloudkill</i> (target dies, Save neg), <i>Cone Of Cold</i> (target suffers 5d4+5 HP), <i>Fireball</i> (target suffers 5d6 HP), <i>Lightning Bolt</i> (target suffers 5d6 HP), <i>Magic Missile</i> (1d4+1 missiles inflict 3 HP each) (each Save suffers 10 HP), <i>Wall Of Fire</i> (inflicts 2d6+5 HP, Save suffers 5d4 HP), or <i>Wall Of Ice</i></td>
     </tr><tr style="text-align:left">
-      <td>Demi-Shadow Monsters (I5 Illu): R30' Create monsters 5 HD total, 40% HP (Save AC 8, 40% damage) for 5 rd</td>
+      <td>Demi-Shadow Monsters (I5 Illu): R30' Creates monsters with 5 HD total, 40% normal HP (Save AC 8, 40% damage) for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Detect Charm (C2 Divi): 30' radius informs self of 10 charmed creatures for 1 tn (Reverse shields 1 target)</td>
     </tr><tr style="text-align:left">
@@ -537,7 +537,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Detect Evil (M2 Divi): Self discerns evil auras (Reverse good) in 10'x60' path for 30 rd</td>
     </tr><tr style="text-align:left">
-      <td>Detect Illusion (I1 Divi): Self discerns illusions in 10'x50' path, touching reveals to others for 13 rd</td>
+      <td>Detect Illusion (I1 Divi): Self discerns illusions in 10'x50' path, touching reveals them to others for 13 rd</td>
     </tr><tr style="text-align:left">
       <td>Detect Invisibility (I1 Divi): Self sees invisible objects in 10'x50' path for 25 rd</td>
     </tr><tr style="text-align:left">
@@ -563,9 +563,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Dispel Evil (C5 Abju): Touched evil (Reverse good) creatures returned to home plane for 3 rd (Save neg, inflicts -7 attacks on caster)</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Exhaustion (I4 Illu): 4 Touched regain 50% HP, dbl speed 1/tn for 15 tn</td>
+      <td>Dispel Exhaustion (I4 Illu): 4 touched temporarily regain 50% HP, dbl movement speed for 15 tn</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Illusion (I3 Abju): R50' Dispel one illusion, 50% (+5%/-2% per caster level delta) dispel one magic</td>
+      <td>Dispel Illusion (I3 Abju): R50' Dispel one phantasmal illusion (100% chance) or one other illusion (50% chance +5%/-2% per caster level delta)</td>
     </tr><tr style="text-align:left">
       <td>Dispel Magic (C3 Alte): R60' Extinguishes magic in 30' radius (50% chance each effect +5%/-2% per caster level delta)</td>
     </tr><tr style="text-align:left">
@@ -655,7 +655,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Fly (M3 Alte): Touched flies 120'/rd for 1d6+36 tn</td>
     </tr><tr style="text-align:left">
-      <td>Fog Cloud (I2 Alte): R10' Fog in 40'x20'x20' area obscures vision, moves 10'/rd for 9 rd</td>
+      <td>Fog Cloud (I2 Alte): R10' Fog in 40'x20'x20' area obscures vision, moves away 10'/rd for 9 rd</td>
     </tr><tr style="text-align:left">
       <td>Fool's Gold (M2 Alte): R10' Copper and brass become gold for 6 hr (Intelligence Save disbelieve)</td>
     </tr><tr style="text-align:left">
@@ -693,7 +693,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Hallucinatory Forest (D4 Illu): R80' Creates an illusionary, 160' sq forest</td>
     </tr><tr style="text-align:left">
-      <td>Hallucinatory Terrain (I3 Illu): R100' 50' sq mimics other terrain until touched</td>
+      <td>Hallucinatory Terrain (I3 Illu): R120' 90' sq mimics other terrain until touched</td>
     </tr><tr style="text-align:left">
       <td>Hallucinatory Terrain (M4 Illu): R120' 60' sq mimics other terrain until touched</td>
     </tr><tr style="text-align:left">
@@ -717,21 +717,21 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Holy Word (C7 Conj): 30' radius banishes evil extraplanar creatures, kills (fewer than 4 HD), paralyzes 1d4x10 rd (4-7 HD), stuns 2d4 rd (8-11 HD), deafens 1d4 rd (greater than 11 HD) non-good creatures (Reverse good)</td>
     </tr><tr style="text-align:left">
-      <td>Hypnotic Pattern (I2 Illu): Viewers in 30' sq totaling 24 HD transfixed for conc (Save neg)</td>
+      <td>Hypnotic Pattern (I2 Illu): Transfixes viewers in 30' sq totaling 25 HD for conc (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Hypnotism (I1 Ench): R30' 1d6 targets subject to suggestion for 6 rd</td>
+      <td>Hypnotism (I1 Ench): R30' 1d6 targets follow self suggestions for 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Ice Storm (M4 Evoc): R60' Hail in 40' sq inflicts 3d10 HP or sleet in 80' sq blinds, slows, and causes falls for 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Identify (M1 Divi): Self determines magical properties of touched w/in 6 hr of discovery (45% chance) (Save neg or mislead), requires rest afterward</td>
     </tr><tr style="text-align:left">
-      <td>Illusory Script (I3 Illu): Obscured writing causes 5d4 rd confusion (Save neg) for readers other than specified</td>
+      <td>Illusory Script (I3 Illu): Obscured writing causes 5d4 rd confusion (Save neg) in unauthorized readers</td>
     </tr><tr style="text-align:left">
       <td>Imprisonment (M9 Abju): Touched creatures safely trapped underground permanently (Reverse frees)</td>
     </tr><tr style="text-align:left">
       <td>Improved Invisibility (I4 Illu): Touched becomes invisible for 9 rd</td>
     </tr><tr style="text-align:left">
-      <td>Improved Phantasmal Force (I2 Illu): R110' 90' sq sight and sound illusion for conc + 2 rd</td>
+      <td>Improved Phantasmal Force (I2 Illu): R110' Creates 90' sq sight and sound illusion for conc + 2 rd</td>
     </tr><tr style="text-align:left">
       <td>Incendiary Cloud (M8 Evoc): R30' 20' radius smoke cloud lasts for 1d6+4 rd, inflicts 3/6/3 HP on rd 3/4/5 (Save half)</td>
     </tr><tr style="text-align:left">
@@ -791,7 +791,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Lower Water (M6 Alte): R80' 6 5' sq fluid subsides by 30% for 30 rd (Reverse raises)</td>
     </tr><tr style="text-align:left">
-      <td>Mage's Faithful Hound (M5 Conj): R40' Invisible dog howls at intruders in 30' radius and attacks (10 HD, inflicts 3d6 HP) for 12 rd</td>
+      <td>Mage's Faithful Hound (M5 Conj): R10' Invisible dog howls at intruders in 30' radius and attacks (10 HD, inflicts 3d6 HP) for 12 rd</td>
     </tr><tr style="text-align:left">
       <td>Mage's Sword (M7 Evoc): R30' Self fights remotely with magic sword as F3 (19-20 always hits, inflicts 5d4 HP) for 6 rd</td>
     </tr><tr style="text-align:left">
@@ -861,11 +861,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Neutralize Poison (D3 Alte): Touched detoxified (Reverse lethally poisoned, Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Non-Detection (I3 Abju): 5' radius invisible to divination for 5 tn</td>
+      <td>Non-Detection (I3 Abju): Self invisible to divination for 5 tn</td>
     </tr><tr style="text-align:left">
       <td>Obscurement (D2 Alte): Mist limits vision in 4 10'x10' cu for 16 rd</td>
     </tr><tr style="text-align:left">
-      <td>Paralyzation (I3 Illu): R50' Immobilize 10 HD creatures in 20' sq</td>
+      <td>Paralyzation (I3 Illu): R50' Immobilizes 10 HD creatures in 20' sq</td>
     </tr><tr style="text-align:left">
       <td>Part Water (C6 Alte): R60' Forms 20'x90'x3' water trench for 3 tn</td>
     </tr><tr style="text-align:left">
@@ -881,11 +881,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Permanent Illusion (I6 Illu): R30' 90' sq sight, sound, smell, temperature illusion</td>
     </tr><tr style="text-align:left">
-      <td>Phantasmal Force (I1 Illu): R90' Creates 110' sq illusion for conc or until struck (Save disbelieve)</td>
+      <td>Phantasmal Force (I1 Illu): R110' Creates 90' sq illusion for conc or until struck (Save disbelieve)</td>
     </tr><tr style="text-align:left">
       <td>Phantasmal Force (M3 Illu): R140' Creates 140' sq illusion for conc or until struck (Save disbelieve)</td>
     </tr><tr style="text-align:left">
-      <td>Phantasmal Killer (I4 Illu): R25' Nightmare illusion attacks target as HD 4, kills on hit for 5 rd (Int Save neg)</td>
+      <td>Phantasmal Killer (I4 Illu): R25' Nightmare illusion attacks target as HD 4, kills on hit for 5 rd (Intelligence Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Phase Door (M7 Alte): Self passes through touched 10' solid twice</td>
     </tr><tr style="text-align:left">
@@ -915,15 +915,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Prismatic Sphere (M9 Conj): 10' sphere blocks passage and harms attackers, blinds viewers w/in 20' w/up to 7 HD for 2d4 rd for 6 tn</td>
     </tr><tr style="text-align:left">
-      <td>Prismatic Spray (I7 Abju): Targets in 70'x15'x5' area one of 20, 40, 80 HP (Save half), fatal poison, stone, insane, planar teleport (Save neg)</td>
+      <td>Prismatic Spray (I7 Abju): Targets in 70'x15'x5' area suffer one of 20, 40, 80 HP (Save half), fatal poison, turning to stone, insanity, or planar teleport (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Prismatic Wall (I7 Abju): R10' 200'x100' multicolored wall blinds viewers 2d4 rd, blocks attacks for 5 tn</td>
+      <td>Prismatic Wall (I7 Abju): R10' 200'x100' wall blocks passage and harms attackers, blinds viewers w/in 20' w/up to 7 HD for 2d4 rd for 5 tn</td>
     </tr><tr style="text-align:left">
       <td>Produce Fire (D4 Alte): R40' Fire in 60' radius inflicts 1d4 HP for 1 rd (Reverse extinguishes)</td>
     </tr><tr style="text-align:left">
       <td>Produce Flame (D2 Alte): Flame from burning hand can be thrown 40', igniting 15' radius, for 8 rd</td>
     </tr><tr style="text-align:left">
-      <td>Programmed Illusion (I6 Illu): R50' Target responds to trigger, shows 90' sq scene for 5 rd</td>
+      <td>Programmed Illusion (I6 Illu): R50' Target shows 90' sq scene when triggered for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Project Image (I5 Illu): R25' Self can cast through illusory double for 5 rd</td>
     </tr><tr style="text-align:left">
@@ -997,13 +997,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Secret Chest (M5 Alte): Self can summon 12' cu aethereal chest at will for 60 dy</td>
     </tr><tr style="text-align:left">
-      <td>Shades (I6 Illu): R30' Create monsters 5 HD total, 60% HP (Save AC 6, 60% damage) for 5 rd</td>
+      <td>Shades (I6 Illu): R30' Creates monsters with 5 HD total, 60% normal HP (Save AC 6, 60% damage) for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Shadow Door (I5 Illu): R10' Illusionary door makes self invisible for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Shadow Magic (I5 Illu): R100' Mimics <i>Cone Of Cold</i> (5d4+5 HP), <i>Fireball</i> (5d6 HP), <i>Lightning Bolt</i> (5d6 HP), <i>Magic Missile</i> (3x1d4+1 HP) (Save 5 HP)</td>
+      <td>Shadow Magic (I5 Illu): R100' Mimics <i>Cone Of Cold</i> (inflicts 5d4+5 HP), <i>Fireball</i> (inflicts 5d6 HP), <i>Lightning Bolt</i> (inflicts 5d6 HP), or <i>Magic Missile</i> (1d4+1 missiles inflict 3 HP each) (Save 5 HP)</td>
     </tr><tr style="text-align:left">
-      <td>Shadow Monsters (I4 Illu): R30' Create monsters 5 HD total, 20% HP (Save AC 10, 20% damage) for 5 rd</td>
+      <td>Shadow Monsters (I4 Illu): R30' Creates monsters with 5 HD total, 20% normal HP (Save AC 10, 20% damage) for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Shape Change (M9 Alte): Self polymorphs freely for 6 tn</td>
     </tr><tr style="text-align:left">
@@ -1041,7 +1041,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Speak With Plants (D4 Alte): Self converses w/plants for 8 rd</td>
     </tr><tr style="text-align:left">
-      <td>Spectral Force (I3 Illu): R110' 90' sq sight, sound, smell, temperature illusion for conc + 3 rd</td>
+      <td>Spectral Force (I3 Illu): R110' Creates 90' sq sight, sound, smell, and temperature illusion for conc + 3 rd</td>
     </tr><tr style="text-align:left">
       <td>Spell Immunity (M8 Abju): 1 touched divide 6 tn of +8 vs. mind spells</td>
     </tr><tr style="text-align:left">
@@ -1069,13 +1069,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Strength (M2 Alte): Touched gains +1d6 Strength, warriors additional +1, for 6 hr</td>
     </tr><tr style="text-align:left">
-      <td>Suggestion (I3 Ench): R30' Target carries out reasonable suggestion for 24 hr (Save neg)</td>
+      <td>Suggestion (I3 Ench): R30' Target carries out reasonable suggestion for 24 tn (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Suggestion (M3 Ench): R30' Target carries out reasonable suggestion for 7 hr (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Summon Insects (D3 Conj): R30' Target becomes covered w/insects and suffers 2 HP/rd for 4 rd</td>
     </tr><tr style="text-align:left">
-      <td>Summon Shadow (I5 Conj): R10' 5 shadows obey commands for 6 rd</td>
+      <td>Summon Shadow (I5 Conj): R10' 5 shadows appear and obey self commands for 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Symbol (C7 Conj): Glowing symbol causes hopelessness, pain, or persuasion in 100' radius for 3 tn</td>
     </tr><tr style="text-align:left">
@@ -1113,7 +1113,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>True Seeing (C5 Divi): Touched sees deceptions and alignment auras in 120' radius for 3 rd (Reverse obscures)</td>
     </tr><tr style="text-align:left">
-      <td>True Sight (I6 Divi): Touched sees through deceptions w/in 60' for 5 rd</td>
+      <td>True Sight (I6 Divi): Touched sees deceptions in 60' radius for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Turn Wood (D6 Alte): Repels wood in 120'x80' area for 16 rd</td>
     </tr><tr style="text-align:left">
@@ -1121,13 +1121,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Vanish (M7 Alte): Touched 300 lb object teleported or sent to Aethereal Plane</td>
     </tr><tr style="text-align:left">
-      <td>Veil (I6 Illu): R50' 100' sq mimics other terrain for 5 tn</td>
+      <td>Veil (I6 Illu): R50' Creates illusionary, 100' sq terrain for 5 tn</td>
     </tr><tr style="text-align:left">
-      <td>Ventriloquism (I2 Illu): R90' Self throws voice for 9 rd ((Intelligence - 12) * 10% disbelieve)</td>
+      <td>Ventriloquism (I2 Illu): R50' Self throws voice for 9 rd ((Intelligence - 12) * 10% disbelieve)</td>
     </tr><tr style="text-align:left">
       <td>Ventriloquism (M1 Illu): R60' Self throws voice for 8 rd ((Intelligence - 12) * 10% disbelieve)</td>
     </tr><tr style="text-align:left">
-      <td>Vision (I7 Divi): Self seeks answer to question, may cause geas</td>
+      <td>Vision (I7 Divi): Self seeks answer to question, may suffer geas</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Fire (D5 Evoc): R80' 80' sq wall or 20' radius circle inflicts 4d4+4 HP to passers, 2d4 HP to creatures w/in 10', and 1d4 to creatures w/in 20' for conc + 4 rd</td>
     </tr><tr style="text-align:left">
