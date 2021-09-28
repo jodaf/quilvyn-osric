@@ -1988,7 +1988,7 @@ OSRIC.SPELLS = {
     'Description="Mist limits vision in $R for $D" ' +
     'Duration="$L4 rd" ' +
     'Range="$L 10\'x10\' cu"',
-  'Paralyzation':
+  'Paralysation':
     'School=Illusion ' +
     'Level=I3 ' +
     'Description="R$R Immobilizes $E" ' +
