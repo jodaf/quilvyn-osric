@@ -4400,8 +4400,6 @@ OSRIC.ruleNotes = function() {
     '    The OSRIC rules are unclear as to whether or not the Fighting the\n' +
     '    Unskilled feature applies to Paladins and Rangers. Quilvyn assumes\n' +
     '    that it does.\n' +
-    '  </li><li>\n' +
-    '    Quilvyn uses American word spellings.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '\n' +
