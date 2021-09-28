@@ -40,14 +40,14 @@ function OSRIC(edition) {
   rules.choiceEditorElements = OSRIC.choiceEditorElements;
   rules.choiceRules = OSRIC.choiceRules;
   rules.editorElements = OSRIC.initialEditorElements();
-  rules.getFormats = SRD35.getFormats;
+  rules.getFormats = OSRIC.getFormats;
   rules.getPlugins = OSRIC.getPlugins;
-  rules.makeValid = SRD35.makeValid;
+  rules.makeValid = OSRIC.makeValid;
   rules.randomizeOneAttribute = OSRIC.randomizeOneAttribute;
   rules.defineChoice('random', OSRIC.RANDOMIZABLE_ATTRIBUTES);
   rules.ruleNotes = OSRIC.ruleNotes;
 
-  SRD35.createViewers(rules, SRD35.VIEWERS);
+  OSRIC.createViewers(rules, OSRIC.VIEWERS);
   rules.defineChoice('extras', 'feats', 'sanityNotes', 'validationNotes');
   rules.defineChoice
     ('preset', 'race:Race,select-one,races','levels:Class Levels,bag,levels');
@@ -2765,6 +2765,7 @@ OSRIC.SPELLS = {
     'Description="Self makes copy of spells that are too powerful to learn (Save vs. spell, fail inflicts 1d4 HP/spell level and unconsciousness) for $D" ' +
     'Duration="$L hr"'
 };
+OSRIC.VIEWERS = SRD35.VIEWERS;
 OSRIC.WEAPONS = {
   'Bastard Sword':'Category=2h Damage=2d4',
   'Battle Axe':'Category=1h Damage=d8',
@@ -4094,6 +4095,15 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
 };
 
 /*
+ * Returns the dictionary of attribute formats associated with character sheet
+ * format #viewer# in #rules#.
+ */
+OSRIC.getFormats = SRD35.getFormats;
+
+/* Returns an ObjectViewer loaded with the available character sheet formats. */
+OSRIC.createViewers = SRD35.createViewers;
+
+/*
  * Returns the list of editing elements needed by #choiceRules# to add a #type#
  * item to #rules#.
  */
@@ -4337,6 +4347,9 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
     SRD35.randomizeOneAttribute.apply(this, [attributes, attribute]);
   }
 };
+
+/* Fixes as many validation errors in #attributes# as possible. */
+OSRIC.makeValid = SRD35.makeValid;
 
 /* Returns an array of plugins upon which this one depends. */
 OSRIC.getPlugins = function() {
