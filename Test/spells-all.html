@@ -92,7 +92,7 @@ var attributes = {
   "spells.Locate Animals(D1 Divi)":1, "spells.Locate Object(C3 Divi)":1, "spells.Locate Object(M2 Divi)":1, 
   "spells.Locate Plants(D2 Divi)":1, "spells.Lower Water(C4 Alte)":1, "spells.Lower Water(M6 Alte)":1, 
   "spells.Mage's Faithful Hound(M5 Conj)":1, "spells.Mage's Sword(M7 Evoc)":1, "spells.Magic Aura(M1 Illu)":1, 
-  "spells.Magic Jar(M5 Necr)":1, "spells.Magic Missile(M1 Evoc)":1, "spells.Magic Mouth(I2 Alte)":1, 
+  "spells.Magic Jar(M5 Poss)":1, "spells.Magic Missile(M1 Evoc)":1, "spells.Magic Mouth(I2 Alte)":1, 
   "spells.Magic Mouth(M2 Alte)":1, "spells.Major Creation(I5 Alte)":1, "spells.Mass Charm(M8 Ench)":1, 
   "spells.Mass Invisibility(M7 Illu)":1, "spells.Mass Suggestion(I6 Ench)":1, "spells.Massmorph(I4 Illu)":1, 
   "spells.Massmorph(M4 Illu)":1, "spells.Maze(I5 Conj)":1, "spells.Maze(M8 Conj)":1, 
@@ -421,7 +421,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Charm Monster (M4 Ench): R60' Target 2d4 HD creatures treat self as trusted friend (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Charm Person (M1 Ench): R120' Target humanoid treats self as trusted friend (Save neg)</td>
+      <td>Charm Person (M1 Ench): R120' Target treats self as trusted friend (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Charm Person Or Mammal (D2 Ench): R80' Target treats self as trusted friend (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -573,7 +573,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Dispel Magic (M3 Abju): R120' Extinguishes magic in 30' cu (50% chance each effect +5%/-2% per caster level delta)</td>
     </tr><tr style="text-align:left">
-      <td>Distance Distortion (M5 Alte): R60' Travel time through 600' sq doubled or halved for 6 tn</td>
+      <td>Distance Distortion (M5 Alte): R60' Doubles or halves travel time through 600' sq for 6 tn</td>
     </tr><tr style="text-align:left">
       <td>Divination (C4 Divi): Self has 63% chance to discern info about known location</td>
     </tr><tr style="text-align:left">
@@ -593,7 +593,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Entangle (D1 Alte): R80' Plants in 20' radius immobilize passers (Save move half) for 1 tn</td>
     </tr><tr style="text-align:left">
-      <td>Erase (M1 Alte): R30' Erase magical (62% chance) or normal (74%) writing from 2-page area (Save neg)</td>
+      <td>Erase (M1 Alte): R30' Erase magical (62% chance) or normal (74% chance) writing from 2-page area (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Exorcise (C4 Abju): R10' Target relieved of supernatural inhabitant and influence</td>
     </tr><tr style="text-align:left">
@@ -653,7 +653,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Floating Disk (M1 Evoc): R20' 3'-diameter x 1 inch thick force disk follows, holds 600 lbs for 9 tn</td>
     </tr><tr style="text-align:left">
-      <td>Fly (M3 Alte): Touched flies 120'/rd for 1d6+36 tn</td>
+      <td>Fly (M3 Alte): Touched flies 120'/rd for 1d6 + 36 tn</td>
     </tr><tr style="text-align:left">
       <td>Fog Cloud (I2 Alte): R10' Fog in 40'x20'x20' area obscures vision, moves away 10'/rd for 9 rd</td>
     </tr><tr style="text-align:left">
@@ -675,7 +675,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Gaze Reflection (I1 Alte): Gaze attacks reflected back for 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Geas (M6 Ench): Touched sickens and dies in 1d4 wk unless quest is fulfilled</td>
+      <td>Geas (M6 Ench): Touched sickens and dies in 1d4 wk unless quest is pursued</td>
     </tr><tr style="text-align:left">
       <td>Glass-steel (M8 Alte): Touched 60 lb glass gains steel strength</td>
     </tr><tr style="text-align:left">
@@ -685,7 +685,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Glyph Of Warding (C3 Abju): Touching 75' sq inflicts 6 HP (Save half)</td>
     </tr><tr style="text-align:left">
-      <td>Grasping Hand (M7 Evoc): R60' Giant force hand absorbs attacks (62 HP}, restrains for 6 rd</td>
+      <td>Grasping Hand (M7 Evoc): R60' Giant force hand absorbs attacks (62 HP) and restrains for 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Guards And Wards (M6 Abju): Multiple effects protect 1200' sq for 12 hr</td>
     </tr><tr style="text-align:left">
@@ -709,7 +709,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Hold Person (C2 Ench): R60' Immobilizes 1-3 medium targets for 7 rd (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Hold Person (M3 Ench): R120' Immobilizes 1-3 medium targets for 12 rd (Save neg)</td>
+      <td>Hold Person (M3 Ench): R120' Immobilizes 1-4 medium targets for 12 rd (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Hold Plant (D4 Ench): R80' Immobilizes plants in 16 sq yd for 4 rd (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -733,7 +733,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Improved Phantasmal Force (I2 Illu): R110' Creates 90' sq sight and sound illusion for conc + 2 rd</td>
     </tr><tr style="text-align:left">
-      <td>Incendiary Cloud (M8 Evoc): R30' 20' radius smoke cloud lasts for 1d6+4 rd, inflicts 3/6/3 HP on rd 3/4/5 (Save half)</td>
+      <td>Incendiary Cloud (M8 Evoc): R30' 20' radius smoke cloud lasts for 1d6 + 4 rd, inflicts 3/6/3 HP on rd 3/4/5 (Save half)</td>
     </tr><tr style="text-align:left">
       <td>Infravision (M3 Alte): Touched sees 60' in darkness for 8 hr</td>
     </tr><tr style="text-align:left">
@@ -743,7 +743,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Instant Summons (M7 Conj): Prepared object appears in self hand</td>
     </tr><tr style="text-align:left">
-      <td>Interposing Hand (M5 Evoc): R60' Giant force hand absorbs attacks (62 HP} and blocks passage for 6 rd</td>
+      <td>Interposing Hand (M5 Evoc): R60' Giant force hand absorbs attacks (62 HP) and blocks passage for 6 rd</td>
     </tr><tr style="text-align:left">
       <td>Invisibility (I2 Illu): Touched becomes invisible until attacks</td>
     </tr><tr style="text-align:left">
@@ -757,7 +757,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Invisible Stalker (M6 Conj): R10' Conjured 8 HD invisible creature performs 1 task</td>
     </tr><tr style="text-align:left">
-      <td>Irresistible Dance (M8 Ench): Touched suffers -4 AC and fails all saves for 1d4+1 rd</td>
+      <td>Irresistible Dance (M8 Ench): Touched suffers -4 AC and fails all saves for 1d4 + 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Jump (M1 Alte): Touched can jump 30' forward, 10' back or up 2 times</td>
     </tr><tr style="text-align:left">
@@ -797,7 +797,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Magic Aura (M1 Illu): Touched responds to <i>Detect Magic</i> for 6 dy (Save disbelieve)</td>
     </tr><tr style="text-align:left">
-      <td>Magic Jar (M5 Necr): R60' Self traps target soul and possesses target body (Save neg)</td>
+      <td>Magic Jar (M5 Poss): R60' Self traps target soul and possesses target body (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Magic Missile (M1 Evoc): R120' 3 energy darts inflict 1d4+1 HP each in 10' sq</td>
     </tr><tr style="text-align:left">
@@ -825,7 +825,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Message (M1 Alte): R120' Self has long-range whispered dialogues for 66 secs</td>
     </tr><tr style="text-align:left">
-      <td>Meteor Swarm (M9 Evoc): R100' 4 large meteors inflict 10d4 HP in 15' radius on contact, or 8 small meteors inflict 5d4 HP in 15' diameter (collateral Save half)</td>
+      <td>Meteor Swarm (M9 Evoc): R100' 4 large meteors inflict 10d4 HP in 15' radius on contact, or 8 small meteors inflict 5d4 HP in 7.5' radius (collateral Save half)</td>
     </tr><tr style="text-align:left">
       <td>Mind Blank (M8 Abju): R30' Target gains immunity to divination for 1 dy</td>
     </tr><tr style="text-align:left">
@@ -851,9 +851,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Monster Summoning V (M7 Conj): R70' 1d2 5 HD creatures appear and assist self for 12 rd</td>
     </tr><tr style="text-align:left">
-      <td>Monster Summoning VI (M8 Conj): R80' 1d2 6 HD appear and creatures assist self for 13 rd</td>
+      <td>Monster Summoning VI (M8 Conj): R80' 1d2 6 HD creatures appear and assist self for 13 rd</td>
     </tr><tr style="text-align:left">
-      <td>Monster Summoning VII (M9 Conj): R90' 1d2 7 HD appear and creatures assist self for 14 rd</td>
+      <td>Monster Summoning VII (M9 Conj): R90' 1d2 7 HD creatures appear and assist self for 14 rd</td>
     </tr><tr style="text-align:left">
       <td>Move Earth (M6 Alte): R60' Excavates 40' cu/tn for conc</td>
     </tr><tr style="text-align:left">
@@ -877,7 +877,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Passwall (M5 Alte): R30' Creates a 5'x10'x10' passage through dirt and rock for 12 tn</td>
     </tr><tr style="text-align:left">
-      <td>Permanency (M8 Alte): Makes certain spells permanent, inflicts -1 Constitution on self</td>
+      <td>Permanency (M8 Alte): Makes certain spells permanent and inflicts -1 Constitution on self</td>
     </tr><tr style="text-align:left">
       <td>Permanent Illusion (I6 Illu): R30' 90' sq sight, sound, smell, temperature illusion</td>
     </tr><tr style="text-align:left">
@@ -895,7 +895,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Plant Growth (D3 Alte): R160' Vegetation in 4 20' sq becomes thick and entangled</td>
     </tr><tr style="text-align:left">
-      <td>Plant Growth (M4 Alte): R60' Vegetation in 6 10' sq becomes thick and entangled</td>
+      <td>Plant Growth (M4 Alte): R60' Vegetation in 60' sq becomes thick and entangled</td>
     </tr><tr style="text-align:left">
       <td>Polymorph Object (M8 Alte): R30' Target becomes something else (Save -4 neg)</td>
     </tr><tr style="text-align:left">
@@ -903,7 +903,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Polymorph Self (M4 Alte): Self becomes different creature up to 2000 lb 2/min for 12 tn</td>
     </tr><tr style="text-align:left">
-      <td>Power Word Blind (M8 Conj): R30' Blinds creatures in 15' radius for 1d4+1 rd or 1d4+1 tn</td>
+      <td>Power Word Blind (M8 Conj): R30' Blinds creatures in 15' radius for 1d4 + 1 rd or 1d4 + 1 tn</td>
     </tr><tr style="text-align:left">
       <td>Power Word Kill (M9 Conj): R15' Slays 1 60 HP target or 12 10 HP targets in 10' radius</td>
     </tr><tr style="text-align:left">
@@ -947,7 +947,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Purify Water (D1 Alte): R40' Decontaminates (Reverse contaminates) 4' cu water</td>
     </tr><tr style="text-align:left">
-      <td>Push (M1 Conj): R28' Target 6 lb object moves away from self 10'/rd</td>
+      <td>Push (M1 Conj): R28' Target 6 lb object moves away from self 10'</td>
     </tr><tr style="text-align:left">
       <td>Pyrotechnics (D3 Alte): R160' Target fire emits fireworks (blinds 120' radius 1d4+1 rd) or obscuring smoke</td>
     </tr><tr style="text-align:left">
@@ -975,7 +975,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Repel Insects (D4 Abju): 10' radius expels normal insects, wards giant ones (Save inflicts 1d6 HP) for 4 tn</td>
     </tr><tr style="text-align:left">
-      <td>Repulsion (M6 Abju): R60' All creatures in 10' path move away for 3 rd</td>
+      <td>Repulsion (M6 Abju): Creatures in 10'x60' path move away for 3 rd</td>
     </tr><tr style="text-align:left">
       <td>Resist Cold (C1 Alte): Touched feels comfortable to 0F, gains +3 save vs. cold for 1/4 or 1/2 damage for 3 tn</td>
     </tr><tr style="text-align:left">
@@ -1087,7 +1087,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Temporal Stasis (M9 Alte): R10' Target placed into suspended animation (Reverse awakens)</td>
     </tr><tr style="text-align:left">
-      <td>Time Stop (M9 Alte): 15' radius gains 1d8+3 x 6 secs</td>
+      <td>Time Stop (M9 Alte): Self can perform extra actions in 15' radius for 1d8+3 x 6 secs</td>
     </tr><tr style="text-align:left">
       <td>Tiny Hut (M3 Alte): 5' radius protects against view and elements for 6 hr</td>
     </tr><tr style="text-align:left">
@@ -1099,9 +1099,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Transmute Metal To Wood (D7 Alte): R80' 32 lb metal object becomes wood</td>
     </tr><tr style="text-align:left">
-      <td>Transmute Rock To Mud (D5 Alte): R160' 4 20' cu rock becomes mud (Reverse mud becomes rock)</td>
+      <td>Transmute Rock To Mud (D5 Alte): R160' 80' cu rock becomes mud (Reverse mud becomes rock)</td>
     </tr><tr style="text-align:left">
-      <td>Transmute Rock To Mud (M5 Alte): R60' 6 20' cu rock becomes mud (Reverse mud becomes rock)</td>
+      <td>Transmute Rock To Mud (M5 Alte): R60' 120' cu rock becomes mud (Reverse mud becomes rock)</td>
     </tr><tr style="text-align:left">
       <td>Transport Via Plants (D6 Alte): Self teleports any distance between plants of the same species</td>
     </tr><tr style="text-align:left">
@@ -1117,7 +1117,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Turn Wood (D6 Alte): Repels wood in 120'x80' path for 16 rd</td>
     </tr><tr style="text-align:left">
-      <td>Unseen Servant (M1 Conj): Invisible force does simple tasks w/in 30' for 12 tn</td>
+      <td>Unseen Servant (M1 Conj): Invisible force does simple tasks in 30' radius for 12 tn</td>
     </tr><tr style="text-align:left">
       <td>Vanish (M7 Alte): Touched 300 lb object teleported or sent to Aethereal Plane</td>
     </tr><tr style="text-align:left">
@@ -1139,9 +1139,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Wall Of Ice (M4 Evoc): R60' Creates 600' sq ice wall for 6 tn</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Iron (M5 Evoc): R30' Creates 1.5 in thick, 90' sq wall</td>
+      <td>Wall Of Iron (M5 Evoc): R30' Creates 1.5 inch thick, 90' sq wall</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Stone (M5 Evoc): R30' 1.5 in thick, 2400' sq wall emerges from stone</td>
+      <td>Wall Of Stone (M5 Evoc): R30' 1.5 inch thick, 120' sq wall emerges from stone</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Thorns (D6 Conj): R80' Briars in 400' cu inflict 8 + AC HP for 4 tn</td>
     </tr><tr style="text-align:left">
@@ -1165,7 +1165,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Word Of Recall (C6 Alte): Self returns to designated place</td>
     </tr><tr style="text-align:left">
-      <td>Write (M1 Evoc): Self makes copy of spells too powerful to learn (Save vs spell, fail inflicts 1d4 HP/spell level and unconsciousness) for 6 hr</td>
+      <td>Write (M1 Evoc): Self makes copy of spells that are too powerful to learn (Save vs spell, fail inflicts 1d4 HP/spell level and unconsciousness) for 6 hr</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
