@@ -1141,12 +1141,12 @@ OSRIC.SPELLS = {
   'Demi-Shadow Magic':
     'School=Illusion ' +
     'Level=I6 ' +
-    'Description="R$R Mimics <i>Cloudkill</i> (target dies, Save neg), <i>Cone Of Cold</i> (target suffers ${lvl}d4+$L HP), <i>Fireball</i> (target suffers ${lvl}d6 HP), <i>Lightning Bolt</i> (target suffers ${lvl}d6 HP), <i>Magic Missile</i> (1d4 + 1 missiles inflict ${Math.floor((lvl+1)/2)} HP each) (Save suffers $L2 HP), <i>Wall Of Fire</i> (inflicts 2d6+$L HP, Save suffers ${lvl}d4 HP), or <i>Wall Of Ice</i>" ' +
+    'Description="R$R Mimics <i>Cloudkill</i> (target dies, Save neg), <i>Cone Of Cold</i> (target suffers ${lvl}d4+$L HP), <i>Fireball</i> (target suffers ${lvl}d6 HP), <i>Lightning Bolt</i> (target suffers ${lvl}d6 HP), <i>Magic Missile</i> (1d4 + 1 missiles inflict ${Math.floor((lvl+1)/2)} HP each, Save suffers $L2 HP), <i>Wall Of Fire</i> (inflicts 2d6+$L HP, Save suffers ${lvl}d4 HP), or <i>Wall Of Ice</i>" ' +
     'Range="$L10plus60\'"',
   'Demi-Shadow Monsters':
     'School=Illusion ' +
     'Level=I5 ' +
-    'Description="R$R Creates monsters with $L HD total and 40% normal HP (Save AC 8 and inflict 40% damage) for $D" ' +
+    'Description="R$R Creates monsters with $L HD total and 40% normal HP (Save monsters have AC 8 and inflict 40% damage) for $D" ' +
     'Duration="$L rd" ' +
     'Range="30\'"',
   'Detect Charm':
@@ -1787,7 +1787,7 @@ OSRIC.SPELLS = {
     'Level=C4,M6 ' +
     'Description="R$R $E fluid subsides by $L5% for $D (Reverse raises)" ' +
     'Duration="$L5 rd" ' +
-    'Effect="$L 5\' sq" ' +
+    'Effect="$L5\' sq" ' +
     'Range="80\'"',
   'Lower Water C4':
     'Duration="$L tn" ' +
@@ -1987,7 +1987,7 @@ OSRIC.SPELLS = {
     'Level=D2 ' +
     'Description="Mist limits vision in $R for $D" ' +
     'Duration="$L4 rd" ' +
-    'Range="$L 10\'x10\' cu"',
+    'Range="$L10\' cu"',
   'Paralysation':
     'School=Illusion ' +
     'Level=I3 ' +
@@ -2149,7 +2149,7 @@ OSRIC.SPELLS = {
   'Programmed Illusion':
     'School=Illusion ' +
     'Level=I6 ' +
-    'Description="R$R Target shows $E scene when triggered for $D" ' +
+    'Description="R$R Target shows $E scene for $D when triggered" ' +
     'Duration="$L rd" ' +
     'Effect="$L10plus40\' sq" ' +
     'Range="$L10\'"',
@@ -2321,7 +2321,7 @@ OSRIC.SPELLS = {
   'Shades':
     'School=Illusion ' +
     'Level=I6 ' +
-    'Description="R$R Creates monsters with $L HD total and 60% normal HP (Save AC 6 and inflict 60% damage) for $D" ' +
+    'Description="R$R Creates monsters with $L HD total and 60% normal HP (Save monsters have AC 6 and inflict 60% damage) for $D" ' +
     'Duration="$L rd" ' +
     'Range="30\'"',
   'Shadow Door':
@@ -2338,7 +2338,7 @@ OSRIC.SPELLS = {
   'Shadow Monsters':
     'School=Illusion ' +
     'Level=I4 ' +
-    'Description="R$R Creates monsters with $L HD total and 20% normal HP (Save AC 10 and inflict 20% damage) for $D" ' +
+    'Description="R$R Creates monsters with $L HD total and 20% normal HP (Save monsters have AC 10 and inflict 20% damage) for $D" ' +
     'Duration="$L rd" ' +
     'Range="30\'"',
   'Shape Change':
@@ -2429,9 +2429,10 @@ OSRIC.SPELLS = {
     'Level=C4,D4 ' +
     'Description="R$R Self converses w/plants for $D" ' +
     'Duration="$L rd" ' +
-    'Range="40\'"',
+    'Range="30\'"',
   'Speak With Plants D4':
-    'Duration="$L2 rd"',
+    'Duration="$L2 rd" ' +
+    'Range="40\'"',
   'Spectral Force':
     'School=Illusion ' +
     'Level=I3 ' +
@@ -2480,7 +2481,7 @@ OSRIC.SPELLS = {
   'Stinking Cloud':
     'School=Evocation ' +
     'Level=M2 ' +
-    'Description="R$R Creatures w/in $E retch for 1d4 + 1 rd (Save neg) for $D" ' +
+    'Description="R$R Creatures in $E retch for 1d4 + 1 rd (Save neg) for $D" ' +
     'Duration="$L rd" ' +
     'Effect="20\' radius" ' +
     'Range="30\'"',
@@ -2533,7 +2534,7 @@ OSRIC.SPELLS = {
     'Level=C7,M8 ' +
     'Description="Glowing symbol causes death, discord 5d4 rd, fear (Save -4 neg), hopelessness 3d4 tn, insanity, pain 2d10 tn, sleep 4d4 + 1 tn, or stunning 3d4 rd"',
   'Symbol C7':
-    'Description="Glowing symbol causes hopelessness, pain, or persuasion in 100\' radius for $D" ' +
+    'Description="Glowing symbol causes hopelessness, pain, or persuasion for $D" ' +
     'Duration="$L tn"',
   'Telekinesis':
     'School=Alteration ' +
@@ -2550,7 +2551,7 @@ OSRIC.SPELLS = {
   'Temporal Stasis':
     'School=Alteration ' +
     'Level=M9 ' +
-    'Description="R$R Target placed into suspended animation (Reverse awakens)" ' +
+    'Description="R$R Target placed into permanent suspended animation (Reverse awakens)" ' +
     'Range="10\'"',
   'Time Stop':
     'School=Alteration ' +
