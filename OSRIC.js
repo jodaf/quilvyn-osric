@@ -4360,28 +4360,9 @@ OSRIC.getPlugins = function() {
 /* Returns HTML body content for user notes associated with this rule set. */
 OSRIC.ruleNotes = function() {
   return '' +
-    '<h2>OSRIC Quilvyn Plugin Notes</h2>\n' +
-    'OSRIC Quilvyn Plugin Version ' + OSRIC.VERSION + '\n' +
+    '<h2>Quilvyn OSRIC Rule Set Notes</h2>\n' +
     '<p>\n' +
-    'Quilvyn\'s OSRIC rule set uses Open Game Content released by Stuart ' +
-    'Marshall, Inc. under the Open Game License. OSRIC copyright 2006-2008 ' +
-    'by Stuart Marshall, adapting material prepared by Matthew J. Finch, ' +
-    'based on the System Reference Document, inspired by the works of E. ' +
-    'Gary Gygax, Dave Arneson, and many others.\n' +
-    '</p><p>\n' +
-    'System Reference Document material is Open Game Content released by ' +
-    'Wizards of the Coast under the Open Game License. System Reference ' +
-    'Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors ' +
-    'Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, ' +
-    'David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas ' +
-    'Reid, James Wyatt, based on original material by E. Gary Gygax and Dave ' +
-    'Arneson.\n' +
-    '</p><p>\n' +
-    'Open Game License v 1.0a Copyright 2000, Wizards of the Coast, LLC. You ' +
-    'should have received a copy of the Open Game License with this program; ' +
-    'if not, you can obtain one from ' +
-    'https://media.wizards.com/2016/downloads/SRD-OGL_V1.1.pdf. ' +
-    '<a href="plugins/ogl-osric.txt">Click here</a> to see the license.<br/>\n'+
+    'Quilvyn OSRIC Rule Set Version ' + OSRIC.VERSION + '\n' +
     '</p>\n' +
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
@@ -4422,5 +4403,27 @@ OSRIC.ruleNotes = function() {
     '    Quilvyn does not report the chance of extraordinary success on\n' +
     '    strength tests for characters with strength 18/91 and higher.\n' +
     '  </li>\n' +
-    '</ul>\n';
+    '</ul>\n' +
+    '<h3>Copyrights and Licensing</h3>\n' +
+    '<p>\n' +
+    'Quilvyn\'s OSRIC rule set uses Open Game Content released by Stuart ' +
+    'Marshall, Inc. under the Open Game License. OSRIC copyright 2006-2008 ' +
+    'by Stuart Marshall, adapting material prepared by Matthew J. Finch, ' +
+    'based on the System Reference Document, inspired by the works of E. ' +
+    'Gary Gygax, Dave Arneson, and many others.\n' +
+    '</p><p>\n' +
+    'System Reference Document material is Open Game Content released by ' +
+    'Wizards of the Coast under the Open Game License. System Reference ' +
+    'Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors ' +
+    'Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, ' +
+    'David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas ' +
+    'Reid, James Wyatt, based on original material by E. Gary Gygax and Dave ' +
+    'Arneson.\n' +
+    '</p><p>\n' +
+    'Open Game License v 1.0a Copyright 2000, Wizards of the Coast, LLC. You ' +
+    'should have received a copy of the Open Game License with this program; ' +
+    'if not, you can obtain one from ' +
+    'https://media.wizards.com/2016/downloads/SRD-OGL_V1.1.pdf. ' +
+    '<a href="plugins/ogl-osric.txt">Click here</a> to see the license.<br/>\n'+
+    '</p>\n';
 };
