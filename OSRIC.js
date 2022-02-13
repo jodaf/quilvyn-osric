@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.0';
+OSRIC.VERSION = '2.3.1.1';
 
 /* List of items handled by choiceRules method. */
 OSRIC.CHOICES = [
@@ -4174,7 +4174,7 @@ OSRIC.initialEditorElements = function() {
     ['hitPoints', 'Hit Points', 'text', [4, '(\\+?\\d+)']],
     ['armor', 'Armor', 'select-one', 'armors'],
     ['shield', 'Shield', 'select-one', 'shields'],
-    ['weapons', 'Weapons', 'bag', 'weapons'],
+    ['weapons', 'Weapons', 'setbag', 'weapons'],
     ['weaponProficiency', 'Weapon Proficiency', 'set', 'weapons'],
     ['weaponSpecialization', 'Specialization', 'select-one',
      ['None'].concat(QuilvynUtils.getKeys(OSRIC.WEAPONS))],
