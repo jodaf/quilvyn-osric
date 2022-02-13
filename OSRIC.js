@@ -103,10 +103,10 @@ function OSRIC(edition) {
 
 OSRIC.VERSION = '2.3.1.1';
 
-/* List of items handled by choiceRules method. */
+/* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
-  'Alignment', 'Armor', 'Class', 'Feature', 'Language', 'Race', 'School',
-  'Shield', 'Spell', 'Weapon'
+  'Armor', 'Class', 'Feature', 'Language', 'Race', 'School', 'Shield', 'Spell',
+  'Weapon'
 ];
 /*
  * List of items handled by randomizeOneAttribute method. The order handles
