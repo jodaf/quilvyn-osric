@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.1';
+OSRIC.VERSION = '2.3.1.2';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -1141,7 +1141,7 @@ OSRIC.SPELLS = {
   'Demi-Shadow Magic':
     'School=Illusion ' +
     'Level=I6 ' +
-    'Description="R$R Mimics <i>Cloudkill</i> (target dies, Save neg), <i>Cone Of Cold</i> (target suffers ${lvl}d4+$L HP), <i>Fireball</i> (target suffers ${lvl}d6 HP), <i>Lightning Bolt</i> (target suffers ${lvl}d6 HP), <i>Magic Missile</i> (1d4 + 1 missiles inflict ${Math.floor((lvl+1)/2)} HP each, Save suffers $L2 HP), <i>Wall Of Fire</i> (inflicts 2d6+$L HP, Save suffers ${lvl}d4 HP), or <i>Wall Of Ice</i>" ' +
+    'Description="R$R Mimics <i>Cloudkill</i> (target dies, Save neg), <i>Cone Of Cold</i> (target suffers ${lvl}d4+$L HP), <i>Fireball</i> (target suffers ${lvl}d6 HP), <i>Lightning Bolt</i> (target suffers ${lvl}d6 HP), <i>Magic Missile</i> (1d4 + 1 missiles inflict ${(lvl+1)//2} HP each, Save suffers $L2 HP), <i>Wall Of Fire</i> (inflicts 2d6+$L HP, Save suffers ${lvl}d4 HP), or <i>Wall Of Ice</i>" ' +
     'Range="$L10plus60\'"',
   'Demi-Shadow Monsters':
     'School=Illusion ' +
@@ -2333,7 +2333,7 @@ OSRIC.SPELLS = {
   'Shadow Magic':
     'School=Illusion ' +
     'Level=I5 ' +
-    'Description="R$R Mimics <i>Cone Of Cold</i> (inflicts ${lvl}d4+$L HP), <i>Fireball</i> (inflicts ${lvl}d6 HP), <i>Lightning Bolt</i> (inflicts ${lvl}d6 HP), or <i>Magic Missile</i> (1d4 + 1 missiles inflict ${Math.floor((lvl+1)/2)} HP each) (Save $L HP)" ' +
+    'Description="R$R Mimics <i>Cone Of Cold</i> (inflicts ${lvl}d4+$L HP), <i>Fireball</i> (inflicts ${lvl}d6 HP), <i>Lightning Bolt</i> (inflicts ${lvl}d6 HP), or <i>Magic Missile</i> (1d4 + 1 missiles inflict ${(lvl+1)//2} HP each) (Save $L HP)" ' +
     'Range="$L10plus50\'"',
   'Shadow Monsters':
     'School=Illusion ' +
@@ -2416,7 +2416,7 @@ OSRIC.SPELLS = {
   'Speak With Dead':
     'School=Necromancy ' +
     'Level=C3 ' +
-    'Description="R$R Self asks ${L<7?2:L<9?3:L<13?4:L<16?5:L<21?6:7} questions of corpse" ' +
+    'Description="R$R Self asks ${lvl<7?2:lvl<9?3:lvl<13?4:lvl<16?5:lvl<21?6:7} questions of corpse" ' +
     'Range="10\'"',
   'Speak With Monsters':
     'School=Alteration ' +
