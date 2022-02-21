@@ -4180,6 +4180,8 @@ OSRIC.initialEditorElements = function() {
      ['None'].concat(QuilvynUtils.getKeys(OSRIC.WEAPONS))],
     ['doubleSpecialization', '', 'checkbox', ['Doubled']],
     ['spells', 'Spells', 'fset', 'spells'],
+    ['potions', 'Potions', 'bag', 'spells'],
+    ['scrolls', 'Scrolls', 'bag', 'spells'],
     ['notes', 'Notes', 'textarea', [40,10]],
     ['hiddenNotes', 'Hidden Notes', 'textarea', [40,10]]
   ];
