@@ -4037,7 +4037,8 @@ OSRIC.spellRules = function(
   description = description.replaceAll('$D', duration || '');
   description = description.replaceAll('$E', effect || '');
   description = description.replaceAll('$R', range || '');
-  SRD35.spellRules(rules, name, school, casterGroup, level, description, false);
+  SRD35.spellRules
+    (rules, name, school, casterGroup, level, description, false, []);
   // No changes needed to the rules defined by SRD35 method
 };
 
@@ -4180,7 +4181,6 @@ OSRIC.initialEditorElements = function() {
      ['None'].concat(QuilvynUtils.getKeys(OSRIC.WEAPONS))],
     ['doubleSpecialization', '', 'checkbox', ['Doubled']],
     ['spells', 'Spells', 'fset', 'spells'],
-    ['potions', 'Potions', 'bag', 'spells'],
     ['scrolls', 'Scrolls', 'bag', 'spells'],
     ['notes', 'Notes', 'textarea', [40,10]],
     ['hiddenNotes', 'Hidden Notes', 'textarea', [40,10]]
