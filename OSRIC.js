@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.2';
+OSRIC.VERSION = '2.3.1.3';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -495,91 +495,91 @@ OSRIC.FEATURES = {
 };
 OSRIC.GOODIES = {
   'Armor':
-    'Pattern="([-+]\\d).*(?:armor(?:\\s+class)?|AC)|(?:armor(?:\\s+class)?|AC)\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d).*\\b(?:armor(?:\\s+class)?|AC)\\b|\\b(?:armor(?:\\s+class)?|AC)\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=armorClass ' +
     'Section=combat Note="%V Armor Class"',
   'Breath':
-    'Pattern="([-+]\\d)\\s+breath\\s+save|breath\\s+save\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+breath\\s+save\\b|\\bbreath\\s+save\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=save.Breath ' +
     'Section=save Note="%V Breath"',
   'Charisma':
-    'Pattern="([-+]\\d)\\s+cha(?:risma)?|cha(?:risma)?\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+cha(?:risma)?\\b|\\bcha(?:risma)?\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=charisma ' +
     'Section=ability Note="%V Charisma"',
   'Constitution':
-    'Pattern="([-+]\\d)\\s+con(?:stitution)?|con(?:stitution)?\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+con(?:stitution)?\\b|\\bcon(?:stitution)?\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=constitution ' +
     'Section=ability Note="%V Constitution"',
   'Death':
-    'Pattern="([-+]\\d)\\s+death\\s+save|death\\s+save\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+death\\s+save\\b|\\bdeath\\s+save\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=save.Death ' +
     'Section=save Note="%V Death"',
   'Dexterity':
-    'Pattern="([-+]\\d)\\s+dex(?:terity)?|dex(?:terity)?\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+dex(?:terity)?\\b|\\bdex(?:terity)?\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=dexterity ' +
     'Section=ability Note="%V Dexterity"',
   'Intelligence':
-    'Pattern="([-+]\\d)\\s+int(?:elligence)?|int(?:elligence)?\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+int(?:elligence)?\\b|\\bint(?:elligence)?\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=intelligence ' +
     'Section=ability Note="%V Intelligence"',
   'Petrification':
-    'Pattern="([-+]\\d)\\s+petrification\\s+save|petrification\\s+save\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+petrification\\s+save\\b|\\bpetrification\\s+save\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=save.Petrification ' +
     'Section=save Note="%V Petrification"',
   'Protection':
-    'Pattern="([-+]\\d).*protection|protection\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d).*\\bprotection\\b|\\bprotection\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=armorClass ' +
     'Section=combat Note="%V Armor Class"',
   'Shield':
-    'Pattern="([-+]\\d).*\\s+shield|shield\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d).*\\s+shield\\b|\\bshield\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=armorClass ' +
     'Section=combat Note="%V Armor Class"',
   'Speed':
-    'Pattern="([-+]\\d+).*\\s+speed|speed\\s+([-+]\\d+)" ' +
+    'Pattern="([-+]\\d+).*\\s+speed\\b|\\bspeed\\s+([-+]\\d+)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=speed ' +
     'Section=ability Note="%V Speed"',
   'Spell':
-    'Pattern="([-+]\\d)\\s+spell\\s+save|spell\\s+save\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+spell\\s+save\\b|\\bspell\\s+save\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=save.Spell ' +
     'Section=save Note="%V Spell"',
   'Strength':
-    'Pattern="([-+]\\d)\\s+str(?:ength)?|str(?:ength)?\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+str(?:ength)?\\b|\\bstr(?:ength)?\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=strength ' +
     'Section=ability Note="%V Strength"',
   'Wand':
-    'Pattern="([-+]\\d)\\s+wand\\s+save|wand\\s+save\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+wand\\s+save\\b|\\bwand\\s+save\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="-$1 || -$2" ' +
     'Attribute=save.Wand ' +
     'Section=save Note="%V Wand"',
   'Wisdom':
-    'Pattern="([-+]\\d)\\s+wis(?:dom)?|wis(?:dom)?\\s+([-+]\\d)" ' +
+    'Pattern="([-+]\\d)\\s+wis(?:dom)?\\b|\\bwis(?:dom)?\\s+([-+]\\d)" ' +
     'Effect=add ' +
     'Value="$1 || $2" ' +
     'Attribute=wisdom ' +
