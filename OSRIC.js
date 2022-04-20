@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.3';
+OSRIC.VERSION = '2.3.1.4';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -144,20 +144,20 @@ OSRIC.ARMORS = {
     'AC=0 Move=120 Weight=0 ' +
     'Skill="+10% Climb Walls/+5% Hide In Shadows/+10% Move Silently/+5% Pick Pockets"',
   'Banded':'AC=6 Move=90 Weight=35',
-  'Chain':
+  'Chain Mail':
     'AC=5 Move=90 Weight=30 ' +
     'Skill="-25% Climb Walls/-10% Find Traps/-10% Hear Noise/-15% Hide In Shadows/-15% Move Silently/-10% Open Locks/-25% Pick Pockets"',
-  'Elven Chain':
+  'Elven Chain Mail':
     'AC=5 Move=120 Weight=15 ' +
     'Skill="-20% Climb Walls/-5% Find Traps/-5% Hear Noise/-10% Hide In Shadows/-10% Move Silently/-5% Open Locks/-20% Pick Pockets"',
   'Leather':'AC=2 Move=120 Weight=15',
   'Padded':
     'AC=2 Move=90 Weight=10 ' +
     'Skill="-30% Climb Walls/-10% Find Traps/-10% Hear Noise/-20% Hide In Shadows/-20% Move Silently/-10% Open Locks/-30% Pick Pockets"',
-  'Plate':'AC=7 Move=60 Weight=45',
-  'Ring':'AC=3 Move=90 Weight=35',
+  'Plate Mail':'AC=7 Move=60 Weight=45',
+  'Ring Mail':'AC=3 Move=90 Weight=35',
   'Scale Mail':'AC=4 Move=60 Weight=40',
-  'Splint':'AC=6 Move=60 Weight=40',
+  'Splinted':'AC=6 Move=60 Weight=40',
   'Studded Leather':
     'AC=3 Move=90 Weight=20 ' +
     'Skill="-30% Climb Walls/-10% Find Traps/-10% Hear Noise/-20% Hide In Shadows/-20% Move Silently/-10% Open Locks/-30% Pick Pockets"'
@@ -3348,7 +3348,6 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight, skill) {
  * first element (format [n]'d'n) specifies the number of side on each die,
  * the second the maximum number of hit dice for the class, and the third the
  * number of points added each level after the maximum hit dice are reached.
- * #hitDie# (format [n]'d'n) additional hit points with each level advance.
  * #attack# is a quadruplet indicating: the attack bonus for a level 1
  * character; the amount this increases as the character gains levels; the
  * number of levels between increases; any adjustment in this pattern at a
