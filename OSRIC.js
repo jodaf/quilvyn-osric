@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.4';
+OSRIC.VERSION = '2.3.1.5';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -2766,7 +2766,7 @@ OSRIC.SPELLS = {
     'Description="Self makes copy of spells that are too powerful to learn (Save vs. spell, fail inflicts 1d4 HP/spell level and unconsciousness) for $D" ' +
     'Duration="$L hr"'
 };
-OSRIC.VIEWERS = SRD35.VIEWERS;
+OSRIC.VIEWERS = SRD35.VIEWERS.filter(x => x != 'Stat Block');
 OSRIC.WEAPONS = {
   'Bastard Sword':'Category=2h Damage=2d4',
   'Battle Axe':'Category=1h Damage=d8',
