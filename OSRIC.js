@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.6';
+OSRIC.VERSION = '2.3.1.7';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -2768,42 +2768,42 @@ OSRIC.SPELLS = {
 };
 OSRIC.VIEWERS = SRD35.VIEWERS.filter(x => x != 'Stat Block');
 OSRIC.WEAPONS = {
-  'Bastard Sword':'Category=2h Damage=2d4',
-  'Battle Axe':'Category=1h Damage=d8',
-  'Broad Sword':'Category=1h Damage=2d4', // Best guess on category
-  'Club':'Category=1h Damage=d4 Range=10',
-  'Composite Long Bow':'Category=R Damage=d6 Range=60',
-  'Composite Short Bow':'Category=R Damage=d6 Range=50',
-  'Dagger':'Category=Li Damage=d4 Range=10',
-  'Dart':'Category=R Damage=d3 Range=15',
-  'Halberd':'Category=2h Damage=d10',
-  'Hammer':'Category=Li Damage=d4+1 Range=10',
-  'Hand Axe':'Category=Li Damage=d6 Range=10',
-  'Heavy Crossbow':'Category=R Damage=d6+1 Range=60',
-  'Heavy Flail':'Category=2h Damage=d6+1',
-  'Heavy Mace':'Category=1h Damage=d6+1',
-  'Heavy Pick':'Category=1h Damage=d6+1',
-  'Heavy War Hammer':'Category=1h Damage=d6+1', // Best guess on category
-  'Javelin':'Category=R Damage=d6 Range=20',
-  'Lance':'Category=2h Damage=2d4+1',
-  'Light Crossbow':'Category=R Damage=d4+1 Range=60',
-  'Light Flail':'Category=1h Damage=d4+1',
-  'Light Mace':'Category=Li Damage=d4+1',
-  'Light Pick':'Category=Li Damage=d4+1',
-  'Light War Hammer':'Category=Li Damage=d4+1',
-  'Long Bow':'Category=R Damage=d6 Range=70',
-  'Long Sword':'Category=1h Damage=d8',
-  'Morning Star':'Category=1h Damage=2d4',
-  'Pole Arm':'Category=2h Damage=d6+1',
-  'Scimitar':'Category=1h Damage=d8',
-  'Short Bow':'Category=R Damage=d6 Range=50',
-  'Short Sword':'Category=Li Damage=d6',
-  'Sling':'Category=R Damage=d4+1 Range=35',
-  'Spear':'Category=2h Damage=d6 Range=15',
-  'Staff':'Category=2h Damage=d6',
-  'Trident':'Category=1h Damage=d6+1',
-  'Two-Handed Sword':'Category=2h Damage=d10',
-  'Unarmed':'Category=Un Damage=d2'
+  'Bastard Sword':'Category=Two-Handed Damage=2d4',
+  'Battle Axe':'Category=One-Handed Damage=d8',
+  'Broad Sword':'Category=One-Handed Damage=2d4', // Best guess on category
+  'Club':'Category=One-Handed Damage=d4 Range=10',
+  'Composite Long Bow':'Category=Ranged Damage=d6 Range=60',
+  'Composite Short Bow':'Category=Ranged Damage=d6 Range=50',
+  'Dagger':'Category=Light Damage=d4 Range=10',
+  'Dart':'Category=Ranged Damage=d3 Range=15',
+  'Halberd':'Category=Two-Handed Damage=d10',
+  'Hammer':'Category=Light Damage=d4+1 Range=10',
+  'Hand Axe':'Category=Light Damage=d6 Range=10',
+  'Heavy Crossbow':'Category=Ranged Damage=d6+1 Range=60',
+  'Heavy Flail':'Category=Two-Handed Damage=d6+1',
+  'Heavy Mace':'Category=One-Handed Damage=d6+1',
+  'Heavy Pick':'Category=One-Handed Damage=d6+1',
+  'Heavy War Hammer':'Category=One-Handed Damage=d6+1', // Best guess on category
+  'Javelin':'Category=Ranged Damage=d6 Range=20',
+  'Lance':'Category=Two-Handed Damage=2d4+1',
+  'Light Crossbow':'Category=Ranged Damage=d4+1 Range=60',
+  'Light Flail':'Category=One-Handed Damage=d4+1',
+  'Light Mace':'Category=Light Damage=d4+1',
+  'Light Pick':'Category=Light Damage=d4+1',
+  'Light War Hammer':'Category=Light Damage=d4+1',
+  'Long Bow':'Category=Ranged Damage=d6 Range=70',
+  'Long Sword':'Category=One-Handed Damage=d8',
+  'Morning Star':'Category=One-Handed Damage=2d4',
+  'Pole Arm':'Category=Two-Handed Damage=d6+1',
+  'Scimitar':'Category=One-Handed Damage=d8',
+  'Short Bow':'Category=Ranged Damage=d6 Range=50',
+  'Short Sword':'Category=Light Damage=d6',
+  'Sling':'Category=Ranged Damage=d4+1 Range=35',
+  'Spear':'Category=Two-Handed Damage=d6 Range=15',
+  'Staff':'Category=Two-Handed Damage=d6',
+  'Trident':'Category=One-Handed Damage=d6+1',
+  'Two-Handed Sword':'Category=Two-Handed Damage=d10',
+  'Unarmed':'Category=Unarmed Damage=d2'
 };
 
 /* Defines rules related to character abilities. */
@@ -4051,7 +4051,7 @@ OSRIC.spellRules = function(
 OSRIC.weaponRules = function(rules, name, category, damage, range) {
   var prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
-  SRD35.weaponRules(rules, name, 0, category, damage, 20, 2, range);
+  SRD35.weaponRules(rules, name, 'Unarmed', category, damage, 20, 2, range);
   // Override effect of melee/rangedAttack, since those values are incorporated
   // into THACO/THAC10.
   if(category.match(/^R/i))
