@@ -16,6 +16,8 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 
 /*jshint esversion: 6 */
+/* jshint forin: false */
+/* globals Quilvyn, QuilvynRules, QuilvynUtils, SRD35 */
 "use strict";
 
 /*
@@ -2907,12 +2909,14 @@ OSRIC.abilityRules = function(rules) {
 
   // Intelligence
   rules.defineRule('skillNotes.intelligenceLanguageBonus',
+    '', '^', '0',
     'intelligence', '=',
       'source<=7 ? null : source<=15 ? Math.floor((source-6)/2) : (source-11)'
   );
   rules.defineRule
     ('languageCount', 'skillNotes.intelligenceLanguageBonus', '+', null);
-
+  rules.defineChoice
+    ('notes', 'skillNotes.intelligenceLanguageBonus:+%V Language Count');
 
   // Strength
   rules.defineRule('combatNotes.strengthAttackAdjustment',
@@ -3577,6 +3581,7 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   if(name == 'Assassin') {
 
+    // Remove Limited Henchmen Classes note once level 12 is reached
     rules.defineRule('assassinFeatures.Limited Henchmen Classes',
       classLevel, '=', 'source>=4 && source<12 ? 1 : null'
     );
@@ -3785,28 +3790,22 @@ OSRIC.raceRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
 
   if(name == 'Dwarf') {
-    rules.defineRule('skillNotes.intelligenceLanguageBonus',
-      raceLevel, 'v', '2',
-      '', '^', '0'
-    );
+    rules.defineRule
+      ('skillNotes.intelligenceLanguageBonus', raceLevel, 'v', '2');
     rules.defineRule('skillNotes.raceSkillModifiers',
       raceLevel, '=',
         '"-10% Climb Walls/+15% Find Traps/-5% Move Silently/+15% Open Locks/-5% Read Languages"'
     );
   } else if(name == 'Elf') {
-    rules.defineRule('skillNotes.intelligenceLanguageBonus',
-      raceLevel, '+', '-4',
-      '', '^', '0'
-    );
+    rules.defineRule
+      ('skillNotes.intelligenceLanguageBonus', raceLevel, '+', '-4');
     rules.defineRule('skillNotes.raceSkillModifiers',
       raceLevel, '=',
         '"-5% Climb Walls/+5% Find Traps/+5% Hear Noise/+10% Hide In Shadows/+5% Move Silently/-5% Open Locks/+5% Pick Pockets/+10% Read Languages"'
     );
   } else if(name == 'Gnome') {
-    rules.defineRule('skillNotes.intelligenceLanguageBonus',
-      raceLevel, 'v', '2',
-      '', '^', '0'
-    );
+    rules.defineRule
+      ('skillNotes.intelligenceLanguageBonus', raceLevel, 'v', '2');
     rules.defineRule('skillNotes.raceSkillModifiers',
       raceLevel, '=', '"-15% Climb Walls/+5% Hear Noise/+10% Open Locks"'
     );
@@ -3815,26 +3814,22 @@ OSRIC.raceRulesExtra = function(rules, name) {
       raceLevel, '=', '"+5% Hide In Shadows/+10% Pick Pockets"'
     );
   } else if(name == 'Half-Orc') {
-    rules.defineRule('skillNotes.intelligenceLanguageBonus',
-      raceLevel, 'v', '2',
-      '', '^', '0'
-    );
+    rules.defineRule
+      ('skillNotes.intelligenceLanguageBonus', raceLevel, 'v', '2');
     rules.defineRule('skillNotes.raceSkillModifiers',
       raceLevel, '=',
         '"+5% Climb Walls/+5% Find Traps/+5% Hear Noise/+5% Open Locks/-5% Pick Pockets/-10% Read Languages"'
     );
   } else if(name == 'Halfling') {
-    rules.defineRule('skillNotes.intelligenceLanguageBonus',
-      raceLevel, '+', '-5',
-      '', '^', '0'
-    );
+    rules.defineRule
+      ('skillNotes.intelligenceLanguageBonus', raceLevel, '+', '-5');
     rules.defineRule('skillNotes.raceSkillModifiers',
       raceLevel, '=',
         '"-15% Climb Walls/+5% Hear Noise/+15% Hide In Shadows/+15% Move Silently/+5% Pick Pockets/-5% Read Languages"'
     );
   } else if(name == 'Human') {
     rules.defineRule('skillNotes.raceSkillModifiers',
-      raceLevel, '=', '"+5% Climb Walls/+5% Open Locks"',
+      raceLevel, '=', '"+5% Climb Walls/+5% Open Locks"'
     );
   }
 
@@ -3921,9 +3916,9 @@ OSRIC.skillRules = function(rules, name, ability, classes) {
     'skills.' + name, '=', null,
     'skillNotes.armorSkillModifiers', '+',
       'source.match(/' + name + '/) ? source.match(/([-+]\\d+)% ' + name + '/)[1] * 1 : null',
-    'skillNotes.raceSkillModifiers', '+',
-      'source.match(/' + name + '/) ? source.match(/([-+]\\d+)% ' + name + '/)[1] * 1 : null',
     'skillNotes.dexteritySkillModifiers', '+',
+      'source.match(/' + name + '/) ? source.match(/([-+]\\d+)% ' + name + '/)[1] * 1 : null',
+    'skillNotes.raceSkillModifiers', '+',
       'source.match(/' + name + '/) ? source.match(/([-+]\\d+)% ' + name + '/)[1] * 1 : null'
   );
   if(ability)
@@ -4027,11 +4022,8 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
   delete rules.getChoices('notes')['weapons.' + name];
   rules.defineChoice
     ('notes', 'weapons.' + name + ':%V (%1 %2%3' + (range ? ' R%5\')' : ')'));
-  let specializationAttackBonus = 1;
-  let specializationDamageBonus = 2
   rules.defineRule(prefix + 'AttackModifier',
-    'combatNotes.weaponSpecialization', '+',
-      'source == "' + name + '" ? ' + specializationAttackBonus + ' : null'
+    'combatNotes.weaponSpecialization', '+', 'source=="' + name + '" ? 1 : null'
   );
   if(name.match(/Bow/)) {
     rules.defineRule
@@ -4046,8 +4038,7 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
       (prefix + 'AttackModifier', 'combatNotes.deadlyAim', '+', '3');
   }
   rules.defineRule(prefix + 'DamageModifier',
-    'combatNotes.weaponSpecialization', '+',
-      'source == "' + name + '" ? ' + specializationDamageBonus + ' : null'
+    'combatNotes.weaponSpecialization', '+', 'source=="' + name + '" ? 2 : null'
   );
   rules.defineRule('combatNotes.nonproficientWeaponPenalty.' + name,
     'weapons.' + name, '?', null,
