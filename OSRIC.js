@@ -173,7 +173,8 @@ OSRIC.CLASSES = {
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"1:Shield Proficiency (All)",' +
       '1:Assassination,1:Backstab,"1:Delayed Henchmen",1:Disguise,' +
-      '"1:Poison Use","3:Thief Skills","4:Limited Henchmen Classes",' +
+      '"1:Poison Use","3:Thief Skills",' +
+      '"4:Limited Henchmen Classes",' +
       '"intelligence >= 15 ? 9:Bonus Languages",' +
       '"12:Read Scrolls" ' +
     'Experience=0,1.6,3,5.75,12.25,24.75,50,99,200.5,300,400,600,750,1000,1500',
@@ -361,9 +362,10 @@ OSRIC.FEATURES = {
   'Alert Against Surprise':
     'Section=combat Note="Surprised 1in6, surprise 3in6"',
   'Assassination':
-    'Section=combat Note="Strike kills surprised target %V% - 5%/2 foe levels"',
+    'Section=combat ' +
+    'Note="Strike kills surprised target %{levels.Assassin*5+50}% - 5%/2 foe levels"',
   'Backstab':
-    'Section=combat Note="+4 melee attack and x%V damage when surprising"',
+    'Section=combat Note="+4 melee attack and x%{((levels.Assassin||0)+7>?(levels.Thief||0)+7)//4<?5} damage when surprising"',
   'Bonus Attacks':'Section=combat Note="+%V attacks/rd"',
   'Bonus Cleric Experience':
     'Section=ability Note="10% added to awarded experience"',
@@ -375,7 +377,7 @@ OSRIC.FEATURES = {
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Languages':
     'Section=skill ' +
-    'Note="May learn %V additional choices from alignment languages, druidic, or thieves\' cant"',
+    'Note="May learn %{levels.Assassin-8<?4<?intelligence-14} additional choices from alignment languages, druidic, or thieves\' cant"',
   'Bonus Magic User Experience':
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Paladin Experience':
@@ -384,13 +386,16 @@ OSRIC.FEATURES = {
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Thief Experience':
     'Section=ability Note="10% added to awarded experience"',
-  'Cleric Spell Failure':'Section=magic Note="%V%"',
-  'Cure Disease':'Section=magic Note="May cast <i>Cure Disease</i> %V/wk"',
+  'Cleric Spell Failure':'Section=magic Note="%{(12-wisdom)*5>?1}%"',
+  'Cure Disease':
+    'Section=magic ' +
+    'Note="May cast <i>Cure Disease</i> %{(levels.Paladin+4)//5<?3}/wk"',
   'Damage Bonus':
     'Section=combat ' +
-    'Note="+%V melee damage vs. evil humanoids and giantish foes"',
+    'Note="+%{levels.Ranger} melee damage vs. evil humanoids and giantish foes"',
   'Delayed Henchmen':
-    'Section=ability Note="May not hire henchmen until level %V"',
+    'Section=ability ' +
+    'Note="May not hire henchmen until level %{levels.Ranger?8:4}"',
   'Detect Evil':
     'Section=magic Note="May cast R60\' <i>Detect Evil</i> at will"',
   'Discriminating':
@@ -404,15 +409,18 @@ OSRIC.FEATURES = {
     'Note="May identify plant and animal types and determine water purity"',
   'Eldritch Craft':
     'Section=magic ' +
-    'Note="May create magical potions and scrolls and recharge rods, staves, and wands%1"',
+    'Note="May create magical potions and scrolls and recharge rods, staves, and wands%{($\'levels.Magic User\'||11)<11?\' with the aid of an alchemist\':\'\'}"',
   'Eldritch Power':
     'Section=magic ' +
     'Note="May create magical items using the <i>Enchant An Item</i> spell"',
   'Fighting The Unskilled':
     'Section=combat Note="%V attacks/rd vs. creatures with w/HD less than 1d8"',
   'Immunity To Fey Charm':'Section=save Note="Immune to fey enchantment"',
-  'Lay On Hands':'Section=magic Note="May use touch to heal %V HP 1/dy"',
-  'Limited Henchmen Classes':'Section=ability Note="Henchmen must be %V"',
+  'Lay On Hands':
+    'Section=magic Note="May use touch to heal %{levels.Paladin*2} HP 1/dy"',
+  'Limited Henchmen Classes':
+    'Section=ability ' +
+    'Note="Henchmen must be assassins%{levels.Assassin<8?\'\':\' or thieves\'}"',
   'Loner':'Section=feature Note="Will not work w/more than 2 other rangers"',
   'Non-Materialist':
     'Section=feature Note="Owns at most 10 magic items, including 1 armor suit and 1 shield"',
@@ -427,7 +435,7 @@ OSRIC.FEATURES = {
     'Note="Has a continuous <i>Protection From Evil</i> 10\' Radius effect centered on self"',
   'Read Scrolls':
     'Section=magic ' +
-    'Note="May use arcane spell scrolls w/a %V% chance of success"',
+    'Note="May use arcane spell scrolls w/a %{intelligence*5-10}% chance of success"',
   'Resist Fire':'Section=save Note="+2 vs. fire"',
   'Resist Lightning':'Section=save Note="+2 vs. lightning"',
   'Scrying Device Use':'Section=magic Note="May use scrying magic items"',
@@ -469,12 +477,12 @@ OSRIC.FEATURES = {
   'Detect Sliding':
     'Section=feature Note="R10\' 66% chance to detect sliding walls"',
   'Detect Slope':
-    'Section=feature Note="R10\' %V% chance to detect slopes and grades"',
+    'Section=feature Note="R10\' %{race=~\'Dwarf\'?75:80}% chance to detect slopes and grades"',
   'Detect Traps':
     'Section=feature Note="R10\' 50% chance to detect stonework traps"',
   'Determine Depth':
     'Section=feature ' +
-    'Note="%V% chance to determine approximate depth underground"',
+    'Note="%{race=~\'Dwarf\'?50:60}% chance to determine approximate depth underground"',
   'Determine Direction':
     'Section=feature Note="50% chance to determine direction underground"',
   'Dwarf Ability Adjustment':
@@ -493,10 +501,11 @@ OSRIC.FEATURES = {
   'Halfling Ability Adjustment':
     'Section=ability Note="+1 Dexterity/-1 Strength"',
   'Infravision':'Section=feature Note="60\' vision in darkness"',
-  'Resist Charm':'Section=save Note="%V% vs. charm"',
-  'Resist Magic':'Section=save Note="+%V vs. spells and wands"',
-  'Resist Poison':'Section=save Note="+%V vs. poison"',
-  'Resist Sleep':'Section=save Note="%V% vs. sleep"',
+  'Resist Charm':'Section=save Note="%{race=~\'Half-Elf\'?30:90}% vs. charm"',
+  'Resist Magic':
+    'Section=save Note="+%{constitution/3.5//1} vs. spells and wands"',
+  'Resist Poison':'Section=save Note="+%{constitution/3.5//1} vs. poison"',
+  'Resist Sleep':'Section=save Note="%{race=~\'Half-Elf\'?30:90}% vs. sleep"',
   'Slow':'Section=ability Note="-30 Speed"',
   'Stealthy':
     'Section=combat ' +
@@ -3101,10 +3110,6 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
   rules.defineRule
     ('combatNotes.fightingTheUnskilled', 'warriorLevel', '+=', null);
   rules.defineRule('level', /^levels\./, '+=', null);
-  rules.defineRule
-    ('saveNotes.resistMagic', 'constitution', '=', 'Math.floor(source / 3.5)');
-  rules.defineRule
-    ('saveNotes.resistPoison', 'constitution', '=', 'Math.floor(source / 3.5)');
   rules.defineRule('warriorLevel', '', '=', '0');
   QuilvynRules.validAllocationRules
     (rules, 'weaponProficiency', 'weaponProficiencyCount', 'Sum "^weaponProficiency\\."');
@@ -3572,24 +3577,11 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   if(name == 'Assassin') {
 
-    rules.defineRule('abilityNotes.limitedHenchmenClasses',
-      classLevel, '=', 'source<8 ? "assassins" : source<12 ? "assassins and thieves" : "any class"'
-    );
-    rules.defineRule('abilityNotes.delayedHenchmen', classLevel, '=', '4');
-    rules.defineRule
-      ('combatNotes.assassination', classLevel, '=', '5 * source + 50');
-    rules.defineRule('combatNotes.backstab',
-      classLevel, '+=', 'Math.min(Math.ceil(source / 4) + 1, 5)'
+    rules.defineRule('assassinFeatures.Limited Henchmen Classes',
+      classLevel, '=', 'source>=4 && source<12 ? 1 : null'
     );
     rules.defineRule('maximumHenchmen', classLevel, 'v', 'source<4 ? 0 : null');
-    rules.defineRule('skillNotes.bonusLanguages',
-      'intelligence', '=', 'source>14 ? source - 14 : null',
-      classLevel, 'v', 'Math.min(source - 8, 4)'
-    );
     rules.defineRule('assassinFeatures.Thief Skills', classLevel, '=', '1');
-    // Unclear whether Assassins have same chance of failure as Thieves
-    rules.defineRule
-      ('magicNotes.readScrolls', 'intelligence', '=', 'source * 5 - 10');
     let skillLevel = 'source>2 ? source - 2 : 1';
     rules.defineRule('skillLevel.Climb Walls', classLevel, '+=', skillLevel);
     rules.defineRule('skillLevel.Find Traps', classLevel, '+=', skillLevel);
@@ -3603,33 +3595,24 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Cleric') {
 
-    let t = 'C';
-
     rules.defineRule('classClericSaveAdjustment',
       classLevel, '=', 'source>=19 ? -2 : source>=7 ? -1 : null'
     );
     rules.defineRule('magicNotes.bonusClericSpells',
       'wisdom', '=',
-       '"Spell level ' + t + '1" + ' +
-       '(source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
-       '(source>=15 ? ", ' + t + '2" : "") + ' +
-       '(source>=16 ? "x2"  : "") + ' +
-       '(source>=17 ? ", ' + t + '3" : "") + ' +
-       '(source>=18 ? ", ' + t + '4" : "")'
-    );
-    rules.defineRule('magicNotes.clericSpellFailure',
-      'wisdom', '=', 'Math.max((12 - source) * 5, 1)'
+       '"Spell level C1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
+       '(source>=15 ? source>=16 ? ", C2x2" : ", C2" : "") + ' +
+       '(source>=17 ? ", C3" : "") + ' +
+       '(source>=18 ? ", C4" : "")'
     );
     for(let level = 1; level <= 4; level++) {
-      rules.defineRule('spellSlots.' + t + level,
-        'magicNotes.bonusClericSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : 0'
+      rules.defineRule('spellSlots.C' + level,
+        'magicNotes.bonusClericSpells', '+', 'source.match(/C' + level + 'x3/) ? 3 : source.match(/C' + level + 'x2/) ? 2 : source.match(/C' + level + '/) ? 1 : null'
       );
     }
     rules.defineRule('turningLevel', classLevel, '+=', null);
 
   } else if(name == 'Druid') {
-
-    let t = 'D';
 
     rules.defineRule('classDruidSaveAdjustment',
       classLevel, '=', 'source>=19 ? -2 : source>=7 ? -1 : null'
@@ -3638,16 +3621,14 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule("languages.Druids' Cant", classLevel, '=', '1');
     rules.defineRule('magicNotes.bonusDruidSpells',
       'wisdom', '=',
-       '"Spell level ' + t + '1" + ' +
-       '(source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
-       '(source>=15 ? ", ' + t + '2" : "") + ' +
-       '(source>=16 ? "x2"  : "") + ' +
-       '(source>=17 ? ", ' + t + '3" : "") + ' +
-       '(source>=18 ? ", ' + t + '4" : "")'
+       '"Spell level D1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
+       '(source>=15 ? source>=16 ? ", D2x2" : ", D2" : "") + ' +
+       '(source>=17 ? ", D3" : "") + ' +
+       '(source>=18 ? ", D4" : "")'
     );
     for(let level = 1; level <= 4; level++) {
-      rules.defineRule('spellSlots.' + t + level,
-        'magicNotes.bonusDruidSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : 0'
+      rules.defineRule('spellSlots.D' + level,
+        'magicNotes.bonusDruidSpells', '+', 'source.match(/D' + level + 'x3/) ? 3 : source.match(/D' + level + 'x2/) ? 2 : source.match(/D' + level + '/) ? 1 : null'
       );
     }
 
@@ -3684,10 +3665,6 @@ OSRIC.classRulesExtra = function(rules, name) {
           'source==18 ? 85 : source==17 ? 75 : source>=15 ? 65 : ' +
           'source>=13 ? 55 : source>=10 ? 45 : 35'
     );
-    rules.defineRule('magicNotes.eldritchCraft.1', '', '=', '""');
-    rules.defineRule('magicNotes.eldritchCraft.1',
-      classLevel, '=', 'source<11 ? " with aid of an alchemist" : null'
-    );
 
   } else if(name == 'Paladin') {
 
@@ -3705,9 +3682,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('classPaladinSaveAdjustment', classLevel, '=', 'source<17 ? null : 1');
     rules.defineRule
-      ('magicNotes.cureDisease', classLevel, '=', 'Math.ceil(source / 5)');
-    rules.defineRule('magicNotes.layOnHands', classLevel, '=', '2 * source');
-    rules.defineRule
       ('turningLevel', classLevel, '+=', 'source>2 ? source - 2 : null');
     rules.defineRule('warriorLevel', classLevel, '+', null);
 
@@ -3717,8 +3691,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.bonusAttacks',
       classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
     );
-    rules.defineRule('combatNotes.damageBonus', classLevel, '=', null);
-    rules.defineRule('abilityNotes.delayedHenchmen', classLevel, '=', '8');
     rules.defineRule('classRangerBreathSaveAdjustment',
       classLevel, '=', 'source>=17 ? -2 : -Math.floor((source - 1) / 4)'
     );
@@ -3733,13 +3705,8 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Thief') {
 
-    rules.defineRule('combatNotes.backstab',
-      classLevel, '+=', 'Math.min(Math.ceil(source / 4) + 1, 5)'
-    );
     rules.defineRule('languageCount', classLevel, '+', '1');
     rules.defineRule("languages.Thieves' Cant", classLevel, '=', '1');
-    rules.defineRule
-      ('magicNotes.readScrolls', 'intelligence', '=', 'source * 5 - 10');
 
     rules.defineRule('skillLevel.Climb Walls', classLevel, '+=', null);
     rules.defineRule('skillLevel.Find Traps', classLevel, '+=', null);
@@ -3818,8 +3785,6 @@ OSRIC.raceRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
 
   if(name == 'Dwarf') {
-    rules.defineRule('featureNotes.detectSlope', raceLevel, '+=', '75');
-    rules.defineRule('featureNotes.determineDepth', raceLevel, '+=', '50');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, 'v', '2',
       '', '^', '0'
@@ -3829,8 +3794,6 @@ OSRIC.raceRulesExtra = function(rules, name) {
         '"-10% Climb Walls/+15% Find Traps/-5% Move Silently/+15% Open Locks/-5% Read Languages"'
     );
   } else if(name == 'Elf') {
-    rules.defineRule('saveNotes.resistCharm', raceLevel, '+=', '90');
-    rules.defineRule('saveNotes.resistSleep', raceLevel, '+=', '90');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, '+', '-4',
       '', '^', '0'
@@ -3840,8 +3803,6 @@ OSRIC.raceRulesExtra = function(rules, name) {
         '"-5% Climb Walls/+5% Find Traps/+5% Hear Noise/+10% Hide In Shadows/+5% Move Silently/-5% Open Locks/+5% Pick Pockets/+10% Read Languages"'
     );
   } else if(name == 'Gnome') {
-    rules.defineRule('featureNotes.detectSlope', raceLevel, '+=', '80');
-    rules.defineRule('featureNotes.determineDepth', raceLevel, '+=', '60');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, 'v', '2',
       '', '^', '0'
@@ -3850,8 +3811,6 @@ OSRIC.raceRulesExtra = function(rules, name) {
       raceLevel, '=', '"-15% Climb Walls/+5% Hear Noise/+10% Open Locks"'
     );
   } else if(name == 'Half-Elf') {
-    rules.defineRule('saveNotes.resistCharm', raceLevel, '+=', '30');
-    rules.defineRule('saveNotes.resistSleep', raceLevel, '+=', '30');
     rules.defineRule('skillNotes.raceSkillModifiers',
       raceLevel, '=', '"+5% Hide In Shadows/+10% Pick Pockets"'
     );
@@ -3865,7 +3824,6 @@ OSRIC.raceRulesExtra = function(rules, name) {
         '"+5% Climb Walls/+5% Find Traps/+5% Hear Noise/+5% Open Locks/-5% Pick Pockets/-10% Read Languages"'
     );
   } else if(name == 'Halfling') {
-    rules.defineRule('featureNotes.detectSlope', raceLevel, '+=', '75');
     rules.defineRule('skillNotes.intelligenceLanguageBonus',
       raceLevel, '+', '-5',
       '', '^', '0'
@@ -4376,13 +4334,13 @@ OSRIC.ruleNotes = function() {
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
-    '  For convenience, Quilvyn reports THAC0 values for OSRIC characters.' +
-    '  It also reports THAC10 ("To Hit Armor Class 10"), which can be more' +
+    '  For convenience, Quilvyn reports THAC0 values for OSRIC characters. It' +
+    '  also reports THAC10 ("To Hit Armor Class 10"), which can be more' +
     '  useful with characters who need a 20 to hit AC 0.\n'+
     '  </li><li>\n' +
-    '  The OSRIC rules discuss illusionist scrolls, but does not give the\n' +
-    '  minimum level required to create them. Quilvyn uses the 1E PHB\n' +
-    '  limit of level 10.\n' +
+    '  The OSRIC rules discuss illusionist scrolls, but does not give the' +
+    '  minimum level required to create them. Quilvyn uses the 1E PHB limit' +
+    '  of level 10.\n' +
     '  </li><li>\n' +
     '  The OSRIC rules mention that Magic Users of levels 7 through 10 can' +
     '  create scrolls and potions only with the aid of an alchemist; at level' +
