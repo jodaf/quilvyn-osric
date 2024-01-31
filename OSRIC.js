@@ -363,7 +363,7 @@ OSRIC.FEATURES = {
   'Assassination':
     'Section=combat Note="Strike kills surprised target %V% - 5%/2 foe levels"',
   'Backstab':
-    'Section=combat Note="+4 melee attack, x%V damage when surprising"',
+    'Section=combat Note="+4 melee attack and x%V damage when surprising"',
   'Bonus Attacks':'Section=combat Note="+%V attacks/rd"',
   'Bonus Cleric Experience':
     'Section=ability Note="10% added to awarded experience"',
@@ -375,7 +375,7 @@ OSRIC.FEATURES = {
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Languages':
     'Section=skill ' +
-    'Note="Can learn %V additional choices from alignment languages, druidic, or thieves\' cant"',
+    'Note="May learn %V additional choices from alignment languages, druidic, or thieves\' cant"',
   'Bonus Magic User Experience':
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Paladin Experience':
@@ -385,13 +385,14 @@ OSRIC.FEATURES = {
   'Bonus Thief Experience':
     'Section=ability Note="10% added to awarded experience"',
   'Cleric Spell Failure':'Section=magic Note="%V%"',
-  'Cure Disease':'Section=magic Note="<i>Cure Disease</i> %V/wk"',
+  'Cure Disease':'Section=magic Note="May cast <i>Cure Disease</i> %V/wk"',
   'Damage Bonus':
     'Section=combat ' +
     'Note="+%V melee damage vs. evil humanoids and giantish foes"',
   'Delayed Henchmen':
     'Section=ability Note="May not hire henchmen until level %V"',
-  'Detect Evil':'Section=magic Note="R60\' <i>Detect Evil</i> at will"',
+  'Detect Evil':
+    'Section=magic Note="May cast R60\' <i>Detect Evil</i> at will"',
   'Discriminating':
     'Section=feature Note="Must not associate w/non-good characters"',
   'Disguise':'Section=feature Note="92%+ successful disguise"',
@@ -400,71 +401,82 @@ OSRIC.FEATURES = {
     'Section=combat Note="+3 %V Attack Modifier/+3 %V Damage Modifier"',
   "Druid's Knowledge":
     'Section=feature ' +
-    'Note="Identify plant and animal types, determine water purity"',
+    'Note="May identify plant and animal types and determine water purity"',
   'Eldritch Craft':
     'Section=magic ' +
     'Note="May create magical potions and scrolls and recharge rods, staves, and wands%1"',
   'Eldritch Power':
     'Section=magic ' +
-    'Note="May create magical items via <i>Enchant An Item</i> spell"',
+    'Note="May create magical items using the <i>Enchant An Item</i> spell"',
   'Fighting The Unskilled':
     'Section=combat Note="%V attacks/rd vs. creatures with w/HD less than 1d8"',
   'Immunity To Fey Charm':'Section=save Note="Immune to fey enchantment"',
-  'Lay On Hands':'Section=magic Note="Touch heals %V HP 1/dy"',
+  'Lay On Hands':'Section=magic Note="May use touch to heal %V HP 1/dy"',
   'Limited Henchmen Classes':'Section=ability Note="Henchmen must be %V"',
-  'Loner':'Section=feature Note="Will not work with more than 2 other rangers"',
+  'Loner':'Section=feature Note="Will not work w/more than 2 other rangers"',
   'Non-Materialist':
-    'Section=feature Note="Owns at most 10 magic items w/1 armor suit and 1 shield"',
+    'Section=feature Note="Owns at most 10 magic items, including 1 armor suit and 1 shield"',
   'Philanthropist':
     'Section=feature ' +
-    'Note="Must donate 10% of income plus 100% after expenses to LG causes"',
+    'Note="Must donate 10% of income plus 100% after expenses to lawful good causes"',
   'Poison Use':
     'Section=combat ' +
     'Note="Familiar with ingested poisons and poisoned weapon use"',
   'Protection From Evil':
-    'Section=magic Note="Continuous <i>Protection From Evil</i> 10\' radius"',
-  'Read Scrolls':'Section=magic Note="%V% cast arcane spell from scroll"',
+    'Section=magic ' +
+    'Note="Has a continuous <i>Protection From Evil</i> 10\' Radius effect centered on self"',
+  'Read Scrolls':
+    'Section=magic ' +
+    'Note="May use arcane spell scrolls w/a %V% chance of success"',
   'Resist Fire':'Section=save Note="+2 vs. fire"',
   'Resist Lightning':'Section=save Note="+2 vs. lightning"',
   'Scrying Device Use':'Section=magic Note="May use scrying magic items"',
   'Selective':'Section=feature Note="Must employ only good henchmen"',
   'Shapeshift':
-    'Section=magic Note="Change into natural animal 3/dy, healing 1d6x10% HP"',
+    'Section=magic ' +
+    'Note="May change into a natural animal, regaining 1d6x10% HP, 3/dy"',
   'Summon Warhorse':
-    'Section=feature Note="Call warhorse w/enhanced features"',
+    'Section=feature Note="May call a warhorse w/enhanced features"',
   'Thief Skills':
     'Section=skill ' +
-    'Note="Climb Walls, Find Traps, Hear Noise, Hide In Shadows, Move Silently, Open Locks, Pick Pockets, Read Languages"',
+    'Note="May Climb Walls, Find Traps, Hear Noise, Hide In Shadows, Move Silently, Open Locks, Pick Pockets, and Read Languages"',
   'Tracking':
-    'Section=feature Note="90% rural, 65%+ urban or dungeon creature tracking"',
+    'Section=feature Note="May track creatures w/90% success in rural settings and 65%+ success in urban or dungeon settings"',
   'Travel Light':
-    'Section=feature Note="Will not possess more than can be carried"',
+    'Section=feature Note="May not possess more than can be carried"',
   'Turn Undead':
     'Section=combat ' +
-    'Note="2d6 undead turned, destroyed (good) or controlled (evil)"',
+    'Note="May turn, destroy (good), or control (evil) 2d6 undead creatures"',
   'Weapon Specialization':
      'Section=combat ' +
     'Note="+%1 %V Attack Modifier/+%2 %V Damage Modifier/+%3 attacks/rd"',
   'Wilderness Movement':
-     'Section=feature Note="Normal, untrackable move through undergrowth"',
+     'Section=feature ' +
+     'Note="May move through undergrowth at full speed, leaving no trace"',
 
   // Race
   'Bow Precision':'Section=combat Note="+1 attack w/bows"',
-  'Burrow Tongue':'Section=feature Note="Speak w/burrowing animals"',
+  'Burrow Tongue':'Section=feature Note="May speak w/burrowing animals"',
   'Deadly Aim':'Section=combat Note="+3 attack w/bows and slings"',
   'Detect Construction':
-    'Section=feature Note="R10\' 75% Detect new construction"',
+    'Section=feature Note="R10\' 75% chance to detect new construction"',
   'Detect Hazard':
-    'Section=feature Note="R10\' 70% Detect unsafe wall, ceiling, floor"',
+    'Section=feature ' +
+    'Note="R10\' 70% chance to detect unsafe walls, ceilings, and floors"',
   'Detect Secret Doors':
-    'Section=feature Note="1in6 passing, 2in6 searching, 3in6 concealed"',
-  'Detect Sliding':'Section=feature Note="R10\' 66% Detect sliding walls"',
-  'Detect Slope':'Section=feature Note="R10\' %V% Detect slope and grade"',
-  'Detect Traps':'Section=feature Note="R10\' 50% Detect stonework traps"',
+    'Section=feature ' +
+    'Note="1in6 chance to notice when passing secret doors and 2in6 chance when searching; 3in6 chance to notice concealed doors"',
+  'Detect Sliding':
+    'Section=feature Note="R10\' 66% chance to detect sliding walls"',
+  'Detect Slope':
+    'Section=feature Note="R10\' %V% chance to detect slopes and grades"',
+  'Detect Traps':
+    'Section=feature Note="R10\' 50% chance to detect stonework traps"',
   'Determine Depth':
-    'Section=feature Note="%V% Determine approximate depth underground"',
+    'Section=feature ' +
+    'Note="%V% chance to determine approximate depth underground"',
   'Determine Direction':
-    'Section=feature Note="50% Determine direction underground"',
+    'Section=feature Note="50% chance to determine direction underground"',
   'Dwarf Ability Adjustment':
     'Section=ability Note="+1 Constitution/-1 Charisma"',
   'Dwarf Dodge':
@@ -488,7 +500,7 @@ OSRIC.FEATURES = {
   'Slow':'Section=ability Note="-30 Speed"',
   'Stealthy':
     'Section=combat ' +
-    'Note="Surprise 4in6 when traveling quietly, 2in6 when opening doors"',
+    'Note="4in6 chance to surprise when traveling quietly; 2in6 when opening doors"',
   'Sword Precision':
     'Section=combat Note="+1 attack w/Long Sword and Short Sword"'
 
