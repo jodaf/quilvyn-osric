@@ -1,5 +1,5 @@
 /*
-Copyright 2021, James J. Hayes
+Copyright 2024, James J. Hayes
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -34,7 +34,7 @@ function OSRIC(edition) {
     return;
   }
 
-  var rules = new QuilvynRules('OSRIC', OSRIC.VERSION);
+  let rules = new QuilvynRules('OSRIC', OSRIC.VERSION);
 
   rules.defineChoice('choices', OSRIC.CHOICES);
   rules.choiceEditorElements = OSRIC.choiceEditorElements;
@@ -101,7 +101,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.3.1.7';
+OSRIC.VERSION = '2.4.1.0';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -2959,17 +2959,14 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   QuilvynUtils.checkAttrTable(shields, ['AC', 'Weight']);
   QuilvynUtils.checkAttrTable(weapons, ['Category', 'Damage', 'Range']);
 
-  for(var armor in armors) {
-    rules.choiceRules(rules, 'Armor', armor, armors[armor]);
-  }
-  for(var shield in shields) {
-    rules.choiceRules(rules, 'Shield', shield, shields[shield]);
-  }
-  for(var weapon in weapons) {
-    var pattern = weapon.replace(/  */g, '\\s+');
-    var prefix =
-      weapon.charAt(0).toLowerCase() + weapon.substring(1).replaceAll(' ', '');
-    rules.choiceRules(rules, 'Goody', weapon,
+  for(let a in armors)
+    rules.choiceRules(rules, 'Armor', a, armors[a]);
+  for(let s in shields)
+    rules.choiceRules(rules, 'Shield', s, shields[s]);
+  for(let w in weapons) {
+    let pattern = w.replace(/  */g, '\\s+');
+    let prefix = w.charAt(0).toLowerCase() + w.substring(1).replaceAll(' ', '');
+    rules.choiceRules(rules, 'Goody', w,
       // To avoid triggering additional weapons with a common suffix (e.g.,
       // "* punching dagger +2" also makes regular dagger +2), require that
       // weapon goodies with a trailing value have no preceding word or be
@@ -2980,7 +2977,7 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
       'Value="$1 || $2" ' +
       'Section=combat Note="%V Attack and damage"'
     );
-    rules.choiceRules(rules, 'Weapon', weapon, weapons[weapon]);
+    rules.choiceRules(rules, 'Weapon', w, weapons[w]);
   }
 
   rules.defineRule
@@ -3030,7 +3027,7 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
     'turningLevel', '=',
     'source <= 8 ? source : source <= 13 ? 9 : source <= 18 ? 10 : 11'
   );
-  var turningTable = [
+  let turningTable = [
     'skeleton:10:7 :4 :T :T :D :D :D :D :D :D',
     'zombie  :13:10:7 :T :T :D :D :D :D :D :D',
     'ghoul   :16:13:10:4 :T :T :D :D :D :D :D',
@@ -3045,7 +3042,7 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
     'lich    :- :- :- :- :- :- :20:19:16:13:10',
     'fiend   :- :- :- :- :- :- :- :20:19:16:13'
   ];
-  for(var i = 0; i < turningTable.length; i++) {
+  for(let i = 0; i < turningTable.length; i++) {
     rules.defineRule('turnUndead.' + turningTable[i].split(':')[0].trim(),
       'turnUndeadColumn', '=', '"' + turningTable[i] +'".split(":")[source].trim()'
     );
@@ -3066,19 +3063,23 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
 OSRIC.identityRules = function(rules, alignments, classes, races) {
 
   QuilvynUtils.checkAttrTable(alignments, []);
+  QuilvynUtils.checkAttrTable(
+    classes, [
+      'Require', 'HitDie', 'Attack', 'WeaponProficiency',
+      'NonweaponProficiency', 'Breath', 'Death', 'Petrification', 'Spell',
+      'Wand', 'Features', 'Selectables', 'Experience', 'CasterLevelArcane',
+      'CasterLevelDivine', 'SpellAbility', 'SpellSlots'
+    ]
+  );
   QuilvynUtils.checkAttrTable
-    (classes, ['Require', 'HitDie', 'Attack', 'WeaponProficiency', 'NonweaponProficiency', 'Breath', 'Death', 'Petrification', 'Spell', 'Wand', 'Features', 'Selectables', 'Experience', 'CasterLevelArcane', 'CasterLevelDivine', 'SpellAbility', 'SpellSlots']);
-  QuilvynUtils.checkAttrTable(races, ['Require', 'Features', 'Selectables', 'Languages']);
+    (races, ['Require', 'Features', 'Selectables', 'Languages']);
 
-  for(var alignment in alignments) {
-    rules.choiceRules(rules, 'Alignment', alignment, alignments[alignment]);
-  }
-  for(var clas in classes) {
-    rules.choiceRules(rules, 'Class', clas, classes[clas]);
-  }
-  for(var race in races) {
-    rules.choiceRules(rules, 'Race', race, races[race]);
-  }
+  for(let a in alignments)
+    rules.choiceRules(rules, 'Alignment', a, alignments[a]);
+  for(let c in classes)
+    rules.choiceRules(rules, 'Class', c, classes[c]);
+  for(let r in races)
+    rules.choiceRules(rules, 'Race', r, races[r]);
 
   // Rules that apply to multiple classes or races
   rules.defineRule('casterLevel',
@@ -3109,23 +3110,21 @@ OSRIC.magicRules = function(rules, schools, spells) {
   QuilvynUtils.checkAttrTable
     (spells, ['School', 'Level', 'Description', 'Effect', 'Duration', 'Range']);
 
-  for(var school in schools) {
-    rules.choiceRules(rules, 'School', school, schools[school]);
+  for(let s in schools)
+    rules.choiceRules(rules, 'School', s, schools[s]);
+  for(let s in spells) {
+    if(s.match(/\s[A-Z]\d$/))
+      continue;
+    let groupLevels = QuilvynUtils.getAttrValueArray(spells[s], 'Level');
+    for(let i = 0; i < groupLevels.length; i++) {
+      let groupLevel = groupLevels[i];
+      let attrs = spells[s] + ' ' + (spells[s + ' ' + groupLevel] || '');
+      rules.choiceRules(rules, 'Spell', s, attrs + ' Level=' + groupLevel);
+    }
   }
-  for(var level = 1; level <= 9; level++) {
+  for(let level = 1; level <= 9; level++) {
     rules.defineRule
       ('spellSlots.W' + level, 'magicNotes.schoolSpecialization', '+', '1');
-  }
-  for(var spell in spells) {
-    if(spell.match(/\s[A-Z]\d$/))
-      continue;
-    var groupLevels = QuilvynUtils.getAttrValueArray(spells[spell], 'Level');
-    for(var i = 0; i < groupLevels.length; i++) {
-      var groupLevel = groupLevels[i];
-      var attrs =
-        spells[spell] + ' ' + (spells[spell + ' ' + groupLevel] || '');
-      rules.choiceRules(rules, 'Spell', spell, attrs + ' Level=' + groupLevel);
-    }
   }
 
 };
@@ -3139,24 +3138,21 @@ OSRIC.talentRules = function(rules, features, goodies, languages, skills) {
   QuilvynUtils.checkAttrTable(languages, []);
   QuilvynUtils.checkAttrTable(skills, ['Ability', 'Class']);
 
-  for(var feature in features) {
-    rules.choiceRules(rules, 'Feature', feature, features[feature]);
-  }
-  for(var goody in goodies) {
-    rules.choiceRules(rules, 'Goody', goody, goodies[goody]);
-  }
-  for(var language in languages) {
-    rules.choiceRules(rules, 'Language', language, languages[language]);
-  }
-  for(var skill in skills) {
-    rules.choiceRules(rules, 'Goody', skill,
-      'Pattern="([-+]\\d).*\\s+' + skill + '\\s+Skill|' + skill + '\\s+skill\\s+([-+]\\d)"' +
+  for(let f in features)
+    rules.choiceRules(rules, 'Feature', f, features[f]);
+  for(let g in goodies)
+    rules.choiceRules(rules, 'Goody', g, goodies[g]);
+  for(let l in languages)
+    rules.choiceRules(rules, 'Language', l, languages[l]);
+  for(let s in skills) {
+    rules.choiceRules(rules, 'Goody', s,
+      'Pattern="([-+]\\d).*\\s+' + s + '\\s+Skill|' + s + '\\s+skill\\s+([-+]\\d)"' +
       'Effect=add ' +
       'Value="$1 || $2" ' +
-      'Attribute="skillModifier.' + skill + '" ' +
-      'Section=skill Note="%V ' + skill + '"'
+      'Attribute="skillModifier.' + s + '" ' +
+      'Section=skill Note="%V ' + s + '"'
     );
-    rules.choiceRules(rules, 'Skill', skill, skills[skill]);
+    rules.choiceRules(rules, 'Skill', s, skills[s]);
   }
   QuilvynRules.validAllocationRules
     (rules, 'language', 'languageCount', 'Sum "^languages\\."');
@@ -3238,22 +3234,22 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
     );
     OSRIC.skillRulesExtra(rules, name);
   } else if(type == 'Spell') {
-    var description = QuilvynUtils.getAttrValue(attrs, 'Description');
-    var duration = QuilvynUtils.getAttrValue(attrs, 'Duration');
-    var effect =  QuilvynUtils.getAttrValue(attrs, 'Effect');
-    var groupLevels = QuilvynUtils.getAttrValueArray(attrs, 'Level');
-    var range = QuilvynUtils.getAttrValue(attrs, 'Range');
-    var school = QuilvynUtils.getAttrValue(attrs, 'School');
-    var schoolAbbr = school.substring(0, 4);
-    for(var i = 0; i < groupLevels.length; i++) {
-      var matchInfo = groupLevels[i].match(/^(\D+)(\d+)$/);
+    let description = QuilvynUtils.getAttrValue(attrs, 'Description');
+    let duration = QuilvynUtils.getAttrValue(attrs, 'Duration');
+    let effect =  QuilvynUtils.getAttrValue(attrs, 'Effect');
+    let groupLevels = QuilvynUtils.getAttrValueArray(attrs, 'Level');
+    let range = QuilvynUtils.getAttrValue(attrs, 'Range');
+    let school = QuilvynUtils.getAttrValue(attrs, 'School');
+    let schoolAbbr = school.substring(0, 4);
+    for(let i = 0; i < groupLevels.length; i++) {
+      let matchInfo = groupLevels[i].match(/^(\D+)(\d+)$/);
       if(!matchInfo) {
         console.log('Bad level "' + groupLevels[i] + '" for spell ' + name);
         continue;
       }
-      var group = matchInfo[1];
-      var level = matchInfo[2] * 1;
-      var fullName = name + '(' + group + level + ' ' + schoolAbbr + ')';
+      let group = matchInfo[1];
+      let level = matchInfo[2] * 1;
+      let fullName = name + '(' + group + level + ' ' + schoolAbbr + ')';
       OSRIC.spellRules
         (rules, fullName, school, group, level, description, duration, effect,
          range);
@@ -3452,8 +3448,8 @@ OSRIC.classRules = function(
     return;
   }
 
-  var classLevel = 'levels.' + name;
-  var prefix =
+  let classLevel = 'levels.' + name;
+  let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
 
   if(requires.length > 0)
@@ -3461,7 +3457,7 @@ OSRIC.classRules = function(
       (rules, 'validation', prefix + 'Class', classLevel, requires);
 
   rules.defineChoice('notes', 'experiencePoints.' + name + ':%V/%1');
-  for(var i = 0; i < experience.length; i++) {
+  for(let i = 0; i < experience.length; i++) {
     experience[i] *= 1000;
   }
   rules.defineRule('experiencePoints.' + name + '.1',
@@ -3471,7 +3467,7 @@ OSRIC.classRules = function(
     'experiencePoints.' + name, '=', 'source >= ' + experience[experience.length - 1] + ' ? ' + experience.length + ' : [' + experience + '].findIndex(item => item > source)'
   );
 
-  var attackStep = '';
+  let attackStep = '';
   if(attack[3].includes('@')) {
     attackStep = attack[3].split('@');
     attackStep =
@@ -3481,17 +3477,17 @@ OSRIC.classRules = function(
     classLevel, '^=', attack[0] + ' + Math.floor((source - 1) / ' + attack[2] + ') * ' + attack[1] + attackStep
   );
 
-  var extraHitDie = (hitDie[0] + '').startsWith('2');
+  let extraHitDie = (hitDie[0] + '').startsWith('2');
   rules.defineRule('hitDice',
     classLevel, '^=',
       'Math.min(source' + (extraHitDie ? ' + 1' : '') + ', ' + hitDie[1] + ')'
   );
 
-  var saves = {
+  let saves = {
     'Breath':saveBreath, 'Death':saveDeath, 'Petrification':savePetrification,
     'Spell':saveSpell, 'Wand':saveWand
   };
-  for(var save in saves) {
+  for(let save in saves) {
     rules.defineRule('class' + name + save + 'Save',
       classLevel, '=', saves[save][0] + ' - Math.floor(Math.floor((source - 1) / ' + saves[save][2] + ') * ' + saves[save][1] + ')',
       'class' + name + 'SaveAdjustment', '+', null
@@ -3509,7 +3505,7 @@ OSRIC.classRules = function(
 
   if(languages.length > 0)
     rules.defineRule('languageCount', classLevel, '+', languages.length);
-  for(var i = 0; i < languages.length; i++) {
+  for(let i = 0; i < languages.length; i++) {
     if(languages[i] != 'any')
       rules.defineRule('languages.' + languages[i], classLevel, '=', '1');
   }
@@ -3526,7 +3522,7 @@ OSRIC.classRules = function(
     );
 
   if(spellSlots.length > 0) {
-    var casterLevelExpr = casterLevelArcane || casterLevelDivine || classLevel;
+    let casterLevelExpr = casterLevelArcane || casterLevelDivine || classLevel;
     if(casterLevelExpr.match(new RegExp('\\b' + classLevel + '\\b', 'i'))) {
       rules.defineRule('casterLevels.' + name,
         classLevel, '=', casterLevelExpr.replace(new RegExp('\\b' + classLevel + '\\b', 'gi'), 'source')
@@ -3542,9 +3538,9 @@ OSRIC.classRules = function(
     if(casterLevelDivine)
       rules.defineRule('casterLevelDivine', 'casterLevels.' + name, '+=', null);
     QuilvynRules.spellSlotRules(rules, classLevel, spellSlots);
-    for(var j = 0; j < spellSlots.length; j++) {
-      var spellTypeAndLevel = spellSlots[j].split(/:/)[0];
-      var spellType = spellTypeAndLevel.replace(/\d+/, '');
+    for(let j = 0; j < spellSlots.length; j++) {
+      let spellTypeAndLevel = spellSlots[j].split(/:/)[0];
+      let spellType = spellTypeAndLevel.replace(/\d+/, '');
       if(spellType != name)
         rules.defineRule('casterLevels.' + spellType,
           'casterLevels.' + name, '=', null
@@ -3560,7 +3556,7 @@ OSRIC.classRules = function(
  */
 OSRIC.classRulesExtra = function(rules, name) {
 
-  var classLevel = 'levels.' + name;
+  let classLevel = 'levels.' + name;
 
   if(name == 'Assassin') {
 
@@ -3582,7 +3578,7 @@ OSRIC.classRulesExtra = function(rules, name) {
     // Unclear whether Assassins have same chance of failure as Thieves
     rules.defineRule
       ('magicNotes.readScrolls', 'intelligence', '=', 'source * 5 - 10');
-    var skillLevel = 'source>2 ? source - 2 : 1';
+    let skillLevel = 'source>2 ? source - 2 : 1';
     rules.defineRule('skillLevel.Climb Walls', classLevel, '+=', skillLevel);
     rules.defineRule('skillLevel.Find Traps', classLevel, '+=', skillLevel);
     rules.defineRule('skillLevel.Hear Noise', classLevel, '+=', skillLevel);
@@ -3595,7 +3591,7 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Cleric') {
 
-    var t = 'C';
+    let t = 'C';
 
     rules.defineRule('classClericSaveAdjustment',
       classLevel, '=', 'source>=19 ? -2 : source>=7 ? -1 : null'
@@ -3612,7 +3608,7 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.clericSpellFailure',
       'wisdom', '=', 'Math.max((12 - source) * 5, 1)'
     );
-    for(var level = 1; level <= 4; level++) {
+    for(let level = 1; level <= 4; level++) {
       rules.defineRule('spellSlots.' + t + level,
         'magicNotes.bonusClericSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : 0'
       );
@@ -3621,7 +3617,7 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Druid') {
 
-    var t = 'D';
+    let t = 'D';
 
     rules.defineRule('classDruidSaveAdjustment',
       classLevel, '=', 'source>=19 ? -2 : source>=7 ? -1 : null'
@@ -3637,7 +3633,7 @@ OSRIC.classRulesExtra = function(rules, name) {
        '(source>=17 ? ", ' + t + '3" : "") + ' +
        '(source>=18 ? ", ' + t + '4" : "")'
     );
-    for(var level = 1; level <= 4; level++) {
+    for(let level = 1; level <= 4; level++) {
       rules.defineRule('spellSlots.' + t + level,
         'magicNotes.bonusDruidSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : 0'
       );
@@ -3806,7 +3802,7 @@ OSRIC.raceRules = function(
  */
 OSRIC.raceRulesExtra = function(rules, name) {
 
-  var raceLevel =
+  let raceLevel =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
 
   if(name == 'Dwarf') {
@@ -3944,8 +3940,8 @@ OSRIC.skillRules = function(rules, name, ability, classes) {
     return;
   }
 
-  for(var i = 0; i < classes.length; i++) {
-    var clas = classes[i];
+  for(let i = 0; i < classes.length; i++) {
+    let clas = classes[i];
     if(clas == 'all')
       rules.defineRule('classSkill.' + name, 'level', '=', '1');
     else
@@ -4049,7 +4045,7 @@ OSRIC.spellRules = function(
  * increment of #range# feet.
  */
 OSRIC.weaponRules = function(rules, name, category, damage, range) {
-  var prefix =
+  let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
   SRD35.weaponRules(rules, name, 'Unarmed', category, damage, 20, 2, range);
   // Override effect of melee/rangedAttack, since those values are incorporated
@@ -4061,8 +4057,8 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
   delete rules.getChoices('notes')['weapons.' + name];
   rules.defineChoice
     ('notes', 'weapons.' + name + ':%V (%1 %2%3' + (range ? ' R%5\')' : ')'));
-  var specializationAttackBonus = 1;
-  var specializationDamageBonus = 2
+  let specializationAttackBonus = 1;
+  let specializationDamageBonus = 2
   rules.defineRule(prefix + 'AttackModifier',
     'combatNotes.weaponSpecialization', '+',
       'source == "' + name + '" ? ' + specializationAttackBonus + ' : null'
@@ -4109,7 +4105,7 @@ OSRIC.createViewers = SRD35.createViewers;
  * item to #rules#.
  */
 OSRIC.choiceEditorElements = function(rules, type) {
-  var result = [];
+  let result = [];
   if(type == 'Armor' || type == 'Shield')
     result.push(
       ['AC', 'AC Bonus', 'select-one', [0, 1, 2, 3, 4, 5]],
@@ -4135,7 +4131,7 @@ OSRIC.choiceEditorElements = function(rules, type) {
       ['Spells', 'Spells', 'text', [40]]
     );
   else if(type == 'Weapon') {
-    var zeroToOneFifty =
+    let zeroToOneFifty =
      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
     result.push(
       ['Category', 'Category', 'select-one',
@@ -4151,10 +4147,10 @@ OSRIC.choiceEditorElements = function(rules, type) {
 
 /* Returns the elements in a basic OSRIC character editor. */
 OSRIC.initialEditorElements = function() {
-  var abilityChoices = [
+  let abilityChoices = [
     3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
   ];
-  var editorElements = [
+  let editorElements = [
     ['name', 'Name', 'text', [20]],
     ['imageUrl', 'Image URL', 'text', [20]],
     ['strength', 'Strength', 'select-one', abilityChoices],
@@ -4189,11 +4185,11 @@ OSRIC.initialEditorElements = function() {
 
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 OSRIC.randomizeOneAttribute = function(attributes, attribute) {
-  var attr;
-  var attrs;
-  var choices;
-  var howMany;
-  var matchInfo;
+  let attr;
+  let attrs;
+  let choices;
+  let howMany;
+  let matchInfo;
   if(attribute == 'armor') {
     attrs = this.applyRules(attributes);
     choices = [];
@@ -4211,21 +4207,21 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
     // characters don't automatically get full HP at level 1, and most classes
     // have a cap on HD after which they receive fixed HP each level.
     attributes.hitPoints = 0;
-    var allClasses = this.getChoices('levels');
-    var classCount = 0;
+    let allClasses = this.getChoices('levels');
+    let classCount = 0;
     attrs = this.applyRules(attributes);
-    for(var clas in allClasses) {
+    for(let clas in allClasses) {
       if((attr = attrs['levels.' + clas]) != null)
         classCount++;
     }
     if(attributes.race == 'Human')
       classCount = 1; // Dual class HD aren't divided
-    for(var clas in allClasses) {
+    for(let clas in allClasses) {
       if((attr = attrs['levels.' + clas]) == null)
         continue;
-      var hitDie = QuilvynUtils.getAttrValueArray(allClasses[clas], 'HitDie');
+      let hitDie = QuilvynUtils.getAttrValueArray(allClasses[clas], 'HitDie');
       matchInfo = hitDie[0].match(/(^|d)(\d+)$/);
-      var sides = matchInfo == null ? 6 : (matchInfo[2] * 1);
+      let sides = matchInfo == null ? 6 : (matchInfo[2] * 1);
       for( ; attr > hitDie[1]; attr--)
         attributes.hitPoints += Math.floor(hitDie[2] / classCount);
       for( ; attr > 0; attr--)
@@ -4236,8 +4232,8 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
           Math.floor(QuilvynUtils.random(1, sides) / classCount);
     }
   } else if(attribute == 'levels') {
-    var classes = this.getChoices('levels');
-    var classAttrSet = false;
+    let classes = this.getChoices('levels');
+    let classAttrSet = false;
     for(attr in classes) {
       if('levels.' + attr in attributes)
         classAttrSet = true;
@@ -4253,8 +4249,8 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
       // Calculate experience needed for this and prior levels to assign a
       // random experience value that will yield this level.
       attrs = this.applyRules(attributes);
-      var max = attrs['experiencePoints.' + attr + '.1'];
-      var min;
+      let max = attrs['experiencePoints.' + attr + '.1'];
+      let min;
       do {
         attributes['levels.' + attr]--;
         attrs = this.applyRules(attributes);
@@ -4276,7 +4272,7 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
         choices.push(attr);
     }
     for( ; howMany > 0; howMany--) {
-      var which = QuilvynUtils.random(0, choices.length - 1);
+      let which = QuilvynUtils.random(0, choices.length - 1);
       attributes['weaponProficiency.' + choices[which]] = 1;
       choices = choices.slice(0, which).concat(choices.slice(which + 1));
     }
@@ -4297,7 +4293,7 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
     attrs = this.applyRules(attributes);
     choices = [];
     howMany = attrs.nonweaponProficiencyCount || 0;
-    var allSkills = this.getChoices('skills');
+    let allSkills = this.getChoices('skills');
     for(attr in allSkills) {
       if(!allSkills[attr].match(/Ability/))
         continue; // Thief skill
@@ -4307,7 +4303,7 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
         choices.push(attr);
     }
     for( ; howMany > 0; howMany--) {
-      var which = QuilvynUtils.random(0, choices.length - 1);
+      let which = QuilvynUtils.random(0, choices.length - 1);
       attributes['skills.' + choices[which]] = 1;
       choices = choices.slice(0, which).concat(choices.slice(which + 1));
     }
@@ -4322,7 +4318,7 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
       choices.push(attr);
     }
     for( ; howMany > 0; howMany--) {
-      var which = QuilvynUtils.random(0, choices.length - 1);
+      let which = QuilvynUtils.random(0, choices.length - 1);
       if(!attributes['skills.' + choices[which]])
         attributes['skills.' + choices[which]] = 0;
       attributes['skills.' + choices[which]]++;
@@ -4340,8 +4336,8 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
     }
     if(howMany > choices.length)
       howMany = choices.length;
-    for(var i = 0; i < howMany; i++) {
-      var index = QuilvynUtils.random(0, choices.length - 1);
+    for(let i = 0; i < howMany; i++) {
+      let index = QuilvynUtils.random(0, choices.length - 1);
       attributes['weapons.' + choices[index]] = 1;
       choices.splice(index, 1);
     }
@@ -4368,41 +4364,41 @@ OSRIC.ruleNotes = function() {
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
-    '    For convenience, Quilvyn reports THAC0 values for OSRIC ' +
-    '    characters. It also reports THAC10 ("To Hit Armor Class 10"), ' +
-    '    which can be more useful with characters who need a 20 to hit AC 0.\n'+
+    '  For convenience, Quilvyn reports THAC0 values for OSRIC characters.' +
+    '  It also reports THAC10 ("To Hit Armor Class 10"), which can be more' +
+    '  useful with characters who need a 20 to hit AC 0.\n'+
     '  </li><li>\n' +
-    '    The OSRIC rules discuss illusionist scrolls, but does not give\n' +
-    '    the minimum level required to create them. Quilvyn uses the 1E PHB\n' +
-    '    limit of level 10.\n' +
+    '  The OSRIC rules discuss illusionist scrolls, but does not give the\n' +
+    '  minimum level required to create them. Quilvyn uses the 1E PHB\n' +
+    '  limit of level 10.\n' +
     '  </li><li>\n' +
-    '    The OSRIC rules mention that Magic Users of levels 7 through 10 can ' +
-    '    create scrolls and potions only with the aid of an alchemist; at ' +
-    '    level 11 they can do such crafting unaided.\n' +
+    '  The OSRIC rules mention that Magic Users of levels 7 through 10 can' +
+    '  create scrolls and potions only with the aid of an alchemist; at level' +
+    '  11 they can do such crafting unaided.\n' +
     '  </li><li>\n' +
-    '    The OSRIC rules are unclear as to whether or not the Fighting the\n' +
-    '    Unskilled feature applies to Paladins and Rangers. Quilvyn assumes\n' +
-    '    that it does.\n' +
+    '  The OSRIC rules are unclear as to whether or not the Fighting the\n' +
+    '  Unskilled feature applies to Paladins and Rangers. Quilvyn assumes\n' +
+    '  that it does.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '\n' +
     '<h3>Limitations</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
-    '    Quilvyn does not note racial restrictions on class and level.\n' +
+    '  Quilvyn does not note racial restrictions on class and level.\n' +
     '  </li><li>\n' +
-    '    Quilvyn does not note class restrictions on weapon choice.\n' +
+    '  Quilvyn does not note class restrictions on weapon choice.\n' +
     '  </li><li>\n' +
-    '    Support for character levels 21+ is incomplete.\n' +
+    '  Support for character levels 21+ is incomplete.\n' +
     '  </li><li>\n' +
-    '    Minimum levels for building strongholds and attracting followers\n' +
-    '    are not reported.\n' +
+    '  Minimum levels for building strongholds and attracting followers are' +
+    '  not reported.\n' +
     '  </li><li>\n' +
-    '    Quilvyn does not note Halfling characters with a strength of 18,\n' +
-    '    nor Elf characters with a constitution of 18.\n' +
+    '  Quilvyn does not note Halfling characters with a strength of 18, nor' +
+    '  Elf characters with a constitution of 18.\n' +
     '  </li><li>\n' +
-    '    Quilvyn does not report the chance of extraordinary success on\n' +
-    '    strength tests for characters with strength 18/91 and higher.\n' +
+    '  Quilvyn does not report the chance of extraordinary success on' +
+    '  tests for characters with strength 18/91 and higher.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
