@@ -770,8 +770,7 @@ OSRIC.SPELLS = {
   'Anti-Magic Shell':
     'School=Abjuration ' +
     'Level=M6 ' +
-    'Description=' +
-      '"%{lvl*5}\' radius around self allows no magic inside for %{lvl} tn"',
+    'Description="%{lvl*5}\' radius blocks magic for %{lvl} tn"',
   'Anti-Plant Shell':
     'School=Abjuration ' +
     'Level=D5 ' +
@@ -829,7 +828,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I2 ' +
     'Description=' +
-      '"Self gains +1 saves vs. targeted magic, and foes suffer -4 on first attack on self and -2 on subsequent attacks for %{lvl+3} rd"',
+      '"Self gains +1 saves vs. targeted magic, and foes suffer -4 on first attack on self and -2 on subsequent attacks, for %{lvl+3} rd"',
   'Burning Hands':
     'School=Alteration ' +
     'Level=M1 ' +
@@ -837,7 +836,7 @@ OSRIC.SPELLS = {
   'Cacodemon':
     'School=Conjuration ' +
     'Level=M7 ' +
-    'Description="R10\' Summons named demon or devil"',
+    'Description="R10\' Summons a named demon or devil"',
   'Call Lightning':
     'School=Alteration ' +
     'Level=D3 ' +
@@ -912,7 +911,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=I1 ' +
     'Description=' +
-      '"1d6 targets in %{lvl*10}\' cone suffer unconsciousness (up to %{lvl} HD), blindness for 1d4 rd (%{lvl+1} - %{lvl+2} HD), or stunning for 2d4 seg (%{lvl+3}+ HD) (Save %{lvl+1} HD+ neg)"',
+      '"1d6 targets in a %{lvl*10}\' cone suffer unconsciousness (up to %{lvl} HD), blindness for 1d4 rd (%{lvl+1} - %{lvl+2} HD), or stunning for 2d4 seg (%{lvl+3}+ HD) (Save %{lvl+1} HD+ neg)"',
   'Command':
     'School=Enchantment ' +
     'Level=C1 ' +
@@ -940,7 +939,7 @@ OSRIC.SPELLS = {
     'School=Enchantment ' +
     'Level=D7,I4,M4 ' +
     'Description=' +
-      '"R%{slv==\'M4\'?120:80}\' Causes 2d%{slv==\'D7\'?4:8} or more creatures in a %{slv==\'D7\'?20:slv==\'I4\'?40:60}\' %{slv==\'D7\'?\'radius\':\'sq\'} to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd) each rd for %{lvl+(slv==\'M4\'?2:0)} rd"',
+      '"R%{slv==\'M4\'?120:80}\' Causes 2d%{slv==\'D7\'?4:8} or more creatures in a %{slv==\'D7\'?20:slv==\'I4\'?40:60}\' %{slv==\'D7\'?\'radius\':\'sq\'} to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd), each rd for %{lvl+(slv==\'M4\'?2:0)} rd"',
   'Conjure Animals':
     'School=Conjuration ' +
     'Level=C6,I6 ' +
@@ -1008,7 +1007,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=M9 ' +
     'Description=' +
-      '"R%{lvl*5}\' Create a giant force hand that absorbs attacks (%{hitPoints} HP) and inflicts 1d10 - 4d10 HP for conc up to %{lvl} rd"',
+      '"R%{lvl*5}\' Creates a giant force hand that absorbs attacks (%{hitPoints} HP) and inflicts 1d10 - 4d10 HP for conc up to %{lvl} rd"',
   'Cure Blindness':
     'School=Abjuration ' +
     'Level=C3 ' +
@@ -1084,7 +1083,7 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=I1 ' +
     'Description=' +
-      '"Self discerns illusions in a 10\'x%{lvl*10}\' path, ad touching reveals them to others, for %{lvl*2+3} rd"',
+      '"Self discerns illusions in a 10\'x%{lvl*10}\' path, and touching reveals them to others, for %{lvl*2+3} rd"',
   'Detect Invisibility':
     'School=Divination ' +
     'Level=I1,M2 ' +
@@ -1117,26 +1116,26 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M6 ' +
     'Description="R%{lvl*5}\' Obliterates %{lvl*10}\' sq matter (Save neg)"',
+  'Dispel Evil':
+    'School=Abjuration ' +
+    'Level=C5 ' +
+    'Description=' +
+      '"Returns touched evil (Reverse good) creatures to home plane for %{lvl} rd (Save neg and inflicts -7 attacks on caster)"',
   'Dispel Exhaustion':
     'School=Illusion ' +
     'Level=I4 ' +
     'Description=' +
       '"4 touched temporarily regain 50% HP and dbl movement speed for %{lvl*3} tn"',
-  'Dispel Evil':
-    'School=Abjuration ' +
-    'Level=C5 ' +
-    'Description=' +
-      '"Returns touched evil (Reverse good) creatures to home plane for %{lvl} rd (Save neg, inflicts -7 attacks on caster)"',
   'Dispel Illusion':
     'School=Abjuration ' +
     'Level=I3 ' +
     'Description=' +
-      '"R%{lvl*10}\' Dispels one phantasmal illusion (100% chance) or one other illusion (50% chance +5%/-2% per caster level delta)"',
+      '"R%{lvl*10}\' Dispels one phantasmal illusion (100% chance) or one other illusion (50% chance +5%/-2% per caster level difference)"',
   'Dispel Magic':
     'School=Abjuration ' +
     'Level=C3,D4,M3 ' +
     'Description=' +
-      '"R%{slv==\'C3\'?60:slv==\'D4\'?80:120}\' Extinguishes magic in a %{slv==\'D4\'?lvl*40:30}\' %{slv==\'C3\'?\'radius\':\'cu\'} (50% chance each effect +5%/-2% per caster level delta)"',
+      '"R%{slv==\'C3\'?60:slv==\'D4\'?80:120}\' Extinguishes magic in a %{slv==\'D4\'?lvl*40:30}\' %{slv==\'C3\'?\'radius\':\'cu\'} (50% chance each effect +5%/-2% per caster level difference)"',
   'Dispel Magic C3':
     'School=Alteration',
   'Distance Distortion':
@@ -1153,7 +1152,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M7 ' +
     'Description=' +
-      '"Self becomes 2D: takes 3x damage from front or back and becomes invisible and immune to attacks from side for %{lvl+3} rd"',
+      '"Self becomes 2D, suffering 3x damage from front or back and becoming invisible and immune to attacks from side, for %{lvl+3} rd"',
   'ESP':
     'School=Divination ' +
     'Level=M2 ' +
@@ -1177,12 +1176,12 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M4 ' +
     'Description=' +
-      '"Touched weapon becomes magical w/no bonuses for %{lvl*5} rd or until next hit"',
+      '"Touched weapon becomes magical (but w/no attack bonuses) for %{lvl*5} rd or until next hit"',
   'Enlarge':
     'School=Alteration ' +
     'Level=M1 ' +
     'Description=' +
-      '"R%{lvl*5}\' Expands target creature %{lvl*20<?200}% or target object %{lvl*10<?100}% for %{lvl} tn (Reverse shrinks) (Save neg)"',
+      '"R%{lvl*5}\' Expands (Reverse shrinks) target creature %{lvl*20<?200}% or target object %{lvl*10<?100}% (Save neg) for %{lvl} tn"',
   'Entangle':
     'School=Alteration ' +
     'Level=D1 ' +
@@ -1197,7 +1196,7 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=C4 ' +
     'Description=' +
-      '"R10\' Relieves target from supernatural inhabitant and influence"',
+      '"R10\' Relieves target from supernatural inhabitants and influence"',
   'Explosive Runes':
     'School=Alteration ' +
     'Level=M3 ' +
@@ -1206,16 +1205,16 @@ OSRIC.SPELLS = {
   'Extension I':
     'School=Alteration ' +
     'Level=M4 ' +
-    'Description="Increases duration of existing level 1-3 spell 50%"',
+    'Description="Increases duration of an existing level 1-3 spell 50%"',
   'Extension II':
     'School=Alteration ' +
     'Level=M5 ' +
-    'Description="Increases duration of existing level 1-4 spell 50%"',
+    'Description="Increases duration of an existing level 1-4 spell 50%"',
   'Extension III':
     'School=Alteration ' +
     'Level=M6 ' +
     'Description=' +
-      '"Increases duration of existing level 1-3 spell 100% or level 4-5 spell 50%"',
+      '"Increases duration of an existing level 1-3 spell 100% or level 4-5 spell 50%"',
   'Faerie Fire':
     'School=Alteration ' +
     'Level=D1 ' +
@@ -1224,7 +1223,7 @@ OSRIC.SPELLS = {
   'False Trap':
     'School=Illusion ' +
     'Level=M2 ' +
-    'Description="Touched object appears trapped (Save disbelieve)"',
+    'Description="Makes touched object appear to be trapped (Save disbelieve)"',
   'Fear':
     'School=Illusion ' +
     'Level=I3,M4 ' +
@@ -1295,7 +1294,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=M3 ' +
     'Description=' +
-      '"Touched arrows or bolts inflict +1 HP fire damage and disintegrate after 1 rd"',
+      '"Touched arrows or bolts inflict +1 HP and disintegrate after 1 rd"',
   'Flame Strike':
     'School=Evocation ' +
     'Level=C5 ' +
@@ -1311,12 +1310,12 @@ OSRIC.SPELLS = {
   'Fog Cloud':
     'School=Alteration ' +
     'Level=I2 ' +
-    'Description="R10\' Fog in a 40\'x20\'x20\' area obscures vision and moves away 10\'/rd for %{lvl+4} rd"',
+    'Description="R10\' Creates fog in a 40\'x20\'x20\' area that obscures vision and moves away 10\'/rd for %{lvl+4} rd"',
   "Fool's Gold":
     'School=Alteration ' +
     'Level=M2 ' +
     'Description=' +
-     '"R10\' Copper and brass become gold for %{lvl} hr (Intelligence Save disbelieve)"',
+     '"R10\' Changes copper and brass to gold for %{lvl} hr (Intelligence Save disbelieve)"',
   'Forceful Hand':
     'School=Evocation ' +
     'Level=M6 ' +
@@ -1345,7 +1344,7 @@ OSRIC.SPELLS = {
   'Gate':
     'School=Conjuration ' +
     'Level=C7,M9 ' +
-    'Description="R30\' Summons named extraplanar creature"',
+    'Description="R30\' Summons a named extraplanar creature"',
   'Gaze Reflection':
     'School=Alteration ' +
     'Level=I1 ' +
@@ -1438,7 +1437,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=C7 ' +
     'Description=' +
-      '"30\' radius banishes evil extraplanar creatures and kills (fewer than 4 HD), paralyzes 1d4x10 rd (4-7 HD), stuns 2d4 rd (8-11 HD), or deafens 1d4 rd (greater than 11 HD) non-good creatures (Reverse good)"',
+      '"30\' radius banishes evil extraplanar creatures and kills (fewer than 4 HD), paralyzes 1d4x10 rd (4-7 HD), stuns 2d4 rd (8-11 HD), or deafens 1d4 rd (greater than 11 HD) non-good creatures (Reverse good creatures)"',
   'Hypnotic Pattern':
     'School=Illusion ' +
     'Level=I2 ' +
@@ -1457,7 +1456,7 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=M1 ' +
     'Description=' +
-      '"Self may determine magical properties of touched w/in %{lvl} hr of discovery (%{lvl*5+15}% chance) (Save neg or mislead); requires rest afterward"',
+      '"Self may determine any magical properties of touched w/in %{lvl} hr of discovery (%{lvl*5+15}% chance) (Save neg or mislead); requires rest afterward"',
   'Illusory Script':
     'School=Illusion ' +
     'Level=I3 ' +
@@ -1490,7 +1489,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=C5,D5 ' +
     'Description=' +
-      '"R%{slv==\'D5\'?320:360}\' Stinging insects fill %{slv==\'D5\'?160:180}\' radius, inflicting 1 HP/rd for %{lvl} tn; creatures w/fewer than 2 HD flee, 3-4 HD check morale"',
+      '"R%{slv==\'D5\'?320:360}\' Stinging insects fill a %{slv==\'D5\'?160:180}\' radius, inflicting 1 HP/rd for %{lvl} tn; creatures w/fewer than 2 HD flee, 3-4 HD check morale"',
   'Instant Summons':
     'School=Conjuration ' +
     'Level=M7 ' +
@@ -1535,11 +1534,11 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=C2 ' +
     'Description=' +
-      '"Self discerns aura of 10 touched for 1 tn (Reverse obscures)"',
+      '"Self discerns alignment auras of 10 touched for 1 tn (Reverse obscures)"',
   'Legend Lore':
     'School=Divination ' +
     'Level=M6 ' +
-    'Description="Self gains info about specified object, person, or place"',
+    'Description="Self gains info about a specified object, person, or place"',
   'Levitate':
     'School=Alteration ' +
     'Level=M2 ' +
@@ -1607,7 +1606,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=I2,M2 ' +
     'Description=' +
-      '"Touched object responds to specified trigger by reciting up to 25 words"',
+      '"Touched object responds to a specified trigger by reciting up to 25 words"',
   'Major Creation':
     'School=Alteration ' +
     'Level=I5 ' +
@@ -1622,7 +1621,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=M7 ' +
     'Description=' +
-      '"R%{lvl*10}\' All in 30\' radius become invisible; attacking ends for each"',
+      '"R%{lvl*10}\' All in a 30\' radius become invisible; attacking ends for each"',
   'Mass Suggestion':
     'School=Enchantment ' +
     'Level=I6 ' +
@@ -1668,7 +1667,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I2,M2 ' +
     'Description=' +
-      '"1d4%{slv==\'I2\'?\' + 1\':\'\'} copies of self draw attacks for %{lvl*(slv==\'M2\'?2:3)} rd"',
+      '"1d4%{slv==\'I2\'?\' + 1\':\'\'} copies of self misdirect attacks on self for %{lvl*(slv==\'M2\'?2:3)} rd"',
   'Misdirection':
     'School=Illusion ' +
     'Level=I2 ' +
@@ -1721,7 +1720,7 @@ OSRIC.SPELLS = {
   'Neutralize Poison':
     'School=Alteration ' +
     'Level=C4,D3 ' +
-    'Description="Touched detoxified (Reverse lethally poisoned; Save neg)"',
+    'Description="Detoxifies touched (Reverse lethally poisons; Save neg)"',
   'Non-Detection':
     'School=Abjuration ' +
     'Level=I3 ' +
@@ -1729,7 +1728,8 @@ OSRIC.SPELLS = {
   'Obscurement':
     'School=Alteration ' +
     'Level=D2 ' +
-    'Description="Mist limits vision in %{lvl*10}\' cu for %{lvl*4} rd"',
+    'Description=' +
+      '"Creates a mist that limits vision in %{lvl*10}\' cu for %{lvl*4} rd"',
   'Paralysation':
     'School=Illusion ' +
     'Level=I3 ' +
@@ -1800,7 +1800,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M4 ' +
     'Description=' +
-      '"R%{lvl*5}\' Target creature transforms into named creature (Save neg) and dies (system shock neg); must succeed on a Intelligence * 5% test each dy to retain mind"',
+      '"R%{lvl*5}\' Target creature transforms into named creature (Save neg) and dies (system shock neg); must succeed on an Intelligence * 5% test each dy to retain mind"',
   'Polymorph Self':
     'School=Alteration ' +
     'Level=M4 ' +
@@ -1824,7 +1824,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=C3 ' +
     'Description=' +
-      '"R60\' Allies gain +1 attack, damage, and saves, and foes -1, for %{lvl} rd"',
+      '"R60\' Gives allies +1 attack, damage, and saves, and inflicts -1 on foes, for %{lvl} rd"',
   'Predict Weather':
     'School=Divination ' +
     'Level=D1 ' +
@@ -1834,7 +1834,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=M9 ' +
     'Description=' +
-      '"10\' sphere blocks passage, harms attackers, and blinds viewers w/up to 7 HD w/in 20\' for 2d4 rd, for %{lvl} tn"',
+      '"10\' sphere blocks passage, harms attackers, and blinds for 2d4 rd viewers w/up to 7 HD w/in 20\', for %{lvl} tn"',
   'Prismatic Spray':
     'School=Abjuration ' +
     'Level=I7 ' +
@@ -1844,15 +1844,15 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=I7 ' +
     'Description=' +
-      '"R10\' %{lvl*40}\'x%{lvl*20}\' wall blocks passage, harms attackers, and blinds viewers w/up to 7 HD w/in 20\' for 2d4 rd, for %{lvl} tn"',
+      '"R10\' %{lvl*40}\'x%{lvl*20}\' wall blocks passage, harms attackers, and blinds for 2d4 rd viewers w/up to 7 HD w/in 20\', for %{lvl} tn"',
   'Produce Fire':
     'School=Alteration ' +
     'Level=D4 ' +
-    'Description="R40\' Fire in 60\' radius inflicts 1d4 HP for 1 rd (Reverse extinguishes)"',
+    'Description="R40\' Creates fire in a 60\' radius that inflicts 1d4 HP for 1 rd (Reverse extinguishes)"',
   'Produce Flame':
     'School=Alteration ' +
     'Level=D2 ' +
-    'Description="R40\' Thrown flame ignites a 15\' radius for %{lvl*2} rd"',
+    'Description="R40\' Creates a flame that ignites combustables and may be thrown to burn a 15\' radius for %{lvl*2} rd"',
   'Programmed Illusion':
     'School=Illusion ' +
     'Level=I6 ' +
@@ -1862,7 +1862,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I5,M6 ' +
     'Description=' +
-      '"R%{lvl*(slv==\'I5\'?5:10)}\' Self can cast through an illusory double for %{lvl} rd"',
+      '"R%{lvl*(slv==\'I5\'?5:10)}\' Self may cast through an illusory double for %{lvl} rd"',
   'Protection From Evil':
     'School=Abjuration ' +
     'Level=C1,M1 ' +
@@ -1877,12 +1877,12 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=D3 ' +
     'Description=' +
-      '"Touched gains immunity to normal fire and +4 saves and half damage from magic fire (immunity to magic fire if cast on self) for %{lvl*12} HP"',
+      '"Touched gains immunity to normal fire and +4 saves and half damage from magical fire (immunity to magical fire if cast on self) for %{lvl*12} HP"',
   'Protection From Lightning':
     'School=Abjuration ' +
     'Level=D4 ' +
     'Description=' +
-      '"Touched gains immunity to normal lightning and +4 saves and half damage from magic lightning (immunity to magic lightning if cast on self) for %{lvl*12} HP"',
+      '"Touched gains immunity to normal lightning and +4 saves and half damage from magical lightning (immunity to magical lightning if cast on self) for %{lvl*12} HP"',
   'Protection From Normal Missiles':
     'School=Abjuration ' +
     'Level=M3 ' +
@@ -1965,12 +1965,12 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C1 ' +
     'Description=' +
-      '"Touched feels comfortable to 0F, gains +3 saves vs. cold, and suffers 1/4 or 1/2 damage from cold for %{lvl} tn"',
+      '"Touched feels comfortable to 0F, gains +3 saves vs. magical cold, and suffers 1/4 or 1/2 damage from magical cold for %{lvl} tn"',
   'Resist Fire':
     'School=Alteration ' +
     'Level=C2 ' +
     'Description=' +
-      '"Touched feels comfortable to 212F, gains +3 saves vs. fire, and suffers 1/4 or 1/2 damage from fire for %{lvl} tn"',
+      '"Touched feels comfortable to 212F, gains +3 saves vs. magical fire, and suffers 1/4 or 1/2 damage from magical fire for %{lvl} tn"',
   'Restoration':
     'School=Necromancy ' +
     'Level=C7 ' +
@@ -2030,17 +2030,17 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M2 ' +
     'Description=' +
-      '"R60\' Target %{lvl*10} lbs of brittle material shatters (Save neg)"',
+      '"R60\' Target %{lvl*10} lb object made of brittle material shatters (Save neg)"',
   'Shield':
     'School=Evocation ' +
     'Level=M1 ' +
     'Description=' +
-      '"Self gains frontal AC 2 vs. thrown, AC 3 vs. arrow or bolt, AC 4 vs. melee, and +1 save for %{lvl*5} rd"',
+      '"Self gains frontal AC 2 vs. thrown, AC 3 vs. arrows and bolts, AC 4 vs. melee attacks, and +1 saves for %{lvl*5} rd"',
   'Shillelagh':
     'School=Alteration ' +
     'Level=D1 ' +
     'Description=' +
-      '"Touched club gains +1 attack and inflicts 2d4 damage for %{lvl} rd"',
+      '"Touched club gains +1 attack and inflicts 2d4 HP for %{lvl} rd"',
   'Shocking Grasp':
     'School=Alteration ' +
     'Level=M1 ' +
@@ -2067,7 +2067,7 @@ OSRIC.SPELLS = {
     'School=Necromancy ' +
     'Level=C2 ' +
     'Description=' +
-      '"Reduces poison damage in touched to 1 HP/tn and protects touched from death for %{lvl*2} rd"',
+      '"Reduces poison damage in touched to 1 HP/tn and prevents death from poison for %{lvl*2} rd"',
   'Snake Charm':
     'School=Enchantment ' +
     'Level=C2 ' +
@@ -2086,7 +2086,7 @@ OSRIC.SPELLS = {
     'School=Necromancy ' +
     'Level=C3 ' +
     'Description=' +
-      '"R10\' Self may ask %{lvl<7?2:lvl<9?3:lvl<13?4:lvl<16?5:lvl<21?6:7} questions of a corpse"',
+      '"R10\' Self may ask a corpse %{lvl<7?2:lvl<9?3:lvl<13?4:lvl<16?5:lvl<21?6:7} questions"',
   'Speak With Monsters':
     'School=Alteration ' +
     'Level=C6 ' +
@@ -2116,7 +2116,7 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=M6 ' +
     'Description=' +
-      '"R%{lvl+10}\' Painfully banishes named extraplanar creature for %{lvl} yr"',
+      '"R%{lvl+10}\' Painfully banishes a named extraplanar creature for %{lvl} yr"',
   'Spiritual Weapon':
     'School=Evocation ' +
     'Level=C2 ' +
@@ -2139,7 +2139,7 @@ OSRIC.SPELLS = {
   'Stone Shape':
     'School=Alteration ' +
     'Level=D3,M5 ' +
-    'Description="Self may reshape %{lvl+(slv==\'D3\'?3:0)}\' cu of stone"',
+    'Description="Reshapes %{lvl+(slv==\'D3\'?3:0)}\' cu of stone"',
   'Stone Tell':
     'School=Divination ' +
     'Level=C6 ' +
@@ -2158,12 +2158,12 @@ OSRIC.SPELLS = {
     'School=Enchantment ' +
     'Level=I3,M3 ' +
     'Description=' +
-      '"R30\' Target carries out reasonable suggestions for %{slv==\'I3\'?lvl*4+4+\' tn\':(lvl+1+\' hr\')} (Save neg)"',
+      '"R30\' Target follows reasonable suggestions for %{slv==\'I3\'?lvl*4+4+\' tn\':(lvl+1+\' hr\')} (Save neg)"',
   'Summon Insects':
     'School=Conjuration ' +
     'Level=D3 ' +
     'Description=' +
-      '"R30\' Target becomes covered w/insects, suffering 2 HP/rd, for %{lvl} rd"',
+      '"R30\' Covers target w/insects, inflicting 2 HP/rd, for %{lvl} rd"',
   'Summon Shadow':
     'School=Conjuration ' +
     'Level=I5 ' +
@@ -2208,7 +2208,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M6 ' +
     'Description=' +
-      '"Self becomes a warrior (Dbl HP, AC +4, 2/rd dagger +2 damage) for %{lvl} rd"',
+      '"Self becomes a warrior (dbl HP, AC +4, 2/rd dagger +2 damage) for %{lvl} rd"',
   'Transmute Metal To Wood':
     'School=Alteration ' +
     'Level=D7 ' +
@@ -2222,7 +2222,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D6 ' +
     'Description=' +
-      '"Self teleports any distance between plants of the same species"',
+      '"Self may teleport any distance between plants of the same species"',
   'Trap The Soul':
     'School=Conjuration ' +
     'Level=M8 ' +
@@ -2277,7 +2277,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=D5,M4 ' +
     'Description=' +
-      '"R%{slv==\'M4\'?60:80}\' Creates a %{lvl*20}\' sq wall or %{slv==\'M4\'?lvl*3+10:(lvl*5)}\' radius circle that inflicts %{slv==\'M4\'?\'2d6\':\'4d4\'}+%{lvl} HP to passers, 2d4 HP to creatures w/in 10\', and 1d4 to creatures w/in 20\' for conc + %{lvl} rd"',
+      '"R%{slv==\'M4\'?60:80}\' Creates a %{lvl*20}\' sq wall or %{slv==\'M4\'?lvl*3+10:(lvl*5)}\' radius circle that inflicts %{slv==\'M4\'?\'2d6\':\'4d4\'}+%{lvl} HP to passers, 2d4 HP to creatures w/in 10\', and 1d4 to creatures w/in 20\', for conc + %{lvl} rd"',
   'Wall Of Fog':
     'School=Alteration ' +
     'Level=I1 ' +
@@ -2297,12 +2297,12 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=M5 ' +
     'Description=' +
-      '"R%{lvl*5}\' Creates a %{lvl/4}\\" thick, %{lvl*15}\' sq wall"',
+      '"R%{lvl*5}\' Creates a %{lvl/4}\\" thick, %{lvl*15}\' sq metal wall"',
   'Wall Of Stone':
     'School=Evocation ' +
     'Level=M5 ' +
     'Description=' +
-      '"R%{lvl*5}\' Brings forth from stone a %{lvl/4}\\" thick, %{lvl*20}\' sq wall"',
+      '"R%{lvl*5}\' Extends from existing stone a %{lvl/4}\\" thick, %{lvl*20}\' sq wall"',
   'Wall Of Thorns':
     'School=Conjuration ' +
     'Level=D6 ' +
@@ -2321,7 +2321,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"Controls precipitation, temp, and wind within d100 sq miles for 4d12 hr"',
+      '"Controls precipitation, temperature, and wind within d100 sq miles for 4d12 hr"',
   'Web':
     'School=Evocation ' +
     'Level=M2 ' +
@@ -2344,11 +2344,11 @@ OSRIC.SPELLS = {
   'Wizard Lock':
     'School=Alteration ' +
     'Level=M2 ' +
-    'Description="Hold shut touched door, gate, or window"',
+    'Description="Holds shut touched door, gate, or window"',
   'Word Of Recall':
     'School=Alteration ' +
     'Level=C6 ' +
-    'Description="Self returns to designated place"',
+    'Description="Self returns to a designated place"',
   'Write':
     'School=Evocation ' +
     'Level=M1 ' +
