@@ -217,7 +217,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Animate Dead (M5 Necr): R10' Creates from corpses 20 obedient skeletons or zombies</td>
     </tr><tr style="text-align:left">
-      <td>Anti-Magic Shell (M6 Abju): 100' radius around self allows no magic inside for 20 tn</td>
+      <td>Anti-Magic Shell (M6 Abju): 100' radius blocks magic for 20 tn</td>
     </tr><tr style="text-align:left">
       <td>Antipathy/Sympathy (M8 Ench): R30' Target 200' cu or object repels (Reverse attracts) specified creature type or alignment (Save inflicts -1 Dexterity/rd for 4 rd) for 40 hr</td>
     </tr><tr style="text-align:left">
@@ -229,7 +229,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Burning Hands (M1 Alte): 3' cone inflicts 20 HP</td>
     </tr><tr style="text-align:left">
-      <td>Cacodemon (M7 Conj): R10' Summons named demon or devil</td>
+      <td>Cacodemon (M7 Conj): R10' Summons a named demon or devil</td>
     </tr><tr style="text-align:left">
       <td>Charm Monster (M4 Ench): R60' Target 2d4 HD creatures treat self as a trusted friend (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -251,7 +251,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Cone Of Cold (M5 Evoc): 100' cone inflicts 20d4+20 HP (Save half)</td>
     </tr><tr style="text-align:left">
-      <td>Confusion (M4 Ench): R120' Causes 2d8 or more creatures in a 60' sq to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd) each rd for 22 rd</td>
+      <td>Confusion (M4 Ench): R120' Causes 2d8 or more creatures in a 60' sq to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd), each rd for 22 rd</td>
     </tr><tr style="text-align:left">
       <td>Conjure Elemental (M5 Conj): R60' Summons an elemental that obeys self for conc up to 20 tn</td>
     </tr><tr style="text-align:left">
@@ -261,7 +261,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Control Weather (M6 Alte): Controls the precipitation, temperature, and wind within 4d4 sq miles for 4d6 hr</td>
     </tr><tr style="text-align:left">
-      <td>Crushing Hand (M9 Evoc): R100' Create a giant force hand that absorbs attacks (38 HP) and inflicts 1d10 - 4d10 HP for conc up to 20 rd</td>
+      <td>Crushing Hand (M9 Evoc): R100' Creates a giant force hand that absorbs attacks (38 HP) and inflicts 1d10 - 4d10 HP for conc up to 20 rd</td>
     </tr><tr style="text-align:left">
       <td>Dancing Lights (M1 Alte): R240' Creates up to 4 movable lights for 40 rd</td>
     </tr><tr style="text-align:left">
@@ -283,31 +283,31 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Disintegrate (M6 Alte): R100' Obliterates 200' sq matter (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Magic (M3 Abju): R120' Extinguishes magic in a 30' cu (50% chance each effect +5%/-2% per caster level delta)</td>
+      <td>Dispel Magic (M3 Abju): R120' Extinguishes magic in a 30' cu (50% chance each effect +5%/-2% per caster level difference)</td>
     </tr><tr style="text-align:left">
       <td>Distance Distortion (M5 Alte): R200' Doubles or halves travel time through a 2000' sq for 20 tn</td>
     </tr><tr style="text-align:left">
-      <td>Duo-Dimension (M7 Alte): Self becomes 2D: takes 3x damage from front or back and becomes invisible and immune to attacks from side for 23 rd</td>
+      <td>Duo-Dimension (M7 Alte): Self becomes 2D, suffering 3x damage from front or back and becoming invisible and immune to attacks from side, for 23 rd</td>
     </tr><tr style="text-align:left">
       <td>ESP (M2 Divi): R90' Self may hear surface thoughts for 20 rd</td>
     </tr><tr style="text-align:left">
       <td>Enchant An Item (M6 Conj): Touched item becomes magical</td>
     </tr><tr style="text-align:left">
-      <td>Enchanted Weapon (M4 Alte): Touched weapon becomes magical w/no bonuses for 100 rd or until next hit</td>
+      <td>Enchanted Weapon (M4 Alte): Touched weapon becomes magical (but w/no attack bonuses) for 100 rd or until next hit</td>
     </tr><tr style="text-align:left">
-      <td>Enlarge (M1 Alte): R100' Expands target creature 200% or target object 100% for 20 tn (Reverse shrinks) (Save neg)</td>
+      <td>Enlarge (M1 Alte): R100' Expands (Reverse shrinks) target creature 200% or target object 100% (Save neg) for 20 tn</td>
     </tr><tr style="text-align:left">
       <td>Erase (M1 Alte): R30' Erases magical (90% chance) or normal (130% chance) writing from a 2-page area (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Explosive Runes (M3 Alte): Runes inflict 6d4+6 HP in a 10' radius when read (Save half for those other than the reader)</td>
     </tr><tr style="text-align:left">
-      <td>Extension I (M4 Alte): Increases duration of existing level 1-3 spell 50%</td>
+      <td>Extension I (M4 Alte): Increases duration of an existing level 1-3 spell 50%</td>
     </tr><tr style="text-align:left">
-      <td>Extension II (M5 Alte): Increases duration of existing level 1-4 spell 50%</td>
+      <td>Extension II (M5 Alte): Increases duration of an existing level 1-4 spell 50%</td>
     </tr><tr style="text-align:left">
-      <td>Extension III (M6 Alte): Increases duration of existing level 1-3 spell 100% or level 4-5 spell 50%</td>
+      <td>Extension III (M6 Alte): Increases duration of an existing level 1-3 spell 100% or level 4-5 spell 50%</td>
     </tr><tr style="text-align:left">
-      <td>False Trap (M2 Illu): Touched object appears trapped (Save disbelieve)</td>
+      <td>False Trap (M2 Illu): Makes touched object appear to be trapped (Save disbelieve)</td>
     </tr><tr style="text-align:left">
       <td>Fear (M4 Illu): Creatures in a 60' cone flee for 20 rd (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -327,13 +327,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Fireball (M3 Evoc): R300' 20' radius inflicts 20d6 HP (Save half)</td>
     </tr><tr style="text-align:left">
-      <td>Flame Arrow (M3 Evoc): Touched arrows or bolts inflict +1 HP fire damage and disintegrate after 1 rd</td>
+      <td>Flame Arrow (M3 Evoc): Touched arrows or bolts inflict +1 HP and disintegrate after 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Floating Disk (M1 Evoc): R20' 3' diameter x 1" thick force disk follows self and holds 2000 lbs for 23 tn</td>
     </tr><tr style="text-align:left">
       <td>Fly (M3 Alte): Touched may fly 120'/rd for 1d6 + 120 tn</td>
     </tr><tr style="text-align:left">
-      <td>Fool's Gold (M2 Alte): R10' Copper and brass become gold for 20 hr (Intelligence Save disbelieve)</td>
+      <td>Fool's Gold (M2 Alte): R10' Changes copper and brass to gold for 20 hr (Intelligence Save disbelieve)</td>
     </tr><tr style="text-align:left">
       <td>Forceful Hand (M6 Evoc): R200' Creates a giant force hand that absorbs attacks (38 HP) and pushes away for conc up to 20 rd</td>
     </tr><tr style="text-align:left">
@@ -345,7 +345,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Fumble (M4 Ench): R200' Target falls and drops anything carried (Save slowed) for 20 rd</td>
     </tr><tr style="text-align:left">
-      <td>Gate (M9 Conj): R30' Summons named extraplanar creature</td>
+      <td>Gate (M9 Conj): R30' Summons a named extraplanar creature</td>
     </tr><tr style="text-align:left">
       <td>Geas (M6 Ench): Touched sickens and dies in 1d4 wk unless quest is pursued</td>
     </tr><tr style="text-align:left">
@@ -373,7 +373,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Ice Storm (M4 Evoc): R200' Hail in a 40' sq inflicts 3d10 HP, or sleet in a 80' sq blinds, slows, and causes falls, for 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Identify (M1 Divi): Self may determine magical properties of touched w/in 20 hr of discovery (115% chance) (Save neg or mislead); requires rest afterward</td>
+      <td>Identify (M1 Divi): Self may determine any magical properties of touched w/in 20 hr of discovery (115% chance) (Save neg or mislead); requires rest afterward</td>
     </tr><tr style="text-align:left">
       <td>Imprisonment (M9 Abju): Touched creature safely trapped underground permanently (Reverse frees)</td>
     </tr><tr style="text-align:left">
@@ -397,7 +397,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Knock (M2 Alte): R60' Opens stuck, barred, locked, or magically held door, chest, or shackle</td>
     </tr><tr style="text-align:left">
-      <td>Legend Lore (M6 Divi): Self gains info about specified object, person, or place</td>
+      <td>Legend Lore (M6 Divi): Self gains info about a specified object, person, or place</td>
     </tr><tr style="text-align:left">
       <td>Levitate (M2 Alte): R400' Self may move 2000 lb target up and down 10'/rd, or self 20'/rd, for 20 tn (Save neg)</td>
     </tr><tr style="text-align:left">
@@ -421,11 +421,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Magic Missile (M1 Evoc): R260' 10 energy darts inflict 1d4+1 HP each in a 10' sq</td>
     </tr><tr style="text-align:left">
-      <td>Magic Mouth (M2 Alte): Touched object responds to specified trigger by reciting up to 25 words</td>
+      <td>Magic Mouth (M2 Alte): Touched object responds to a specified trigger by reciting up to 25 words</td>
     </tr><tr style="text-align:left">
       <td>Mass Charm (M8 Ench): R100' 40 HD of creatures in a 30' sq treat self as a trusted friend (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Mass Invisibility (M7 Illu): R200' All in 30' radius become invisible; attacking ends for each</td>
+      <td>Mass Invisibility (M7 Illu): R200' All in a 30' radius become invisible; attacking ends for each</td>
     </tr><tr style="text-align:left">
       <td>Massmorph (M4 Illu): R200' 10 willing creatures look like trees</td>
     </tr><tr style="text-align:left">
@@ -441,7 +441,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Minor Globe Of Invulnerability (M4 Abju): 5' radius blocks spells level 1-3 for 20 rd</td>
     </tr><tr style="text-align:left">
-      <td>Mirror Image (M2 Illu): 1d4 copies of self draw attacks for 40 rd</td>
+      <td>Mirror Image (M2 Illu): 1d4 copies of self misdirect attacks on self for 40 rd</td>
     </tr><tr style="text-align:left">
       <td>Mnemonic Enhancer (M4 Alte): Self may memorize +3 spell levels or retain just-cast spell up to 3rd level for 1 dy</td>
     </tr><tr style="text-align:left">
@@ -475,7 +475,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Polymorph Object (M8 Alte): R100' Target object or creature becomes something else (Save -4 neg)</td>
     </tr><tr style="text-align:left">
-      <td>Polymorph Other (M4 Alte): R100' Target creature transforms into named creature (Save neg) and dies (system shock neg); must succeed on a Intelligence * 5% test each dy to retain mind</td>
+      <td>Polymorph Other (M4 Alte): R100' Target creature transforms into named creature (Save neg) and dies (system shock neg); must succeed on an Intelligence * 5% test each dy to retain mind</td>
     </tr><tr style="text-align:left">
       <td>Polymorph Self (M4 Alte): Self may transform into a different creature up to 2000 lb 2/min for 40 tn</td>
     </tr><tr style="text-align:left">
@@ -485,9 +485,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Power Word Stun (M7 Conj): R100' Stuns target for up to 4d4 rd</td>
     </tr><tr style="text-align:left">
-      <td>Prismatic Sphere (M9 Conj): 10' sphere blocks passage, harms attackers, and blinds viewers w/up to 7 HD w/in 20' for 2d4 rd, for 20 tn</td>
+      <td>Prismatic Sphere (M9 Conj): 10' sphere blocks passage, harms attackers, and blinds for 2d4 rd viewers w/up to 7 HD w/in 20', for 20 tn</td>
     </tr><tr style="text-align:left">
-      <td>Project Image (M6 Illu): R200' Self can cast through an illusory double for 20 rd</td>
+      <td>Project Image (M6 Illu): R200' Self may cast through an illusory double for 20 rd</td>
     </tr><tr style="text-align:left">
       <td>Protection From Evil (M1 Abju): Touched becomes untouchable by summoned and conjured creatures and gains +2 saves vs. evil, and evil foes suffer -2 attacks, for 40 rd (Reverse good)</td>
     </tr><tr style="text-align:left">
@@ -519,9 +519,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Shape Change (M9 Alte): Self may polymorph freely for 20 tn</td>
     </tr><tr style="text-align:left">
-      <td>Shatter (M2 Alte): R60' Target 200 lbs of brittle material shatters (Save neg)</td>
+      <td>Shatter (M2 Alte): R60' Target 200 lb object made of brittle material shatters (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Shield (M1 Evoc): Self gains frontal AC 2 vs. thrown, AC 3 vs. arrow or bolt, AC 4 vs. melee, and +1 save for 100 rd</td>
+      <td>Shield (M1 Evoc): Self gains frontal AC 2 vs. thrown, AC 3 vs. arrows and bolts, AC 4 vs. melee attacks, and +1 saves for 100 rd</td>
     </tr><tr style="text-align:left">
       <td>Shocking Grasp (M1 Alte): Touched suffers 1d8+20 HP</td>
     </tr><tr style="text-align:left">
@@ -535,19 +535,19 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Spider Climb (M1 Alte): Touched may move 30'/rd on walls and ceilings for 21 rd</td>
     </tr><tr style="text-align:left">
-      <td>Spirit-Rack (M6 Abju): R30' Painfully banishes named extraplanar creature for 20 yr</td>
+      <td>Spirit-Rack (M6 Abju): R30' Painfully banishes a named extraplanar creature for 20 yr</td>
     </tr><tr style="text-align:left">
       <td>Statue (M7 Alte): Touched may become stone at will for 20 hr</td>
     </tr><tr style="text-align:left">
       <td>Stinking Cloud (M2 Evoc): R30' Creatures in a 20' radius retch for 1d4 + 1 rd (Save neg) for 20 rd</td>
     </tr><tr style="text-align:left">
-      <td>Stone Shape (M5 Alte): Self may reshape 20' cu of stone</td>
+      <td>Stone Shape (M5 Alte): Reshapes 20' cu of stone</td>
     </tr><tr style="text-align:left">
       <td>Stone To Flesh (M6 Alte): R200' Restores stoned creature (system shock required) or converts 180' cu stone to flesh (Reverse flesh becomes stone (Save neg))</td>
     </tr><tr style="text-align:left">
       <td>Strength (M2 Alte): Touched gains +1d6 Strength (warriors an additional +1) for 20 hr</td>
     </tr><tr style="text-align:left">
-      <td>Suggestion (M3 Ench): R30' Target carries out reasonable suggestions for 21 hr (Save neg)</td>
+      <td>Suggestion (M3 Ench): R30' Target follows reasonable suggestions for 21 hr (Save neg)</td>
     </tr><tr style="text-align:left">
       <td>Symbol (M8 Conj): Glowing symbol causes death, discord 5d4 rd, fear (Save -4 neg), hopelessness 3d4 tn, insanity, pain 2d10 tn, sleep 4d4 + 1 tn, or stunning 3d4 rd</td>
     </tr><tr style="text-align:left">
@@ -563,7 +563,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Tongues (M3 Alte): R30' Self may converse in any language (Reverse muddles) for 20 rd</td>
     </tr><tr style="text-align:left">
-      <td>Transformation (M6 Alte): Self becomes a warrior (Dbl HP, AC +4, 2/rd dagger +2 damage) for 20 rd</td>
+      <td>Transformation (M6 Alte): Self becomes a warrior (dbl HP, AC +4, 2/rd dagger +2 damage) for 20 rd</td>
     </tr><tr style="text-align:left">
       <td>Transmute Rock To Mud (M5 Alte): R200' 400' cu rock becomes mud (Reverse mud becomes rock)</td>
     </tr><tr style="text-align:left">
@@ -575,15 +575,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Ventriloquism (M1 Illu): R60' Self may throw voice for 22 rd ((Intelligence - 12) * 10% disbelieve)</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Fire (M4 Evoc): R60' Creates a 400' sq wall or 70' radius circle that inflicts 2d6+20 HP to passers, 2d4 HP to creatures w/in 10', and 1d4 to creatures w/in 20' for conc + 20 rd</td>
+      <td>Wall Of Fire (M4 Evoc): R60' Creates a 400' sq wall or 70' radius circle that inflicts 2d6+20 HP to passers, 2d4 HP to creatures w/in 10', and 1d4 to creatures w/in 20', for conc + 20 rd</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Force (M5 Evoc): R30' Creates an invisible, impenetrable 400' sq wall for 21 tn</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Ice (M4 Evoc): R200' Creates a 2000' sq ice wall for 20 tn</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Iron (M5 Evoc): R100' Creates a 5" thick, 300' sq wall</td>
+      <td>Wall Of Iron (M5 Evoc): R100' Creates a 5" thick, 300' sq metal wall</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Stone (M5 Evoc): R100' Brings forth from stone a 5" thick, 400' sq wall</td>
+      <td>Wall Of Stone (M5 Evoc): R100' Extends from existing stone a 5" thick, 400' sq wall</td>
     </tr><tr style="text-align:left">
       <td>Water Breathing (M3 Alte): Touched may breathe water (Reverse may breathe air) for 20 rd</td>
     </tr><tr style="text-align:left">
@@ -593,7 +593,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Wizard Eye (M4 Alte): Self may see through and move 30'/rd an invisible eye w/600' vision and 100' infravision for 20 rd</td>
     </tr><tr style="text-align:left">
-      <td>Wizard Lock (M2 Alte): Hold shut touched door, gate, or window</td>
+      <td>Wizard Lock (M2 Alte): Holds shut touched door, gate, or window</td>
     </tr><tr style="text-align:left">
       <td>Write (M1 Evoc): Self may copy spells that are too powerful to learn (Save vs. spell; fail inflicts 1d4 HP/spell level and unconsciousness) for 20 hr</td>
     </tr></table>

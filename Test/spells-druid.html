@@ -215,7 +215,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Commune With Nature (D5 Divi): Self learns nature info about surrounding 7 mile radius</td>
     </tr><tr style="text-align:left">
-      <td>Confusion (D7 Ench): R80' Causes 2d4 or more creatures in a 20' radius to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd) each rd for 14 rd</td>
+      <td>Confusion (D7 Ench): R80' Causes 2d4 or more creatures in a 20' radius to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd), each rd for 14 rd</td>
     </tr><tr style="text-align:left">
       <td>Conjure Earth Elemental (D7 Conj): R40' Summons a 16 HD elemental that assists self for 14 tn (Reverse dismisses)</td>
     </tr><tr style="text-align:left">
@@ -243,7 +243,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Detect Pits And Snares (D1 Divi): Self discerns outdoor traps or indoor pits in a 10'x40' path for 56 rd</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Magic (D4 Abju): R80' Extinguishes magic in a 560' cu (50% chance each effect +5%/-2% per caster level delta)</td>
+      <td>Dispel Magic (D4 Abju): R80' Extinguishes magic in a 560' cu (50% chance each effect +5%/-2% per caster level difference)</td>
     </tr><tr style="text-align:left">
       <td>Entangle (D1 Alte): R80' Plants in a 20' radius immobilize passers (Save half movement) for 1 tn</td>
     </tr><tr style="text-align:left">
@@ -269,7 +269,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Hold Plant (D4 Ench): R80' Immobilizes plants in 16 sq yd for 14 rd (Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Insect Plague (D5 Conj): R320' Stinging insects fill 160' radius, inflicting 1 HP/rd for 14 tn; creatures w/fewer than 2 HD flee, 3-4 HD check morale</td>
+      <td>Insect Plague (D5 Conj): R320' Stinging insects fill a 160' radius, inflicting 1 HP/rd for 14 tn; creatures w/fewer than 2 HD flee, 3-4 HD check morale</td>
     </tr><tr style="text-align:left">
       <td>Invisibility To Animals (D1 Alte): Touched becomes invisible to animals for 24 rd</td>
     </tr><tr style="text-align:left">
@@ -277,9 +277,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Locate Plants (D2 Divi): Self discerns plants in a 70' radius for 14 tn</td>
     </tr><tr style="text-align:left">
-      <td>Neutralize Poison (D3 Alte): Touched detoxified (Reverse lethally poisoned; Save neg)</td>
+      <td>Neutralize Poison (D3 Alte): Detoxifies touched (Reverse lethally poisons; Save neg)</td>
     </tr><tr style="text-align:left">
-      <td>Obscurement (D2 Alte): Mist limits vision in 140' cu for 56 rd</td>
+      <td>Obscurement (D2 Alte): Creates a mist that limits vision in 140' cu for 56 rd</td>
     </tr><tr style="text-align:left">
       <td>Pass Plant (D5 Alte): Self may teleport up to 600 yd between trees of the same species</td>
     </tr><tr style="text-align:left">
@@ -291,13 +291,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Predict Weather (D1 Divi): Forecasts weather in a 9 sq mile radius for the next 28 hr</td>
     </tr><tr style="text-align:left">
-      <td>Produce Fire (D4 Alte): R40' Fire in 60' radius inflicts 1d4 HP for 1 rd (Reverse extinguishes)</td>
+      <td>Produce Fire (D4 Alte): R40' Creates fire in a 60' radius that inflicts 1d4 HP for 1 rd (Reverse extinguishes)</td>
     </tr><tr style="text-align:left">
-      <td>Produce Flame (D2 Alte): R40' Thrown flame ignites a 15' radius for 28 rd</td>
+      <td>Produce Flame (D2 Alte): R40' Creates a flame that ignites combustables and may be thrown to burn a 15' radius for 28 rd</td>
     </tr><tr style="text-align:left">
-      <td>Protection From Fire (D3 Abju): Touched gains immunity to normal fire and +4 saves and half damage from magic fire (immunity to magic fire if cast on self) for 168 HP</td>
+      <td>Protection From Fire (D3 Abju): Touched gains immunity to normal fire and +4 saves and half damage from magical fire (immunity to magical fire if cast on self) for 168 HP</td>
     </tr><tr style="text-align:left">
-      <td>Protection From Lightning (D4 Abju): Touched gains immunity to normal lightning and +4 saves and half damage from magic lightning (immunity to magic lightning if cast on self) for 168 HP</td>
+      <td>Protection From Lightning (D4 Abju): Touched gains immunity to normal lightning and +4 saves and half damage from magical lightning (immunity to magical lightning if cast on self) for 168 HP</td>
     </tr><tr style="text-align:left">
       <td>Purify Water (D1 Alte): R40' Decontaminates (Reverse contaminates) 14' cu water</td>
     </tr><tr style="text-align:left">
@@ -307,7 +307,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Repel Insects (D4 Abju): 10' radius expels normal insects and wards against giant ones (Save inflicts 1d6 HP) for 14 tn</td>
     </tr><tr style="text-align:left">
-      <td>Shillelagh (D1 Alte): Touched club gains +1 attack and inflicts 2d4 damage for 14 rd</td>
+      <td>Shillelagh (D1 Alte): Touched club gains +1 attack and inflicts 2d4 HP for 14 rd</td>
     </tr><tr style="text-align:left">
       <td>Snare (D3 Ench): Touched snare becomes 90% undetectable until triggered</td>
     </tr><tr style="text-align:left">
@@ -317,15 +317,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Sticks To Snakes (D5 Alte): R40' Turns 14 sticks in a 5' radius to snakes (70% venomous) (Reverse turns snakes to sticks) for 28 rd</td>
     </tr><tr style="text-align:left">
-      <td>Stone Shape (D3 Alte): Self may reshape 17' cu of stone</td>
+      <td>Stone Shape (D3 Alte): Reshapes 17' cu of stone</td>
     </tr><tr style="text-align:left">
-      <td>Summon Insects (D3 Conj): R30' Target becomes covered w/insects, suffering 2 HP/rd, for 14 rd</td>
+      <td>Summon Insects (D3 Conj): R30' Covers target w/insects, inflicting 2 HP/rd, for 14 rd</td>
     </tr><tr style="text-align:left">
       <td>Transmute Metal To Wood (D7 Alte): R80' 112 lb metal object becomes wood</td>
     </tr><tr style="text-align:left">
       <td>Transmute Rock To Mud (D5 Alte): R160' 280' cu rock becomes mud (Reverse mud becomes rock)</td>
     </tr><tr style="text-align:left">
-      <td>Transport Via Plants (D6 Alte): Self teleports any distance between plants of the same species</td>
+      <td>Transport Via Plants (D6 Alte): Self may teleport any distance between plants of the same species</td>
     </tr><tr style="text-align:left">
       <td>Tree (D3 Alte): Self polymorphs into a tree for 20 tn</td>
     </tr><tr style="text-align:left">
@@ -333,7 +333,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Turn Wood (D6 Alte): Repels wood in a 120'x280' path for 56 rd</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Fire (D5 Evoc): R80' Creates a 280' sq wall or 70' radius circle that inflicts 4d4+14 HP to passers, 2d4 HP to creatures w/in 10', and 1d4 to creatures w/in 20' for conc + 14 rd</td>
+      <td>Wall Of Fire (D5 Evoc): R80' Creates a 280' sq wall or 70' radius circle that inflicts 4d4+14 HP to passers, 2d4 HP to creatures w/in 10', and 1d4 to creatures w/in 20', for conc + 14 rd</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Thorns (D6 Conj): R80' Creates briars in a 1400' cu that inflict 8 + AC HP for 14 tn</td>
     </tr><tr style="text-align:left">
@@ -341,7 +341,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Water Breathing (D3 Alte): Touched may breathe water (Reverse may breathe air) for 14 hr</td>
     </tr><tr style="text-align:left">
-      <td>Weather Summoning (D6 Conj): Controls precipitation, temp, and wind within d100 sq miles for 4d12 hr</td>
+      <td>Weather Summoning (D6 Conj): Controls precipitation, temperature, and wind within d100 sq miles for 4d12 hr</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
