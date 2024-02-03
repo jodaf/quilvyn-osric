@@ -61,7 +61,6 @@ function OSRIC(edition) {
     (rules, OSRIC.FEATURES, OSRIC.GOODIES, OSRIC.LANGUAGES, OSRIC.SKILLS);
   OSRIC.identityRules(rules, OSRIC.ALIGNMENTS, OSRIC.CLASSES, OSRIC.RACES);
 
-
   // Add additional elements to sheet
   rules.defineSheetElement('Strength');
   rules.defineSheetElement
@@ -107,8 +106,7 @@ OSRIC.VERSION = '2.4.1.0';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
-  'Armor', 'Class', 'Feature', 'Language', 'Race', 'School', 'Shield', 'Spell',
-  'Weapon'
+  'Armor', 'Class', 'Feature', 'Language', 'Race', 'Shield', 'Spell', 'Weapon'
 ];
 /*
  * List of items handled by randomizeOneAttribute method. The order handles
@@ -142,27 +140,17 @@ OSRIC.ALIGNMENTS = {
   'Lawful Neutral':''
 };
 OSRIC.ARMORS = {
-  'None':
-    'AC=0 Move=120 Weight=0 ' +
-    'Skill="+10% Climb Walls/+5% Hide In Shadows/+10% Move Silently/+5% Pick Pockets"',
+  'None':'AC=0 Move=120 Weight=0 ',
   'Banded':'AC=6 Move=90 Weight=35',
-  'Chain Mail':
-    'AC=5 Move=90 Weight=30 ' +
-    'Skill="-25% Climb Walls/-10% Find Traps/-10% Hear Noise/-15% Hide In Shadows/-15% Move Silently/-10% Open Locks/-25% Pick Pockets"',
-  'Elven Chain Mail':
-    'AC=5 Move=120 Weight=15 ' +
-    'Skill="-20% Climb Walls/-5% Find Traps/-5% Hear Noise/-10% Hide In Shadows/-10% Move Silently/-5% Open Locks/-20% Pick Pockets"',
+  'Chain Mail':'AC=5 Move=90 Weight=30',
+  'Elven Chain Mail':'AC=5 Move=120 Weight=15',
   'Leather':'AC=2 Move=120 Weight=15',
-  'Padded':
-    'AC=2 Move=90 Weight=10 ' +
-    'Skill="-30% Climb Walls/-10% Find Traps/-10% Hear Noise/-20% Hide In Shadows/-20% Move Silently/-10% Open Locks/-30% Pick Pockets"',
+  'Padded':'AC=2 Move=90 Weight=10',
   'Plate Mail':'AC=7 Move=60 Weight=45',
   'Ring Mail':'AC=3 Move=90 Weight=35',
   'Scale Mail':'AC=4 Move=60 Weight=40',
   'Splinted':'AC=6 Move=60 Weight=40',
-  'Studded Leather':
-    'AC=3 Move=90 Weight=20 ' +
-    'Skill="-30% Climb Walls/-10% Find Traps/-10% Hear Noise/-20% Hide In Shadows/-20% Move Silently/-10% Open Locks/-30% Pick Pockets"'
+  'Studded Leather':'AC=3 Move=90 Weight=20'
 };
 OSRIC.CLASSES = {
   'Assassin':
@@ -2546,7 +2534,7 @@ OSRIC.abilityRules = function(rules) {
 /* Defines rules related to combat. */
 OSRIC.combatRules = function(rules, armors, shields, weapons) {
 
-  QuilvynUtils.checkAttrTable(armors, ['AC', 'Move', 'Weight', 'Skill']);
+  QuilvynUtils.checkAttrTable(armors, ['AC', 'Move', 'Weight']);
   QuilvynUtils.checkAttrTable(shields, ['AC', 'Weight']);
   QuilvynUtils.checkAttrTable(weapons, ['Category', 'Damage', 'Range']);
 
@@ -2638,8 +2626,6 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
       'turnUndeadColumn', '=', '"' + turningTable[i] +'".split(":")[source].trim()'
     );
   }
-  rules.defineRule
-    ('skillNotes.armorSkillModifiers', 'sumThiefSkills', '?', null);
   // Replace SRD35's two-handedWeapon validation note
   delete rules.choices.notes['validationNotes.two-handedWeapon'];
   rules.defineChoice
@@ -2658,12 +2644,11 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
     classes, [
       'Require', 'HitDie', 'Attack', 'WeaponProficiency',
       'NonweaponProficiency', 'Breath', 'Death', 'Petrification', 'Spell',
-      'Wand', 'Features', 'Selectables', 'Experience', 'CasterLevelArcane',
+      'Wand', 'Features', 'Experience', 'CasterLevelArcane',
       'CasterLevelDivine', 'SpellAbility', 'SpellSlots'
     ]
   );
-  QuilvynUtils.checkAttrTable
-    (races, ['Require', 'Features', 'Selectables', 'Languages']);
+  QuilvynUtils.checkAttrTable(races, ['Require', 'Features', 'Languages']);
 
   for(let a in alignments)
     rules.choiceRules(rules, 'Alignment', a, alignments[a]);
@@ -2693,7 +2678,7 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
 /* Defines rules related to magic use. */
 OSRIC.magicRules = function(rules, schools, spells) {
 
-  QuilvynUtils.checkAttrTable(schools, ['Features']);
+  QuilvynUtils.checkAttrTable(schools, []);
   QuilvynUtils.checkAttrTable
     (spells, ['School', 'Level', 'Description', 'Effect', 'Duration', 'Range']);
 
@@ -2759,8 +2744,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
     OSRIC.armorRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'AC'),
       QuilvynUtils.getAttrValue(attrs, 'Move'),
-      QuilvynUtils.getAttrValue(attrs, 'Weight'),
-      QuilvynUtils.getAttrValue(attrs, 'Skill')
+      QuilvynUtils.getAttrValue(attrs, 'Weight')
     );
   else if(type == 'Class') {
     OSRIC.classRules(rules, name,
@@ -2774,7 +2758,6 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Spell'),
       QuilvynUtils.getAttrValueArray(attrs, 'Wand'),
       QuilvynUtils.getAttrValueArray(attrs, 'Features'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Selectables'),
       QuilvynUtils.getAttrValueArray(attrs, 'Languages'),
       QuilvynUtils.getAttrValueArray(attrs, 'WeaponProficiency'),
       QuilvynUtils.getAttrValueArray(attrs, 'NonweaponProficiency'),
@@ -2803,7 +2786,6 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
     OSRIC.raceRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Require'),
       QuilvynUtils.getAttrValueArray(attrs, 'Features'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Selectables'),
       QuilvynUtils.getAttrValueArray(attrs, 'Languages')
     );
     OSRIC.raceRulesExtra(rules, name);
@@ -2871,10 +2853,9 @@ OSRIC.alignmentRules = function(rules, name) {
 /*
  * Defines in #rules# the rules associated with armor #name#, which adds #ac#
  * to the character's armor class, imposes a maximum movement speed of
- * #maxMove#, weighs #weight# pounds, and modifies skills as specified in
- * #skill#.
+ * #maxMove#, and weighs #weight# pounds.
  */
-OSRIC.armorRules = function(rules, name, ac, maxMove, weight, skill) {
+OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
 
   if(!name) {
     console.log('Empty armor name');
@@ -2892,23 +2873,17 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight, skill) {
     console.log('Bad weight "' + weight + '" for armor ' + name);
     return;
   }
-  if(skill && typeof skill != 'string') {
-    console.log('Bad skill "' + skill + '" for armor ' + name);
-    return;
-  }
 
   if(rules.armorStats == null) {
     rules.armorStats = {
       ac:{},
       move:{},
-      weight:{},
-      skill:{}
+      weight:{}
     };
   }
   rules.armorStats.ac[name] = ac;
   rules.armorStats.move[name] = maxMove;
   rules.armorStats.weight[name] = weight;
-  rules.armorStats.skill[name] = skill;
 
   rules.defineRule('abilityNotes.armorSpeedMaximum',
     'armor', '+', QuilvynUtils.dictLit(rules.armorStats.move) + '[source]'
@@ -2937,24 +2912,23 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight, skill) {
  * specific level. Similarly, #saveBreath#, #saveDeath#, #savePetrification#,
  * #saveSpell#, and #saveWand# are each triplets indicating: the saving throw
  * for a level 1 character; the amount this decreases as the character gains
- * levels; the number of levels between decreases. #features# and #selectables#
- * list the fixed and selectable features acquired as the character advances in
- * class level, and #languages# lists any automatic languages for the class.
- * #weaponProficiency# is a triplet indicating: the number of weapon
- * proficiencies for a level 1 character; the number of levels between
- * increments of weapon proficiencies; the penalty for using a non-proficient
- * weapon. #weaponProficiency# is a pair indicating the number of nonweapon
- * proficiencies for a level 1 character and the number of levels between
- * increments of nonweapon proficiencies. #casterLevelArcane# and
- * #casterLevelDivine#, if specified, give the Javascript expression for
- * determining the caster level for the class; these can incorporate a class
- * level attribute (e.g., 'levels.Cleric') or the character level attribute
- * 'level'. If the class grants spell slots, #spellSlots# lists the number of
- * spells per level per day granted.
+ * levels; the number of levels between decreases. #features# lists the
+ * features acquired as the character advances in class level, and #languages#
+ * lists any automatic languages for the class. #weaponProficiency# is a
+ * triplet indicating: the number of weapon proficiencies for a level 1
+ * character; the number of levels between increments of weapon proficiencies;
+ * the penalty for using a non-proficient weapon. #weaponProficiency# is a pair
+ * indicating the number of nonweapon proficiencies for a level 1 character and
+ * the number of levels between increments of nonweapon proficiencies.
+ * #casterLevelArcane# and #casterLevelDivine#, if specified, give the
+ * Javascript expression for determining the caster level for the class; these
+ * can incorporate a class level attribute (e.g., 'levels.Cleric') or the
+ * character level attribute 'level'. If the class grants spell slots,
+ * #spellSlots# lists the number of spells per level per day granted.
  */
 OSRIC.classRules = function(
   rules, name, requires, experience, hitDie, attack, saveBreath, saveDeath,
-  savePetrification, saveSpell, saveWand, features, selectables, languages,
+  savePetrification, saveSpell, saveWand, features, languages,
   weaponProficiency, nonweaponProficiency, casterLevelArcane,
   casterLevelDivine, spellSlots
 ) {
@@ -3011,10 +2985,6 @@ OSRIC.classRules = function(
   }
   if(!Array.isArray(features)) {
     console.log('Bad features list "' + features + '" for class ' + name);
-    return;
-  }
-  if(!Array.isArray(selectables)) {
-    console.log('Bad selectables list "' + selectables + '" for class ' + name);
     return;
   }
   if(!Array.isArray(languages)) {
@@ -3332,15 +3302,11 @@ OSRIC.languageRules = function(rules, name) {
 
 /*
  * Defines in #rules# the rules associated with race #name#, which has the list
- * of hard prerequisites #requires#. #features# and #selectables# list
- * associated features and #languages# any automatic languages.
+ * of hard prerequisites #requires#. #features# lists associated features and
+ * #languages# any automatic languages.
  */
-OSRIC.raceRules = function(
-  rules, name, requires, features, selectables, languages
-) {
-  SRD35.raceRules(
-    rules, name, requires, features, selectables, languages, null, [], [], null
-  );
+OSRIC.raceRules = function(rules, name, requires, features, languages) {
+  SRD35.raceRules(rules, name, requires, features, [], languages);
   // No changes needed to the rules defined by SRD35 method
   rules.defineRule
     ('skillNotes.raceSkillModifiers', 'sumThiefSkills', '?', null);
@@ -3480,8 +3446,6 @@ OSRIC.skillRules = function(rules, name, ability, classes) {
   }
   rules.defineRule('skillModifier.' + name,
     'skills.' + name, '=', null,
-    'skillNotes.armorSkillModifiers', '+',
-      'source.match(/' + name + '/) ? source.match(/([-+]\\d+)% ' + name + '/)[1] * 1 : null',
     'skillNotes.dexteritySkillModifiers', '+',
       'source.match(/' + name + '/) ? source.match(/([-+]\\d+)% ' + name + '/)[1] * 1 : null',
     'skillNotes.raceSkillModifiers', '+',
@@ -3634,10 +3598,10 @@ OSRIC.createViewers = SRD35.createViewers;
  */
 OSRIC.choiceEditorElements = function(rules, type) {
   let result = [];
-  if(type == 'Armor' || type == 'Shield')
+  if(type == 'Armor')
     result.push(
       ['AC', 'AC Bonus', 'select-one', [0, 1, 2, 3, 4, 5]],
-      ['Move', 'Max Movement', 'select-one', [60, 90, 120]]
+      ['Move', 'Max Movement', 'select-one', [120, 90, 60]]
     );
   else if(type == 'Class')
     result.push(
@@ -3658,6 +3622,31 @@ OSRIC.choiceEditorElements = function(rules, type) {
       ['SpellSlots', 'Spell Slots', 'text', [40]],
       ['Spells', 'Spells', 'text', [40]]
     );
+  else if(type == 'Feature')
+    result.push(
+      ['Section', 'Section', 'text', [40]],
+      ['Note', 'Note', 'text', [60]]
+    );
+  else if(type == 'Language')
+    result.push(
+      // empty
+    );
+  else if(type == 'Race')
+    result.push(
+      ['Require', 'Prerequisite', 'text', [40]],
+      ['Features', 'Features', 'text', [40]],
+      ['Languages', 'Languages', 'text', [30]]
+    );
+  else if(type == 'Shield')
+    result.push(
+      ['AC', 'AC Bonus', 'select-one', [0, 1, 2, 3, 4, 5]]
+    );
+  else if(type == 'Spell')
+    result.push(
+      ['School', 'School', 'select-one', QuilvynUtils.getKeys(rules.getChoices('schools'))],
+      ['Level', 'Caster Group and Level', 'text', [15]],
+      ['Description', 'Description', 'text', [60]]
+    );
   else if(type == 'Weapon') {
     let zeroToOneFifty =
      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
@@ -3668,8 +3657,7 @@ OSRIC.choiceEditorElements = function(rules, type) {
        QuilvynUtils.getKeys(SRD35.LARGE_DAMAGE)],
       ['Range', 'Range in Feet', 'select-one', zeroToOneFifty]
     );
-  } else
-    result = SRD35.choiceEditorElements(rules, type);
+  }
   return result;
 };
 
