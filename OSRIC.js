@@ -158,7 +158,8 @@ OSRIC.CLASSES = {
       '"alignment =~ \'Evil\'","constitution >= 6","dexterity >= 12",' +
       '"intelligence >= 11","strength >= 12","wisdom >= 6" ' +
     'HitDie=d6,15,1 THAC10=11,9@5,6@9,4@13,4@15 WeaponProficiency=3,4,3 ' +
-    'Breath=16,1,4 Death=13,1,4 Petrification=12,1,4 Spell=15,2,4 Wand=14,2,4 '+
+    'Breath=16,15@5,...13@15 Death=13,12@5,...10@15 ' +
+    'Petrification=12,11@5,...9@15 Spell=15,13@5,...9@15 Wand=14,12@5,...8@15 '+
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"1:Shield Proficiency (All)",' +
@@ -173,7 +174,11 @@ OSRIC.CLASSES = {
       '"charisma >= 6","constitution >= 6","intelligence >= 6",' +
       '"strength >= 6","wisdom >= 9" ' +
     'HitDie=d8,9,2 THAC10=10,8@4,...-1@19,-1@24 WeaponProficiency=2,3,3 ' +
-    'Breath=16,1,3 Death=10,1,3 Petrification=13,1,3 Spell=15,1,3 Wand=14,1,3 '+
+    'Breath=16,15@4,13@7,12@10,11@13,10@16,8@19 ' +
+    'Death=10,9@4,7@7,6@10,5@13,4@16,2@19 ' +
+    'Petrification=13,12@4,10@7,9@10,8@13,7@16,5@19 ' +
+    'Spell=15,14@4,12@7,11@10,10@13,9@16,7@19 ' +
+    'Wand=14,13@4,11@7,10@10,9@13,8@16,6@19 '+
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"1:Turn Undead",' +
@@ -200,7 +205,9 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Neutral\'","charisma >= 15","wisdom >= 12" ' +
     'HitDie=d8,14,1 THAC10=10,8@4,...2@14 WeaponProficiency=2,3,4 ' +
-    'Breath=16,1,3 Death=10,1,3 Petrification=13,1,3 Spell=15,1,3 Wand=14,1,3 '+
+    'Breath=16,15@4,13@7,12@10,11@11 Death=10,9@4,7@7,6@10,5@13 ' +
+    'Petrification=13,12@4,10@7,9@10,8@13 Spell=15,14@4,12@7,11@10,10@13 ' +
+    'Wand=14,13@4,11@7,10@10,9@13 ' +
     'Features=' +
       '"1:Armor Proficiency (Leather)","1:Shield Proficiency (All)",' +
       '"charisma >= 16/wisdom >= 16 ? 1:Bonus Druid Experience",' +
@@ -224,7 +231,11 @@ OSRIC.CLASSES = {
       '"charisma >= 6","constitution >= 7","dexterity >= 6","strength >= 9",' +
       '"wisdom >= 6" ' +
     'HitDie=d10,9,3 THAC10=10,9,...-9@20 WeaponProficiency=4,2,2 ' +
-    'Breath=17,1.5,2 Death=14,1.5,2 Petrification=15,1.5,2 Spell=17,1.5,2 Wand=16,1.5,2 ' +
+    'Breath=17,16@3,13@5,12@7,9@9,8@11,5@13,4@15,3@19 ' +
+    'Death=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
+    'Petrification=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
+    'Spell=17,16@3,14@5,13@7,11@9,10@11,8@13,7@15,6@17,5@19 ' +
+    'Wand=16,15@3,13@5,12@7,10@9,9@11,7@13,6@15,5@17,4@19 ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16 ? 1:Bonus Fighter Experience",' +
@@ -237,7 +248,9 @@ OSRIC.CLASSES = {
       '"charisma >= 6","dexterity >= 16","intelligence >= 15",' +
       '"strength >= 6","wisdom >= 6" ' +
     'HitDie=d4,10,1 THAC10=11,9@6,...3@24 WeaponProficiency=1,5,3 ' +
-    'Breath=15,2,5 Death=14,1.5,5 Petrification=13,2,5 Spell=12,2,5 Wand=11,2,5 '+
+    'Breath=15,13@6,...7@21 Death=14,13@6,11@11,10@16,8@21 ' +
+    'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
+    'Wand=11,9@6,...3@21 '+
     'Features=' +
       '"10:Eldritch Craft" ' +
     'CasterLevelArcane=levels.Illusionist ' +
@@ -258,8 +271,9 @@ OSRIC.CLASSES = {
       '"charisma >= 6","constitution >= 6","dexterity >= 6",' +
       '"intelligence >= 9","wisdom >= 6" ' +
     'HitDie=d4,11,1 THAC10=11,9@6,...3@24 WeaponProficiency=1,5,5 ' +
-    'Breath=15,2,5 Death=14,1.5,5 Petrification=13,2,5 Spell=12,2,5 ' +
-    'Wand=11,2,5 '+
+    'Breath=15,13@6,...7@21 Death=14,13@6,11@11,10@16,8@21 ' +
+    'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
+    'Wand=11,9@6,...3@21 ' +
     'Features=' +
       '"intelligence >= 16 ? 1:Bonus Magic User Experience",' +
       '"7:Eldritch Craft","12:Eldritch Power" ' +
@@ -283,8 +297,11 @@ OSRIC.CLASSES = {
       '"alignment == \'Lawful Good\'","charisma >= 17","constitution >= 9",' +
       '"dexterity >= 6","intelligence >= 9","strength >= 12","wisdom >= 13" ' +
     'HitDie=d10,9,3 THAC10=10,9,...-9@20,-9@24 WeaponProficiency=3,2,2 ' +
-    'Breath=15,1.5,2 Death=12,1.5,2 Petrification=13,1.5,2 Spell=15,1.5,2 '+
-    'Wand=14,1.5,2 ' +
+    'Breath=15,14@3,11@5,10@7,7@9,6@11,3@13,2@15 ' +
+    'Death=12,11@3,9@5,8@7,6@9,5@11,3@13,2@15 ' +
+    'Petrification=13,12@3,10@5,9@7,7@9,6@11,4@13,3@15,2@17 ' +
+    'Spell=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
+    'Wand=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16/wisdom >= 16 ? 1:Bonus Paladin Experience",' +
@@ -308,8 +325,11 @@ OSRIC.CLASSES = {
       '"alignment =~ \'Good\'","charisma >= 6","constitution >= 14",' +
       '"dexterity >= 6","intelligence >= 13","strength >= 13","wisdom >= 14" ' +
     'HitDie=2d8,10,2 THAC10=10,9,...-9@20,-9@24 WeaponProficiency=3,2,2 ' +
-    'Breath=17,1.5,2 Death=14,1.5,2 Petrification=15,1.5,2 Spell=17,1.5,2 ' +
-    'Wand=16,1.5,2 ' +
+    'Breath=17,16@3,13@5,12@7,9@9,8@11,5@13,4@15,3@19 ' +
+    'Death=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
+    'Petrification=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
+    'Spell=17,16@3,14@5,13@7,11@9,10@11,8@13,7@15,6@17,5@19 ' +
+    'Wand=16,15@3,13@5,12@7,10@9,9@11,7@13,6@15,5@17,4@19 ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16/intelligence >= 16/wisdom >= 16 ? 1:Bonus Ranger Experience",' +
@@ -337,7 +357,9 @@ OSRIC.CLASSES = {
       '"alignment =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
       '"dexterity >= 9","intelligence >= 6","strength >= 6" ' +
     'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 WeaponProficiency=2,4,3 ' +
-    'Breath=16,1,4 Death=13,1,4 Petrification=12,1,4 Spell=15,2,4 Wand=14,2,4 '+
+    'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 WeaponProficiency=2,4,3 ' +
+    'Breath=16,15@5,...11@21 Death=13,12@5,...8@21 ' +
+    'Petrification=12,11@5,...7@21 Spell=15,13@5,...5@21 Wand=14,12@5,...4@21 '+
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"dexterity >= 16 ? 1:Bonus Thief Experience",' +
@@ -2582,15 +2604,19 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   rules.defineRule
     ('features.Weapon Specialization', 'weaponSpecialization', '=', null);
   rules.defineRule('thac0Melee',
+    'thac10Base', '=', 'Math.min(source + 10, 20)',
     'combatNotes.strengthAttackAdjustment', '+', '-source'
   );
   rules.defineRule('thac0Ranged',
+    'thac10Base', '=', 'Math.min(source + 10, 20)',
     'combatNotes.dexterityAttackAdjustment', '+', '-source'
   );
   rules.defineRule('thac10Melee',
+    'thac10Base', '=', null,
     'combatNotes.strengthAttackAdjustment', '+', '-source'
   );
   rules.defineRule('thac10Ranged',
+    'thac10Base', '=', null,
     'combatNotes.dexterityAttackAdjustment', '+', '-source'
   );
   rules.defineRule('turnUndeadColumn',
@@ -2742,7 +2768,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Require'),
       QuilvynUtils.getAttrValueArray(attrs, 'Experience'),
       QuilvynUtils.getAttrValueArray(attrs, 'HitDie'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Attack'),
+      QuilvynUtils.getAttrValueArray(attrs, 'THAC10'),
       QuilvynUtils.getAttrValueArray(attrs, 'Breath'),
       QuilvynUtils.getAttrValueArray(attrs, 'Death'),
       QuilvynUtils.getAttrValueArray(attrs, 'Petrification'),
@@ -2754,8 +2780,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'NonweaponProficiency'),
       QuilvynUtils.getAttrValue(attrs, 'CasterLevelArcane'),
       QuilvynUtils.getAttrValue(attrs, 'CasterLevelDivine'),
-      QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots'),
-      QuilvynUtils.getAttrValueArray(attrs, 'THAC10')
+      QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots')
     );
     OSRIC.classRulesExtra(rules, name);
   } else if(type == 'Feature')
@@ -2943,33 +2968,23 @@ OSRIC.classRules = function(
     console.log('Bad thac10 "' + thac10 + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveBreath) || saveBreath.length != 3 ||
-     typeof saveBreath[0] != 'number' ||
-     !(saveBreath[1] + '').match(/^\d+(\.\d+)?$/)) {
+  if(!Array.isArray(saveBreath)) {
     console.log('Bad saveBreath "' + saveBreath + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveDeath) || saveDeath.length != 3 ||
-     typeof saveDeath[0] != 'number' ||
-    !(saveDeath[1] + '').match(/^\d+(\.\d+)?$/)) {
+  if(!Array.isArray(saveDeath)) {
     console.log('Bad saveDeath "' + saveDeath + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(savePetrification) || savePetrification.length != 3 ||
-     typeof savePetrification[0] != 'number' ||
-     !(savePetrification[1] + '').match(/^\d+(\.\d+)?$/)) {
+  if(!Array.isArray(savePetrification)) {
     console.log('Bad savePetrification "' + savePetrification + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveSpell) || saveSpell.length != 3 ||
-     typeof saveSpell[0] != 'number' ||
-     !(saveSpell[1] + '').match(/^\d+(\.\d+)?$/)) {
+  if(!Array.isArray(saveSpell)) {
     console.log('Bad saveSpell "' + saveSpell + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveWand) || saveWand.length != 3 ||
-     typeof saveWand[0] != 'number' ||
-     !(saveWand[1] + '').match(/^\d+(\.\d+)?$/)) {
+  if(!Array.isArray(saveWand)) {
     console.log('Bad saveWand "' + saveWand + '" for class ' + name);
     return;
   }
@@ -3015,12 +3030,9 @@ OSRIC.classRules = function(
   );
 
   let thac10Progress = OSRIC.progressTable(thac10);
-  rules.defineRule('thac10Melee',
-    classLevel, '=', '[' + thac10Progress.join(',') + '][source] || ' + thac10Progress[thac10Progress.length - 1]
+  rules.defineRule('thac10Base',
+    classLevel, 'v=', '[' + thac10Progress.join(',') + '][source] || ' + thac10Progress[thac10Progress.length - 1]
   );
-  rules.defineRule('thac10Ranged', 'thac10Melee', '=', null);
-  rules.defineRule('thac0Melee', 'thac10Melee', 'Math.min(20, source + 10)');
-  rules.defineRule('thac0Ranged', 'thac10Melee', 'Math.min(20, source + 10)');
 
   let extraHitDie = (hitDie[0] + '').startsWith('2');
   rules.defineRule('hitDice',
@@ -3032,17 +3044,14 @@ OSRIC.classRules = function(
     'Breath':saveBreath, 'Death':saveDeath, 'Petrification':savePetrification,
     'Spell':saveSpell, 'Wand':saveWand
   };
-  for(let save in saves) {
-    rules.defineRule('class' + name + save + 'Save',
-      classLevel, '=', saves[save][0] + ' - Math.floor(Math.floor((source - 1) / ' + saves[save][2] + ') * ' + saves[save][1] + ')',
-      'class' + name + 'SaveAdjustment', '+', null
+  for(let s in saves) {
+    let saveProgress = OSRIC.progressTable(saves[s]);
+    rules.defineRule('class' + name + s + 'Save',
+      classLevel, 'v=', '[' + saveProgress.join(',') + '][source] || ' + saveProgress[saveProgress.length - 1]
     );
     rules.defineRule
-      ('save.' + save, 'class' + name + save + 'Save', 'v=', null);
+      ('save.' + s, 'class' + name + s + 'Save', 'v=', null);
   }
-  rules.defineRule('class' + name + 'BreathSave',
-    'class' + name + 'BreathSaveAdjustment', '+', null
-  );
 
   QuilvynRules.featureListRules(rules, features, name, classLevel, false);
   rules.defineSheetElement(name + ' Features', 'Feats+', null, '; ');
@@ -3124,9 +3133,6 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Cleric') {
 
-    rules.defineRule('classClericSaveAdjustment',
-      classLevel, '=', 'source>=19 ? -2 : source>=7 ? -1 : null'
-    );
     rules.defineRule('magicNotes.bonusClericSpells',
       'wisdom', '=',
        '"Spell level C1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
@@ -3143,9 +3149,6 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Druid') {
 
-    rules.defineRule('classDruidSaveAdjustment',
-      classLevel, '=', 'source>=19 ? -2 : source>=7 ? -1 : null'
-    );
     rules.defineRule('languageCount', classLevel, '+', '1');
     rules.defineRule("languages.Druids' Cant", classLevel, '=', '1');
     rules.defineRule('magicNotes.bonusDruidSpells',
@@ -3164,11 +3167,6 @@ OSRIC.classRulesExtra = function(rules, name) {
   } else if(name == 'Fighter') {
 
     rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
-    rules.defineRule('classFighterBreathSaveAdjustment',
-      classLevel, '=', 'source>=17 ? -2 : -Math.floor((source - 1) / 4)'
-    );
-    rules.defineRule
-      ('classFighterSaveAdjustment', classLevel, '=', 'source<17 ? null : 1');
     rules.defineRule('combatNotes.bonusAttacks',
       classLevel, '+=', 'source<7 ? null : source<13 ? 0.5 : 1'
     );
@@ -3201,15 +3199,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.bonusAttacks',
       classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
     );
-    rules.defineRule('paladinSaveMin', classLevel, '=', '2');
-    rules.defineRule('save.Breath', 'paladinSaveMin', '^', null);
-    rules.defineRule('save.Death', 'paladinSaveMin', '^', null);
-    rules.defineRule('save.Petrification', 'paladinSaveMin', '^', null);
-    rules.defineRule('classPaladinBreathSaveAdjustment',
-      classLevel, '=', 'source>=17 ? -2 : -Math.floor((source - 1) / 4)'
-    );
-    rules.defineRule
-      ('classPaladinSaveAdjustment', classLevel, '=', 'source<17 ? null : 1');
     rules.defineRule
       ('turningLevel', classLevel, '+=', 'source>2 ? source - 2 : null');
     rules.defineRule('warriorLevel', classLevel, '+', null);
@@ -3220,11 +3209,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.bonusAttacks',
       classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
     );
-    rules.defineRule('classRangerBreathSaveAdjustment',
-      classLevel, '=', 'source>=17 ? -2 : -Math.floor((source - 1) / 4)'
-    );
-    rules.defineRule
-      ('classRangerSaveAdjustment', classLevel, '=', 'source<17 ? null : 1');
     rules.defineRule('maximumHenchmen',
       // Noop to show Delayed Henchmen note in italics
       'abilityNotes.delayedHenchmen', '+', 'null',
@@ -3574,7 +3558,7 @@ OSRIC.progressTable = function(steps) {
   let mostRecentStep = 0;
   let result = [20];
   for(let i = 0; i < steps.length; i++) {
-    let m = (steps[i] + '').match(/^(\.\.\.)?(-?\d+)(@(\d+))?$/);
+    let m = (steps[i] + '').match(/^(\.*)(-?\d+)(@(\d+))?$/);
     if(!m) {
       console.log('Malformed progress step "' + steps[i] + '"');
       break;
@@ -3582,7 +3566,7 @@ OSRIC.progressTable = function(steps) {
     let nextLevel = m[4] ? +m[4] : result.length;
     let currentRun = nextLevel - result.length + 1;
     let currentStep = +m[2] - result[result.length - 1];
-    let repeating = m[1] != null;
+    let repeating = m[1] != '';
     if(repeating) {
       for(let j = 0; j < mostRecentRun - 1 && result.length < nextLevel; j++)
         result.push(result[result.length - 1]);
