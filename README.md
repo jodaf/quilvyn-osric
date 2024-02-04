@@ -12,9 +12,10 @@ quilvyn-core package.
 
 ### Installation
 
-To use quilvyn-osric, unbundle the release package into the plugins/
-subdirectory within the Quilvyn installation directory, then append
-following lines to the file plugins/plugins.js:
+To use quilvyn-osric, unbundle the release package, making sure that the
+contents of the plugins/ and Images/ subdirectories are placed into the
+corresponding Quilvyn installation subdirectories, then append the following
+lines to the file plugins/plugins.js:
 
     RULESETS['OSRIC - Old School Reference and Index Compilation (1E)'] = {
       url:'plugins/OSRIC.js',

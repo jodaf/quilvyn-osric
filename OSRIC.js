@@ -357,7 +357,6 @@ OSRIC.CLASSES = {
       '"alignment =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
       '"dexterity >= 9","intelligence >= 6","strength >= 6" ' +
     'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 WeaponProficiency=2,4,3 ' +
-    'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 WeaponProficiency=2,4,3 ' +
     'Breath=16,15@5,...11@21 Death=13,12@5,...8@21 ' +
     'Petrification=12,11@5,...7@21 Spell=15,13@5,...5@21 Wand=14,12@5,...4@21 '+
     'Features=' +
