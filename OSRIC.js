@@ -141,23 +141,23 @@ OSRIC.ALIGNMENTS = {
 };
 OSRIC.ARMORS = {
   'None':'AC=0 Move=120 Weight=0 ',
-  'Banded':'AC=6 Move=90 Weight=35',
-  'Chain Mail':'AC=5 Move=90 Weight=30',
-  'Elven Chain Mail':'AC=5 Move=120 Weight=15',
-  'Leather':'AC=2 Move=120 Weight=15',
-  'Padded':'AC=2 Move=90 Weight=10',
-  'Plate Mail':'AC=7 Move=60 Weight=45',
-  'Ring Mail':'AC=3 Move=90 Weight=35',
-  'Scale Mail':'AC=4 Move=60 Weight=40',
-  'Splinted':'AC=6 Move=60 Weight=40',
-  'Studded Leather':'AC=3 Move=90 Weight=20'
+  'Banded':'AC=-6 Move=90 Weight=35',
+  'Chain Mail':'AC=-5 Move=90 Weight=30',
+  'Elven Chain Mail':'AC=-5 Move=120 Weight=15',
+  'Leather':'AC=-2 Move=120 Weight=15',
+  'Padded':'AC=-2 Move=90 Weight=10',
+  'Plate Mail':'AC=-7 Move=60 Weight=45',
+  'Ring Mail':'AC=-3 Move=90 Weight=35',
+  'Scale Mail':'AC=-4 Move=60 Weight=40',
+  'Splinted':'AC=-6 Move=60 Weight=40',
+  'Studded Leather':'AC=-3 Move=90 Weight=20'
 };
 OSRIC.CLASSES = {
   'Assassin':
     'Require=' +
       '"alignment =~ \'Evil\'","constitution >= 6","dexterity >= 12",' +
       '"intelligence >= 11","strength >= 12","wisdom >= 6" ' +
-    'HitDie=d6,15,1 Attack=-1,2,4,+1@9 WeaponProficiency=3,4,3 ' +
+    'HitDie=d6,15,1 THAC10=11,9@5,6@9,4@13,4@15 WeaponProficiency=3,4,3 ' +
     'Breath=16,1,4 Death=13,1,4 Petrification=12,1,4 Spell=15,2,4 Wand=14,2,4 '+
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
@@ -172,7 +172,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 6","intelligence >= 6",' +
       '"strength >= 6","wisdom >= 9" ' +
-    'HitDie=d8,9,2 Attack=0,2,3,-1@19 WeaponProficiency=2,3,3 ' +
+    'HitDie=d8,9,2 THAC10=10,8@4,...-1@19,-1@24 WeaponProficiency=2,3,3 ' +
     'Breath=16,1,3 Death=10,1,3 Petrification=13,1,3 Spell=15,1,3 Wand=14,1,3 '+
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
@@ -199,7 +199,7 @@ OSRIC.CLASSES = {
       '"dexterity >= 6","intelligence >= 6","strength >= 6","wisdom >= 12" ' +
     'Require=' +
       '"alignment =~ \'Neutral\'","charisma >= 15","wisdom >= 12" ' +
-    'HitDie=d8,14,1 Attack=0,2,3,- WeaponProficiency=2,3,4 ' +
+    'HitDie=d8,14,1 THAC10=10,8@4,...2@14 WeaponProficiency=2,3,4 ' +
     'Breath=16,1,3 Death=10,1,3 Petrification=13,1,3 Spell=15,1,3 Wand=14,1,3 '+
     'Features=' +
       '"1:Armor Proficiency (Leather)","1:Shield Proficiency (All)",' +
@@ -223,7 +223,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 7","dexterity >= 6","strength >= 9",' +
       '"wisdom >= 6" ' +
-    'HitDie=d10,9,3 Attack=0,1,1,- WeaponProficiency=4,2,2 ' +
+    'HitDie=d10,9,3 THAC10=10,9,...-9@20 WeaponProficiency=4,2,2 ' +
     'Breath=17,1.5,2 Death=14,1.5,2 Petrification=15,1.5,2 Spell=17,1.5,2 Wand=16,1.5,2 ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
@@ -236,7 +236,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","dexterity >= 16","intelligence >= 15",' +
       '"strength >= 6","wisdom >= 6" ' +
-    'HitDie=d4,10,1 Attack=-1,2,5,- WeaponProficiency=1,5,3 ' +
+    'HitDie=d4,10,1 THAC10=11,9@6,...3@24 WeaponProficiency=1,5,3 ' +
     'Breath=15,2,5 Death=14,1.5,5 Petrification=13,2,5 Spell=12,2,5 Wand=11,2,5 '+
     'Features=' +
       '"10:Eldritch Craft" ' +
@@ -257,7 +257,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 6","dexterity >= 6",' +
       '"intelligence >= 9","wisdom >= 6" ' +
-    'HitDie=d4,11,1 Attack=-1,2,5,- WeaponProficiency=1,5,5 ' +
+    'HitDie=d4,11,1 THAC10=11,9@6,...3@24 WeaponProficiency=1,5,5 ' +
     'Breath=15,2,5 Death=14,1.5,5 Petrification=13,2,5 Spell=12,2,5 ' +
     'Wand=11,2,5 '+
     'Features=' +
@@ -282,7 +282,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment == \'Lawful Good\'","charisma >= 17","constitution >= 9",' +
       '"dexterity >= 6","intelligence >= 9","strength >= 12","wisdom >= 13" ' +
-    'HitDie=d10,9,3 Attack=0,1,1,- WeaponProficiency=3,2,2 ' +
+    'HitDie=d10,9,3 THAC10=10,9,...-9@20,-9@24 WeaponProficiency=3,2,2 ' +
     'Breath=15,1.5,2 Death=12,1.5,2 Petrification=13,1.5,2 Spell=15,1.5,2 '+
     'Wand=14,1.5,2 ' +
     'Features=' +
@@ -307,7 +307,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Good\'","charisma >= 6","constitution >= 14",' +
       '"dexterity >= 6","intelligence >= 13","strength >= 13","wisdom >= 14" ' +
-    'HitDie=2d8,10,2 Attack=0,1,1,- WeaponProficiency=3,2,2 ' +
+    'HitDie=2d8,10,2 THAC10=10,9,...-9@20,-9@24 WeaponProficiency=3,2,2 ' +
     'Breath=17,1.5,2 Death=14,1.5,2 Petrification=15,1.5,2 Spell=17,1.5,2 ' +
     'Wand=16,1.5,2 ' +
     'Features=' +
@@ -336,7 +336,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
       '"dexterity >= 9","intelligence >= 6","strength >= 6" ' +
-    'HitDie=d6,10,2 Attack=-1,2,4,+1@9 WeaponProficiency=2,4,3 ' +
+    'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 WeaponProficiency=2,4,3 ' +
     'Breath=16,1,4 Death=13,1,4 Petrification=12,1,4 Spell=15,2,4 Wand=14,2,4 '+
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
@@ -682,9 +682,9 @@ OSRIC.SCHOOLS = {
 };
 OSRIC.SHIELDS = {
   'None':'AC=0 Weight=0',
-  'Large Shield':'AC=1 Weight=10',
-  'Medium Shield':'AC=1 Weight=8',
-  'Small Shield':'AC=1 Weight=5'
+  'Large Shield':'AC=-1 Weight=10',
+  'Medium Shield':'AC=-1 Weight=8',
+  'Small Shield':'AC=-1 Weight=5'
 };
 OSRIC.SKILLS = {
   'Climb Walls':'Class=Assassin,Thief',
@@ -2581,25 +2581,16 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
     ('features.Double Specialization', 'doubleSpecialization', '=', null);
   rules.defineRule
     ('features.Weapon Specialization', 'weaponSpecialization', '=', null);
-  // Initial baseAttack value for classless characters, set lower than the
-  // level 1 base attack value for any class.
-  rules.defineRule('baseAttack', '', '=', '-2');
-  rules.defineRule('meleeAttack', 'baseAttack', '=', null);
-  rules.defineRule('rangedAttack', 'baseAttack', '=', null);
   rules.defineRule('thac0Melee',
-    'meleeAttack', '=', 'Math.min(20 - source, 20)',
     'combatNotes.strengthAttackAdjustment', '+', '-source'
   );
   rules.defineRule('thac0Ranged',
-    'rangedAttack', '=', 'Math.min(20 - source, 20)',
     'combatNotes.dexterityAttackAdjustment', '+', '-source'
   );
   rules.defineRule('thac10Melee',
-    'meleeAttack', '=', '10 - source',
     'combatNotes.strengthAttackAdjustment', '+', '-source'
   );
   rules.defineRule('thac10Ranged',
-    'rangedAttack', '=', '10 - source',
     'combatNotes.dexterityAttackAdjustment', '+', '-source'
   );
   rules.defineRule('turnUndeadColumn',
@@ -2645,7 +2636,7 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
       'Require', 'HitDie', 'Attack', 'WeaponProficiency',
       'NonweaponProficiency', 'Breath', 'Death', 'Petrification', 'Spell',
       'Wand', 'Features', 'Experience', 'CasterLevelArcane',
-      'CasterLevelDivine', 'SpellAbility', 'SpellSlots'
+      'CasterLevelDivine', 'SpellAbility', 'SpellSlots', 'THAC10'
     ]
   );
   QuilvynUtils.checkAttrTable(races, ['Require', 'Features', 'Languages']);
@@ -2763,7 +2754,8 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'NonweaponProficiency'),
       QuilvynUtils.getAttrValue(attrs, 'CasterLevelArcane'),
       QuilvynUtils.getAttrValue(attrs, 'CasterLevelDivine'),
-      QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots')
+      QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots'),
+      QuilvynUtils.getAttrValueArray(attrs, 'THAC10')
     );
     OSRIC.classRulesExtra(rules, name);
   } else if(type == 'Feature')
@@ -2890,7 +2882,7 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
   );
   rules.defineRule('armorClass',
     '', '=', '10',
-    'armor', '+', '-' + QuilvynUtils.dictLit(rules.armorStats.ac) + '[source]'
+    'armor', '+', QuilvynUtils.dictLit(rules.armorStats.ac) + '[source]'
   );
   rules.defineRule('armorWeight',
     'armor', '=', QuilvynUtils.dictLit(rules.armorStats.weight) + '[source]'
@@ -2906,10 +2898,8 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
  * first element (format [n]'d'n) specifies the number of side on each die,
  * the second the maximum number of hit dice for the class, and the third the
  * number of points added each level after the maximum hit dice are reached.
- * #attack# is a quadruplet indicating: the attack bonus for a level 1
- * character; the amount this increases as the character gains levels; the
- * number of levels between increases; any adjustment in this pattern at a
- * specific level. Similarly, #saveBreath#, #saveDeath#, #savePetrification#,
+ * #thac10# lists the values needed by a character of this class to hit AC 10.
+ * Similarly, #saveBreath#, #saveDeath#, #savePetrification#,
  * #saveSpell#, and #saveWand# are each triplets indicating: the saving throw
  * for a level 1 character; the amount this decreases as the character gains
  * levels; the number of levels between decreases. #features# lists the
@@ -2927,7 +2917,7 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
  * #spellSlots# lists the number of spells per level per day granted.
  */
 OSRIC.classRules = function(
-  rules, name, requires, experience, hitDie, attack, saveBreath, saveDeath,
+  rules, name, requires, experience, hitDie, thac10, saveBreath, saveDeath,
   savePetrification, saveSpell, saveWand, features, languages,
   weaponProficiency, nonweaponProficiency, casterLevelArcane,
   casterLevelDivine, spellSlots
@@ -2949,8 +2939,8 @@ OSRIC.classRules = function(
     console.log('Bad hitDie "' + hitDie + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(attack) || attack.length != 4) {
-    console.log('Bad attack "' + attack + '" for class ' + name);
+  if(!Array.isArray(thac10)) {
+    console.log('Bad thac10 "' + thac10 + '" for class ' + name);
     return;
   }
   if(!Array.isArray(saveBreath) || saveBreath.length != 3 ||
@@ -3024,15 +3014,13 @@ OSRIC.classRules = function(
     'experiencePoints.' + name, '=', 'source >= ' + experience[experience.length - 1] + ' ? ' + experience.length + ' : [' + experience + '].findIndex(item => item > source)'
   );
 
-  let attackStep = '';
-  if(attack[3].includes('@')) {
-    attackStep = attack[3].split('@');
-    attackStep =
-      ' + (source>=' + attackStep[1] + ' ? ' + attackStep[0] + ' : 0)';
-  }
-  rules.defineRule('baseAttack',
-    classLevel, '^=', attack[0] + ' + Math.floor((source - 1) / ' + attack[2] + ') * ' + attack[1] + attackStep
+  let thac10Progress = OSRIC.progressTable(thac10);
+  rules.defineRule('thac10Melee',
+    classLevel, '=', '[' + thac10Progress.join(',') + '][source] || ' + thac10Progress[thac10Progress.length - 1]
   );
+  rules.defineRule('thac10Ranged', 'thac10Melee', '=', null);
+  rules.defineRule('thac0Melee', 'thac10Melee', 'Math.min(20, source + 10)');
+  rules.defineRule('thac0Ranged', 'thac10Melee', 'Math.min(20, source + 10)');
 
   let extraHitDie = (hitDie[0] + '').startsWith('2');
   rules.defineRule('hitDice',
@@ -3405,7 +3393,7 @@ OSRIC.shieldRules = function(rules, name, ac, weight) {
   rules.shieldStats.weight[name] = weight;
 
   rules.defineRule('armorClass',
-    'shield', '+', '-' + QuilvynUtils.dictLit(rules.shieldStats.ac) + '[source]'
+    'shield', '+', QuilvynUtils.dictLit(rules.shieldStats.ac) + '[source]'
   );
   rules.defineRule('armorWeight',
     'shield', '+', QuilvynUtils.dictLit(rules.shieldStats.weight) + '[source]'
@@ -3544,16 +3532,11 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
   let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
   SRD35.weaponRules(rules, name, 'Unarmed', category, damage, 20, 2, range);
-  // Override effect of melee/rangedAttack, since those values are incorporated
-  // into THACO/THAC10.
-  if(category.match(/^R/i))
-    rules.defineRule(prefix + 'AttackModifier', 'rangedAttack', '=', '0');
-  else
-    rules.defineRule(prefix + 'AttackModifier', 'meleeAttack', '=', '0');
   delete rules.getChoices('notes')['weapons.' + name];
   rules.defineChoice
     ('notes', 'weapons.' + name + ':%V (%1 %2%3' + (range ? ' R%5\')' : ')'));
   rules.defineRule(prefix + 'AttackModifier',
+    '', '=', '0',
     'combatNotes.weaponSpecialization', '+', 'source=="' + name + '" ? 1 : null'
   );
   if(name.match(/Bow/)) {
@@ -3584,6 +3567,43 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
 };
 
 /*
+ * TODO
+ */
+OSRIC.progressTable = function(steps) {
+  let mostRecentRun = 1;
+  let mostRecentStep = 0;
+  let result = [20];
+  for(let i = 0; i < steps.length; i++) {
+    let m = (steps[i] + '').match(/^(\.\.\.)?(-?\d+)(@(\d+))?$/);
+    if(!m) {
+      console.log('Malformed progress step "' + steps[i] + '"');
+      break;
+    }
+    let nextLevel = m[4] ? +m[4] : result.length;
+    let currentRun = nextLevel - result.length + 1;
+    let currentStep = +m[2] - result[result.length - 1];
+    let repeating = m[1] != null;
+    if(repeating) {
+      for(let j = 0; j < mostRecentRun - 1 && result.length < nextLevel; j++)
+        result.push(result[result.length - 1]);
+    }
+    while(result.length < nextLevel) {
+      if(repeating) {
+        let nextValue = result[result.length - 1] + mostRecentStep;
+        for(let j = 0; j < mostRecentRun && result.length < nextLevel; j++)
+          result.push(nextValue);
+      } else {
+        result.push(result[result.length - 1]);
+      }
+    }
+    result.push(+m[2]);
+    mostRecentRun = currentRun;
+    mostRecentStep = currentStep;
+  }
+  return result;
+};
+
+/*
  * Returns the dictionary of attribute formats associated with character sheet
  * format #viewer# in #rules#.
  */
@@ -3600,7 +3620,8 @@ OSRIC.choiceEditorElements = function(rules, type) {
   let result = [];
   if(type == 'Armor')
     result.push(
-      ['AC', 'AC Bonus', 'select-one', [0, 1, 2, 3, 4, 5]],
+      ['AC', 'AC Bonus', 'select-one', 
+       [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]],
       ['Move', 'Max Movement', 'select-one', [120, 90, 60]]
     );
   else if(type == 'Class')
@@ -3639,7 +3660,8 @@ OSRIC.choiceEditorElements = function(rules, type) {
     );
   else if(type == 'Shield')
     result.push(
-      ['AC', 'AC Bonus', 'select-one', [0, 1, 2, 3, 4, 5]]
+      ['AC', 'AC Bonus', 'select-one',
+       [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]]
     );
   else if(type == 'Spell')
     result.push(
