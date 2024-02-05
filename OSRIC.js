@@ -425,7 +425,8 @@ OSRIC.FEATURES = {
     'Section=magic ' +
     'Note="May create magical items using the <i>Enchant An Item</i> spell"',
   'Fighting The Unskilled':
-    'Section=combat Note="%V attacks/rd vs. creatures with w/HD less than 1d8"',
+    'Section=combat ' +
+    'Note="%{warriorLevel} attacks/rd vs. creatures with w/HD less than 1d8"',
   'Immunity To Fey Charm':'Section=save Note="Immune to fey enchantment"',
   'Lay On Hands':
     'Section=magic Note="May use touch to heal %{levels.Paladin*2} HP 1/dy"',
@@ -465,7 +466,7 @@ OSRIC.FEATURES = {
     'Section=feature Note="May not possess more than can be carried"',
   'Turn Undead':
     'Section=combat ' +
-    'Note="May turn, destroy (good), or control (evil) 2d6 undead creatures"',
+    'Note="May turn or %{alignment=~\'Evil\'?\'control\':\'destroy\'} undead creatures"',
   'Weapon Specialization':
      'Section=combat ' +
     'Note="+%1 %V Attack Modifier/+%2 %V Damage Modifier/+%3 attacks/rd"',
@@ -2678,8 +2679,6 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
     'casterLevelArcane', '=', null,
     'casterLevelDivine', '+=', null
   );
-  rules.defineRule
-    ('combatNotes.fightingTheUnskilled', 'warriorLevel', '+=', null);
   rules.defineRule('level', /^levels\./, '+=', null);
   rules.defineRule('warriorLevel', '', '=', '0');
   QuilvynRules.validAllocationRules
@@ -3052,6 +3051,16 @@ OSRIC.classRules = function(
       ('save.' + s, 'class' + name + s + 'Save', 'v=', null);
   }
 
+  features.forEach(f => {
+    let m = f.match(/((\d+):)?Turn Undead/);
+    if(m)
+      rules.defineRule('turningLevel',
+        classLevel, '^=', m[2] && m[2] != '1' ? 'source>=' + m[2] + ' ? source - ' + (+m[2] - 1) + ' : null' : 'source'
+      );
+    if(f.includes('Fighting The Unskilled'))
+      rules.defineRule('warriorLevel', classLevel, '^=', null);
+  });
+
   QuilvynRules.featureListRules(rules, features, name, classLevel, false);
   rules.defineSheetElement(name + ' Features', 'Feats+', null, '; ');
   rules.defineChoice('extras', prefix + 'Features');
@@ -3144,7 +3153,6 @@ OSRIC.classRulesExtra = function(rules, name) {
         'magicNotes.bonusClericSpells', '+', 'source.match(/C' + level + 'x3/) ? 3 : source.match(/C' + level + 'x2/) ? 2 : source.match(/C' + level + '/) ? 1 : null'
       );
     }
-    rules.defineRule('turningLevel', classLevel, '+=', null);
 
   } else if(name == 'Druid') {
 
@@ -3169,7 +3177,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.bonusAttacks',
       classLevel, '+=', 'source<7 ? null : source<13 ? 0.5 : 1'
     );
-    rules.defineRule('warriorLevel', classLevel, '+', null);
 
   } else if(name == 'Illusionist') {
 
@@ -3198,9 +3205,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.bonusAttacks',
       classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
     );
-    rules.defineRule
-      ('turningLevel', classLevel, '+=', 'source>2 ? source - 2 : null');
-    rules.defineRule('warriorLevel', classLevel, '+', null);
 
   } else if(name == 'Ranger') {
 
@@ -3213,7 +3217,6 @@ OSRIC.classRulesExtra = function(rules, name) {
       'abilityNotes.delayedHenchmen', '+', 'null',
       classLevel, 'v', 'source<8 ? 0 : null'
     );
-    rules.defineRule('warriorLevel', classLevel, '+', null);
 
   } else if(name == 'Thief') {
 
