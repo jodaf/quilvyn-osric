@@ -94,9 +94,6 @@ function OSRIC(edition) {
   rules.defineSheetElement('Thac10 Ranged', 'Thac10Info/', '%V');
   rules.defineSheetElement('AttackInfo');
   rules.defineSheetElement('Turn Undead', 'Combat Notes', null);
-  rules.defineSheetElement
-    ('Understand Spell', 'Spell Slots', '<b>%N</b>: %V%');
-  rules.defineSheetElement('Maximum Spells Per Level', 'Spell Slots');
 
   Quilvyn.addRuleSet(rules);
 
@@ -183,7 +180,7 @@ OSRIC.CLASSES = {
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"1:Turn Undead",' +
       '"wisdom >= 16 ? 1:Bonus Cleric Experience",' +
-      '"wisdom >= 13 ? 1:Bonus Cleric Spells",' +
+      '"wisdom >= 13 ? 1:Bonus Spells",' +
       '"wisdom <= 12 ? 1:Cleric Spell Failure" ' +
     'Experience=' +
       '0,1.55,2.9,6,13.25,27,55,110,220,450,675,900,1125,1350,1575,1800,' +
@@ -211,10 +208,10 @@ OSRIC.CLASSES = {
     'Features=' +
       '"1:Armor Proficiency (Leather)","1:Shield Proficiency (All)",' +
       '"charisma >= 16/wisdom >= 16 ? 1:Bonus Druid Experience",' +
-      '"wisdom >= 13 ? 1:Bonus Druid Spells",' +
-      '"1:Resist Fire","1:Resist Lightning","3:Druid\'s Knowledge",' +
-      '"3:Wilderness Movement","7:Immunity To Fey Charm",' +
-      '7:Shapeshift ' +
+      '"wisdom >= 13 ? 1:Bonus Spells",' +
+      '"1:Druids\' Cant","1:Resist Fire","1:Resist Lightning",' +
+      '"3:Druid\'s Knowledge","3:Wilderness Movement",' +
+      '"7:Immunity To Fey Charm",7:Shapeshift ' +
     'Experience=0,2,4,8,12,20,35,60,90,125,200,300,750,1500 ' +
     'CasterLevelDivine=levels.Druid ' +
     'SpellAbility=wisdom ' +
@@ -252,7 +249,7 @@ OSRIC.CLASSES = {
     'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
     'Wand=11,9@6,...3@21 '+
     'Features=' +
-      '"10:Eldritch Craft" ' +
+      '"1:Spell Book","10:Eldritch Craft" ' +
     'CasterLevelArcane=levels.Illusionist ' +
     'Experience=' +
       '0,2.5,4.75,9,18,35,60.25,95,144.5,220,440,660,880,1100,1320,1540,' +
@@ -276,7 +273,7 @@ OSRIC.CLASSES = {
     'Wand=11,9@6,...3@21 ' +
     'Features=' +
       '"intelligence >= 16 ? 1:Bonus Magic User Experience",' +
-      '"7:Eldritch Craft","12:Eldritch Power" ' +
+      '"1:Spell Book","7:Eldritch Craft","12:Eldritch Power" ' +
     'Experience=' +
       '0,2.4,4.8,10.25,22,40,60,80,140,250,375,750,1125,1500,1875,2250,' +
       '2625,3000,3375,3750,4125,4500,4875,5250 ' +
@@ -362,7 +359,7 @@ OSRIC.CLASSES = {
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"dexterity >= 16 ? 1:Bonus Thief Experience",' +
-      '1:Backstab,"1:Thief Skills","10:Read Scrolls" ' +
+      '1:Backstab,"1:Thief Skills","1:Thieves\' Cant","10:Read Scrolls" ' +
     'Experience=' +
       '0,1.25,2.5,5,10,20,40,70,110,160,220,440,660,880,1100,1320,1540,' +
       '1760,1980,2200,2420,2640,2860,3080'
@@ -380,10 +377,8 @@ OSRIC.FEATURES = {
   'Bonus Attacks':'Section=combat Note="+%V attacks/rd"',
   'Bonus Cleric Experience':
     'Section=ability Note="10% added to awarded experience"',
-  'Bonus Cleric Spells':'Section=magic Note="%V"',
   'Bonus Druid Experience':
     'Section=ability Note="10% added to awarded experience"',
-  'Bonus Druid Spells':'Section=magic Note="%V"',
   'Bonus Fighter Experience':
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Languages':
@@ -395,6 +390,7 @@ OSRIC.FEATURES = {
     'Section=ability Note="10% added to awarded experience"',
   'Bonus Ranger Experience':
     'Section=ability Note="10% added to awarded experience"',
+  'Bonus Spells':'Section=magic Note="Spell level %V"',
   'Bonus Thief Experience':
     'Section=ability Note="10% added to awarded experience"',
   'Cleric Spell Failure':'Section=magic Note="%{(12-wisdom)*5>?1}%"',
@@ -415,6 +411,7 @@ OSRIC.FEATURES = {
   'Divine Health':'Section=save Note="Immune to disease"',
   'Double Specialization':
     'Section=combat Note="+3 %V Attack Modifier/+3 %V Damage Modifier"',
+  "Druids' Cant":'Section=skill Note="Speaks the secret language of Druids"',
   "Druid's Knowledge":
     'Section=feature ' +
     'Note="May identify plant and animal types and determine water purity"',
@@ -455,11 +452,16 @@ OSRIC.FEATURES = {
   'Shapeshift':
     'Section=magic ' +
     'Note="May change into a natural animal, regaining 1d6x10% HP, 3/dy"',
+  'Spell Book':
+    'Section=magic ' +
+    'Note="Understands %1-%2 spells of each level; has a %V% chance to understand a particular spell"',
   'Summon Warhorse':
     'Section=feature Note="May call a warhorse w/enhanced features"',
   'Thief Skills':
     'Section=skill ' +
     'Note="May Climb Walls, Find Traps, Hear Noise, Hide In Shadows, Move Silently, Open Locks, Pick Pockets, and Read Languages"',
+  "Thieves' Cant":
+    'Section=skill Note="Speaks the secret language of thieves"',
   'Tracking':
     'Section=feature Note="May track creatures w/90% success in rural settings and 65%+ success in urban or dungeon settings"',
   'Travel Light':
@@ -3052,13 +3054,56 @@ OSRIC.classRules = function(
   }
 
   features.forEach(f => {
-    let m = f.match(/((\d+):)?Turn Undead/);
+    let m = f.match(/((\d+):)?Bonus Attacks/);
+    if(m) {
+      let level = +m[2] || 1;
+      rules.defineRule
+        ('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
+      rules.defineRule('combatNotes.bonusAttacks',
+        classLevel, '^=', 'source<' + level + ' ? null : source<' + (level * 2 - 1) + ' ? 0.5 : 1'
+      );
+    }
+    if(f.includes('Bonus Spells') && spellSlots.length > 0) {
+      let t = spellSlots[0].charAt(0);
+      rules.defineRule('bonusSpells.' + name,
+        classLevel, '?', null,
+        'wisdom', '=',
+         '"' + t + '1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
+         '(source>=15 ? source>=16 ? ", ' + t + '2x2" : ", ' + t + '2" : "") + ' +
+         '(source>=17 ? ", ' + t + '3" : "") + ' +
+         '(source>=18 ? ", ' + t + '4" : "")'
+      );
+      rules.defineRule
+        ('magicNotes.bonusSpells', 'bonusSpells.' + name, '=', null);
+      for(let level = 1; level <= 4; level++) {
+        rules.defineRule('spellSlots.' + t + level,
+          'magicNotes.bonusSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : null'
+        );
+      }
+    }
+    if(f.includes('Fighting The Unskilled'))
+      rules.defineRule('warriorLevel', classLevel, '^=', null);
+    if(f.includes('Spell Book')) {
+      rules.defineRule('magicNotes.spellBook',
+        'intelligence', '=',
+          'source>=19 ? 90 : [35,45,45,45,55,55,65,65,75,85][source - 9]'
+      );
+      rules.defineRule('magicNotes.spellBook.1',
+        'features.Spell Book', '?', null,
+        'intelligence', '=',
+          'source>=19 ? 10 : [4, 5, 5, 5, 6, 6, 7, 7, 8, 9][source - 9]'
+      );
+      rules.defineRule('magicNotes.spellBook.2',
+        'features.Spell Book', '?', null,
+        'intelligence', '=',
+          'source>=19 ? 22 : [6, 7, 7, 7, 9, 9, 11, 11, 14, 18][source - 9]'
+      );
+    }
+    m = f.match(/((\d+):)?Turn Undead/);
     if(m)
       rules.defineRule('turningLevel',
         classLevel, '^=', m[2] && m[2] != '1' ? 'source>=' + m[2] + ' ? source - ' + (+m[2] - 1) + ' : null' : 'source'
       );
-    if(f.includes('Fighting The Unskilled'))
-      rules.defineRule('warriorLevel', classLevel, '^=', null);
   });
 
   QuilvynRules.featureListRules(rules, features, name, classLevel, false);
@@ -3139,79 +3184,8 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('skillLevel.Pick Pockets', classLevel, '+=', skillLevel);
     rules.defineRule('skillLevel.Read Languages', classLevel, '+=', skillLevel);
 
-  } else if(name == 'Cleric') {
-
-    rules.defineRule('magicNotes.bonusClericSpells',
-      'wisdom', '=',
-       '"Spell level C1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
-       '(source>=15 ? source>=16 ? ", C2x2" : ", C2" : "") + ' +
-       '(source>=17 ? ", C3" : "") + ' +
-       '(source>=18 ? ", C4" : "")'
-    );
-    for(let level = 1; level <= 4; level++) {
-      rules.defineRule('spellSlots.C' + level,
-        'magicNotes.bonusClericSpells', '+', 'source.match(/C' + level + 'x3/) ? 3 : source.match(/C' + level + 'x2/) ? 2 : source.match(/C' + level + '/) ? 1 : null'
-      );
-    }
-
-  } else if(name == 'Druid') {
-
-    rules.defineRule('languageCount', classLevel, '+', '1');
-    rules.defineRule("languages.Druids' Cant", classLevel, '=', '1');
-    rules.defineRule('magicNotes.bonusDruidSpells',
-      'wisdom', '=',
-       '"Spell level D1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
-       '(source>=15 ? source>=16 ? ", D2x2" : ", D2" : "") + ' +
-       '(source>=17 ? ", D3" : "") + ' +
-       '(source>=18 ? ", D4" : "")'
-    );
-    for(let level = 1; level <= 4; level++) {
-      rules.defineRule('spellSlots.D' + level,
-        'magicNotes.bonusDruidSpells', '+', 'source.match(/D' + level + 'x3/) ? 3 : source.match(/D' + level + 'x2/) ? 2 : source.match(/D' + level + '/) ? 1 : null'
-      );
-    }
-
-  } else if(name == 'Fighter') {
-
-    rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
-    rules.defineRule('combatNotes.bonusAttacks',
-      classLevel, '+=', 'source<7 ? null : source<13 ? 0.5 : 1'
-    );
-
-  } else if(name == 'Illusionist') {
-
-    rules.defineRule('wizardLevel', classLevel, '+=', null);
-
-  } else if(name == 'Magic User') {
-
-    rules.defineRule('wizardLevel', classLevel, '+=', null);
-    rules.defineRule('maximumSpellsPerLevel',
-      'wizardLevel', '?', null,
-      'intelligence', '=',
-        'source==9 ? 6 : source<=12 ? 7 : source<=14 ? 9 : source<=16 ? 11 : ' +
-        'source==17 ? 14 : source==18 ? 18 : 22'
-    );
-    rules.defineRule('understandSpell',
-      'wizardLevel', '?', null,
-      'intelligence', '=',
-        'source>=19 ? 90 : ' +
-          'source==18 ? 85 : source==17 ? 75 : source>=15 ? 65 : ' +
-          'source>=13 ? 55 : source>=10 ? 45 : 35'
-    );
-
-  } else if(name == 'Paladin') {
-
-    rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
-    rules.defineRule('combatNotes.bonusAttacks',
-      classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
-    );
-
   } else if(name == 'Ranger') {
 
-    rules.defineRule('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
-    rules.defineRule('combatNotes.bonusAttacks',
-      classLevel, '+=', 'source<8 ? null : source<15 ? 0.5 : 1'
-    );
     rules.defineRule('maximumHenchmen',
       // Noop to show Delayed Henchmen note in italics
       'abilityNotes.delayedHenchmen', '+', 'null',
@@ -3219,9 +3193,6 @@ OSRIC.classRulesExtra = function(rules, name) {
     );
 
   } else if(name == 'Thief') {
-
-    rules.defineRule('languageCount', classLevel, '+', '1');
-    rules.defineRule("languages.Thieves' Cant", classLevel, '=', '1');
 
     rules.defineRule('skillLevel.Climb Walls', classLevel, '+=', null);
     rules.defineRule('skillLevel.Find Traps', classLevel, '+=', null);
@@ -3243,7 +3214,12 @@ OSRIC.classRulesExtra = function(rules, name) {
  */
 OSRIC.featureRules = function(rules, name, sections, notes) {
   SRD35.featureRules(rules, name, sections, notes);
-  // No changes needed to the rules defined by SRD35 method
+  if(name.match(/ Cant$/)) {
+    let note =
+      sections[0] + 'Notes.' + name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
+    rules.defineRule('languageCount', note, '+', '1');
+    rules.defineRule('languages.' + name, 'features.' + name, '=', '1');
+  }
 };
 
 /*
