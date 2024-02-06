@@ -154,7 +154,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Evil\'","constitution >= 6","dexterity >= 12",' +
       '"intelligence >= 11","strength >= 12","wisdom >= 6" ' +
-    'HitDie=d6,15,1 THAC10=11,9@5,6@9,4@13,4@15 WeaponProficiency=3,4,3 ' +
+    'HitDie=d6,15,1 THAC10=11,9@5,6@9,4@13,4@15 ' +
+    'WeaponProficiency=3,4@7,5@11,6@15 NonproficientPenalty=-3 ' +
     'Breath=16,15@5,...13@15 Death=13,12@5,...10@15 ' +
     'Petrification=12,11@5,...9@15 Spell=15,13@5,...9@15 Wand=14,12@5,...8@15 '+
     'Features=' +
@@ -170,7 +171,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 6","intelligence >= 6",' +
       '"strength >= 6","wisdom >= 9" ' +
-    'HitDie=d8,9,2 THAC10=10,8@4,...-1@19,-1@24 WeaponProficiency=2,3,3 ' +
+    'HitDie=d8,9,2 THAC10=10,8@4,...-1@19,-1@24 ' +
+    'WeaponProficiency=2,3@4,...9@22 NonproficientPenalty=-3 ' +
     'Breath=16,15@4,13@7,12@10,11@13,10@16,8@19 ' +
     'Death=10,9@4,7@7,6@10,5@13,4@16,2@19 ' +
     'Petrification=13,12@4,10@7,9@10,8@13,7@16,5@19 ' +
@@ -201,7 +203,8 @@ OSRIC.CLASSES = {
       '"dexterity >= 6","intelligence >= 6","strength >= 6","wisdom >= 12" ' +
     'Require=' +
       '"alignment =~ \'Neutral\'","charisma >= 15","wisdom >= 12" ' +
-    'HitDie=d8,14,1 THAC10=10,8@4,...2@14 WeaponProficiency=2,3,4 ' +
+    'HitDie=d8,14,1 THAC10=10,8@4,...2@14 ' +
+    'WeaponProficiency=2,3@4,...6@13 NonproficientPenalty=-4 ' +
     'Breath=16,15@4,13@7,12@10,11@11 Death=10,9@4,7@7,6@10,5@13 ' +
     'Petrification=13,12@4,10@7,9@10,8@13 Spell=15,14@4,12@7,11@10,10@13 ' +
     'Wand=14,13@4,11@7,10@10,9@13 ' +
@@ -227,7 +230,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 7","dexterity >= 6","strength >= 9",' +
       '"wisdom >= 6" ' +
-    'HitDie=d10,9,3 THAC10=10,9,...-9@20 WeaponProficiency=4,2,2 ' +
+    'HitDie=d10,9,3 THAC10=10,9,...-9@20 ' +
+    'WeaponProficiency=4,5@3,...15@23 NonproficientPenalty=-2 ' +
     'Breath=17,16@3,13@5,12@7,9@9,8@11,5@13,4@15,3@19 ' +
     'Death=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
     'Petrification=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
@@ -244,7 +248,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","dexterity >= 16","intelligence >= 15",' +
       '"strength >= 6","wisdom >= 6" ' +
-    'HitDie=d4,10,1 THAC10=11,9@6,...3@24 WeaponProficiency=1,5,3 ' +
+    'HitDie=d4,10,1 THAC10=11,9@6,...3@24 ' +
+    'WeaponProficiency=1,2@6,...5@21 NonproficientPenalty=-5 ' +
     'Breath=15,13@6,...7@21 Death=14,13@6,11@11,10@16,8@21 ' +
     'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
     'Wand=11,9@6,...3@21 '+
@@ -267,7 +272,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 6","dexterity >= 6",' +
       '"intelligence >= 9","wisdom >= 6" ' +
-    'HitDie=d4,11,1 THAC10=11,9@6,...3@24 WeaponProficiency=1,5,5 ' +
+    'HitDie=d4,11,1 THAC10=11,9@6,...3@24 ' +
+    'WeaponProficiency=1,2@6,...5@21 NonproficientPenalty=-5 ' +
     'Breath=15,13@6,...7@21 Death=14,13@6,11@11,10@16,8@21 ' +
     'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
     'Wand=11,9@6,...3@21 ' +
@@ -293,7 +299,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment == \'Lawful Good\'","charisma >= 17","constitution >= 9",' +
       '"dexterity >= 6","intelligence >= 9","strength >= 12","wisdom >= 13" ' +
-    'HitDie=d10,9,3 THAC10=10,9,...-9@20,-9@24 WeaponProficiency=3,2,2 ' +
+    'HitDie=d10,9,3 THAC10=10,9,...-9@20,-9@24 ' +
+    'WeaponProficiency=3,4@3,...14@23 NonproficientPenalty=-2 ' +
     'Breath=15,14@3,11@5,10@7,7@9,6@11,3@13,2@15 ' +
     'Death=12,11@3,9@5,8@7,6@9,5@11,3@13,2@15 ' +
     'Petrification=13,12@3,10@5,9@7,7@9,6@11,4@13,3@15,2@17 ' +
@@ -321,7 +328,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Good\'","charisma >= 6","constitution >= 14",' +
       '"dexterity >= 6","intelligence >= 13","strength >= 13","wisdom >= 14" ' +
-    'HitDie=2d8,10,2 THAC10=10,9,...-9@20,-9@24 WeaponProficiency=3,2,2 ' +
+    'HitDie=2d8,10,2 THAC10=10,9,...-9@20,-9@24 ' +
+    'WeaponProficiency=3,4@3,...14@23 NonproficientPenalty=-2 ' +
     'Breath=17,16@3,13@5,12@7,9@9,8@11,5@13,4@15,3@19 ' +
     'Death=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
     'Petrification=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
@@ -353,7 +361,8 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
       '"dexterity >= 9","intelligence >= 6","strength >= 6" ' +
-    'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 WeaponProficiency=2,4,3 ' +
+    'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 ' +
+    'WeaponProficiency=2,3@5,...7@21 NonproficientPenalty=-3 ' +
     'Breath=16,15@5,...11@21 Death=13,12@5,...8@21 ' +
     'Petrification=12,11@5,...7@21 Spell=15,13@5,...5@21 Wand=14,12@5,...4@21 '+
     'Features=' +
@@ -2653,9 +2662,10 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
   QuilvynUtils.checkAttrTable(
     classes, [
       'Require', 'HitDie', 'Attack', 'WeaponProficiency',
-      'NonweaponProficiency', 'Breath', 'Death', 'Petrification', 'Spell',
-      'Wand', 'Features', 'Experience', 'CasterLevelArcane',
-      'CasterLevelDivine', 'SpellAbility', 'SpellSlots', 'THAC10'
+      'NonproficientPenalty', 'NonweaponProficiency', 'Breath', 'Death',
+      'Petrification', 'Spell', 'Wand', 'Features', 'Experience',
+      'CasterLevelArcane', 'CasterLevelDivine', 'SpellAbility', 'SpellSlots',
+      'THAC10'
     ]
   );
   QuilvynUtils.checkAttrTable(races, ['Require', 'Features', 'Languages']);
@@ -2769,6 +2779,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Languages'),
       QuilvynUtils.getAttrValueArray(attrs, 'WeaponProficiency'),
       QuilvynUtils.getAttrValueArray(attrs, 'NonweaponProficiency'),
+      QuilvynUtils.getAttrValue(attrs, 'NonproficientPenalty'),
       QuilvynUtils.getAttrValue(attrs, 'CasterLevelArcane'),
       QuilvynUtils.getAttrValue(attrs, 'CasterLevelDivine'),
       QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots')
@@ -2907,36 +2918,34 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
 };
 
 /*
- * Defines in #rules# the rules associated with class #name#, which has the list
- * of hard prerequisites #requires#. #experience# lists the experience point
- * progression required to advance levels in the class. #hitDie# is a triplet
- * indicating the additional hit points granted with each level advance--the
- * first element (format [n]'d'n) specifies the number of side on each die,
- * the second the maximum number of hit dice for the class, and the third the
- * number of points added each level after the maximum hit dice are reached.
- * #thac10# lists the values needed by a character of this class to hit AC 10.
- * Similarly, #saveBreath#, #saveDeath#, #savePetrification#,
- * #saveSpell#, and #saveWand# are each triplets indicating: the saving throw
- * for a level 1 character; the amount this decreases as the character gains
- * levels; the number of levels between decreases. #features# lists the
- * features acquired as the character advances in class level, and #languages#
- * lists any automatic languages for the class. #weaponProficiency# is a
- * triplet indicating: the number of weapon proficiencies for a level 1
- * character; the number of levels between increments of weapon proficiencies;
- * the penalty for using a non-proficient weapon. #weaponProficiency# is a pair
- * indicating the number of nonweapon proficiencies for a level 1 character and
- * the number of levels between increments of nonweapon proficiencies.
- * #casterLevelArcane# and #casterLevelDivine#, if specified, give the
- * Javascript expression for determining the caster level for the class; these
- * can incorporate a class level attribute (e.g., 'levels.Cleric') or the
- * character level attribute 'level'. If the class grants spell slots,
- * #spellSlots# lists the number of spells per level per day granted.
+ * Defines in #rules# the rules associated with class #name#, which has the
+ * list of hard prerequisites #requires#. #experience# lists the experience
+ * point progression required to advance levels in the class. #hitDie# is a
+ * triplet indicating the additional hit points granted with each level
+ * advance--the first element (format [n]'d'n) specifies the number of sides on
+ * each die, the second the maximum number of hit dice for the class, and the
+ * third the number of points added each level after the maximum hit dice are
+ * reached. #thac10# is a progression that lists the values needed by a
+ * character of this class to hit AC 10. Similarly, #saveBreath#, #saveDeath#,
+ * #savePetrification#, #saveSpell#, and #saveWand# are each progressions
+ * indicating the value needed for each type of saving throw on each level.
+ * #features# lists the features acquired as the character advances in class
+ * level, and #languages# lists any automatic languages for the class.
+ * #weaponProficiency# and #nonweaponProficiency# are progressions indicating
+ * the number of weapon and nonweapon proficiencies the class grants at each
+ * level, and #nonproficientPenalty# the attack penalty assessed by the class
+ * when using a non-proficient weapon. #casterLevelArcane# and
+ * #casterLevelDivine#, if specified, give the Javascript expression for
+ * determining the caster level for the class; these can incorporate a class
+ * level attribute (e.g., 'levels.Cleric') or the character level attribute
+ * 'level'. If the class grants spell slots, #spellSlots# lists the number of
+ * spells per level per day granted.
  */
 OSRIC.classRules = function(
   rules, name, requires, experience, hitDie, thac10, saveBreath, saveDeath,
   savePetrification, saveSpell, saveWand, features, languages,
-  weaponProficiency, nonweaponProficiency, casterLevelArcane,
-  casterLevelDivine, spellSlots
+  weaponProficiency, nonweaponProficiency, nonproficientPenalty,
+  casterLevelArcane, casterLevelDivine, spellSlots
 ) {
 
   if(!name) {
@@ -2987,13 +2996,16 @@ OSRIC.classRules = function(
     console.log('Bad languages list "' + languages + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(weaponProficiency) || weaponProficiency.length != 3) {
+  if(!Array.isArray(weaponProficiency)) {
     console.log('Bad weaponProficiency "' + weaponProficiency + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(nonweaponProficiency) ||
-     (nonweaponProficiency.length != 2 && nonweaponProficiency.length != 0)) {
+  if(!Array.isArray(nonweaponProficiency)) {
     console.log('Bad nonweaponProficiency "' + nonweaponProficiency + '" for class ' + name);
+    return;
+  }
+  if(typeof(nonproficientPenalty) != 'number') {
+    console.log('Bad nonproficientPenalty "' + nonproficientPenalty + '" for class ' + name);
     return;
   }
   if(!Array.isArray(spellSlots)) {
@@ -3111,16 +3123,12 @@ OSRIC.classRules = function(
       rules.defineRule('languages.' + languages[i], classLevel, '=', '1');
   }
 
+  let weaponProgress = OSRIC.progressTable(weaponProficiency);
   rules.defineRule('weaponProficiencyCount',
-    'levels.' + name, '+', weaponProficiency[0] + ' + Math.floor(source / ' + weaponProficiency[1] + ')'
+    classLevel, '+', '[' + weaponProgress.join(',') + '][source] || ' + weaponProgress[weaponProgress.length - 1]
   );
-  rules.defineRule('weaponNonProficiencyPenalty',
-    'levels.' + name, '^=', weaponProficiency[2]
-  );
-  if(nonweaponProficiency.length == 2)
-    rules.defineRule('nonweaponProficiencyCount',
-      'levels.' + name, '+=', nonweaponProficiency[0] + ' + Math.floor(source / ' + nonweaponProficiency[1] + ')'
-    );
+  rules.defineRule
+    ('weaponNonProficiencyPenalty', classLevel, '^=', nonproficientPenalty);
 
   if(spellSlots.length > 0) {
     let casterLevelExpr = casterLevelArcane || casterLevelDivine || classLevel;
@@ -3513,7 +3521,7 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
   rules.defineRule('combatNotes.nonproficientWeaponPenalty.' + name,
     'weapons.' + name, '?', null,
     'weaponProficiencyLevelShortfall.' + name, '?', 'source > 0',
-    'weaponNonProficiencyPenalty', '=', '-source'
+    'weaponNonProficiencyPenalty', '=', null
   );
   rules.defineRule('weaponProficiencyLevelShortfall.' + name,
     'weapons.' + name, '?', null,
@@ -3528,7 +3536,7 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
 OSRIC.progressTable = function(steps) {
   let mostRecentRun = 1;
   let mostRecentStep = 0;
-  let result = [20];
+  let result = [0];
   for(let i = 0; i < steps.length; i++) {
     let m = (steps[i] + '').match(/^(\.*)(-?\d+)(@(\d+))?$/);
     if(!m) {
