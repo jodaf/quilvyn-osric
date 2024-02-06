@@ -50,7 +50,7 @@ function OSRIC(edition) {
   rules.ruleNotes = OSRIC.ruleNotes;
 
   OSRIC.createViewers(rules, OSRIC.VIEWERS);
-  rules.defineChoice('extras', 'feats', 'sanityNotes', 'validationNotes');
+  rules.defineChoice('extras', 'sanityNotes', 'validationNotes');
   rules.defineChoice
     ('preset', 'race:Race,select-one,races','levels:Class Levels,bag,levels');
 
@@ -3019,14 +3019,13 @@ OSRIC.classRules = function(
       (rules, 'validation', prefix + 'Class', classLevel, requires);
 
   rules.defineChoice('notes', 'experiencePoints.' + name + ':%V/%1');
-  for(let i = 0; i < experience.length; i++) {
+  for(let i = 0; i < experience.length; i++)
     experience[i] *= 1000;
-  }
   rules.defineRule('experiencePoints.' + name + '.1',
-    classLevel, '=', 'source < ' + experience.length + ' ? [' + experience + '][source] : "-"'
+    classLevel, '=', 'source<' + experience.length + ' ? [' + experience + '][source] : "-"'
   );
   rules.defineRule(classLevel,
-    'experiencePoints.' + name, '=', 'source >= ' + experience[experience.length - 1] + ' ? ' + experience.length + ' : [' + experience + '].findIndex(item => item > source)'
+    'experiencePoints.' + name, '=', 'source>=' + experience[experience.length - 1] + ' ? ' + experience.length + ' : [' + experience + '].findIndex(item => item>source)'
   );
 
   let thac10Progress = OSRIC.progressTable(thac10);
@@ -3054,36 +3053,56 @@ OSRIC.classRules = function(
   }
 
   features.forEach(f => {
-    let m = f.match(/((\d+):)?Bonus Attacks/);
-    if(m) {
+    let m;
+    if((m = f.match(/((\d+):)?Bonus Attacks/)) != null) {
       let level = +m[2] || 1;
       rules.defineRule
         ('attacksPerRound', 'combatNotes.bonusAttacks', '+', null);
       rules.defineRule('combatNotes.bonusAttacks',
         classLevel, '^=', 'source<' + level + ' ? null : source<' + (level * 2 - 1) + ' ? 0.5 : 1'
       );
-    }
-    if(f.includes('Bonus Spells') && spellSlots.length > 0) {
+    } else if(f.includes('Bonus Spells') && spellSlots.length > 0) {
+      // The rule engine doesn't support building results via concatenation or
+      // arrays, so we have to go through some contortions to list all of the
+      // character's slot bonuses. We cache the spell types subject to bonuses
+      // in the OSRIC.BonusSpellTypes global and compute a bit map indicating
+      // which of these the character possesses. This is then combined with a
+      // template constructed from the character's wisdom score to produce the
+      // final list of bonus spell levels.
       let t = spellSlots[0].charAt(0);
-      rules.defineRule('bonusSpells.' + name,
-        classLevel, '?', null,
-        'wisdom', '=',
-         '"' + t + '1" + (source>=14 ? source>=19 ? "x3" : "x2" : "") + ' +
-         '(source>=15 ? source>=16 ? ", ' + t + '2x2" : ", ' + t + '2" : "") + ' +
-         '(source>=17 ? ", ' + t + '3" : "") + ' +
-         '(source>=18 ? ", ' + t + '4" : "")'
+      if(!OSRIC.BonusSpellTypes)
+        OSRIC.BonusSpellTypes = [];
+      OSRIC.BonusSpellTypes.push(t);
+      rules.defineRule('bonusSpellBitMap',
+        'features.Bonus Spells', '?', null,
+        '', '=', '0',
+        classLevel, '+', Math.pow(2, OSRIC.BonusSpellTypes.length - 1)
       );
-      rules.defineRule
-        ('magicNotes.bonusSpells', 'bonusSpells.' + name, '=', null);
+      rules.defineRule('bonusSpellTemplate',
+        'features.Bonus Spells', '?', null,
+        'wisdom', '=',
+          'source>=19 ? "t1x3, t2x2, t3, t4" : ' +
+          'source==18 ? "t1x2, t2x2, t3, t4" : ' +
+          'source==17 ? "t1x2, t2x2, t3" : ' +
+          'source==16 ? "t1x2, t2x2" : ' +
+          'source==15 ? "t1x2, t2" : ' +
+          'source==14 ? "t1x2" : "t1"'
+      );
+      rules.defineRule('magicNotes.bonusSpells',
+        // Bonus spell template is used in the second rule, taken from the dict
+        // param to the function. The first rule ensures that bST has been
+        // computed before the second rule is evaluated.
+        'bonusSpellTemplate', '?', null,
+        'bonusSpellBitMap', '=', 'OSRIC.BonusSpellTypes.map(x => dict.bonusSpellTemplate.replaceAll("t", x)).filter((x, index) => source & Math.pow(2, index)).join(", ")'
+      );
       for(let level = 1; level <= 4; level++) {
         rules.defineRule('spellSlots.' + t + level,
           'magicNotes.bonusSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : null'
         );
       }
-    }
-    if(f.includes('Fighting The Unskilled'))
+    } else if(f.includes('Fighting The Unskilled')) {
       rules.defineRule('warriorLevel', classLevel, '^=', null);
-    if(f.includes('Spell Book')) {
+    } else if(f.includes('Spell Book')) {
       rules.defineRule('magicNotes.spellBook',
         'intelligence', '=',
           'source>=19 ? 90 : [35,45,45,45,55,55,65,65,75,85][source - 9]'
@@ -3098,12 +3117,11 @@ OSRIC.classRules = function(
         'intelligence', '=',
           'source>=19 ? 22 : [6, 7, 7, 7, 9, 9, 11, 11, 14, 18][source - 9]'
       );
-    }
-    m = f.match(/((\d+):)?Turn Undead/);
-    if(m)
+    } else if((m = f.match(/((\d+):)?Turn Undead/)) != null) {
       rules.defineRule('turningLevel',
         classLevel, '^=', m[2] && m[2] != '1' ? 'source>=' + m[2] + ' ? source - ' + (+m[2] - 1) + ' : null' : 'source'
       );
+    }
   });
 
   QuilvynRules.featureListRules(rules, features, name, classLevel, false);
