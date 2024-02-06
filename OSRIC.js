@@ -410,7 +410,8 @@ OSRIC.FEATURES = {
   'Disguise':'Section=feature Note="92%+ successful disguise"',
   'Divine Health':'Section=save Note="Immune to disease"',
   'Double Specialization':
-    'Section=combat Note="+3 %V Attack Modifier/+3 %V Damage Modifier"',
+    'Section=combat ' +
+    'Note="+3 %{weaponSpecialization} Attack Modifier/+3 %{weaponSpecialization} Damage Modifier"',
   "Druids' Cant":'Section=skill Note="Speaks the secret language of Druids"',
   "Druid's Knowledge":
     'Section=feature ' +
@@ -454,7 +455,7 @@ OSRIC.FEATURES = {
     'Note="May change into a natural animal, regaining 1d6x10% HP, 3/dy"',
   'Spell Book':
     'Section=magic ' +
-    'Note="Understands %1-%2 spells of each level; has a %V% chance to understand a particular spell"',
+    'Note="Understands %{intelligence>=19?10:intelligence==18?9:intelligence==17?8:intelligence>=15?7:intelligence>=13?6:intelligence>=10?5:4}-%{intelligence>=19?22:intelligence==18?18:intelligence==17?14:intelligence>=15?11:intelligence>=13?9:intelligence>=10?7:6} spells of each level; has a %{intelligence>=19?90:intelligence==18?85:intelligence==17?75:intelligence>=15?65:intelligence>=13?55:intelligence>=10?45:35}% chance to understand a particular spell"',
   'Summon Warhorse':
     'Section=feature Note="May call a warhorse w/enhanced features"',
   'Thief Skills':
@@ -471,7 +472,7 @@ OSRIC.FEATURES = {
     'Note="May turn or %{alignment=~\'Evil\'?\'control\':\'destroy\'} undead creatures"',
   'Weapon Specialization':
      'Section=combat ' +
-    'Note="+%1 %V Attack Modifier/+%2 %V Damage Modifier/+%3 attacks/rd"',
+    'Note="+1 %V Attack Modifier/+2 %V Damage Modifier/+%{level//2} attacks/rd"',
   'Wilderness Movement':
      'Section=feature ' +
      'Note="May move through undergrowth at full speed, leaving no trace"',
@@ -2589,20 +2590,10 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   rules.defineRule('combatNotes.weaponSpecialization',
     'weaponSpecialization', '=', 'source == "None" ? null : source'
   );
-  rules.defineRule
-    ('combatNotes.weaponSpecialization.1', 'weaponSpecialization', '=', '1');
-  rules.defineRule
-    ('combatNotes.weaponSpecialization.2', 'weaponSpecialization', '=', '2');
-  rules.defineRule('combatNotes.weaponSpecialization.3',
+  rules.defineRule('features.Double Specialization',
     'weaponSpecialization', '?', 'source != "None"',
-    'level', '=', 'Math.floor(source / 2)'
+    'doubleSpecialization', '=', null
   );
-  rules.defineRule('combatNotes.doubleSpecialization',
-    'doubleSpecialization', '?', null,
-    'weaponSpecialization', '=', 'source == "None" ? null : source'
-  );
-  rules.defineRule
-    ('features.Double Specialization', 'doubleSpecialization', '=', null);
   rules.defineRule
     ('features.Weapon Specialization', 'weaponSpecialization', '=', null);
   rules.defineRule('thac0Melee',
@@ -3102,21 +3093,6 @@ OSRIC.classRules = function(
       }
     } else if(f.includes('Fighting The Unskilled')) {
       rules.defineRule('warriorLevel', classLevel, '^=', null);
-    } else if(f.includes('Spell Book')) {
-      rules.defineRule('magicNotes.spellBook',
-        'intelligence', '=',
-          'source>=19 ? 90 : [35,45,45,45,55,55,65,65,75,85][source - 9]'
-      );
-      rules.defineRule('magicNotes.spellBook.1',
-        'features.Spell Book', '?', null,
-        'intelligence', '=',
-          'source>=19 ? 10 : [4, 5, 5, 5, 6, 6, 7, 7, 8, 9][source - 9]'
-      );
-      rules.defineRule('magicNotes.spellBook.2',
-        'features.Spell Book', '?', null,
-        'intelligence', '=',
-          'source>=19 ? 22 : [6, 7, 7, 7, 9, 9, 11, 11, 14, 18][source - 9]'
-      );
     } else if((m = f.match(/((\d+):)?Turn Undead/)) != null) {
       rules.defineRule('turningLevel',
         classLevel, '^=', m[2] && m[2] != '1' ? 'source>=' + m[2] + ' ? source - ' + (+m[2] - 1) + ' : null' : 'source'
