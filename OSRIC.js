@@ -187,16 +187,14 @@ OSRIC.CLASSES = {
     'Experience=' +
       '0,1.55,2.9,6,13.25,27,55,110,220,450,675,900,1125,1350,1575,1800,' +
       '2025,2250,2475,2700,2925,3150,3375,3600 ' +
-    'CasterLevelDivine=levels.Cleric ' +
-    'SpellAbility=wisdom ' +
     'SpellSlots=' +
-      'C1:1=1;2=2;4=3;9=4;11=5;12=6;15=7;17=8;19=9,' +
-      'C2:3=1;4=2;5=3;9=4;12=5;13=6;15=7;17=8;19=9,' +
-      'C3:5=1;6=2;8=3;11=4;12=5;13=6;15=7;17=8;19=9,' +
-      'C4:7=1;8=2;10=3;13=4;14=5;16=6;18=7;20=8;21=9,' +
-      'C5:9=1;10=2;14=3;15=4;16=5;18=6;20=7;21=8;22=9,' +
-      'C6:11=1;12=2;16=3;18=4;20=5;21=6;23=7;24=8;26=9,' +
-      'C7:16=1;19=2;22=3;25=4;27=5;28=6;29=7',
+      'C1:1@1 2@2 3@4 4@9 5@11 6@12 7@15 8@17 9@19,' +
+      'C2:1@3 2@4 3@5 4@9 5@12 6@13 7@15 8@17 9@19,' +
+      'C3:1@5 2@6 3@8 4@11 5@12 6@13 7@15 8@17 9@19,' +
+      'C4:1@7 2@8 3@10 4@13 5@14 6@16 7@18 8@20 9@21,' +
+      'C5:1@9 2@10 3@14 4@15 5@16 6@18 7@20 8@21 9@22,' +
+      'C6:1@11 2@12 3@16 4@18 5@20 6@21 7@23 8@24 9@26,' +
+      'C7:1@16 2@19 3@22 4@25 5@27 6@28 7@29',
   'Druid':
     'Require=' +
       '"alignment =~ \'Neutral\'","charisma >= 15","constitution >= 6",' +
@@ -216,16 +214,14 @@ OSRIC.CLASSES = {
       '"3:Druid\'s Knowledge","3:Wilderness Movement",' +
       '"7:Immunity To Fey Charm",7:Shapeshift ' +
     'Experience=0,2,4,8,12,20,35,60,90,125,200,300,750,1500 ' +
-    'CasterLevelDivine=levels.Druid ' +
-    'SpellAbility=wisdom ' +
     'SpellSlots=' +
-      'D1:1=2;3=3;4=4;9=5;13=6,' +
-      'D2:2=1;3=2;5=3;7=4;11=5;14=6,' +
-      'D3:3=1;4=2;7=3;12=4;13=5;14=6,' +
-      'D4:6=1;8=2;10=3;12=4;13=5;14=6,' +
-      'D5:9=1;10=2;12=3;13=4;14=5,' +
-      'D6:11=1;12=2;13=3;14=4,' +
-      'D7:12=1;13=2;14=3',
+      'D1:2@1 3@3 4@4 5@9 6@13,' +
+      'D2:1@2 2@3 3@5 4@7 5@11 6@14,' +
+      'D3:1@3 2@4 3@7 4@12 5@13 6@14,' +
+      'D4:1@6 2@8 3@10 4@12 5@13 6@14,' +
+      'D5:1@9 2@10 3@12 4@13 5@14,' +
+      'D6:1@11 2@12 3@13 4@14,' +
+      'D7:1@12 2@13 3@14',
   'Fighter':
     'Require=' +
       '"charisma >= 6","constitution >= 7","dexterity >= 6","strength >= 9",' +
@@ -255,19 +251,17 @@ OSRIC.CLASSES = {
     'Wand=11,9@6,...3@21 '+
     'Features=' +
       '"1:Spell Book","10:Eldritch Craft" ' +
-    'CasterLevelArcane=levels.Illusionist ' +
     'Experience=' +
       '0,2.5,4.75,9,18,35,60.25,95,144.5,220,440,660,880,1100,1320,1540,' +
       '1760,1980,2200,2420,2640,3080,3300 ' +
-    'SpellAbility=intelligence ' +
     'SpellSlots=' +
-      'I1:1=1;2=2;4=3;5=4;9=5;17=6,' +
-      'I2:3=1;4=2;5=3;10=4;12=5;18=6,' +
-      'I3:5=1;6=2;9=3;12=4;16=5;20=6,' +
-      'I4:7=1;8=2;11=3;15=4;19=5;21=6,' +
-      'I5:10=1;11=2;16=3;18=4;19=5;23=6,' +
-      'I6:12=1;13=2;17=3;20=4;22=5;24=6,' +
-      'I7:14=1;15=2;21=3;23=4;24=5',
+      'I1:1@1 2@2 3@4 4@5 5@9 6@17,' +
+      'I2:1@3 2@4 3@5 4@10 5@12 6@18,' +
+      'I3:1@5 2@6 3@9 4@12 5@16 6@20,' +
+      'I4:1@7 2@8 3@11 4@15 5@19 6@21,' +
+      'I5:1@10 2@11 3@16 4@18 5@19 6@23,' +
+      'I6:1@12 2@13 3@17 4@20 5@22 6@24,' +
+      'I7:1@14 2@15 3@21 4@23 5@24',
   'Magic User':
     'Require=' +
       '"charisma >= 6","constitution >= 6","dexterity >= 6",' +
@@ -283,18 +277,16 @@ OSRIC.CLASSES = {
     'Experience=' +
       '0,2.4,4.8,10.25,22,40,60,80,140,250,375,750,1125,1500,1875,2250,' +
       '2625,3000,3375,3750,4125,4500,4875,5250 ' +
-    'CasterLevelArcane="levels.Magic User" ' +
-    'SpellAbility=intelligence ' +
     'SpellSlots=' +
-      'M1:1=1;2=2;4=3;5=4;12=5;21=6,' +
-      'M2:3=1;4=2;6=3;9=4;13=5;21=6,' +
-      'M3:5=1;6=2;8=3;11=4;14=5;22=6,' +
-      'M4:7=1;8=2;11=3;14=4;17=5;22=6,' +
-      'M5:9=1;10=2;11=3;14=4;17=5;23=6,' +
-      'M6:12=1;13=2;15=3;17=4;19=5;23=6,' +
-      'M7:14=1;15=2;17=3;19=4;22=5;24=6,' +
-      'M8:16=1;17=2;19=3;21=4;24=5,' +
-      'M9:18=1;20=2;23=3',
+      'M1:1@1 2@2 3@4 4@5 5@12 6@21,' +
+      'M2:1@3 2@4 3@6 4@9 5@13 6@21,' +
+      'M3:1@5 2@6 3@8 4@11 5@14 6@22,' +
+      'M4:1@7 2@8 3@11 4@14 5@17 6@22,' +
+      'M5:1@9 2@10 3@11 4@14 5@17 6@23,' +
+      'M6:1@12 2@13 3@15 4@17 5@19 6@23,' +
+      'M7:1@14 2@15 3@17 4@19 5@22 6@24,' +
+      'M8:1@16 2@17 3@19 4@21 5@24,' +
+      'M9:1@18 2@20 3@23',
   'Paladin':
     'Require=' +
       '"alignment == \'Lawful Good\'","charisma >= 17","constitution >= 9",' +
@@ -317,13 +309,11 @@ OSRIC.CLASSES = {
     'Experience=' +
       '0,2.55,5.5,12.5,25,45,95,175,325,600,1000,1350,1700,2050,2400,' +
       '2750,3100,3450,3800,4150,4500,4850,5200,5550 ' +
-    'CasterLevelDivine="levels.Paladin >= 9 ? levels.Paladin - 8 : null" ' +
-    'SpellAbility=wisdom ' +
     'SpellSlots=' +
-      'C1:9=1;10=2;14=3;21=4,' +
-      'C2:11=1;12=2;16=3;22=4,' +
-      'C3:13=1;17=2;18=3;23=4,' +
-      'C4:15=1;19=2;20=3;24=4',
+      'C1:1@9 2@10 3@14 4@21,' +
+      'C2:1@11 2@12 3@16 4@22,' +
+      'C3:1@13 2@17 3@18 4@23,' +
+      'C4:1@15 2@19 3@20 4@24',
   'Ranger':
     'Require=' +
       '"alignment =~ \'Good\'","charisma >= 6","constitution >= 14",' +
@@ -344,17 +334,12 @@ OSRIC.CLASSES = {
     'Experience=' +
       '0,2.25,4.5,9.5,20,40,90,150,225,325,650,975,1300,1625,1950,2275,' +
       '2600,2925,3250,3575,3900,4225,4550,4875 ' +
-    'CasterLevelArcane=' +
-      '"levels.Ranger >= 8 ? Math.floor((levels.Ranger - 6) / 2) : null" ' +
-    'CasterLevelDivine=' +
-      '"levels.Ranger >= 9 ? Math.floor((levels.Ranger - 6) / 2) : null" ' +
-    'SpellAbility=wisdom ' +
     'SpellSlots=' +
-      'D1:8=1;10=2;18=3;23=4,' +
-      'D2:12=1;14=2;20=3,' +
-      'D3:16=1;17=2;22=3,' +
-      'M1:9=1;11=2;19=3;24=4,' +
-      'M2:13=1;15=2;21=3',
+      'D1:1@8 2@10 3@18 4@23,' +
+      'D2:1@12 2@14 3@20,' +
+      'D3:1@16 2@17 3@22,' +
+      'M1:1@9 2@11 3@19 4@24,' +
+      'M2:1@13 2@15 3@21',
   'Thief':
     'Require=' +
       '"alignment =~ \'Neutral|Evil\'","dexterity >= 9" ' +
@@ -2661,11 +2646,9 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
   QuilvynUtils.checkAttrTable(alignments, []);
   QuilvynUtils.checkAttrTable(
     classes, [
-      'Require', 'HitDie', 'Attack', 'WeaponProficiency',
-      'NonproficientPenalty', 'NonweaponProficiency', 'Breath', 'Death',
-      'Petrification', 'Spell', 'Wand', 'Features', 'Experience',
-      'CasterLevelArcane', 'CasterLevelDivine', 'SpellAbility', 'SpellSlots',
-      'THAC10'
+      'Require', 'Experience', 'HitDie', 'THAC10', 'Breath', 'Death',
+      'Petrification', 'Spell', 'Wand', 'Features', 'WeaponProficiency',
+      'NonweaponProficiency', 'NonproficientPenalty', 'SpellSlots'
     ]
   );
   QuilvynUtils.checkAttrTable(races, ['Require', 'Features', 'Languages']);
@@ -2678,10 +2661,6 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
     rules.choiceRules(rules, 'Race', r, races[r]);
 
   // Rules that apply to multiple classes or races
-  rules.defineRule('casterLevel',
-    'casterLevelArcane', '=', null,
-    'casterLevelDivine', '+=', null
-  );
   rules.defineRule('level', /^levels\./, '+=', null);
   rules.defineRule('warriorLevel', '', '=', '0');
   QuilvynRules.validAllocationRules
@@ -2776,12 +2755,9 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Spell'),
       QuilvynUtils.getAttrValueArray(attrs, 'Wand'),
       QuilvynUtils.getAttrValueArray(attrs, 'Features'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Languages'),
       QuilvynUtils.getAttrValueArray(attrs, 'WeaponProficiency'),
       QuilvynUtils.getAttrValueArray(attrs, 'NonweaponProficiency'),
       QuilvynUtils.getAttrValue(attrs, 'NonproficientPenalty'),
-      QuilvynUtils.getAttrValue(attrs, 'CasterLevelArcane'),
-      QuilvynUtils.getAttrValue(attrs, 'CasterLevelDivine'),
       QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots')
     );
     OSRIC.classRulesExtra(rules, name);
@@ -2930,22 +2906,16 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
  * #savePetrification#, #saveSpell#, and #saveWand# are each progressions
  * indicating the value needed for each type of saving throw on each level.
  * #features# lists the features acquired as the character advances in class
- * level, and #languages# lists any automatic languages for the class.
- * #weaponProficiency# and #nonweaponProficiency# are progressions indicating
- * the number of weapon and nonweapon proficiencies the class grants at each
- * level, and #nonproficientPenalty# the attack penalty assessed by the class
- * when using a non-proficient weapon. #casterLevelArcane# and
- * #casterLevelDivine#, if specified, give the Javascript expression for
- * determining the caster level for the class; these can incorporate a class
- * level attribute (e.g., 'levels.Cleric') or the character level attribute
- * 'level'. If the class grants spell slots, #spellSlots# lists the number of
- * spells per level per day granted.
+ * level. #weaponProficiency# and #nonweaponProficiency# are progressions
+ * indicating the number of weapon and nonweapon proficiencies the class grants
+ * at each level, and #nonproficientPenalty# the attack penalty assessed by the
+ * class when using a non-proficient weapon. If the class grants spell slots,
+ * #spellSlots# lists the number of spells per level per day granted.
  */
 OSRIC.classRules = function(
   rules, name, requires, experience, hitDie, thac10, saveBreath, saveDeath,
-  savePetrification, saveSpell, saveWand, features, languages,
-  weaponProficiency, nonweaponProficiency, nonproficientPenalty,
-  casterLevelArcane, casterLevelDivine, spellSlots
+  savePetrification, saveSpell, saveWand, features, weaponProficiency,
+  nonweaponProficiency, nonproficientPenalty, spellSlots
 ) {
 
   if(!name) {
@@ -2990,10 +2960,6 @@ OSRIC.classRules = function(
   }
   if(!Array.isArray(features)) {
     console.log('Bad features list "' + features + '" for class ' + name);
-    return;
-  }
-  if(!Array.isArray(languages)) {
-    console.log('Bad languages list "' + languages + '" for class ' + name);
     return;
   }
   if(!Array.isArray(weaponProficiency)) {
@@ -3116,13 +3082,6 @@ OSRIC.classRules = function(
   rules.defineSheetElement(name + ' Features', 'Feats+', null, '; ');
   rules.defineChoice('extras', prefix + 'Features');
 
-  if(languages.length > 0)
-    rules.defineRule('languageCount', classLevel, '+', languages.length);
-  for(let i = 0; i < languages.length; i++) {
-    if(languages[i] != 'any')
-      rules.defineRule('languages.' + languages[i], classLevel, '=', '1');
-  }
-
   let weaponProgress = OSRIC.progressTable(weaponProficiency);
   rules.defineRule('weaponProficiencyCount',
     classLevel, '+', '[' + weaponProgress.join(',') + '][source] || ' + weaponProgress[weaponProgress.length - 1]
@@ -3131,30 +3090,11 @@ OSRIC.classRules = function(
     ('weaponNonProficiencyPenalty', classLevel, '^=', nonproficientPenalty);
 
   if(spellSlots.length > 0) {
-    let casterLevelExpr = casterLevelArcane || casterLevelDivine || classLevel;
-    if(casterLevelExpr.match(new RegExp('\\b' + classLevel + '\\b', 'i'))) {
-      rules.defineRule('casterLevels.' + name,
-        classLevel, '=', casterLevelExpr.replace(new RegExp('\\b' + classLevel + '\\b', 'gi'), 'source')
-      );
-    } else {
-      rules.defineRule('casterLevels.' + name,
-        classLevel, '?', null,
-        'level', '=', casterLevelExpr.replace(new RegExp('\\blevel\\b', 'gi'), 'source')
-      );
-    }
-    if(casterLevelArcane)
-      rules.defineRule('casterLevelArcane', 'casterLevels.' + name, '+=', null);
-    if(casterLevelDivine)
-      rules.defineRule('casterLevelDivine', 'casterLevels.' + name, '+=', null);
     QuilvynRules.spellSlotRules(rules, classLevel, spellSlots);
-    for(let j = 0; j < spellSlots.length; j++) {
-      let spellTypeAndLevel = spellSlots[j].split(/:/)[0];
-      let spellType = spellTypeAndLevel.replace(/\d+/, '');
-      if(spellType != name)
-        rules.defineRule('casterLevels.' + spellType,
-          'casterLevels.' + name, '=', null
-        );
-    }
+    spellSlots.forEach(x => {
+      let t = x.replace(/\d.*/, '');
+      rules.defineRule('casterLevels.' + t, classLevel, '^=', null);
+    });
   }
 
 };
@@ -3186,8 +3126,22 @@ OSRIC.classRulesExtra = function(rules, name) {
     rules.defineRule('skillLevel.Pick Pockets', classLevel, '+=', skillLevel);
     rules.defineRule('skillLevel.Read Languages', classLevel, '+=', skillLevel);
 
+  } else if(name == 'Paladin') {
+
+    // Override castingLevel calculations from classRules
+    rules.defineRule('casterLevel.C',
+      classLevel, '^=', 'source<9 ? null : Math.min(source - 8, 8)'
+    );
+
   } else if(name == 'Ranger') {
 
+    // Override castingLevel calculations from classRules
+    rules.defineRule('casterLevel.D',
+      classLevel, '^=', 'source<9 ? null : Math.min(Math.floor((source - 6) / 2), 6)'
+    );
+    rules.defineRule('casterLevel.M',
+      classLevel, '^=', 'source<9 ? null : Math.min(Math.floor((source - 6) / 2), 6)'
+    );
     rules.defineRule('maximumHenchmen',
       // Noop to show Delayed Henchmen note in italics
       'abilityNotes.delayedHenchmen', '+', 'null',
@@ -3591,21 +3545,18 @@ OSRIC.choiceEditorElements = function(rules, type) {
   else if(type == 'Class')
     result.push(
       ['Require', 'Prerequisites', 'text', [40]],
-      ['HitDie', 'Hit Die', 'select-one', ['d4', 'd6', 'd8', 'd10', 'd12']],
-      ['Attack', 'Base Attack', 'text', [20]],
-      ['WeaponProficiency', 'Weapon Proficiency', 'text', [20]],
+      ['Experience', 'Experience Required', 'text', [40]],
+      ['HitDie', 'Hit Dice', 'text', [15]],
+      ['THAC10', 'To Hit AC 10', 'text', [40]],
       ['Breath', 'Breath Save', 'text', [20]],
       ['Death', 'Death Save', 'text', [20]],
       ['Petrification', 'Petrification Save', 'text', [20]],
       ['Spell', 'Spell Save', 'text', [20]],
       ['Wand', 'Wand Save', 'text', [20]],
       ['Features', 'Features', 'text', [40]],
-      ['Languages', 'Languages', 'text', [30]],
-      ['CasterLevelArcane', 'Arcane Level', 'text', [10]],
-      ['CasterLevelDivine', 'Divine Level', 'text', [10]],
-      ['SpellAbility', 'Spell Ability', 'select-one', ['charisma', 'constitution', 'dexterity', 'intelligence', 'strength', 'wisdom']],
-      ['SpellSlots', 'Spell Slots', 'text', [40]],
-      ['Spells', 'Spells', 'text', [40]]
+      ['WeaponProficiency', 'Weapon Proficiency', 'text', [20]],
+      ['NonproficientPenalty', 'Penalty for Non-Proficiency', 'select-one', [-5, -4, -3, -2, -1, 0]],
+      ['SpellSlots', 'Spell Slots', 'text', [40]]
     );
   else if(type == 'Feature')
     result.push(
@@ -3870,7 +3821,7 @@ OSRIC.ruleNotes = function() {
     '  also reports THAC10 ("To Hit Armor Class 10"), which can be more' +
     '  useful with characters who need a 20 to hit AC 0.\n'+
     '  </li><li>\n' +
-    '  The OSRIC rules discuss illusionist scrolls, but does not give the' +
+    '  The OSRIC rules discuss illusionist scrolls, but do not give the' +
     '  minimum level required to create them. Quilvyn uses the 1E PHB limit' +
     '  of level 10.\n' +
     '  </li><li>\n' +
@@ -3878,9 +3829,12 @@ OSRIC.ruleNotes = function() {
     '  create scrolls and potions only with the aid of an alchemist; at level' +
     '  11 they can do such crafting unaided.\n' +
     '  </li><li>\n' +
-    '  The OSRIC rules are unclear as to whether or not the Fighting the\n' +
-    '  Unskilled feature applies to Paladins and Rangers. Quilvyn assumes\n' +
+    '  The OSRIC rules are unclear as to whether or not the Fighting the' +
+    '  Unskilled feature applies to Paladins and Rangers. Quilvyn assumes' +
     '  that it does.\n' +
+    '  </li><li>\n' +
+    '  Homebrew choices are described in <a href="plugins/homebrew-osric.html">' +
+    '  a separate document</a>.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '\n' +

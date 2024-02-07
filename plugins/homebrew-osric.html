@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Adding Homebrew Choices to Quilvyn's SRD v3.5 Rule Set</title>
+  <style>
+    img {
+      align: left;
+    }
+  </style>
+</head>
+
+<body bgcolor="wheat" background="../Images/parchment.jpg">
+
+<script>
+  document.write('<img src="../Images/quilvynlogodrop.png" style="height:75px" alt="Quilvyn"/>');
+</script>
+
+<h2>Adding Homebrew Choices to Quilvyn's OSRIC Rule Set</h2>
+
+<p>
+The OSRIC rule set allows you to add homebrew choices to most of its
+selections: armor, weapons, races, and so on. The entry dialog for each
+type of choice includes fields for all the information particular to that
+type. For most choices, the values to enter into the dialog can be determined
+by comparing them to similar choices from the core rules.
+</p><p>
+The input fields used to enter homebrew choices are similar to those used
+by the Quilvyn editor&mdash;text fields, selection menus, checkboxes, etc.
+One difference between the two is that you can enter multiple values into most
+text boxes in the homebrew choices editor. For example, when entering a
+homebrew race, you will likely want to enter multiple values in the Languages
+text box. To do this, separate the individual values by commas:
+Common,Goblin,Hobgoblin. If you ever need to enter a single value that contains
+a comma into a text box, enclose the value in quotes: "May create and mend
+magic weapons, armor, and shields".
+</p><p>
+Although the widest text boxes that Quilvyn uses show around 40 characters, you
+can enter longer text values. Only 40 characters will show at once, but you can
+use your arrow keys to move the cursor within the full text. Several examples
+below show only the beginning portion of longer values entered into text boxes.
+</p>
+
+<ul>
+  <li><a href="#armor">Armors</a></li>
+  <li><a href="#class">Classes</a></li>
+  <li><a href="#feature">Features</a></li>
+  <li><a href="#language">Languages</a></li>
+  <li><a href="#race">Races</a></li>
+  <li><a href="#shield">Shields</a></li>
+  <li><a href="#spell">Spells</a></li>
+  <li><a href="#weapon">Weapons</a></li>
+  <li><a href="#attrs">Using Character Attributes in Prerequisites and Notes</a></li>
+</ul>
+
+<table width="100%">
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="armor"><h2>Armors</h2></a>
+<img src='../Images/hbos-armor.jpg' alt='Homebrew Armor'/>
+</td><td>
+<p>
+For homebrew armors, Quilvyn displays fields for entering the boost to armor
+class gained by using the armor and the maximum movement allowed when wearing
+it.
+</p><p>
+The example shown gives the values for field plate, as discussed in the
+equipment section of the OSRIC rules. It adds -8 to the wearer's armor class
+and limits movement to 90'.
+</p>
+</td></tr>
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="class"><h2>Classes</h2></a>
+<img src='../Images/hbos-class.jpg' alt='Homebrew Class'/><br/>
+</td><td>
+<p>
+When adding a homebrew class, Quilvyn displays fields that allow you to specify
+optional class prerequisites, the experience points required to advance to each
+level, class hit dice, THAC10 and save progressions, class features, weapon
+proficiency progression, the pentalty for using a non-proficient weapon, and
+any spell slots gained by the class.
+</p><p>
+For brevity, the items in the experience point list are divided by 1000. So,
+for example, the first four items in the cleric experience point list are
+0, 1.55, 2.9, and 6, representing the values 0, 1550, 2900, and 6000. Note that
+the first number in the experience point list for every class is 0&mdash;the
+number of experience points required for a level 1 character.
+</p><p>
+The Hit Dice entry is a list of three items that indicate the number of sides
+on the dice, the maximum number of dice, and the number of points added to a
+character's hit points each level after the maximum number of dice is reached.
+For example, the Hit Dice entry for the cleric class is d8, 9,
+2&mdash;indicating that a cleric character gains d8 hit points each level
+through level 9, after which a fixed 2 hit points are added each level.
+</p><p>
+The example shows entries for a Necromancer class that has similar features to
+the core Illusionist class. Instead of the high dexiterity score required by
+the Illusionist class, this Necromancer class requires a high charisma score,
+and it gains the ability to turn undead as a cleric at level 10.
+</p>
+</td></tr>
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="feature"><h2>Features</h2></a>
+<img src='../Images/hbos-feature.jpg' alt='Homebrew Feature'/>
+</td><td>
+<p>
+In Quilvyn, <i>features</i> describe the effects of class and racial features.
+When adding a homebrew feature, enter the section of the character sheet (one
+of attributes, combat, feature, magic, or save) where the note for the feature
+should appear, then enter the note text. You can enter multiple sections and
+notes, but the number of sections entered must equal the number of notes.
+Feature notes can both reference and modify character attributes; see the
+discussion of <a href="#attrs">using character attributes</a> for how to do
+this.
+</p><p>
+The example shows the entry for a feature named Glib with a note that appears
+in the skill section of the character sheet. It adds 2 to the skill modifiers
+of the Bluff and Perform (Oratory) skills.
+</p>
+</td></tr>
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="language"><h2>Languages</h2></a>
+<img src='../Images/hbos-language.jpg' alt='Homebrew Language'/>
+</td><td>
+<p>
+Adding a homebrew language requires only specifying the name. Once added,
+languages can be added to a character by selecting from the language list and
+can be included in the list of languages automatically known by homebrew races.
+</p><p>
+The example shows the entry for a language called Scaletongue, used in
+the example for <a href="#race">adding a race</a>.
+</p>
+</td></tr>
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="race"><h2>Races</h2></a>
+<img src='../Images/hbos-race.jpg' alt='Homebrew Race'/>
+<hr style="width:75%"/><br/>
+<img src='../Images/hbos-race-feature-1.jpg' alt='Homebrew Race Feature'/>
+<hr style="width:75%"/><br/>
+<img src='../Images/hbos-race-feature-2.jpg' alt='Homebrew Race Feature'/>
+</td><td>
+<p>
+When adding a homebrew race, Quilvyn displays fields that allow you to enter
+prerequisites, features, and languages for the race. Although none of the core
+races have requirements, Quilvyn provides the Prerequisite entry to allow you
+to specify a race that has, for example, a minimum strength requirement. Most
+races will have fixed features, such as an ability adjustment. Quilvyn also
+allows entering selectable features to support variations such as sub-races.
+Each feature in these lists will require <a href="#feature">adding a feature</a>
+to describe its effects. The Languages field lists the languages that
+characters of this race know automatically.
+</p><p>
+The example shows the entry for the Lizardfolk character race from the Monster
+Manual. Features for this race are: Lizardfolk Ability Adjustment; Lizardfolk
+Skills; Bonus Feat; Scaly Hide; Lizardfolk Weapons; and Hold Breath. (Most of
+these feature names are created for this example; the MM simply lists the
+effects.) The corresponding feature entries for the first two of these are
+shown. Scaletongue is included with the list of automatic languages to
+illustrate the use of the language shown in the
+<a href="#language">adding a language</a> example.
+</p>
+</td></tr>
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="spell"><h2>Spells</h2></a>
+<img src='../Images/hbos-spell.jpg' alt='Homebrew Spell'/>
+</td><td>
+<p>
+When adding a homebrew spell, Quilvyn displays fields that allow you to enter
+the spell's school, the list of classes and levels for the spell, the
+description of the spell, and whether or not the spell can be placed into a
+potion that can be drunk or an oil that can be applied. Spell descriptions can
+embed references to character attributes; see the discussion of
+<a href=#attrs>using character attributes</a> for how to include these. Unlike
+most text boxes, the Description field only accepts a single value; if you
+enter multiple values, Quilvyn ignores all but the last.
+</p><p>
+The example shows the entry for the transmutation spell <i>Enhance Skill</i>,
+which is a level 3 spell for clerics, sorcerers, and wizards. It can be invoked
+using an imbibed potion, and the description notes that the spell can be cast
+over short range and lasts for a number of rounds equal to the caster level.
+</p>
+</td></tr>
+
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>
+<a name="weapon"><h2>Weapons</h2></a>
+<img src='../Images/hbos-weapon.jpg' alt='Homebrew Weapon'/>
+</td><td>
+<p>
+When adding a homebrew weapon, Quilvyn displays fields that allow you to enter
+the weapon's category (Unarmed, Light, One-Handed, Two-Handed, or Ranged),
+damage, and (for ranged weapons) range increment.
+</p><p>
+The example shows the entry for a boomerang, a weapon with a 40' range that
+inflicts d4 damage.
+</p>
+</td></tr>
+<tr><td colspan="2"><hr/></td></tr>
+
+</table>
+
+<a name="attrs"><h2>Using Character Attributes in Prerequisites and Notes</h2></a>
+<p>
+There are three places that you might want to use references to character
+attributes when adding homebrew choices: prerequisites for homebrew classes,
+feats, class and race features, and races; in feature notes that modify
+character attributes; and embedded in feature notes and spell descriptions.
+Attribute references appear somewhat differently in each of these contexts.
+</p><p>
+The examples below develop a homebrew feat named Alert Dodger. Like the monk AC
+Bonus feature, this feat allows a character to add their (positive) wisdom
+modifier to their armor class. This will be a general feat that can be taken
+as a fighter bonus feat, so the initial entry for the feat looks like this:
+</p>
+<img src='../Images/hb-attr-0.jpg' alt='Alert Dodger feat'/>
+
+<h2>Using attributes in prerequisites</h2>
+
+<p>
+In the core rulebook, many feats and all prestige classes have
+prerequisites&mdash;attribute values that the character must have to take the
+feat or a level in the prestige class. Quilvyn allows you to specify similar
+prerequisites when entering a homebrew class, feat, or race.
+</p><p>
+Since the effects of the Alert Dodger feat come from battle experience, it
+makes sense to require a minimum base attack bonus&mdash;say, 3&mdash;to take
+the feat. This is represented by adding text to the feat's Prerequisite field:
+</p>
+<img src='../Images/hb-attr-1.jpg' alt='Alert Dodger feat'/>
+
+<p>
+Quilvyn will generate tests for this requirement and will show a validation
+error if a character with a base attack bonus of 2 or less is given this feat.
+You can also specify that the character must have a specific feature as part of
+your prerequisites. For the Alert Dodger feat, it seems reasonable to require
+that the character also have the Dodge feature:
+</p>
+<img src='../Images/hb-attr-2.jpg' alt='Alert Dodger feat'/>
+
+<p>
+Finally, although a high wisdom might not be required to take this feat, it
+will make little sense to do so unless the character's wisdom is at least 12,
+giving a positive wisdom modifier. This can be specified by adding text to
+the Implies field:
+</p>
+<img src='../Images/hb-attr-3.jpg' alt='Alert Dodger feat'/>
+
+<p>
+Within prerequisites, Quilvyn recognizes the common comparison operators
+(&lt;, &lt;=, &gt;, &gt;=, ==, !=), and you can use the OR operator (||) to
+require that at least one of a set of prerequisites is satisfied:
+</p><p>
+<code>intelligence &gt;= 15 || wisdom &gt;= 15</code>
+</p><p>
+When making a comparison to a text value rather than a number, surround the
+value with single or double quotes. Quilvyn also supports the matching
+operators =~ (matches) and !~ (does not match) with strings. The first of these
+two prerequisites requires that the character have a Lawful Good alignment,
+while the second allows any good alignment:
+</p><p>
+<code>alignment == 'Lawful Good'</code><br/>
+<code>alignment =~ 'Good'</code>
+</p><p>
+(You can think of the =~ and !~ operators as "contains" and "does not contain",
+but they actually perform a pattern match, treating their second operand as a
+regular expression. This means that certain characters, such as * and ?, have
+special meanings if they appear in the second operand. The Mozilla project
+provides a web page with
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions">a detailed description of regular expressions</a>.)
+</p>
+
+<h2>Using features to modify character attributes</h2>
+
+<p>
+With the Alert Dodger feat definition complete, the next step is to create the
+corresponding feature, also named Alert Dodger. This will add the description
+of the feat to the character sheet and allow Quilvyn to create rules to
+implement its effects. Since the feat affects a character's armor class, its
+note will fit best in the combat section of the character sheet.
+</p><p>
+To illustrate how Quilvyn processes feature notes, we'll initially define the
+Alert Dodger feat to add a fixed +2 to the character's armor class, switching
+later to adding the wisdom modifier instead.
+</p>
+
+<img src='../Images/hb-attr-feature-0.jpg' alt='Alert Dodger feature'/>
+
+<p>
+Given this definition, Quilvyn will automatically generate a rule that adds two
+to the character's armor class value, and the note will appear in italics on
+the character sheet. For readability, character attributes in feature notes
+must appear as shown above, with initial capital letters and spaces between
+words.
+</p><p>
+Single features can modify multiple attributes; in these cases, the note should
+list the individual modifications separated by slashes. This was shown above in
+the <a href="#race">race definition example</a>, where the note for the
+Lizardfolk Ability Adjustment read:
+</p>
+
+<code>+2 Strength/+2 Constitution/-2 Intelligence</code>
+
+<p>
+Notes in the save and skill sections can modify save bonuses and skill
+modifiers by referencing the save type or skill name directly; the saves. and
+skillModifiers. prefixes are not necessary:
+</p>
+
+<code>+1 Fortitude</code><br/>
+<code>+2 Ride/+2 Handle Animal</code>
+
+<h2>Embedding attributes in features notes and spell descriptions</h2>
+
+<p>
+Some feats, many class features, and nearly all spells have effects that vary
+based on character attributes. For example: the Spell Mastery feat allows a
+wizard to prepare a number of spells equal to their intelligence modifier
+without referring to their spellbook; an assassin's Death Attack can inflict
+paralysis for 1d6 rounds + 1 round per assassin level; and the
+<i>Acid Splash</i> spell has a range of 25' + 5' per 2 caster levels.
+</p><p>
+You can embed references to character attributes in the text of feature notes
+and spell descriptions by enclosing them within the characters %{}. Using this
+ability, the note for the Spell Mastery feat looks like this:
+</p>
+
+<code>May prepare %{intelligenceModifier} spells w/out spellbook</code>
+
+<p>
+When Quilvyn displays this note on the character sheet, it first replaces the
+reference to the character's intelligenceModifier attribute with its value, so
+the note might appear on the sheet as
+</p><p>
+<code>May prepare 2 spells w/out spellbook</code>
+</p><p>
+We can use this ability to replace the fixed +2 entered earlier for the effects
+of the Alert Dodger feature with an amount equal to the character's wisdom
+modifier, giving us its final definition:
+</p>
+
+<img src='../Images/hb-attr-feature-1.jpg' alt='Alert Dodger feature'/>
+
+<p>
+Given this note, Quilvyn will automatically generate a rule to add the
+character's wisdom modifier to their armor class and will display the note in
+italics.
+</p><p>
+Beyond simple references, Quilvyn supports performing calculations within
+embedded references. The note for the assassin's Death Attack feature looks
+like this:
+</p><p>
+<code>Sneak attack after 3 rd of study causes death or paralysis for 1d6+%{levels.Assassin} rd (DC %{10 + levels.Assassin + intelligenceModifier} Fort neg)</code>
+</p><p>
+As this note shows, individual notes and descriptions can contain multiple
+embedded references, and individual references can use multiple attributes.
+</p><p>
+Within embedded references, Quilvyn supports the common comparison operators
+(&lt;, &lt;=, &gt;, &gt;=, ==, !=), the common arithmetic operators
+(+, -, *, /, unary -), AND (&amp;&amp;), OR (||), matching (=~, !~),
+and integer division (//). It also supports the ternary if-then-else operator
+(?:) and the operators &lt;? and &gt;?, which return the smaller and larger
+of their two operands, respectively. Using these operators, we can define the
+note for the barbarian Rage feature as follows, which takes into account the
+fact that the larger constitution bonuses of the Greater Rage and Mighty Rage
+features extend the duration of the rage:
+</p>
+
+<code>+4 Str, +4 Con, +2 Will, -2 AC for %{constitutionModifier + 5 + (features.Greater Rage ? 1 : 0) + (features.Mighty Rage ? 1 : 0)} rd %{1 + levels.Barbarian // 4}/dy</code>
+
+<p>
+Within spell descriptions, in addition to <a href="#attrs">common character
+attributes</a>, Quilvyn makes available the special character attribute lvl.
+This variable refers to the caster level appropriate to the specific spell:
+casterLevels.Cleric for the C1 spell <i>Bane</i>, casterLevels.Bard for the B0
+spell <i>Dancing Lights</i>, casterLevels.Sorcerer for the S2 spell <i>Arcane
+Lock</i>, and so on. Using the lvl attribute allows you to incorporate the
+caster level into a spell description that works for multiple classes. The
+description of the <i>Enhance Skill</i> spell example from
+<a href="#spell">adding a spell</a> reads:
+</p>
+
+<code>R%{25+lvl//2*5}' Target gains +4 on chosen skill for %{lvl} rd</code>
+
+<p>
+When showing this description on the character sheet, Quilvyn will replace the
+references to lvl with the character's cleric, sorcerer, or wizard level, as
+appropriate. For example, the description for the S3 <i>Enhance Skill</i>
+spell for a level 7 sorcerer will read:
+</p>
+
+<code>R40' Target gains +4 on chosen skill for 7 rd</code>
+
+<hr style="width: 100%"/>
+
+<a name="attrlist"><h2>Common Character Attributes</h2></a>
+The table below lists the character attributes that are most likely to be
+useful in entering homebrew feats, features, classes, and races.
+</p>
+
+<table style="width:100%"><tr style="text-align:left">
+<th>Basic attributes</th>
+<th>Identity</th>
+<th>Combat</th>
+<th>Magic</th>
+<th>Skills and features</th>
+</tr><tr style="vertical-align:top">
+<td>
+<ul style="padding-left: 15px; margin-top: 0">
+<li>strength</li>
+<li>constitution</li>
+<li>dexterity</li>
+<li>intelligence</li>
+<li>wisdom</li>
+<li>charisma</li>
+<li>strengthModifier</li>
+<li>constitutionModifier</li>
+<li>dexterityModifier</li>
+<li>intelligenceModifier</li>
+<li>wisdomModifier</li>
+<li>charismaModifier</li>
+</ul>
+</td><td>
+<ul style="padding-left: 15px; margin-top: 0">
+<li>alignment</li>
+<li>deity</li>
+<li>deityAlignment</li>
+<li>deityDomains</li>
+<li>deityFavoredWeapons</li>
+<li>level</li>
+<li>levels.&lt;class&gt;, e.g.,<br/>
+  levels.Cleric<br/>
+  levels.Fighter</li>
+<li>race</li>
+</ul>
+</td><td>
+<ul style="padding-left: 15px; margin-top: 0">
+<li>armorClass</li>
+<li>baseAttack</li>
+<li>meleeAttack</li>
+<li>rangedAttack</li>
+<li>hitPoints</li>
+<li>initiative</li>
+<li>save.Fortitude</li>
+<li>save.Reflex</li>
+<li>save.Will</li>
+<li>sneakAttack</li>
+<li>speed</li>
+<li>turningLevel</li>
+<li>weapons.&lt;name&gt;, e.g.,<br/>
+  weapons.Longsword</br>
+  weapons.Light Crossbow</li>
+</ul>
+</td><td>
+<ul style="padding-left: 15px; margin-top: 0">
+<li>casterLevel</li>
+<li>casterLevelArcane</li>
+<li>casterLevelDivine</li>
+<li>casterLevels.&lt;class&gt;, e.g.,<br/>
+  casterLevels.Cleric<br/>
+  casterLevels.Wizard</li>
+<li>spellSlots.&lt;type&gt;, e.g.,<br>
+  spellSlots.C0<br/>
+  spellSlots.W3</li>
+</ul>
+</td><td>
+<ul style="padding-left: 15px; margin-top: 0">
+<li>features.&lt;name&gt;, e.g.<br/>
+  features.Dodge<br/>
+  features.Precise Shot</li>
+<li>languageCount</li>
+<li>languages.&lt;name&gt;, e.g.,<br/>
+  languages.Abyssal<br/>
+  languages.Halfling</li>
+<li>skills.&lt;name&gt;, e.g.,<br/>
+  skills.Handle Animal<br/>
+  skills.Ride</li>
+<li>skillModifier.&lt;name&gt;, e.g.,<br/>
+  skillModifier.Intimidate<br/>
+  skillModifier.Survival</li>
+<li>skillPoints</li>
+</ul>
+</td>
+</tr></table>
+
+</body>
+</html>
