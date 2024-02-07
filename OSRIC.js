@@ -188,13 +188,13 @@ OSRIC.CLASSES = {
       '0,1.55,2.9,6,13.25,27,55,110,220,450,675,900,1125,1350,1575,1800,' +
       '2025,2250,2475,2700,2925,3150,3375,3600 ' +
     'SpellSlots=' +
-      'C1:1@1 2@2 3@4 4@9 5@11 6@12 7@15 8@17 9@19,' +
-      'C2:1@3 2@4 3@5 4@9 5@12 6@13 7@15 8@17 9@19,' +
-      'C3:1@5 2@6 3@8 4@11 5@12 6@13 7@15 8@17 9@19,' +
-      'C4:1@7 2@8 3@10 4@13 5@14 6@16 7@18 8@20 9@21,' +
-      'C5:1@9 2@10 3@14 4@15 5@16 6@18 7@20 8@21 9@22,' +
-      'C6:1@11 2@12 3@16 4@18 5@20 6@21 7@23 8@24 9@26,' +
-      'C7:1@16 2@19 3@22 4@25 5@27 6@28 7@29',
+      '"C1:1@1 2@2 3@4 4@9 5@11 6@12 7@15 8@17 9@19",' +
+      '"C2:1@3 2@4 3@5 4@9 5@12 6@13 7@15 8@17 9@19",' +
+      '"C3:1@5 2@6 3@8 4@11 5@12 6@13 7@15 8@17 9@19",' +
+      '"C4:1@7 2@8 3@10 4@13 5@14 6@16 7@18 8@20 9@21",' +
+      '"C5:1@9 2@10 3@14 4@15 5@16 6@18 7@20 8@21 9@22",' +
+      '"C6:1@11 2@12 3@16 4@18 5@20 6@21 7@23 8@24 9@26",' +
+      '"C7:1@16 2@19 3@22 4@25 5@27 6@28 7@29"',
   'Druid':
     'Require=' +
       '"alignment =~ \'Neutral\'","charisma >= 15","constitution >= 6",' +
@@ -215,13 +215,13 @@ OSRIC.CLASSES = {
       '"7:Immunity To Fey Charm",7:Shapeshift ' +
     'Experience=0,2,4,8,12,20,35,60,90,125,200,300,750,1500 ' +
     'SpellSlots=' +
-      'D1:2@1 3@3 4@4 5@9 6@13,' +
-      'D2:1@2 2@3 3@5 4@7 5@11 6@14,' +
-      'D3:1@3 2@4 3@7 4@12 5@13 6@14,' +
-      'D4:1@6 2@8 3@10 4@12 5@13 6@14,' +
-      'D5:1@9 2@10 3@12 4@13 5@14,' +
-      'D6:1@11 2@12 3@13 4@14,' +
-      'D7:1@12 2@13 3@14',
+      '"D1:2@1 3@3 4@4 5@9 6@13",' +
+      '"D2:1@2 2@3 3@5 4@7 5@11 6@14",' +
+      '"D3:1@3 2@4 3@7 4@12 5@13 6@14",' +
+      '"D4:1@6 2@8 3@10 4@12 5@13 6@14",' +
+      '"D5:1@9 2@10 3@12 4@13 5@14",' +
+      '"D6:1@11 2@12 3@13 4@14",' +
+      '"D7:1@12 2@13 3@14"',
   'Fighter':
     'Require=' +
       '"charisma >= 6","constitution >= 7","dexterity >= 6","strength >= 9",' +
@@ -255,13 +255,13 @@ OSRIC.CLASSES = {
       '0,2.5,4.75,9,18,35,60.25,95,144.5,220,440,660,880,1100,1320,1540,' +
       '1760,1980,2200,2420,2640,3080,3300 ' +
     'SpellSlots=' +
-      'I1:1@1 2@2 3@4 4@5 5@9 6@17,' +
-      'I2:1@3 2@4 3@5 4@10 5@12 6@18,' +
-      'I3:1@5 2@6 3@9 4@12 5@16 6@20,' +
-      'I4:1@7 2@8 3@11 4@15 5@19 6@21,' +
-      'I5:1@10 2@11 3@16 4@18 5@19 6@23,' +
-      'I6:1@12 2@13 3@17 4@20 5@22 6@24,' +
-      'I7:1@14 2@15 3@21 4@23 5@24',
+      '"I1:1@1 2@2 3@4 4@5 5@9 6@17",' +
+      '"I2:1@3 2@4 3@5 4@10 5@12 6@18",' +
+      '"I3:1@5 2@6 3@9 4@12 5@16 6@20",' +
+      '"I4:1@7 2@8 3@11 4@15 5@19 6@21",' +
+      '"I5:1@10 2@11 3@16 4@18 5@19 6@23",' +
+      '"I6:1@12 2@13 3@17 4@20 5@22 6@24",' +
+      '"I7:1@14 2@15 3@21 4@23 5@24"',
   'Magic User':
     'Require=' +
       '"charisma >= 6","constitution >= 6","dexterity >= 6",' +
@@ -278,15 +278,15 @@ OSRIC.CLASSES = {
       '0,2.4,4.8,10.25,22,40,60,80,140,250,375,750,1125,1500,1875,2250,' +
       '2625,3000,3375,3750,4125,4500,4875,5250 ' +
     'SpellSlots=' +
-      'M1:1@1 2@2 3@4 4@5 5@12 6@21,' +
-      'M2:1@3 2@4 3@6 4@9 5@13 6@21,' +
-      'M3:1@5 2@6 3@8 4@11 5@14 6@22,' +
-      'M4:1@7 2@8 3@11 4@14 5@17 6@22,' +
-      'M5:1@9 2@10 3@11 4@14 5@17 6@23,' +
-      'M6:1@12 2@13 3@15 4@17 5@19 6@23,' +
-      'M7:1@14 2@15 3@17 4@19 5@22 6@24,' +
-      'M8:1@16 2@17 3@19 4@21 5@24,' +
-      'M9:1@18 2@20 3@23',
+      '"M1:1@1 2@2 3@4 4@5 5@12 6@21",' +
+      '"M2:1@3 2@4 3@6 4@9 5@13 6@21",' +
+      '"M3:1@5 2@6 3@8 4@11 5@14 6@22",' +
+      '"M4:1@7 2@8 3@11 4@14 5@17 6@22",' +
+      '"M5:1@9 2@10 3@11 4@14 5@17 6@23",' +
+      '"M6:1@12 2@13 3@15 4@17 5@19 6@23",' +
+      '"M7:1@14 2@15 3@17 4@19 5@22 6@24",' +
+      '"M8:1@16 2@17 3@19 4@21 5@24",' +
+      '"M9:1@18 2@20 3@23"',
   'Paladin':
     'Require=' +
       '"alignment == \'Lawful Good\'","charisma >= 17","constitution >= 9",' +
@@ -310,10 +310,10 @@ OSRIC.CLASSES = {
       '0,2.55,5.5,12.5,25,45,95,175,325,600,1000,1350,1700,2050,2400,' +
       '2750,3100,3450,3800,4150,4500,4850,5200,5550 ' +
     'SpellSlots=' +
-      'C1:1@9 2@10 3@14 4@21,' +
-      'C2:1@11 2@12 3@16 4@22,' +
-      'C3:1@13 2@17 3@18 4@23,' +
-      'C4:1@15 2@19 3@20 4@24',
+      '"C1:1@9 2@10 3@14 4@21",' +
+      '"C2:1@11 2@12 3@16 4@22",' +
+      '"C3:1@13 2@17 3@18 4@23",' +
+      '"C4:1@15 2@19 3@20 4@24"',
   'Ranger':
     'Require=' +
       '"alignment =~ \'Good\'","charisma >= 6","constitution >= 14",' +
@@ -335,11 +335,11 @@ OSRIC.CLASSES = {
       '0,2.25,4.5,9.5,20,40,90,150,225,325,650,975,1300,1625,1950,2275,' +
       '2600,2925,3250,3575,3900,4225,4550,4875 ' +
     'SpellSlots=' +
-      'D1:1@8 2@10 3@18 4@23,' +
-      'D2:1@12 2@14 3@20,' +
-      'D3:1@16 2@17 3@22,' +
-      'M1:1@9 2@11 3@19 4@24,' +
-      'M2:1@13 2@15 3@21',
+      '"D1:1@8 2@10 3@18 4@23",' +
+      '"D2:1@12 2@14 3@20",' +
+      '"D3:1@16 2@17 3@22",' +
+      '"M1:1@9 2@11 3@19 4@24",' +
+      '"M2:1@13 2@15 3@21"',
   'Thief':
     'Require=' +
       '"alignment =~ \'Neutral|Evil\'","dexterity >= 9" ' +
@@ -466,7 +466,7 @@ OSRIC.FEATURES = {
     'Note="May turn or %{alignment=~\'Evil\'?\'control\':\'destroy\'} undead creatures"',
   'Weapon Specialization':
      'Section=combat ' +
-    'Note="+1 %V Attack Modifier/+2 %V Damage Modifier/+%{level//2} attacks/rd"',
+    'Note="+1 %{weaponSpecialization} Attack Modifier/+2 %{weaponSpecialization} Damage Modifier/+%{level//2} attacks/rd"',
   'Wilderness Movement':
      'Section=feature ' +
      'Note="May move through undergrowth at full speed, leaving no trace"',
@@ -2581,15 +2581,13 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   rules.defineRule
     ('armorClass', 'combatNotes.dexterityArmorClassAdjustment', '+', null);
   rules.defineRule('attacksPerRound', '', '=', '1');
-  rules.defineRule('combatNotes.weaponSpecialization',
-    'weaponSpecialization', '=', 'source == "None" ? null : source'
-  );
   rules.defineRule('features.Double Specialization',
     'weaponSpecialization', '?', 'source != "None"',
     'doubleSpecialization', '=', null
   );
-  rules.defineRule
-    ('features.Weapon Specialization', 'weaponSpecialization', '=', null);
+  rules.defineRule('features.Weapon Specialization',
+    'weaponSpecialization', '=', 'source == "None" ? null : source'
+  );
   rules.defineRule('thac0Melee',
     'thac10Base', '=', 'Math.min(source + 10, 20)',
     'combatNotes.strengthAttackAdjustment', '+', '-source'
@@ -2608,26 +2606,26 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   );
   rules.defineRule('turnUndeadColumn',
     'turningLevel', '=',
-    'source <= 8 ? source : source <= 13 ? 9 : source <= 18 ? 10 : 11'
+    'source <= 8 ? source - 1 : source <= 13 ? 8 : source <= 18 ? 9 : 10'
   );
-  let turningTable = [
-    'skeleton:10:7 :4 :T :T :D :D :D :D :D :D',
-    'zombie  :13:10:7 :T :T :D :D :D :D :D :D',
-    'ghoul   :16:13:10:4 :T :T :D :D :D :D :D',
-    'shadow  :19:16:13:7 :4 :T :T :D :D :D :D',
-    'wight   :20:19:16:10:7 :4 :T :T :D :D :D',
-    'ghast   :- :20:19:13:10:7 :4 :T :T :D :D',
-    'wraith  :- :- :20:16:13:10:7 :4 :T :T :D',
-    'mummy   :- :- :- :19:16:13:10:7 :4 :T :D',
-    'spectre :- :- :- :20:19:16:13:10:7 :T :T',
-    'vampire :- :- :- :- :20:19:16:13:10:7 :4',
-    'ghost   :- :- :- :- :- :20:19:16:13:10:7',
-    'lich    :- :- :- :- :- :- :20:19:16:13:10',
-    'fiend   :- :- :- :- :- :- :- :20:19:16:13'
-  ];
-  for(let i = 0; i < turningTable.length; i++) {
-    rules.defineRule('turnUndead.' + turningTable[i].split(':')[0].trim(),
-      'turnUndeadColumn', '=', '"' + turningTable[i] +'".split(":")[source].trim()'
+  let turningTable = {
+    'skeleton':'10:7 :4 :T :T :D :D :D :D :D :D',
+    'zombie'  :'13:10:7 :T :T :D :D :D :D :D :D',
+    'ghoul'   :'16:13:10:4 :T :T :D :D :D :D :D',
+    'shadow'  :'19:16:13:7 :4 :T :T :D :D :D :D',
+    'wight'   :'20:19:16:10:7 :4 :T :T :D :D :D',
+    'ghast'   :'- :20:19:13:10:7 :4 :T :T :D :D',
+    'wraith'  :'- :- :20:16:13:10:7 :4 :T :T :D',
+    'mummy'   :'- :- :- :19:16:13:10:7 :4 :T :D',
+    'spectre' :'- :- :- :20:19:16:13:10:7 :T :T',
+    'vampire' :'- :- :- :- :20:19:16:13:10:7 :4',
+    'ghost'   :'- :- :- :- :- :20:19:16:13:10:7',
+    'lich'    :'- :- :- :- :- :- :20:19:16:13:10',
+    'fiend'   :'- :- :- :- :- :- :- :20:19:16:13'
+  };
+  for(let u in turningTable) {
+    rules.defineRule('turnUndead.' + u,
+      'turnUndeadColumn', '=', '"' + turningTable[u] +'".split(":")[source].trim()'
     );
   }
   // Replace SRD35's two-handedWeapon validation note
@@ -2799,10 +2797,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
     OSRIC.skillRulesExtra(rules, name);
   } else if(type == 'Spell') {
     let description = QuilvynUtils.getAttrValue(attrs, 'Description');
-    let duration = QuilvynUtils.getAttrValue(attrs, 'Duration');
-    let effect =  QuilvynUtils.getAttrValue(attrs, 'Effect');
     let groupLevels = QuilvynUtils.getAttrValueArray(attrs, 'Level');
-    let range = QuilvynUtils.getAttrValue(attrs, 'Range');
     let school = QuilvynUtils.getAttrValue(attrs, 'School');
     let schoolAbbr = school.substring(0, 4);
     for(let i = 0; i < groupLevels.length; i++) {
@@ -2814,9 +2809,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
       let group = matchInfo[1];
       let level = matchInfo[2] * 1;
       let fullName = name + '(' + group + level + ' ' + schoolAbbr + ')';
-      OSRIC.spellRules
-        (rules, fullName, school, group, level, description, duration, effect,
-         range);
+      OSRIC.spellRules(rules, fullName, school, group, level, description);
       rules.addChoice('spells', fullName, attrs);
     }
   } else if(type == 'Weapon')
@@ -2829,7 +2822,7 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
     console.log('Unknown choice type "' + type + '"');
     return;
   }
-  if(type != 'Feature' && type != 'Spell') {
+  if(type != 'Spell') {
     type = type == 'Class' ? 'levels' :
     (type.substring(0,1).toLowerCase() + type.substring(1).replaceAll(' ', '') + 's');
     rules.addChoice(type, name, attrs);
@@ -3212,10 +3205,60 @@ OSRIC.languageRules = function(rules, name) {
  * #languages# any automatic languages.
  */
 OSRIC.raceRules = function(rules, name, requires, features, languages) {
-  SRD35.raceRules(rules, name, requires, features, [], languages);
-  // No changes needed to the rules defined by SRD35 method
+
+  if(!name) {
+    console.log('Empty race name');
+    return;
+  }
+  if(!Array.isArray(requires)) {
+    console.log('Bad requires list "' + requires + '" for race ' + name);
+    return;
+  }
+  if(!Array.isArray(features)) {
+    console.log('Bad features list "' + features + '" for race ' + name);
+    return;
+  }
+  if(!Array.isArray(languages)) {
+    console.log('Bad languages list "' + languages + '" for race ' + name);
+    return;
+  }
+  if(rules.getChoices('languages')) {
+    languages.forEach(l => {
+      if(l != 'any' && !(l in rules.getChoices('languages'))) {
+        console.log('Bad language "' + l + '" for race ' + name);
+        // Warning only - not critical to definition
+      }
+    });
+  }
+
+  let prefix =
+    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
+  let raceLevel = prefix + 'Level';
+
+  rules.defineRule(raceLevel,
+    'race', '?', 'source == "' + name + '"',
+    'level', '=', null
+  );
+
+  if(requires.length > 0)
+    QuilvynRules.prerequisiteRules
+      (rules, 'validation', prefix + 'Race', raceLevel, requires);
+
+  QuilvynRules.featureListRules(rules, features, name, raceLevel, false);
+  rules.defineSheetElement(name + ' Features', 'Feats+', null, '; ');
+  rules.defineChoice('extras', prefix + 'Features');
+
+  if(languages.length > 0) {
+    rules.defineRule('languageCount', raceLevel, '=', languages.length);
+    languages.forEach(l => {
+      if(l != 'any')
+        rules.defineRule('languages.' + l, raceLevel, '=', '1');
+    });
+  }
+
   rules.defineRule
     ('skillNotes.raceSkillModifiers', 'sumThiefSkills', '?', null);
+
 };
 
 /*
@@ -3428,11 +3471,8 @@ OSRIC.skillRulesExtra = function(rules, name) {
  * description of the spell's effects.
  */
 OSRIC.spellRules = function(
-  rules, name, school, casterGroup, level, description, duration, effect, range
+  rules, name, school, casterGroup, level, description
 ) {
-  description = description.replaceAll('$D', duration || '');
-  description = description.replaceAll('$E', effect || '');
-  description = description.replaceAll('$R', range || '');
   description = description.replaceAll('slv', '"' + casterGroup + level + '"');
   SRD35.spellRules
     (rules, name, school, casterGroup, level, description, false, []);
