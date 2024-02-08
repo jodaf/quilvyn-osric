@@ -82,14 +82,8 @@ and limits movement to 90'.
 When adding a homebrew class, Quilvyn displays fields that allow you to specify
 optional class prerequisites, the experience points required to advance to each
 level, class hit dice, THAC10 and save progressions, class features, weapon
-proficiency progression, the pentalty for using a non-proficient weapon, and
+proficiency progression, the penalty for using a non-proficient weapon, and
 any spell slots gained by the class.
-</p><p>
-For brevity, the items in the experience point list are divided by 1000. So,
-for example, the first four items in the cleric experience point list are
-0, 1.55, 2.9, and 6, representing the values 0, 1550, 2900, and 6000. Note that
-the first number in the experience point list for every class is 0&mdash;the
-number of experience points required for a level 1 character.
 </p><p>
 The Hit Dice entry is a list of three items that indicate the number of sides
 on the dice, the maximum number of dice, and the number of points added to a
@@ -97,6 +91,24 @@ character's hit points each level after the maximum number of dice is reached.
 For example, the Hit Dice entry for the cleric class is d8, 9,
 2&mdash;indicating that a cleric character gains d8 hit points each level
 through level 9, after which a fixed 2 hit points are added each level.
+</p><p>
+Several of the entries&mdash;required experience, THAC10, saves, weapon
+proficiency, and spell slots&mdash;represent columns from tables in the OSRIC
+rules. Each of these entries contains a set of items listing a class level and
+the value of the attribute for the class at that level. For example, the Weapon
+Proficiency entry for the Assassin class might read "3@1 4@5 5@9 6@13",
+indicating that the class grants proficiency in 3 weapons at level 1, 4 weapons
+at level 5, 5 weapons at level 9, and 6 weapons at level 13. In any of these
+entries, the first item is assumed to apply to level 1 in the class, so the
+"@1" is unnecessary. If the progression is regular, like the +1 increment to
+the proficient weapon count every 4 levels in this example, intermediate values
+can be replaced by "...", so the Assassin class Weapon Proficiency can
+equivalently be shown as "3 4@5 ... 6@13". As another example, consider the
+THAC10 value for the cleric class&mdash;10 at level 1, then reducing by 2 every
+three levels through level 18, dropping to -1 for all higher levels. Spelled
+out, this progression would be "10 8@4 6@7 4@10 2@13 0@16 -1@19". However,
+since the progression is regular through level 18, this sequence to be
+shortened to "10 8@4 ... -1@19".
 </p><p>
 The example shows entries for a Necromancer class that has similar features to
 the core Illusionist class. Instead of the high dexiterity score required by

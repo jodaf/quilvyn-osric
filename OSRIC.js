@@ -21,7 +21,7 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
 "use strict";
 
 /*
- * This module loads the rules from the Old School Reference and Index 
+ * This module loads the rules from the Old School Reference and Index
  * Compilation adaptation of 1st Edition. The OSRIC function contains methods
  * that load rules for particular parts of the rule book; raceRules for
  * character races, magicRules for spells, etc. These member methods can be
@@ -37,16 +37,20 @@ function OSRIC(edition) {
   }
 
   let rules = new QuilvynRules('OSRIC', OSRIC.VERSION);
+  rules.plugin = OSRIC;
+  OSRIC.rules = rules;
 
   rules.defineChoice('choices', OSRIC.CHOICES);
   rules.choiceEditorElements = OSRIC.choiceEditorElements;
   rules.choiceRules = OSRIC.choiceRules;
+  rules.removeChoice = OSRIC.removeChoice;
   rules.editorElements = OSRIC.initialEditorElements();
   rules.getFormats = OSRIC.getFormats;
   rules.getPlugins = OSRIC.getPlugins;
   rules.makeValid = OSRIC.makeValid;
   rules.randomizeOneAttribute = OSRIC.randomizeOneAttribute;
   rules.defineChoice('random', OSRIC.RANDOMIZABLE_ATTRIBUTES);
+  rules.getChoices = OSRIC.getChoices;
   rules.ruleNotes = OSRIC.ruleNotes;
 
   OSRIC.createViewers(rules, OSRIC.VIEWERS);
@@ -154,10 +158,13 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Evil\'","constitution >= 6","dexterity >= 12",' +
       '"intelligence >= 11","strength >= 12","wisdom >= 6" ' +
-    'HitDie=d6,15,1 THAC10=11,9@5,6@9,4@13,4@15 ' +
-    'WeaponProficiency=3,4@7,5@11,6@15 NonproficientPenalty=-3 ' +
-    'Breath=16,15@5,...13@15 Death=13,12@5,...10@15 ' +
-    'Petrification=12,11@5,...9@15 Spell=15,13@5,...9@15 Wand=14,12@5,...8@15 '+
+    'HitDie=d6,15,1 THAC10="11 9@5 6@9 4@13 4@15" ' +
+    'WeaponProficiency="3 4@7 5@11 6@15" NonproficientPenalty=-3 ' +
+    'Breath="16 15@5 ...13@15" ' +
+    'Death="13 12@5 ...10@15" ' +
+    'Petrification="12 11@5 ...9@15" ' +
+    'Spell="15 13@5 ...9@15" ' +
+    'Wand="14 12@5 ...8@15" '+
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"1:Shield Proficiency (All)",' +
@@ -166,18 +173,20 @@ OSRIC.CLASSES = {
       '"4:Limited Henchmen Classes",' +
       '"intelligence >= 15 ? 9:Bonus Languages",' +
       '"12:Read Scrolls" ' +
-    'Experience=0,1.6,3,5.75,12.25,24.75,50,99,200.5,300,400,600,750,1000,1500',
+    'Experience=' +
+      '"0 1600 3000 5750 12250 24750 50000 99000 200500 300000 400000 600000' +
+      ' 750000 1000000 1500000"',
   'Cleric':
     'Require=' +
       '"charisma >= 6","constitution >= 6","intelligence >= 6",' +
       '"strength >= 6","wisdom >= 9" ' +
-    'HitDie=d8,9,2 THAC10=10,8@4,...-1@19,-1@24 ' +
-    'WeaponProficiency=2,3@4,...9@22 NonproficientPenalty=-3 ' +
-    'Breath=16,15@4,13@7,12@10,11@13,10@16,8@19 ' +
-    'Death=10,9@4,7@7,6@10,5@13,4@16,2@19 ' +
-    'Petrification=13,12@4,10@7,9@10,8@13,7@16,5@19 ' +
-    'Spell=15,14@4,12@7,11@10,10@13,9@16,7@19 ' +
-    'Wand=14,13@4,11@7,10@10,9@13,8@16,6@19 '+
+    'HitDie=d8,9,2 THAC10="10 8@4 ...-1@19 -1@24" ' +
+    'WeaponProficiency="2 3@4 ...9@22" NonproficientPenalty=-3 ' +
+    'Breath="16 15@4 13@7 12@10 11@13 10@16 8@19" ' +
+    'Death="10 9@4 7@7 6@10 5@13 4@16 2@19" ' +
+    'Petrification="13 12@4 10@7 9@10 8@13 7@16 5@19" ' +
+    'Spell="15 14@4 12@7 11@10 10@13 9@16 7@19" ' +
+    'Wand="14 13@4 11@7 10@10 9@13 8@16 6@19" '+
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"1:Turn Undead",' +
@@ -185,8 +194,9 @@ OSRIC.CLASSES = {
       '"wisdom >= 13 ? 1:Bonus Spells",' +
       '"wisdom <= 12 ? 1:Cleric Spell Failure" ' +
     'Experience=' +
-      '0,1.55,2.9,6,13.25,27,55,110,220,450,675,900,1125,1350,1575,1800,' +
-      '2025,2250,2475,2700,2925,3150,3375,3600 ' +
+      '"0 1550 2900 6000 13250 27000 55000 110000 220000 450000 675000' +
+      ' 900000 1125000 1350000 1575000 1800000 2025000 2250000 2475000 ' +
+      '2700000 2925000 3150000 3375000 3600000" ' +
     'SpellSlots=' +
       '"C1:1@1 2@2 3@4 4@9 5@11 6@12 7@15 8@17 9@19",' +
       '"C2:1@3 2@4 3@5 4@9 5@12 6@13 7@15 8@17 9@19",' +
@@ -201,11 +211,13 @@ OSRIC.CLASSES = {
       '"dexterity >= 6","intelligence >= 6","strength >= 6","wisdom >= 12" ' +
     'Require=' +
       '"alignment =~ \'Neutral\'","charisma >= 15","wisdom >= 12" ' +
-    'HitDie=d8,14,1 THAC10=10,8@4,...2@14 ' +
-    'WeaponProficiency=2,3@4,...6@13 NonproficientPenalty=-4 ' +
-    'Breath=16,15@4,13@7,12@10,11@11 Death=10,9@4,7@7,6@10,5@13 ' +
-    'Petrification=13,12@4,10@7,9@10,8@13 Spell=15,14@4,12@7,11@10,10@13 ' +
-    'Wand=14,13@4,11@7,10@10,9@13 ' +
+    'HitDie=d8,14,1 THAC10="10 8@4 ...2@14" ' +
+    'WeaponProficiency="2 3@4 ...6@13" NonproficientPenalty=-4 ' +
+    'Breath="16 15@4 13@7 12@10 11@11" ' +
+    'Death="10 9@4 7@7 6@10 5@13" ' +
+    'Petrification="13 12@4 10@7 9@10 8@13" ' +
+    'Spell="15 14@4 12@7 11@10 10@13" ' +
+    'Wand="14 13@4 11@7 10@10 9@13" ' +
     'Features=' +
       '"1:Armor Proficiency (Leather)","1:Shield Proficiency (All)",' +
       '"charisma >= 16/wisdom >= 16 ? 1:Bonus Druid Experience",' +
@@ -213,7 +225,9 @@ OSRIC.CLASSES = {
       '"1:Druids\' Cant","1:Resist Fire","1:Resist Lightning",' +
       '"3:Druid\'s Knowledge","3:Wilderness Movement",' +
       '"7:Immunity To Fey Charm",7:Shapeshift ' +
-    'Experience=0,2,4,8,12,20,35,60,90,125,200,300,750,1500 ' +
+    'Experience=' +
+      '"0 2000 4000 8000 12000 20000 35000 60000 90000 125000 200000 300000' +
+      ' 750000 1500000" ' +
     'SpellSlots=' +
       '"D1:2@1 3@3 4@4 5@9 6@13",' +
       '"D2:1@2 2@3 3@5 4@7 5@11 6@14",' +
@@ -226,34 +240,38 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 7","dexterity >= 6","strength >= 9",' +
       '"wisdom >= 6" ' +
-    'HitDie=d10,9,3 THAC10=10,9,...-9@20 ' +
-    'WeaponProficiency=4,5@3,...15@23 NonproficientPenalty=-2 ' +
-    'Breath=17,16@3,13@5,12@7,9@9,8@11,5@13,4@15,3@19 ' +
-    'Death=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
-    'Petrification=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
-    'Spell=17,16@3,14@5,13@7,11@9,10@11,8@13,7@15,6@17,5@19 ' +
-    'Wand=16,15@3,13@5,12@7,10@9,9@11,7@13,6@15,5@17,4@19 ' +
+    'HitDie=d10,9,3 THAC10="10 9 ...-9@20" ' +
+    'WeaponProficiency="4 5@3 ...15@23" NonproficientPenalty=-2 ' +
+    'Breath="17 16@3 13@5 12@7 9@9 8@11 5@13 4@15 3@19" ' +
+    'Death="14 13@3 11@5 10@7 8@9 7@11 5@13 4@15 3@17 2@19" ' +
+    'Petrification="15 14@3 12@5 11@7 9@9 8@11 6@13 5@15 4@17 3@19" ' +
+    'Spell="17 16@3 14@5 13@7 11@9 10@11 8@13 7@15 6@17 5@19" ' +
+    'Wand="16 15@3 13@5 12@7 10@9 9@11 7@13 6@15 5@17 4@19" ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16 ? 1:Bonus Fighter Experience",' +
       '"1:Fighting The Unskilled","7:Bonus Attacks" ' +
     'Experience=' +
-      '0,1.9,4.25,7.75,16,35,75,125,250,500,750,1000,1250,1500,1750,2000,' +
-      '2250,2500,2750,3000,3250,3500,3750,4000',
+      '"0 1900 4250 7750 16000 35000 75000 125000 250000 500000 750000' +
+      ' 1000000 1250000 1500000 1750000 2000000 2250000 2500000 2750000' +
+      ' 3000000 3250000 3500000 3750000 4000000"',
   'Illusionist':
     'Require=' +
       '"charisma >= 6","dexterity >= 16","intelligence >= 15",' +
       '"strength >= 6","wisdom >= 6" ' +
-    'HitDie=d4,10,1 THAC10=11,9@6,...3@24 ' +
-    'WeaponProficiency=1,2@6,...5@21 NonproficientPenalty=-5 ' +
-    'Breath=15,13@6,...7@21 Death=14,13@6,11@11,10@16,8@21 ' +
-    'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
-    'Wand=11,9@6,...3@21 '+
+    'HitDie=d4,10,1 THAC10="11 9@6 ...3@24" ' +
+    'WeaponProficiency="1 2@6 ...5@21" NonproficientPenalty=-5 ' +
+    'Breath="15 13@6 ...7@21" ' +
+    'Death="14 13@6 11@11 10@16 8@21" ' +
+    'Petrification="13 11@6 ...5@21" ' +
+    'Spell="12 10@6 ...4@21" ' +
+    'Wand="11 9@6 ...3@21" '+
     'Features=' +
       '"1:Spell Book","10:Eldritch Craft" ' +
     'Experience=' +
-      '0,2.5,4.75,9,18,35,60.25,95,144.5,220,440,660,880,1100,1320,1540,' +
-      '1760,1980,2200,2420,2640,3080,3300 ' +
+      '"0 2500 4750 9000 18000 35000 60250 95000 144500 220000 440000 660000' +
+      ' 880000 1100000 1320000 1540000 1760000 1980000 2200000 2420000' +
+      ' 2640000 2860000 3080000 3300000" ' +
     'SpellSlots=' +
       '"I1:1@1 2@2 3@4 4@5 5@9 6@17",' +
       '"I2:1@3 2@4 3@5 4@10 5@12 6@18",' +
@@ -266,17 +284,20 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 6","dexterity >= 6",' +
       '"intelligence >= 9","wisdom >= 6" ' +
-    'HitDie=d4,11,1 THAC10=11,9@6,...3@24 ' +
-    'WeaponProficiency=1,2@6,...5@21 NonproficientPenalty=-5 ' +
-    'Breath=15,13@6,...7@21 Death=14,13@6,11@11,10@16,8@21 ' +
-    'Petrification=13,11@6,...5@21 Spell=12,10@6,...4@21 ' +
-    'Wand=11,9@6,...3@21 ' +
+    'HitDie=d4,11,1 THAC10="11 9@6 ...3@24" ' +
+    'WeaponProficiency="1 2@6 ...5@21" NonproficientPenalty=-5 ' +
+    'Breath="15 13@6 ...7@21" ' +
+    'Death="14 13@6 11@11 10@16 8@21" ' +
+    'Petrification="13 11@6 ...5@21" ' +
+    'Spell="12 10@6 ...4@21" ' +
+    'Wand="11 9@6 ...3@21" ' +
     'Features=' +
       '"intelligence >= 16 ? 1:Bonus Magic User Experience",' +
       '"1:Spell Book","7:Eldritch Craft","12:Eldritch Power" ' +
     'Experience=' +
-      '0,2.4,4.8,10.25,22,40,60,80,140,250,375,750,1125,1500,1875,2250,' +
-      '2625,3000,3375,3750,4125,4500,4875,5250 ' +
+      '"0 2400 4800 10250 22000 40000 60000 80000 140000 250000 375000' +
+      ' 750000 1125000 1500000 1875000 2250000 2625000 3000000 3375000' +
+      ' 3750000 4125000 4500000 4875000 5250000" ' +
     'SpellSlots=' +
       '"M1:1@1 2@2 3@4 4@5 5@12 6@21",' +
       '"M2:1@3 2@4 3@6 4@9 5@13 6@21",' +
@@ -291,13 +312,13 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment == \'Lawful Good\'","charisma >= 17","constitution >= 9",' +
       '"dexterity >= 6","intelligence >= 9","strength >= 12","wisdom >= 13" ' +
-    'HitDie=d10,9,3 THAC10=10,9,...-9@20,-9@24 ' +
-    'WeaponProficiency=3,4@3,...14@23 NonproficientPenalty=-2 ' +
-    'Breath=15,14@3,11@5,10@7,7@9,6@11,3@13,2@15 ' +
-    'Death=12,11@3,9@5,8@7,6@9,5@11,3@13,2@15 ' +
-    'Petrification=13,12@3,10@5,9@7,7@9,6@11,4@13,3@15,2@17 ' +
-    'Spell=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
-    'Wand=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
+    'HitDie=d10,9,3 THAC10="10 9 ...-9@20 -9@24" ' +
+    'WeaponProficiency="3 4@3 ...14@23" NonproficientPenalty=-2 ' +
+    'Breath="15 14@3 11@5 10@7 7@9 6@11 3@13 2@15" ' +
+    'Death="12 11@3 9@5 8@7 6@9 5@11 3@13 2@15" ' +
+    'Petrification="13 12@3 10@5 9@7 7@9 6@11 4@13 3@15 2@17" ' +
+    'Spell="15 14@3 12@5 11@7 9@9 8@11 6@13 5@15 4@17 3@19" ' +
+    'Wand="14 13@3 11@5 10@7 8@9 7@11 5@13 4@15 3@17 2@19" ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16/wisdom >= 16 ? 1:Bonus Paladin Experience",' +
@@ -307,8 +328,9 @@ OSRIC.CLASSES = {
       '"1:Protection From Evil","3:Turn Undead","4:Summon Warhorse",' +
       '"8:Bonus Attacks" ' +
     'Experience=' +
-      '0,2.55,5.5,12.5,25,45,95,175,325,600,1000,1350,1700,2050,2400,' +
-      '2750,3100,3450,3800,4150,4500,4850,5200,5550 ' +
+      '"0 2550 5500 12500 25000 45000 95000 175000 325000 600000 1000000' +
+      ' 1350000 1700000 2050000 2400000 2750000 3100000 3450000 3800000' +
+      ' 4150000 4500000 4850000 5200000 5550000" ' +
     'SpellSlots=' +
       '"C1:1@9 2@10 3@14 4@21",' +
       '"C2:1@11 2@12 3@16 4@22",' +
@@ -318,13 +340,13 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Good\'","charisma >= 6","constitution >= 14",' +
       '"dexterity >= 6","intelligence >= 13","strength >= 13","wisdom >= 14" ' +
-    'HitDie=2d8,10,2 THAC10=10,9,...-9@20,-9@24 ' +
-    'WeaponProficiency=3,4@3,...14@23 NonproficientPenalty=-2 ' +
-    'Breath=17,16@3,13@5,12@7,9@9,8@11,5@13,4@15,3@19 ' +
-    'Death=14,13@3,11@5,10@7,8@9,7@11,5@13,4@15,3@17,2@19 ' +
-    'Petrification=15,14@3,12@5,11@7,9@9,8@11,6@13,5@15,4@17,3@19 ' +
-    'Spell=17,16@3,14@5,13@7,11@9,10@11,8@13,7@15,6@17,5@19 ' +
-    'Wand=16,15@3,13@5,12@7,10@9,9@11,7@13,6@15,5@17,4@19 ' +
+    'HitDie=2d8,10,2 THAC10="10 9 ...-9@20 -9@24" ' +
+    'WeaponProficiency="3 4@3 ...14@23" NonproficientPenalty=-2 ' +
+    'Breath="17 16@3 13@5 12@7 9@9 8@11 5@13 4@15 3@19" ' +
+    'Death="14 13@3 11@5 10@7 8@9 7@11 5@13 4@15 3@17 2@19" ' +
+    'Petrification="15 14@3 12@5 11@7 9@9 8@11 6@13 5@15 4@17 3@19" ' +
+    'Spell="17 16@3 14@5 13@7 11@9 10@11 8@13 7@15 6@17 5@19" ' +
+    'Wand="16 15@3 13@5 12@7 10@9 9@11 7@13 6@15 5@17 4@19" ' +
     'Features=' +
       '"1:Armor Proficiency (All)","1:Shield Proficiency (All)",' +
       '"strength >= 16/intelligence >= 16/wisdom >= 16 ? 1:Bonus Ranger Experience",' +
@@ -332,8 +354,9 @@ OSRIC.CLASSES = {
       '"1:Fighting The Unskilled",1:Loner,1:Selective,1:Tracking,' +
       '"1:Travel Light","8:Bonus Attacks","10:Scrying Device Use" ' +
     'Experience=' +
-      '0,2.25,4.5,9.5,20,40,90,150,225,325,650,975,1300,1625,1950,2275,' +
-      '2600,2925,3250,3575,3900,4225,4550,4875 ' +
+      '"0 2250 4500 9500 20000 40000 90000 150000 225000 325000 650000' +
+      ' 975000 1300000 1625000 1950000 2275000 2600000 2925000 3250000' +
+      ' 3575000 3900000 4225000 4550000 4875000" ' +
     'SpellSlots=' +
       '"D1:1@8 2@10 3@18 4@23",' +
       '"D2:1@12 2@14 3@20",' +
@@ -346,17 +369,21 @@ OSRIC.CLASSES = {
     'Require=' +
       '"alignment =~ \'Neutral|Evil\'","charisma >= 6","constitution >= 6",' +
       '"dexterity >= 9","intelligence >= 6","strength >= 6" ' +
-    'HitDie=d6,10,2 THAC10=11,9@5,6@9,4@13,...0@24 ' +
-    'WeaponProficiency=2,3@5,...7@21 NonproficientPenalty=-3 ' +
-    'Breath=16,15@5,...11@21 Death=13,12@5,...8@21 ' +
-    'Petrification=12,11@5,...7@21 Spell=15,13@5,...5@21 Wand=14,12@5,...4@21 '+
+    'HitDie=d6,10,2 THAC10="11 9@5 6@9 4@13 ...0@24" ' +
+    'WeaponProficiency="2 3@5 ...7@21" NonproficientPenalty=-3 ' +
+    'Breath="16 15@5 ...11@21" ' +
+    'Death="13 12@5 ...8@21" ' +
+    'Petrification="12 11@5 ...7@21" ' +
+    'Spell="15 13@5 ...5@21" ' +
+    'Wand="14 12@5 ...4@21" '+
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"dexterity >= 16 ? 1:Bonus Thief Experience",' +
       '1:Backstab,"1:Thief Skills","1:Thieves\' Cant","10:Read Scrolls" ' +
     'Experience=' +
-      '0,1.25,2.5,5,10,20,40,70,110,160,220,440,660,880,1100,1320,1540,' +
-      '1760,1980,2200,2420,2640,2860,3080'
+      '"0 1250 2500 5000 10000 20000 40000 70000 110000 160000 220000 440000' +
+      ' 660000 880000 1100000 1320000 1540000 1760000 1980000 2200000 2420000' +
+      ' 2640000 2860000 3080000"'
 };
 OSRIC.FEATURES = {
 
@@ -2723,8 +2750,6 @@ OSRIC.talentRules = function(rules, features, goodies, languages, skills) {
   }
   QuilvynRules.validAllocationRules
     (rules, 'language', 'languageCount', 'Sum "^languages\\."');
-  QuilvynRules.validAllocationRules
-    (rules, 'nonweaponProficiency', 'nonweaponProficiencyCount', 'sumNonThiefSkills');
 
 };
 
@@ -2744,17 +2769,16 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
   else if(type == 'Class') {
     OSRIC.classRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Require'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Experience'),
+      QuilvynUtils.getAttrValue(attrs, 'Experience'),
       QuilvynUtils.getAttrValueArray(attrs, 'HitDie'),
-      QuilvynUtils.getAttrValueArray(attrs, 'THAC10'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Breath'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Death'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Petrification'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Spell'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Wand'),
+      QuilvynUtils.getAttrValue(attrs, 'THAC10'),
+      QuilvynUtils.getAttrValue(attrs, 'Breath'),
+      QuilvynUtils.getAttrValue(attrs, 'Death'),
+      QuilvynUtils.getAttrValue(attrs, 'Petrification'),
+      QuilvynUtils.getAttrValue(attrs, 'Spell'),
+      QuilvynUtils.getAttrValue(attrs, 'Wand'),
       QuilvynUtils.getAttrValueArray(attrs, 'Features'),
-      QuilvynUtils.getAttrValueArray(attrs, 'WeaponProficiency'),
-      QuilvynUtils.getAttrValueArray(attrs, 'NonweaponProficiency'),
+      QuilvynUtils.getAttrValue(attrs, 'WeaponProficiency'),
       QuilvynUtils.getAttrValue(attrs, 'NonproficientPenalty'),
       QuilvynUtils.getAttrValueArray(attrs, 'SpellSlots')
     );
@@ -2829,6 +2853,12 @@ OSRIC.choiceRules = function(rules, type, name, attrs) {
   }
 };
 
+/*
+ * Removes #name# from the set of user #type# choices, reversing the effects of
+ * choiceRules.
+ */
+OSRIC.removeChoice = SRD35.removeChoice;
+
 /* Defines in #rules# the rules associated with alignment #name#. */
 OSRIC.alignmentRules = function(rules, name) {
   if(!name) {
@@ -2899,16 +2929,16 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
  * #savePetrification#, #saveSpell#, and #saveWand# are each progressions
  * indicating the value needed for each type of saving throw on each level.
  * #features# lists the features acquired as the character advances in class
- * level. #weaponProficiency# and #nonweaponProficiency# are progressions
- * indicating the number of weapon and nonweapon proficiencies the class grants
- * at each level, and #nonproficientPenalty# the attack penalty assessed by the
- * class when using a non-proficient weapon. If the class grants spell slots,
- * #spellSlots# lists the number of spells per level per day granted.
+ * level. #weaponProficiency# is a progression indicating the number of weapon
+ * proficiencies the class grants at each level, and #nonproficientPenalty# the
+ * attack penalty assessed by the class when using a non-proficient weapon. If
+ * the class grants spell slots, #spellSlots# lists the number of spells per
+ * level per day granted.
  */
 OSRIC.classRules = function(
   rules, name, requires, experience, hitDie, thac10, saveBreath, saveDeath,
   savePetrification, saveSpell, saveWand, features, weaponProficiency,
-  nonweaponProficiency, nonproficientPenalty, spellSlots
+  nonproficientPenalty, spellSlots
 ) {
 
   if(!name) {
@@ -2919,7 +2949,7 @@ OSRIC.classRules = function(
     console.log('Bad requires list "' + requires + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(experience)) {
+  if(typeof(experience) != 'string') {
     console.log('Bad experience "' + experience + '" for class ' + name);
     return;
   }
@@ -2927,27 +2957,27 @@ OSRIC.classRules = function(
     console.log('Bad hitDie "' + hitDie + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(thac10)) {
+  if(typeof(thac10) != 'string') {
     console.log('Bad thac10 "' + thac10 + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveBreath)) {
+  if(typeof(saveBreath) != 'string') {
     console.log('Bad saveBreath "' + saveBreath + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveDeath)) {
+  if(typeof(saveDeath) != 'string') {
     console.log('Bad saveDeath "' + saveDeath + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(savePetrification)) {
+  if(typeof(savePetrification) != 'string') {
     console.log('Bad savePetrification "' + savePetrification + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveSpell)) {
+  if(typeof(saveSpell) != 'string') {
     console.log('Bad saveSpell "' + saveSpell + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(saveWand)) {
+  if(typeof(saveWand) != 'string') {
     console.log('Bad saveWand "' + saveWand + '" for class ' + name);
     return;
   }
@@ -2955,12 +2985,8 @@ OSRIC.classRules = function(
     console.log('Bad features list "' + features + '" for class ' + name);
     return;
   }
-  if(!Array.isArray(weaponProficiency)) {
+  if(typeof(weaponProficiency) != 'string') {
     console.log('Bad weaponProficiency "' + weaponProficiency + '" for class ' + name);
-    return;
-  }
-  if(!Array.isArray(nonweaponProficiency)) {
-    console.log('Bad nonweaponProficiency "' + nonweaponProficiency + '" for class ' + name);
     return;
   }
   if(typeof(nonproficientPenalty) != 'number') {
@@ -2981,13 +3007,12 @@ OSRIC.classRules = function(
       (rules, 'validation', prefix + 'Class', classLevel, requires);
 
   rules.defineChoice('notes', 'experiencePoints.' + name + ':%V/%1');
-  for(let i = 0; i < experience.length; i++)
-    experience[i] *= 1000;
+  experience = OSRIC.progressTable(experience);
   rules.defineRule('experiencePoints.' + name + '.1',
-    classLevel, '=', 'source<' + experience.length + ' ? [' + experience + '][source] : "-"'
+    classLevel, '=',  '[' + experience + '][source + 1] || "-"'
   );
   rules.defineRule(classLevel,
-    'experiencePoints.' + name, '=', 'source>=' + experience[experience.length - 1] + ' ? ' + experience.length + ' : [' + experience + '].findIndex(item => item>source)'
+    'experiencePoints.' + name, '=', 'source<' + experience[experience.length - 1] + ' ? ' + '[' + experience + '].findIndex(item => item>source) - 1 : ' + (experience.length - 1)
   );
 
   let thac10Progress = OSRIC.progressTable(thac10);
@@ -3531,16 +3556,17 @@ OSRIC.progressTable = function(steps) {
   let mostRecentRun = 1;
   let mostRecentStep = 0;
   let result = [0];
+  steps = steps.replace(/\s*\.\.\.\s*/g, ' ...').split(/[\s;]+/);
   for(let i = 0; i < steps.length; i++) {
-    let m = (steps[i] + '').match(/^(\.*)(-?\d+)(@(\d+))?$/);
+    let m = (steps[i] + '').match(/^(\.\.\.)?(-?\d+(\.\d+)?)(@(\d+))?$/);
     if(!m) {
       console.log('Malformed progress step "' + steps[i] + '"');
       break;
     }
-    let nextLevel = m[4] ? +m[4] : result.length;
+    let nextLevel = m[5] ? +m[5] : result.length;
     let currentRun = nextLevel - result.length + 1;
     let currentStep = +m[2] - result[result.length - 1];
-    let repeating = m[1] != '';
+    let repeating = m[1] != null;
     if(repeating) {
       for(let j = 0; j < mostRecentRun - 1 && result.length < nextLevel; j++)
         result.push(result[result.length - 1]);
@@ -3562,6 +3588,12 @@ OSRIC.progressTable = function(steps) {
 };
 
 /*
+ * Returns an object that contains all the choices for #name# previously
+ * defined for this rule set via addChoice.
+ */
+OSRIC.getChoices = SRD35.getChoices;
+
+/*
  * Returns the dictionary of attribute formats associated with character sheet
  * format #viewer# in #rules#.
  */
@@ -3578,7 +3610,7 @@ OSRIC.choiceEditorElements = function(rules, type) {
   let result = [];
   if(type == 'Armor')
     result.push(
-      ['AC', 'AC Bonus', 'select-one', 
+      ['AC', 'AC Bonus', 'select-one',
        [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]],
       ['Move', 'Max Movement', 'select-one', [120, 90, 60]]
     );
