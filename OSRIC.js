@@ -65,7 +65,7 @@ function OSRIC(edition) {
     (rules, OSRIC.FEATURES, OSRIC.GOODIES, OSRIC.LANGUAGES, OSRIC.SKILLS);
   OSRIC.identityRules(rules, OSRIC.ALIGNMENTS, OSRIC.CLASSES, OSRIC.RACES);
 
-  // Add additional elements to sheet
+  // Add additional elements to character sheet
   rules.defineSheetElement('Strength');
   rules.defineSheetElement
     ('StrengthInfo', 'Dexterity', '<b>Strength</b>: %V', '.');
@@ -723,8 +723,7 @@ OSRIC.SCHOOLS = {
   'Enchantment':'',
   'Evocation':'',
   'Illusion':'',
-  'Necromancy':'',
-  'Possession':''
+  'Necromancy':''
 };
 OSRIC.SHIELDS = {
   'None':'AC=0 Weight=0',
@@ -1627,7 +1626,7 @@ OSRIC.SPELLS = {
     'Description=' +
       '"Touched item responds to <i>Detect Magic</i> for %{lvl} dy (Save disbelieve)"',
   'Magic Jar':
-    'School=Possession ' +
+    'School=Necromancy ' +
     'Level=M5 ' +
     'Description=' +
       '"R%{lvl*10}\' Self traps target\'s soul and possesses target\'s body (Save neg)"',
@@ -2716,10 +2715,6 @@ OSRIC.magicRules = function(rules, schools, spells) {
       rules.choiceRules(rules, 'Spell', s, attrs + ' Level=' + groupLevel);
     }
   }
-  for(let level = 1; level <= 9; level++) {
-    rules.defineRule
-      ('spellSlots.W' + level, 'magicNotes.schoolSpecialization', '+', '1');
-  }
 
 };
 
@@ -3146,14 +3141,14 @@ OSRIC.classRulesExtra = function(rules, name) {
 
   } else if(name == 'Paladin') {
 
-    // Override castingLevel calculations from classRules
+    // Override casterLevel calculations from classRules
     rules.defineRule('casterLevel.C',
       classLevel, '^=', 'source<9 ? null : Math.min(source - 8, 8)'
     );
 
   } else if(name == 'Ranger') {
 
-    // Override castingLevel calculations from classRules
+    // Override casterLevel calculations from classRules
     rules.defineRule('casterLevel.D',
       classLevel, '^=', 'source<9 ? null : Math.min(Math.floor((source - 6) / 2), 6)'
     );
@@ -3591,7 +3586,9 @@ OSRIC.progressTable = function(steps) {
  * Returns an object that contains all the choices for #name# previously
  * defined for this rule set via addChoice.
  */
-OSRIC.getChoices = SRD35.getChoices;
+OSRIC.getChoices = function(name) {
+  return this.choices[name == 'classs' ? 'levels' : name];
+};
 
 /*
  * Returns the dictionary of attribute formats associated with character sheet
@@ -3652,7 +3649,7 @@ OSRIC.choiceEditorElements = function(rules, type) {
     );
   else if(type == 'Spell')
     result.push(
-      ['School', 'School', 'select-one', QuilvynUtils.getKeys(rules.getChoices('schools'))],
+      ['School', 'Type', 'select-one', QuilvynUtils.getKeys(rules.getChoices('schools'))],
       ['Level', 'Caster Group and Level', 'text', [15]],
       ['Description', 'Description', 'text', [60]]
     );
@@ -3904,6 +3901,10 @@ OSRIC.ruleNotes = function() {
     '  The OSRIC rules are unclear as to whether or not the Fighting the' +
     '  Unskilled feature applies to Paladins and Rangers. Quilvyn assumes' +
     '  that it does.\n' +
+    '  </li><li>\n' +
+    '  OSRIC categorizes the <i>Magic Jar</i> spell as the only spell that' +
+    '  has to the Possession type. Quilvyn instead gives it the Necromancy' +
+    '  type, which is consistent with the 2E rules.\n' +
     '  </li><li>\n' +
     '  Homebrew choices are described in <a href="plugins/homebrew-osric.html">' +
     '  a separate document</a>.\n' +

@@ -63,9 +63,9 @@ below show only the beginning portion of longer values entered into text boxes.
 <img src='../Images/hbos-armor.jpg' alt='Homebrew Armor'/>
 </td><td>
 <p>
-For homebrew armors, Quilvyn displays fields for entering the boost to armor
-class gained by using the armor and the maximum movement allowed when wearing
-it.
+For homebrew armors, Quilvyn displays fields for entering the improvement to
+armor class gained by using the armor and the maximum movement allowed when
+wearing it.
 </p><p>
 The example shown gives the values for field plate, as discussed in the
 equipment section of the OSRIC rules. It adds -8 to the wearer's armor class
@@ -92,23 +92,23 @@ For example, the Hit Dice entry for the cleric class is d8, 9,
 2&mdash;indicating that a cleric character gains d8 hit points each level
 through level 9, after which a fixed 2 hit points are added each level.
 </p><p>
-Several of the entries&mdash;required experience, THAC10, saves, weapon
+Several of the entries&mdash;experience required, THAC10, saves, weapon
 proficiency, and spell slots&mdash;represent columns from tables in the OSRIC
 rules. Each of these entries contains a set of items listing a class level and
 the value of the attribute for the class at that level. For example, the Weapon
 Proficiency entry for the Assassin class might read "3@1 4@5 5@9 6@13",
 indicating that the class grants proficiency in 3 weapons at level 1, 4 weapons
-at level 5, 5 weapons at level 9, and 6 weapons at level 13. In any of these
-entries, the first item is assumed to apply to level 1 in the class, so the
-"@1" is unnecessary. If the progression is regular, like the +1 increment to
-the proficient weapon count every 4 levels in this example, intermediate values
-can be replaced by "...", so the Assassin class Weapon Proficiency can
-equivalently be shown as "3 4@5 ... 6@13". As another example, consider the
-THAC10 value for the cleric class&mdash;10 at level 1, then reducing by 2 every
-three levels through level 18, dropping to -1 for all higher levels. Spelled
-out, this progression would be "10 8@4 6@7 4@10 2@13 0@16 -1@19". However,
-since the progression is regular through level 18, this sequence to be
-shortened to "10 8@4 ... -1@19".
+at level 5, 5 weapons at level 9, and 6 weapons at level 13. (The first item in
+all progressions is assumed to apply to level 1 in the class, so including the
+"@1" is optional.) If the progression is regular, like the +1 increment to the
+proficient weapon count every 4 levels in this example, intermediate values can
+be replaced by "...", so the Assassin class Weapon Proficiency can equivalently
+be shown as "3 4@5 ... 6@13". As another example, consider the THAC10 value for
+the cleric class&mdash;10 at level 1, then reducing by 2 every three levels
+through level 18, then dropping to -1 for all higher levels. Spelled out, this
+progression would be "10 8@4 6@7 4@10 2@13 0@16 -1@19". However, since the
+progression is regular through level 18, this sequence to be shortened to "10
+8@4 ... -1@19".
 </p><p>
 The example shows entries for a Necromancer class that has similar features to
 the core Illusionist class. Instead of the high dexiterity score required by
@@ -120,21 +120,22 @@ and it gains the ability to turn undead as a cleric at level 10.
 <tr><td colspan="2"><hr/></td></tr>
 <tr><td>
 <a name="feature"><h2>Features</h2></a>
-<img src='../Images/hbos-feature.jpg' alt='Homebrew Feature'/>
+<img src='../Images/hbos-feature-1.jpg' alt='Homebrew Feature'/>
+<hr style="width:75%"/><br/>
+<img src='../Images/hbos-feature-2.jpg' alt='Homebrew Feature'/>
 </td><td>
 <p>
 In Quilvyn, <i>features</i> describe the effects of class and racial features.
 When adding a homebrew feature, enter the section of the character sheet (one
-of attributes, combat, feature, magic, or save) where the note for the feature
+of ability, combat, feature, magic, or save) where the note for the feature
 should appear, then enter the note text. You can enter multiple sections and
 notes, but the number of sections entered must equal the number of notes.
 Feature notes can both reference and modify character attributes; see the
 discussion of <a href="#attrs">using character attributes</a> for how to do
 this.
 </p><p>
-The example shows the entry for a feature named Glib with a note that appears
-in the skill section of the character sheet. It adds 2 to the skill modifiers
-of the Bluff and Perform (Oratory) skills.
+The example shows the entries for two features of the Lizard Man race
+<a href='#race'>outlined below</a>.
 </p>
 </td></tr>
 
@@ -148,8 +149,7 @@ Adding a homebrew language requires only specifying the name. Once added,
 languages can be added to a character by selecting from the language list and
 can be included in the list of languages automatically known by homebrew races.
 </p><p>
-The example shows the entry for a language called Scaletongue, used in
-the example for <a href="#race">adding a race</a>.
+The examples shows the entries for a language called Scaletongue.
 </p>
 </td></tr>
 
@@ -157,30 +157,19 @@ the example for <a href="#race">adding a race</a>.
 <tr><td>
 <a name="race"><h2>Races</h2></a>
 <img src='../Images/hbos-race.jpg' alt='Homebrew Race'/>
-<hr style="width:75%"/><br/>
-<img src='../Images/hbos-race-feature-1.jpg' alt='Homebrew Race Feature'/>
-<hr style="width:75%"/><br/>
-<img src='../Images/hbos-race-feature-2.jpg' alt='Homebrew Race Feature'/>
 </td><td>
 <p>
 When adding a homebrew race, Quilvyn displays fields that allow you to enter
-prerequisites, features, and languages for the race. Although none of the core
-races have requirements, Quilvyn provides the Prerequisite entry to allow you
-to specify a race that has, for example, a minimum strength requirement. Most
-races will have fixed features, such as an ability adjustment. Quilvyn also
-allows entering selectable features to support variations such as sub-races.
-Each feature in these lists will require <a href="#feature">adding a feature</a>
-to describe its effects. The Languages field lists the languages that
-characters of this race know automatically.
+prerequisites, features, and languages for the race. Each racial feature listed
+will require <a href="#feature">adding a feature</a> to describe its effects.
+The Languages field lists the languages that characters of this race know
+automatically.
 </p><p>
-The example shows the entry for the Lizardfolk character race from the Monster
-Manual. Features for this race are: Lizardfolk Ability Adjustment; Lizardfolk
-Skills; Bonus Feat; Scaly Hide; Lizardfolk Weapons; and Hold Breath. (Most of
-these feature names are created for this example; the MM simply lists the
-effects.) The corresponding feature entries for the first two of these are
-shown. Scaletongue is included with the list of automatic languages to
-illustrate the use of the language shown in the
-<a href="#language">adding a language</a> example.
+The example shows an entry that allows players to choose the Lizard Man race
+from the Monsters section of the core rules for their characters. Features for
+this race are Natural Swimmer, Tough Hide, Slow, and Lizard Man Ability
+Adjustment. The corresponding feature entries for the first two of these are
+<a href="#feature">shown above</a>.
 </p>
 </td></tr>
 
@@ -191,18 +180,15 @@ illustrate the use of the language shown in the
 </td><td>
 <p>
 When adding a homebrew spell, Quilvyn displays fields that allow you to enter
-the spell's school, the list of classes and levels for the spell, the
-description of the spell, and whether or not the spell can be placed into a
-potion that can be drunk or an oil that can be applied. Spell descriptions can
-embed references to character attributes; see the discussion of
-<a href=#attrs>using character attributes</a> for how to include these. Unlike
-most text boxes, the Description field only accepts a single value; if you
-enter multiple values, Quilvyn ignores all but the last.
+the spell's type, the list of classes and levels for the spell, and the
+description of the spell. Spell descriptions can embed references to character
+attributes; see the discussion of <a href=#attrs>using character attributes</a>
+for how to include these.
 </p><p>
-The example shows the entry for the transmutation spell <i>Enhance Skill</i>,
-which is a level 3 spell for clerics, sorcerers, and wizards. It can be invoked
-using an imbibed potion, and the description notes that the spell can be cast
-over short range and lasts for a number of rounds equal to the caster level.
+The example shows the entry for the alteration spell <i>Enhance Ability</i>,
+which is a level 3 spell for clerics and magic users. The description notes
+that the spell can be cast over a short range and lasts for a number of rounds
+equal to the caster level.
 </p>
 </td></tr>
 
@@ -227,12 +213,13 @@ inflicts d4 damage.
 <a name="attrs"><h2>Using Character Attributes in Prerequisites and Notes</h2></a>
 <p>
 There are three places that you might want to use references to character
-attributes when adding homebrew choices: prerequisites for homebrew classes,
-feats, class and race features, and races; in feature notes that modify
-character attributes; and embedded in feature notes and spell descriptions.
-Attribute references appear somewhat differently in each of these contexts.
+attributes when adding homebrew choices: prerequisites for homebrew classes
+and races; in feature notes that modify character attributes; and embedded in
+feature notes and spell descriptions. Attribute references appear somewhat
+differently in each of these contexts.
 </p><p>
-The examples below develop a homebrew feat named Alert Dodger. Like the monk AC
+The examples below develop a homebrew feature named Alert Dodger, which gives
+the character a bonus to their armor class based on high wisdom.
 Bonus feature, this feat allows a character to add their (positive) wisdom
 modifier to their armor class. This will be a general feat that can be taken
 as a fighter bonus feat, so the initial entry for the feat looks like this:
