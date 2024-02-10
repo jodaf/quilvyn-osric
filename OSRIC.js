@@ -180,7 +180,7 @@ OSRIC.CLASSES = {
     'Require=' +
       '"charisma >= 6","constitution >= 6","intelligence >= 6",' +
       '"strength >= 6","wisdom >= 9" ' +
-    'HitDie=d8,9,2 THAC10="10 8@4 ...-1@19 -1@24" ' +
+    'HitDie=d8,9,2 THAC10="10 8@4 ...-1@19" ' +
     'WeaponProficiency="2 3@4 ...9@22" NonproficientPenalty=-3 ' +
     'Breath="16 15@4 13@7 12@10 11@13 10@16 8@19" ' +
     'Death="10 9@4 7@7 6@10 5@13 4@16 2@19" ' +
@@ -723,7 +723,8 @@ OSRIC.SCHOOLS = {
   'Enchantment':'',
   'Evocation':'',
   'Illusion':'',
-  'Necromancy':''
+  'Necromancy':'',
+  'Possession':''
 };
 OSRIC.SHIELDS = {
   'None':'AC=0 Weight=0',
@@ -1626,7 +1627,7 @@ OSRIC.SPELLS = {
     'Description=' +
       '"Touched item responds to <i>Detect Magic</i> for %{lvl} dy (Save disbelieve)"',
   'Magic Jar':
-    'School=Necromancy ' +
+    'School=Possession ' +
     'Level=M5 ' +
     'Description=' +
       '"R%{lvl*10}\' Self traps target\'s soul and possesses target\'s body (Save neg)"',
@@ -2899,7 +2900,7 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
   rules.armorStats.weight[name] = weight;
 
   rules.defineRule('abilityNotes.armorSpeedMaximum',
-    'armor', '+', QuilvynUtils.dictLit(rules.armorStats.move) + '[source]'
+    'armor', '=', QuilvynUtils.dictLit(rules.armorStats.move) + '[source]'
   );
   rules.defineRule('armorClass',
     '', '=', '10',
@@ -3901,10 +3902,6 @@ OSRIC.ruleNotes = function() {
     '  The OSRIC rules are unclear as to whether or not the Fighting the' +
     '  Unskilled feature applies to Paladins and Rangers. Quilvyn assumes' +
     '  that it does.\n' +
-    '  </li><li>\n' +
-    '  OSRIC categorizes the <i>Magic Jar</i> spell as the only spell that' +
-    '  has to the Possession type. Quilvyn instead gives it the Necromancy' +
-    '  type, which is consistent with the 2E rules.\n' +
     '  </li><li>\n' +
     '  Homebrew choices are described in <a href="plugins/homebrew-osric.html">' +
     '  a separate document</a>.\n' +
