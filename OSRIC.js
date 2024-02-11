@@ -65,40 +65,6 @@ function OSRIC(edition) {
     (rules, OSRIC.FEATURES, OSRIC.GOODIES, OSRIC.LANGUAGES, OSRIC.SKILLS);
   OSRIC.identityRules(rules, OSRIC.ALIGNMENTS, OSRIC.CLASSES, OSRIC.RACES);
 
-  // Add additional elements to character sheet
-  rules.defineSheetElement('Strength');
-  rules.defineSheetElement
-    ('StrengthInfo', 'Dexterity', '<b>Strength</b>: %V', '.');
-  rules.defineSheetElement('Strength', 'StrengthInfo/', '%V');
-  rules.defineSheetElement('Extra Strength', 'StrengthInfo/', '%V');
-  rules.defineSheetElement
-    ('Experience Points', 'Level', '<b>Experience</b>: %V', '; ');
-  rules.defineSheetElement('SpeedInfo');
-  rules.defineSheetElement('Speed', 'LoadInfo', '<b>%N</b>: %V');
-  rules.defineSheetElement('StrengthTests', 'LoadInfo', '%V', '');
-  rules.defineSheetElement
-    ('Strength Minor Test', 'StrengthTests/',
-     '<b>Strength Minor/Major Test</b>: %Vin6');
-  rules.defineSheetElement('Strength Major Test', 'StrengthTests/', '/%V%');
-  rules.defineSheetElement('Maximum Henchmen', 'Alignment');
-  rules.defineSheetElement('Survive System Shock', 'Save+', '<b>%N</b>: %V%');
-  rules.defineSheetElement('Survive Resurrection', 'Save+', '<b>%N</b>: %V%');
-  rules.defineSheetElement('EquipmentInfo', 'Combat Notes', null);
-  rules.defineSheetElement('Weapon Proficiency Count', 'EquipmentInfo/');
-  rules.defineSheetElement
-    ('Weapon Proficiency', 'EquipmentInfo/', null, '; ');
-  rules.defineSheetElement('Nonweapon Proficiency Count', 'SkillStats');
-  rules.defineSheetElement
-    ('Thac0Info', 'CombatStats/', '<b>THAC0 Melee/Ranged</b>: %V', '/');
-  rules.defineSheetElement('Thac0 Melee', 'Thac0Info/', '%V');
-  rules.defineSheetElement('Thac0 Ranged', 'Thac0Info/', '%V');
-  rules.defineSheetElement
-    ('Thac10Info', 'CombatStats/', '<b>THAC10 Melee/Ranged</b>: %V', '/');
-  rules.defineSheetElement('Thac10 Melee', 'Thac10Info/', '%V');
-  rules.defineSheetElement('Thac10 Ranged', 'Thac10Info/', '%V');
-  rules.defineSheetElement('AttackInfo');
-  rules.defineSheetElement('Turn Undead', 'Combat Notes', null);
-
   Quilvyn.addRuleSet(rules);
 
 }
@@ -164,7 +130,7 @@ OSRIC.CLASSES = {
     'Death="13 12@5 ...10@15" ' +
     'Petrification="12 11@5 ...9@15" ' +
     'Spell="15 13@5 ...9@15" ' +
-    'Wand="14 12@5 ...8@15" '+
+    'Wand="14 12@5 ...8@15" ' +
     'Features=' +
       '"1:Armor Proficiency (Leather/Studded Leather)",' +
       '"1:Shield Proficiency (All)",' +
@@ -547,7 +513,10 @@ OSRIC.FEATURES = {
     'Section=combat ' +
     'Note="4in6 chance to surprise when traveling quietly; 2in6 when opening doors"',
   'Sword Precision':
-    'Section=combat Note="+1 attack w/Long Sword and Short Sword"'
+    'Section=combat Note="+1 attack w/Long Sword and Short Sword"',
+
+  // Misc
+  'Armor Speed Limit':'Section=ability Note="%V"'
 
 };
 OSRIC.GOODIES = {
@@ -2534,7 +2503,7 @@ OSRIC.abilityRules = function(rules) {
   rules.defineRule('loadMax', 'loadMedium', '=', 'source + 35');
   rules.defineRule('speed',
     '', '=', '120',
-    'abilityNotes.armorSpeedMaximum', 'v', null
+    'abilityNotes.armorSpeedLimit', 'v', null
   );
   rules.defineRule('strengthMajorTest',
     'strengthRow', '=', 'source <= 2 ? 0 : ' +
@@ -2575,6 +2544,25 @@ OSRIC.abilityRules = function(rules) {
       'Math.min(source-14, 5)'
   );
 
+  // Add items to the character sheet
+  rules.defineSheetElement('Strength');
+  rules.defineSheetElement
+    ('StrengthInfo', 'Dexterity', '<b>Strength</b>: %V', '.');
+  rules.defineSheetElement('Strength', 'StrengthInfo/', '%V');
+  rules.defineSheetElement('Extra Strength', 'StrengthInfo/', '%V');
+  rules.defineSheetElement
+    ('Experience Points', 'Level', '<b>Experience</b>: %V', '; ');
+  rules.defineSheetElement('SpeedInfo');
+  rules.defineSheetElement('Speed', 'LoadInfo', '<b>%N</b>: %V');
+  rules.defineSheetElement('StrengthTests', 'LoadInfo', '%V', '');
+  rules.defineSheetElement
+    ('Strength Minor Test', 'StrengthTests/',
+     '<b>Strength Minor/Major Test</b>: %Vin6');
+  rules.defineSheetElement('Strength Major Test', 'StrengthTests/', '/%V%');
+  rules.defineSheetElement('Maximum Henchmen', 'Alignment');
+  rules.defineSheetElement('Survive System Shock', 'Save+', '<b>%N</b>: %V%');
+  rules.defineSheetElement('Survive Resurrection', 'Save+', '<b>%N</b>: %V%');
+
 };
 
 /* Defines rules related to combat. */
@@ -2608,6 +2596,7 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   rules.defineRule
     ('armorClass', 'combatNotes.dexterityArmorClassAdjustment', '+', null);
   rules.defineRule('attacksPerRound', '', '=', '1');
+  rules.defineRule('features.Armor Speed Limit', 'armor', '=', '1');
   rules.defineRule('features.Double Specialization',
     'weaponSpecialization', '?', 'source != "None"',
     'doubleSpecialization', '=', null
@@ -2663,6 +2652,21 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
   rules.defineRule('weaponProficiencyCount', 'weapons.Unarmed', '=', '1');
   rules.defineRule('weaponProficiency.Unarmed', 'weapons.Unarmed', '=', '1');
 
+  // Add items to character sheet
+  rules.defineSheetElement('EquipmentInfo', 'Combat Notes', null);
+  rules.defineSheetElement('Weapon Proficiency Count', 'EquipmentInfo/');
+  rules.defineSheetElement
+    ('Weapon Proficiency', 'EquipmentInfo/', null, '; ');
+  rules.defineSheetElement
+    ('Thac0Info', 'CombatStats/', '<b>THAC0 Melee/Ranged</b>: %V', '/');
+  rules.defineSheetElement('Thac0 Melee', 'Thac0Info/', '%V');
+  rules.defineSheetElement('Thac0 Ranged', 'Thac0Info/', '%V');
+  rules.defineSheetElement
+    ('Thac10Info', 'CombatStats/', '<b>THAC10 Melee/Ranged</b>: %V', '/');
+  rules.defineSheetElement('Thac10 Melee', 'Thac10Info/', '%V');
+  rules.defineSheetElement('Thac10 Ranged', 'Thac10Info/', '%V');
+  rules.defineSheetElement('AttackInfo');
+  rules.defineSheetElement('Turn Undead', 'Combat Notes', null);
 };
 
 /* Defines rules related to basic character identity. */
@@ -2899,8 +2903,8 @@ OSRIC.armorRules = function(rules, name, ac, maxMove, weight) {
   rules.armorStats.move[name] = maxMove;
   rules.armorStats.weight[name] = weight;
 
-  rules.defineRule('abilityNotes.armorSpeedMaximum',
-    'armor', '=', QuilvynUtils.dictLit(rules.armorStats.move) + '[source]'
+  rules.defineRule('abilityNotes.armorSpeedLimit',
+    'armor', '=', '(' + QuilvynUtils.dictLit(rules.armorStats.move) + '[source]||120) == 120 ? null : ' + QuilvynUtils.dictLit(rules.armorStats.move) + '[source]'
   );
   rules.defineRule('armorClass',
     '', '=', '10',
