@@ -3009,7 +3009,7 @@ OSRIC.classRules = function(
   rules.defineChoice('notes', 'experiencePoints.' + name + ':%V/%1');
   experience = OSRIC.progressTable(experience);
   rules.defineRule('experiencePoints.' + name + '.1',
-    classLevel, '=',  '[' + experience + '][source + 1] || "-"'
+    classLevel, '=',  'source<' + (experience.length - 1) + ' ? [' + experience + '][source + 1] : "-"'
   );
   rules.defineRule(classLevel,
     'experiencePoints.' + name, '=', 'source<' + experience[experience.length - 1] + ' ? ' + '[' + experience + '].findIndex(item => item>source) - 1 : ' + (experience.length - 1)
@@ -3017,7 +3017,7 @@ OSRIC.classRules = function(
 
   let thac10Progress = OSRIC.progressTable(thac10);
   rules.defineRule('thac10Base',
-    classLevel, 'v=', '[' + thac10Progress.join(',') + '][source] || ' + thac10Progress[thac10Progress.length - 1]
+    classLevel, 'v=', 'source<' + thac10Progress.length + ' ? [' + thac10Progress.join(',') + '][source] : ' + thac10Progress[thac10Progress.length - 1]
   );
 
   let extraHitDie = (hitDie[0] + '').startsWith('2');
@@ -3033,7 +3033,7 @@ OSRIC.classRules = function(
   for(let s in saves) {
     let saveProgress = OSRIC.progressTable(saves[s]);
     rules.defineRule('class' + name + s + 'Save',
-      classLevel, 'v=', '[' + saveProgress.join(',') + '][source] || ' + saveProgress[saveProgress.length - 1]
+      classLevel, 'v=', 'source<' + saveProgress.length + ' ? [' + saveProgress.join(',') + '][source] : ' + saveProgress[saveProgress.length - 1]
     );
     rules.defineRule
       ('save.' + s, 'class' + name + s + 'Save', 'v=', null);
@@ -3102,7 +3102,7 @@ OSRIC.classRules = function(
 
   let weaponProgress = OSRIC.progressTable(weaponProficiency);
   rules.defineRule('weaponProficiencyCount',
-    classLevel, '+', '[' + weaponProgress.join(',') + '][source] || ' + weaponProgress[weaponProgress.length - 1]
+    classLevel, '+', 'source<' + weaponProgress.length + ' ? [' + weaponProgress.join(',') + '][source] : ' + weaponProgress[weaponProgress.length - 1]
   );
   rules.defineRule
     ('weaponNonProficiencyPenalty', classLevel, '^=', nonproficientPenalty);
