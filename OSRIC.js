@@ -456,7 +456,7 @@ OSRIC.FEATURES = {
     'Section=feature Note="May not possess more than can be carried"',
   'Turn Undead':
     'Section=combat ' +
-    'Note="May turn or %{alignment=~\'Evil\'?\'control\':\'destroy\'} undead creatures"',
+    'Note="May turn for 3d4 rd or %{alignment=~\'Evil\'?\'control\':\'destroy\'} undead creatures"',
   'Weapon Specialization':
      'Section=combat ' +
     'Note="+1 %{weaponSpecialization} Attack Modifier/+2 %{weaponSpecialization} Damage Modifier/+%{level//2} attacks/rd"',
