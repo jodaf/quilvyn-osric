@@ -358,7 +358,7 @@ OSRIC.FEATURES = {
     'Section=combat Note="Surprised 1in6, surprise 3in6"',
   'Assassination':
     'Section=combat ' +
-    'Note="Strike kills surprised target %{levels.Assassin*5+50}% - 5%/2 foe levels"',
+    'Note="%{levels.Assassin*5+50}% - 5%/2 foe levels chance that a strike kills a surprised target"',
   'Backstab':
     'Section=combat Note="+4 melee attack and x%{((levels.Assassin||0)+7>?(levels.Thief||0)+7)//4<?5} damage when surprising"',
   'Bonus Attacks':'Section=combat Note="+%V attacks/rd"',
