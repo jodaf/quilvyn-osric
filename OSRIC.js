@@ -1570,7 +1570,7 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=C3,M2 ' +
     'Description=' +
-      '"R%{slv==\'C3\'?lvl*10+60:(lvl*20)}\' Self discerns location of desired object for %{lvl} rd (Reverse obscures)"',
+      '"R%{slv==\'C3\'?lvl*10+60:(lvl*20)}\' Self discerns location of a desired object for %{lvl} rd (Reverse obscures)"',
   'Locate Plants':
     'School=Divination ' +
     'Level=D2 ' +
@@ -1732,7 +1732,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D2 ' +
     'Description=' +
-      '"Creates a mist that limits vision in %{lvl*10}\' cu for %{lvl*4} rd"',
+      '"Creates a mist that limits vision in a %{lvl*10}\' cu for %{lvl*4} rd"',
   'Paralysation':
     'School=Illusion ' +
     'Level=I3 ' +
@@ -1832,7 +1832,7 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=D1 ' +
     'Description=' +
-      '"Forecasts weather in a 9 sq mile radius for the next %{lvl*2} hr"',
+      '"Forecasts weather in a 9 sq mile area for the next %{lvl*2} hr"',
   'Prismatic Sphere':
     'School=Conjuration ' +
     'Level=M9 ' +
@@ -2677,7 +2677,7 @@ OSRIC.identityRules = function(rules, alignments, classes, races) {
     classes, [
       'Require', 'Experience', 'HitDie', 'THAC10', 'Breath', 'Death',
       'Petrification', 'Spell', 'Wand', 'Features', 'WeaponProficiency',
-      'NonweaponProficiency', 'NonproficientPenalty', 'SpellSlots'
+      'NonproficientPenalty', 'SpellSlots'
     ]
   );
   QuilvynUtils.checkAttrTable(races, ['Require', 'Features', 'Languages']);
@@ -3048,6 +3048,7 @@ OSRIC.classRules = function(
       rules.defineRule('combatNotes.bonusAttacks',
         classLevel, '^=', 'source<' + level + ' ? null : source<' + (level * 2 - 1) + ' ? 0.5 : 1'
       );
+      rules.defineRule('warriorLevel', classLevel, '^=', null);
     } else if(f.includes('Bonus Spells') && spellSlots.length > 0) {
       // The rule engine doesn't support building results via concatenation or
       // arrays, so we have to go through some contortions to list all of the
@@ -3087,8 +3088,6 @@ OSRIC.classRules = function(
           'magicNotes.bonusSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : null'
         );
       }
-    } else if(f.includes('Fighting The Unskilled')) {
-      rules.defineRule('warriorLevel', classLevel, '^=', null);
     } else if((m = f.match(/((\d+):)?Turn Undead/)) != null) {
       rules.defineRule('turningLevel',
         classLevel, '^=', m[2] && m[2] != '1' ? 'source>=' + m[2] + ' ? source - ' + (+m[2] - 1) + ' : null' : 'source'
