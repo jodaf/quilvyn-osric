@@ -397,8 +397,7 @@ OSRIC.FEATURES = {
   'Disguise':'Section=feature Note="92%+ successful disguise"',
   'Divine Health':'Section=save Note="Immune to disease"',
   'Double Specialization':
-    'Section=combat ' +
-    'Note="+3 %{weaponSpecialization} Attack Modifier/+3 %{weaponSpecialization} Damage Modifier"',
+    'Section=combat Note="+3 attack and +3 damage w/%{weaponSpecialization}"',
   "Druids' Cant":'Section=skill Note="Speaks the secret language of Druids"',
   "Druid's Knowledge":
     'Section=feature ' +
@@ -458,8 +457,8 @@ OSRIC.FEATURES = {
     'Section=combat ' +
     'Note="May turn for 3d4 rd or %{alignment=~\'Evil\'?\'control\':\'destroy\'} undead creatures"',
   'Weapon Specialization':
-     'Section=combat ' +
-    'Note="+1 %{weaponSpecialization} Attack Modifier/+2 %{weaponSpecialization} Damage Modifier/+%{level//2} attacks/rd"',
+    'Section=combat ' +
+    'Note="+1 attack, +2 damage, and %{level//2+1} attacks/rd w/%{weaponSpecialization}"',
   'Wilderness Movement':
      'Section=feature ' +
      'Note="May move through undergrowth at full speed, leaving no trace"',
