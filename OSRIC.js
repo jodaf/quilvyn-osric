@@ -3083,7 +3083,7 @@ OSRIC.classRules = function(
         'bonusSpellTemplate', '?', null,
         'bonusSpellBitMap', '=', 'OSRIC.BonusSpellTypes.map(x => dict.bonusSpellTemplate.replaceAll("t", x)).filter((x, index) => source & Math.pow(2, index)).join(", ")'
       );
-      for(let level = 1; level <= 4; level++) {
+      for(let level = 1; level <= 7; level++) {
         rules.defineRule('spellSlots.' + t + level,
           'magicNotes.bonusSpells', '+', 'source.match(/' + t + level + 'x3/) ? 3 : source.match(/' + t + level + 'x2/) ? 2 : source.match(/' + t + level + '/) ? 1 : null'
         );
