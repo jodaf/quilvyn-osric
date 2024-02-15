@@ -2474,7 +2474,7 @@ OSRIC.abilityRules = function(rules) {
       '].filter(x => x != "").join("/")'
   );
   rules.defineRule
-    ('skillNotes.dexteritySkillModifiers', 'sumThiefSkills', '?', null);
+    ('skillNotes.dexteritySkillModifiers', 'features.Thief Skills', '?', null);
 
   // Intelligence
   rules.defineRule('skillNotes.intelligenceLanguageBonus',
@@ -3281,7 +3281,7 @@ OSRIC.raceRules = function(rules, name, requires, features, languages) {
   }
 
   rules.defineRule
-    ('skillNotes.raceSkillModifiers', 'sumThiefSkills', '?', null);
+    ('skillNotes.raceSkillModifiers', 'features.Thief Skills', '?', null);
 
 };
 
