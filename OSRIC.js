@@ -2473,7 +2473,7 @@ OSRIC.abilityRules = function(rules) {
       '].filter(x => x != "").join("/")'
   );
   rules.defineRule
-    ('skillNotes.dexteritySkillModifiers', 'features.Thief Skills', '?', null);
+    ('skillNotes.dexteritySkillModifiers', 'hasSkills', '?', null);
 
   // Intelligence
   rules.defineRule('skillNotes.intelligenceLanguageBonus',
@@ -2747,6 +2747,7 @@ OSRIC.talentRules = function(rules, features, goodies, languages, skills) {
     );
     rules.choiceRules(rules, 'Skill', s, skills[s]);
   }
+  rules.defineRule('hasSkills', 'features.Thief Skills', '=', '1');
   QuilvynRules.validAllocationRules
     (rules, 'language', 'languageCount', 'Sum "^languages\\."');
 
@@ -3279,8 +3280,7 @@ OSRIC.raceRules = function(rules, name, requires, features, languages) {
     });
   }
 
-  rules.defineRule
-    ('skillNotes.raceSkillModifiers', 'features.Thief Skills', '?', null);
+  rules.defineRule('skillNotes.raceSkillModifiers', 'hasSkills', '?', null);
 
 };
 
