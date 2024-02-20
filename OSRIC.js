@@ -797,7 +797,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I1,M2 ' +
     'Description=' +
-      '"R%{lvl*10+60}\' Creates sounds equivalent to %{(lvl-2)*4} people shouting (Save disbelieve) for %{lvl*(slvl==\'I1\'?3:2)} rd"',
+      '"R%{lvl*10+60}\' Creates sounds equivalent to %{(lvl-2)*4} people shouting (Save disbelieve) for %{lvl*(slvl==\'M2\'?2:3)} rd"',
   'Augury':
     'School=Divination ' +
     'Level=C2 ' +
@@ -811,7 +811,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=C6 ' +
     'Description=' +
-      '"R30\' 2\' - 10\' radius blade wall inflicts 8d8 HP for %{lvl*3} rd"',
+      '"R30\' 10\' radius blade wall inflicts 8d8 HP for %{lvl*3} rd"',
   'Bless':
     'School=Conjuration ' +
     'Level=C1 ' +
@@ -941,7 +941,7 @@ OSRIC.SPELLS = {
     'School=Enchantment ' +
     'Level=D7,I4,M4 ' +
     'Description=' +
-      '"R%{slvl==\'M4\'?120:80}\' Causes 2d%{slvl==\'D7\'?4:8} or more creatures in a %{slvl==\'D7\'?20:slvl==\'I4\'?40:60}\' %{slvl==\'D7\'?\'radius\':\'sq\'} to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd), each rd for %{lvl+(slvl==\'M4\'?2:0)} rd"',
+      '"R%{slvl==\'M4\'?120:80}\' Causes 2d%{slvl==\'D7\'?4:8} or more creatures in a %{slvl==\'D7\'?\\"20\' radius\\":slvl==\'M4\'?\\"60\' sq\\":\\"40\' sq\\"} to: 10% attack self or allies; 10% act normally; 30% babble; 20% wander way; 30% attack nearest creature (Save neg 1 rd), each rd for %{lvl+(slvl==\'M4\'?2:0)} rd"',
   'Conjure Animals':
     'School=Conjuration ' +
     'Level=C6,I6 ' +
@@ -984,7 +984,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C7,D7,M6 ' +
     'Description=' +
-      '"Controls the precipitation, temperature, and wind within 4d%{slvl==\'D7\'?8:4} sq miles for %{slvl==\'C7\'?\'4d12\':slvl==\'D7\'?\'8d12\':\'4d6\'} hr"',
+      '"Controls the precipitation, temperature, and wind within 4d%{slvl==\'D7\'?8:4} sq miles for %{slvl==\'M6\'?\'4d6\':slvl==\'D7\'?\'8d12\':\'4d12\'} hr"',
   'Control Winds':
     'School=Alteration ' +
     'Level=D5 ' +
@@ -993,8 +993,7 @@ OSRIC.SPELLS = {
   'Create Food And Water':
     'School=Alteration ' +
     'Level=C3 ' +
-    'Description=' +
-      '"R10\' Creates sufficient daily food and drink for %{lvl} persons"',
+    'Description="R10\' Creates %{lvl}\' cu of food and water"',
   'Create Water':
     'School=Alteration ' +
     'Level=C1,D2 ' +
