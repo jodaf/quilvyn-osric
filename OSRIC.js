@@ -1036,7 +1036,7 @@ OSRIC.SPELLS = {
     'Level=I1,M1 ' +
     'Description=' +
       '"R%{lvl*10+40}\' Creates up to 4 movable lights for %{lvl*2} rd"',
-  "Darkness":
+  'Darkness':
     'School=Alteration ' +
     'Level=I1 ' +
     'Description=' +
@@ -1074,7 +1074,7 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=C2 ' +
     'Description=' +
-      '"Self discerns 10 charmed creatures in a 30\' radius for 1 tn (Reverse shields 1 target)"',
+      '"Self discerns charmed state of 1 target/rd in a 30\' radius for 1 tn (Reverse shields 1 target)"',
   'Detect Evil':
     'School=Divination ' +
     'Level=C1,M2 ' +
@@ -1136,7 +1136,7 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=C3,D4,M3 ' +
     'Description=' +
-      '"R%{slvl==\'C3\'?60:slvl==\'D4\'?80:120}\' Extinguishes magic in a %{slvl==\'D4\'?lvl*40:30}\' %{slvl==\'C3\'?\'radius\':\'cu\'} (50% chance each effect +5%/-2% per caster level difference)"',
+      '"R%{slvl==\'C3\'?60:slvl==\'D4\'?80:120}\' Extinguishes magic in a %{slvl==\'C3\'?\\"30\' radius\\":slvl==\'D4\'?lvl*40+\\"\' cu\\":\\"30\' cu\\"} (50% chance each effect +5%/-2% per caster level difference)"',
   'Dispel Magic C3':
     'School=Alteration',
   'Distance Distortion':
@@ -1182,7 +1182,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M1 ' +
     'Description=' +
-      '"R%{lvl*5}\' Expands (Reverse shrinks) target creature %{lvl*20<?200}% or target object %{lvl*10<?100}% (Save neg) for %{lvl} tn"',
+      '"R%{lvl*5}\' Expands (Reverse shrinks) target creature by %{lvl*20<?200}% or target object by %{lvl*10<?100}% (Save neg) for %{lvl} tn"',
   'Entangle':
     'School=Alteration ' +
     'Level=D1 ' +
