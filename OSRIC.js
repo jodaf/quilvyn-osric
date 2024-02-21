@@ -1163,7 +1163,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C7 ' +
     'Description=' +
-      '"R120\' Creates intense shaking in a %{lvl*5}\' diameter for 1 rd"',
+      '"R120\' Creates intense shaking in a %{lvl*2.5}\' radius for 1 rd"',
   'Emotion':
     'School=Enchantment ' +
     'Level=I4 ' +
@@ -1220,7 +1220,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D1 ' +
     'Description=' +
-      '"R80\' Outlines targets in light, giving foes +2 attack, for %{lvl*4} rd"',
+      '"R80\' Outlines %{lvl} targets in light, giving foes +2 attack, for %{lvl*4} rd"',
   'False Trap':
     'School=Illusion ' +
     'Level=M2 ' +
@@ -1233,17 +1233,17 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M1 ' +
     'Description=' +
-      '"R%{lvl*10}\' Falling objects in a 10\' cu slow to 2\'/sec for %{lvl*6} secs"',
+      '"R%{lvl*10}\' Falling objects in a 10\' cu slow to 2\'/sec for %{lvl} seg"',
   'Feeblemind':
     'School=Enchantment ' +
     'Level=D6,M5 ' +
     'Description=' +
-      '"R%{slvl==\'M5\'?lvl*10:40}\' Reduces target Intelligence to 2 (Save Cleric +1, Druid -1, MU -4, Illusionist -4 neg)"',
+      '"R%{slvl==\'D6\'?40:(lvl*10)}\' Reduces target Intelligence to 2 (Save Cleric +1, Druid -1, MU -4, Illusionist -4 neg)"',
   'Feign Death':
     'School=Necromancy ' +
     'Level=C3,D2,M3 ' +
     'Description=' +
-      '"Willing touched appears dead, takes half damage, and gains immunity to draining for %{slvl==\'C3\'?lvl+10:slvl==\'D2\'?lvl*2+4:(lvl+6)} rd"',
+      '"R%{slvl==\'D2\'?\\"10\'\\":\'Touch\'} Willing target appears dead, takes half damage, and gains immunity to draining for %{slvl==\'D2\'?lvl*2+4:slvl==\'M3\'?lvl+6:(lvl+10)} rd"',
   'Find Familiar':
     'School=Conjuration ' +
     'Level=M1 ' +
