@@ -1385,7 +1385,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M3 ' +
     'Description=' +
-      '"Wind in a 10\'x%{lvl*10}\' path extinguishes flames and moves small objects for 6 secs"',
+      '"Wind in a 10\'x%{lvl*10}\' path extinguishes flames and moves small objects for 1 seg"',
   'Hallucinatory Forest':
     'School=Illusion ' +
     'Level=D4 ' +
@@ -1443,11 +1443,11 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I2 ' +
     'Description=' +
-      '"Transfixes 25 HD of viewers in a 30\' sq for conc (Save neg)"',
+      '"Transfixes 25 HD of viewers in a 30\' sq (Save neg) for conc"',
   'Hypnotism':
     'School=Enchantment ' +
     'Level=I1 ' +
-    'Description="R30\' 1d6 targets follow self suggestions for %{lvl+1} rd"',
+    'Description="R30\' 1d6 creatures follow self suggestions for %{lvl+1} rd"',
   'Ice Storm':
     'School=Evocation ' +
     'Level=M4 ' +
@@ -1535,7 +1535,7 @@ OSRIC.SPELLS = {
     'School=Divination ' +
     'Level=C2 ' +
     'Description=' +
-      '"Self discerns alignment auras of 10 touched for 1 tn (Reverse obscures)"',
+      '"Self discerns alignment aura of 1 touched/rd for 1 tn (Reverse obscures)"',
   'Legend Lore':
     'School=Divination ' +
     'Level=M6 ' +
