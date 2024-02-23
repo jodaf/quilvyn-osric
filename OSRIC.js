@@ -1512,7 +1512,7 @@ OSRIC.SPELLS = {
   'Invisibility To Animals':
     'School=Alteration ' +
     'Level=D1 ' +
-    'Description="Touched becomes invisible to animals for %{lvl+10} rd"',
+    'Description="Touched cannot be detected by animals for %{lvl+10} rd"',
   'Invisible Stalker':
     'School=Conjuration ' +
     'Level=M6 ' +
@@ -1577,7 +1577,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C4,M6 ' +
     'Description=' +
-      '"R%{slvl==\'C4\'?120:80}\' %{lvl*(slvl==\'C4\'?10:5)}\' sq fluid subsides by %{lvl*5}% for %{slvl==\'C4\'?lvl+\' tn\':(lvl*5+\' rd\')} (Reverse raises)"',
+      '"R%{slvl==\'M6\'?80:120}\' %{lvl*(slvl==\'M6\'?5:10)}\' sq fluid subsides by %{lvl*5}% for %{slvl==\'M6\'?lvl*5+\' rd\':(lvl+\' tn\')} (Reverse raises)"',
   "Mage's Faithful Hound":
     'School=Conjuration ' +
     'Level=M5 ' +
@@ -1622,7 +1622,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=M7 ' +
     'Description=' +
-      '"R%{lvl*10}\' All in a 30\' radius become invisible; attacking ends for each"',
+      '"R%{lvl*10}\' All in a 30\' sq become invisible; attacking ends for each"',
   'Mass Suggestion':
     'School=Enchantment ' +
     'Level=I6 ' +
@@ -1645,7 +1645,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M1 ' +
     'Description=' +
-      '"R%{lvl*10+60}\' Self may hold a whispered dialogue w/target for %{(lvl+5)*6} secs"',
+      '"R%{lvl*10+60}\' Self may hold a whispered dialogue w/target for %{lvl+5} seg"',
   'Meteor Swarm':
     'School=Evocation ' +
     'Level=M9 ' +
@@ -1668,7 +1668,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I2,M2 ' +
     'Description=' +
-      '"1d4%{slvl==\'I2\'?\' + 1\':\'\'} copies of self misdirect attacks on self for %{lvl*(slvl==\'M2\'?2:3)} rd"',
+      '"1d4%{slvl==\'M2\'?\'\':\' + 1\'} copies of self misdirect attacks on self for %{lvl*(slvl==\'M2\'?2:3)} rd"',
   'Misdirection':
     'School=Illusion ' +
     'Level=I2 ' +
