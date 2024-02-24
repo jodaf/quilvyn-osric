@@ -975,7 +975,7 @@ OSRIC.SPELLS = {
     'Level=C3,I3,M2 ' +
     'Description=' +
       '"R%{slvl==\'C3\'?120:60}\' Target emits light in a 60\' radius (Reverse darkness) until dispelled"',
-  "Control Temperature 10' Radius":
+  "Control Temperature, 10' Radius":
     'School=Alteration ' +
     'Level=D4 ' +
     'Description=' +
@@ -1504,7 +1504,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I2,M2 ' +
     'Description="Touched becomes invisible; attacking ends"',
-  "Invisibility 10' Radius":
+  "Invisibility, 10' Radius":
     'School=Illusion ' +
     'Level=I3,M3 ' +
     'Description=' +
@@ -1582,7 +1582,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=M5 ' +
     'Description=' +
-      '"R10\' Create an invisible dog that howls at intruders in a 30\' radius and attacks (10 HD, inflicts 3d6 HP) for %{lvl*2} rd"',
+      '"R10\' Creates an invisible dog that howls at intruders in a 30\' radius and attacks (10 HD, inflicts 3d6 HP) for %{lvl*2} rd"',
   "Mage's Sword":
     'School=Evocation ' +
     'Level=M7 ' +
@@ -1740,7 +1740,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C6,M6 ' +
     'Description=' +
-      '"R%{lvl*(slvl==\'C6\'?20:10)}\' Forms a 20\'x%{lvl*30}\'x3\' water trench for %{slvl==\'C6\'?lvl+\' tn\':(lvl*5+\' rd\')}"',
+      '"R%{lvl*(slvl==\'M6\'?10:20)}\' Forms a 20\'x%{lvl*30}\'x3\' water trench for %{slvl==\'M6\'?lvl*5+\' rd\':(lvl+\' tn\')}"',
   'Pass Plant':
     'School=Alteration ' +
     'Level=D5 ' +
@@ -1791,7 +1791,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D3,M4 ' +
     'Description=' +
-      '"R%{slvl==\'M4\'?lvl*10:160}\' Vegetation in a %{lvl*(slvl==\'D3\'?20:10)}\' sq becomes thick and entangled"',
+      '"R%{slvl==\'M4\'?lvl*10:160}\' Vegetation in a %{lvl*(slvl==\'M4\'?10:20)}\' sq becomes thick and entangled"',
   'Polymorph Object':
     'School=Alteration ' +
     'Level=M8 ' +
@@ -1807,17 +1807,17 @@ OSRIC.SPELLS = {
     'Level=M4 ' +
     'Description=' +
       '"Self may transform into a different creature up to 2000 lb 2/min for %{lvl*2} tn"',
-  'Power Word Blind':
+  'Power Word, Blind':
     'School=Conjuration ' +
     'Level=M8 ' +
     'Description=' +
       '"R%{lvl*5}\' Blinds creatures in a 15\' radius for 1d4 + 1 rd or 1d4 + 1 tn"',
-  'Power Word Kill':
+  'Power Word, Kill':
     'School=Conjuration ' +
     'Level=M9 ' +
     'Description=' +
       '"R%{lvl*10//4}\' Slays 1 60 HP target or 12 10 HP targets in a 10\' radius"',
-  'Power Word Stun':
+  'Power Word, Stun':
     'School=Conjuration ' +
     'Level=M7 ' +
     'Description="R%{lvl*5}\' Stuns target for up to 4d4 rd"',
@@ -1868,12 +1868,12 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=C1,M1 ' +
     'Description=' +
-      '"Touched becomes untouchable by summoned and conjured creatures and gains +2 saves vs. evil, and evil foes suffer -2 attacks, for %{lvl*(slvl==\'C1\'?3:2)} rd (Reverse good)"',
-  "Protection From Evil 10' Radius":
+      '"Touched becomes untouchable by summoned and conjured creatures and gains +2 saves vs. evil, and evil foes suffer -2 attacks, for %{lvl*(slvl==\'M1\'?2:3)} rd (Reverse good)"',
+  "Protection From Evil, 10' Radius":
     'School=Abjuration ' +
     'Level=C4,M3 ' +
     'Description=' +
-      '"Creatures in a 10\' radius of touched become untouchable by evil outsiders and gain +2 saves vs. evil, and evil foes suffer -2 attacks, for %{slvl==\'C4\'?lvl+\' tn\':(lvl*2+\' rd\')} (Reverse good)"',
+      '"Creatures in a 10\' radius of touched become untouchable by evil outsiders and gain +2 saves vs. evil, and evil foes suffer -2 attacks, for %{slvl==\'M3\'?lvl*2+\' rd\':(lvl+\' tn\')} (Reverse good)"',
   'Protection From Fire':
     'School=Abjuration ' +
     'Level=D3 ' +
@@ -1908,7 +1908,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D3,M2 ' +
     'Description=' +
-      '"R%{slvl==\'D3\'?160:120}\' Target fire emits fireworks (inflicts blindness for 1d4 + 1 rd in a 120\' radius) or obscuring smoke"',
+      '"R%{slvl==\'M2\'?120:160}\' Target fire emits fireworks (inflicts blindness for 1d4 + 1 rd in a 120\' radius) or obscuring smoke"',
   'Quest':
     'School=Enchantment ' +
     'Level=C5 ' +
