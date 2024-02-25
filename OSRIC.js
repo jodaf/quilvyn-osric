@@ -2046,7 +2046,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M1 ' +
     'Description="Touched suffers 1d8+%{lvl} HP"',
-  "Silence 15' Radius":
+  "Silence, 15' Radius":
     'School=Alteration ' +
     'Level=C2 ' +
     'Description="R120\' Bars sound in a 15\' radius for %{lvl*2} rd"',
