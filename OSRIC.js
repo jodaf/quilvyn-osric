@@ -2154,7 +2154,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M2 ' +
     'Description=' +
-      '"Touched gains +1d6 Strength (warriors +1d6+1) for %{lvl} hr"',
+      '"Touched gains +1d6 Strength (warrior +1d6+1) for %{lvl} hr"',
   'Suggestion':
     'School=Enchantment ' +
     'Level=I3,M3 ' +
