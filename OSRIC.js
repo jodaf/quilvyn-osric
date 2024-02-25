@@ -2082,7 +2082,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C2,D1 ' +
     'Description=' +
-      '"R%{slvl==\'D1\'?40:30}\' Self may converse w/chosen type of animal for %{lvl*2} rd"',
+      '"R%{slvl==\'D1\'?40:30}\' Self may converse w/%{slvl==\'D1\'?\'chosen type of\':\'target\'} animal for %{lvl*2} rd"',
   'Speak With Dead':
     'School=Necromancy ' +
     'Level=C3 ' +
@@ -2107,7 +2107,7 @@ OSRIC.SPELLS = {
     'School=Abjuration ' +
     'Level=M8 ' +
     'Description=' +
-      '"%{lvl//4} touched divide %{lvl} tn of +8 saves vs. mind spells"',
+      '"Up to %{lvl//4} touched divide %{lvl} tn of save bonuses vs. spells"',
   'Spider Climb':
     'School=Alteration ' +
     'Level=M1 ' +
@@ -2154,7 +2154,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M2 ' +
     'Description=' +
-      '"Touched gains +1d6 Strength (warriors an additional +1) for %{lvl} hr"',
+      '"Touched gains +1d6 Strength (warriors +1d6+1) for %{lvl} hr"',
   'Suggestion':
     'School=Enchantment ' +
     'Level=I3,M3 ' +
