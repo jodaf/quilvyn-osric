@@ -2195,7 +2195,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M9 ' +
     'Description=' +
-      '"Self may perform extra actions in a 15\' radius for 1d8 + %{lvl//2} segs"',
+      '"Self may perform extra actions in a 15\' radius for 1d8+%{lvl//2} seg"',
   'Tiny Hut':
     'School=Alteration ' +
     'Level=M3 ' +
@@ -2204,7 +2204,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=C4,M3 ' +
     'Description=' +
-      '"R30\' Self may converse in any language (Reverse muddles) for %{slvl==\'C4\'?\'1 tn\':(lvl+\' rd\')}"',
+      '"R30\' Self may converse in any language (Reverse muddles) for %{slvl==\'M3\'?lvl+\' rd\':\'1 tn\'}"',
   'Transformation':
     'School=Alteration ' +
     'Level=M6 ' +
@@ -2235,8 +2235,7 @@ OSRIC.SPELLS = {
   'Trip':
     'School=Enchantment ' +
     'Level=D2 ' +
-    'Description=' +
-      '"Touched trips passers, inflicting 1d6 HP and stunning, for 1d4 + 1 rd (Save neg) for %{lvl} tn"',
+    'Description="Touched 10\' object trips passers (Save neg) for %{lvl} tn"',
   'True Seeing':
     'School=Divination ' +
     'Level=C5 ' +
@@ -2269,7 +2268,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I2,M1 ' +
     'Description=' +
-      '"R%{lvl*10<?(slvl==\'I2\'?90:60)}\' Self may throw voice for %{lvl+(slvl==\'M1\'?2:4)} rd ((Intelligence - 12) * 10% disbelieve)"',
+      '"R%{lvl*10<?(slvl==\'M1\'?60:90)}\' Self may throw voice for %{lvl+(slvl==\'M1\'?2:4)} rd ((Intelligence - 12) * 10% disbelieve)"',
   'Vision':
     'School=Divination ' +
     'Level=I7 ' +
