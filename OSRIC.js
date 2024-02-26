@@ -2277,12 +2277,12 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=D5,M4 ' +
     'Description=' +
-      '"R%{slvl==\'M4\'?60:80}\' Creates a %{lvl*20}\' sq wall or %{slvl==\'M4\'?lvl*3+10:(lvl*5)}\' radius circle that inflicts %{slvl==\'M4\'?\'2d6\':\'4d4\'}+%{lvl} HP to passers, 2d4 HP to creatures w/in 10\', and 1d4 to creatures w/in 20\', for conc + %{lvl} rd"',
+      '"R%{slvl==\'M4\'?60:80}\' Creates a %{lvl*20}\' sq wall that inflicts %{slvl==\'M4\'?\'2d6\':\'4d4\'}+%{lvl} HP to passers, 2d4 HP to creatures w/in 10\', and 1d4 to creatures w/in 20\', for conc or %{lvl} rd"',
   'Wall Of Fog':
     'School=Alteration ' +
     'Level=I1 ' +
     'Description=' +
-      '"R30\' Creates fog in a %{lvl*20}\' cu that obscures sight for 2d4 + %{lvl} rd"',
+      '"R30\' Creates fog in a %{lvl*20}\' cu that obscures sight for 2d4+%{lvl} rd"',
   'Wall Of Force':
     'School=Evocation ' +
     'Level=M5 ' +
@@ -2316,12 +2316,12 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=D3,M3 ' +
     'Description=' +
-      '"Touched may breathe water (Reverse may breathe air) for %{lvl+(slvl==\'D3\'?\' hr\':\' rd\')}"',
+      '"Touched may breathe water (Reverse may breathe air) for %{lvl+(slvl==\'M3\'?\' rd\':\' hr\')}"',
   'Weather Summoning':
     'School=Conjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"Controls precipitation, temperature, and wind within d100 sq miles for 4d12 hr"',
+      '"Calls forth seasonal precipitation, temperature, and wind within d100 sq miles"',
   'Web':
     'School=Evocation ' +
     'Level=M2 ' +
