@@ -491,13 +491,13 @@ OSRIC.FEATURES = {
   'Dwarf Ability Adjustment':
     'Section=ability Note="+1 Constitution/-1 Charisma"',
   'Dwarf Dodge':
-    'Section=combat Note="-4 AC vs. giants, ogres, titans, and trolls"',
+    'Section=combat Note="-4 Armor Class vs. giants, ogres, titans, and trolls"',
   'Dwarf Enmity':'Section=combat Note="+1 attack vs. goblinoids and orcs"',
   'Elf Ability Adjustment':
     'Section=ability Note="+1 Dexterity/-1 Constitution"',
   'Gnome Dodge':
     'Section=combat ' +
-    'Note="-4 AC vs. bugbears, giants, gnolls, ogres, titans, and trolls"',
+    'Note="-4 Armor Class vs. bugbears, giants, gnolls, ogres, titans, and trolls"',
   'Gnome Enmity':'Section=combat Note="+1 attack vs. goblins and kobolds"',
   'Half-Orc Ability Adjustment':
     'Section=ability Note="+1 Strength/+1 Constitution/-2 Charisma"',
@@ -808,7 +808,7 @@ OSRIC.SPELLS = {
   'Barkskin':
     'School=Alteration ' +
     'Level=D2 ' +
-    'Description="Touched gains -1 AC and +1 non-spell saves for %{lvl+4} rd"',
+    'Description="Touched gains -1 Armor Class and +1 non-spell saves for %{lvl+4} rd"',
   'Blade Barrier':
     'School=Evocation ' +
     'Level=C6 ' +
@@ -870,7 +870,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=D7 ' +
     'Description=' +
-      '"R10\' Creates a flaming chariot and horse pair (each AC 2, HP 30) that drives self and 8 others 240\'/rd or flies 480\'/rd for %{lvl+6} tn"',
+      '"R10\' Creates a flaming chariot and horse pair (each Armor Class 2, HP 30) that drives self and 8 others 240\'/rd or flies 480\'/rd for %{lvl+6} tn"',
   'Charm Monster':
     'School=Enchantment ' +
     'Level=M4 ' +
@@ -1072,7 +1072,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I5 ' +
     'Description=' +
-      '"R30\' Creates monsters with %{lvl} HD total and 40% of normal HP (Save monsters have AC 8 and inflict 40% damage) for %{lvl} rd"',
+      '"R30\' Creates monsters with %{lvl} HD total and 40% of normal HP (Save monsters have Armor Class 8 and inflict 40% damage) for %{lvl} rd"',
   'Detect Charm':
     'School=Divination ' +
     'Level=C2 ' +
@@ -1252,7 +1252,7 @@ OSRIC.SPELLS = {
   'Find Familiar':
     'School=Conjuration ' +
     'Level=M1 ' +
-    'Description="Summons a beast (HP 1d3+1, AC 7) to serve self"',
+    'Description="Summons a beast (HP 1d3+1, Armor Class 7) to serve self"',
   'Find The Path':
     'School=Divination ' +
     'Level=C6 ' +
@@ -1527,7 +1527,7 @@ OSRIC.SPELLS = {
   'Irresistible Dance':
     'School=Enchantment ' +
     'Level=M8 ' +
-    'Description="Touched suffers +4 AC and fails all saves for 1d4+1 rd"',
+    'Description="Touched suffers +4 Armor Class and fails all saves for 1d4+1 rd"',
   'Jump':
     'School=Alteration ' +
     'Level=M1 ' +
@@ -2019,7 +2019,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I6 ' +
     'Description=' +
-      '"R30\' Creates monsters with %{lvl} HD total and 60% of normal HP (Save monsters have AC 6 and inflict 60% damage) for %{lvl} rd"',
+      '"R30\' Creates monsters with %{lvl} HD total and 60% of normal HP (Save monsters have Armor Class 6 and inflict 60% damage) for %{lvl} rd"',
   'Shadow Door':
     'School=Illusion ' +
     'Level=I5 ' +
@@ -2034,7 +2034,7 @@ OSRIC.SPELLS = {
     'School=Illusion ' +
     'Level=I4 ' +
     'Description=' +
-      '"R30\' Creates monsters with %{lvl} HD total and 20% of normal HP (Save monsters have AC 10 and inflict 20% damage) for %{lvl} rd"',
+      '"R30\' Creates monsters with %{lvl} HD total and 20% of normal HP (Save monsters have Armor Class 10 and inflict 20% damage) for %{lvl} rd"',
   'Shape Change':
     'School=Alteration ' +
     'Level=M9 ' +
@@ -2048,7 +2048,7 @@ OSRIC.SPELLS = {
     'School=Evocation ' +
     'Level=M1 ' +
     'Description=' +
-      '"Self gains frontal AC 2 vs. thrown, AC 3 vs. arrows and bolts, AC 4 vs. melee attacks, and +1 saves for %{lvl*5} rd"',
+      '"Self gains frontal Armor Class 2 vs. thrown, 3 vs. arrows and bolts, and 4 vs. melee attacks, and +1 saves for %{lvl*5} rd"',
   'Shillelagh':
     'School=Alteration ' +
     'Level=D1 ' +
@@ -2222,7 +2222,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M6 ' +
     'Description=' +
-      '"Transforms self into a warrior (dbl HP, AC +4, 2/rd dagger +2 damage) for %{lvl} rd"',
+      '"Transforms self into a warrior (dbl HP, -4 Armor Class, 2/rd dagger +2 damage) for %{lvl} rd"',
   'Transmute Metal To Wood':
     'School=Alteration ' +
     'Level=D7 ' +
@@ -2322,7 +2322,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"R80\' Creates briars in a %{lvl*100}\' cu that inflict 8+AC HP for %{lvl} tn"',
+      '"R80\' Creates briars in a %{lvl*100}\' cu that inflict 8+Armor Class HP for %{lvl} tn"',
   'Warp Wood':
     'School=Alteration ' +
     'Level=D2 ' +
