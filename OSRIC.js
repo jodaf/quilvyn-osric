@@ -480,7 +480,7 @@ OSRIC.FEATURES = {
   'Detect Sliding':
     'Section=feature Note="R10\' 66% chance to detect sliding walls"',
   'Detect Slope':
-    'Section=feature Note="R10\' %{race=~\'Dwarf\'?75:80}% chance to detect slopes and grades"',
+    'Section=feature Note="R10\' %{race=~\'Gnome\'?80:75}% chance to detect slopes and grades"',
   'Detect Traps':
     'Section=feature Note="R10\' 50% chance to detect stonework traps"',
   'Determine Depth':
@@ -2198,7 +2198,7 @@ OSRIC.SPELLS = {
     'School=Alteration ' +
     'Level=M5 ' +
     'Description=' +
-      '"Transports self and %{(lvl-10>?0)*15+250} lb carried weight to a familiar location"',
+      '"Transports self and %{(lvl-10>?0)*150+250} lb carried weight to a familiar location"',
   'Temporal Stasis':
     'School=Alteration ' +
     'Level=M9 ' +
