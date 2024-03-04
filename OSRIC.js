@@ -2637,19 +2637,19 @@ OSRIC.combatRules = function(rules, armors, shields, weapons) {
     'source <= 8 ? source - 1 : source <= 13 ? 8 : source <= 18 ? 9 : 10'
   );
   let turningTable = {
-    'skeleton':'10:7 :4 :T :T :D :D :D :D :D :D',
-    'zombie'  :'13:10:7 :T :T :D :D :D :D :D :D',
-    'ghoul'   :'16:13:10:4 :T :T :D :D :D :D :D',
-    'shadow'  :'19:16:13:7 :4 :T :T :D :D :D :D',
-    'wight'   :'20:19:16:10:7 :4 :T :T :D :D :D',
-    'ghast'   :'- :20:19:13:10:7 :4 :T :T :D :D',
-    'wraith'  :'- :- :20:16:13:10:7 :4 :T :T :D',
-    'mummy'   :'- :- :- :19:16:13:10:7 :4 :T :D',
-    'spectre' :'- :- :- :20:19:16:13:10:7 :T :T',
-    'vampire' :'- :- :- :- :20:19:16:13:10:7 :4',
-    'ghost'   :'- :- :- :- :- :20:19:16:13:10:7',
-    'lich'    :'- :- :- :- :- :- :20:19:16:13:10',
-    'fiend'   :'- :- :- :- :- :- :- :20:19:16:13'
+    'Skeleton':'10:7 :4 :T :T :D :D :D :D :D :D',
+    'Zombie'  :'13:10:7 :T :T :D :D :D :D :D :D',
+    'Ghoul'   :'16:13:10:4 :T :T :D :D :D :D :D',
+    'Shadow'  :'19:16:13:7 :4 :T :T :D :D :D :D',
+    'Wight'   :'20:19:16:10:7 :4 :T :T :D :D :D',
+    'Ghast'   :'- :20:19:13:10:7 :4 :T :T :D :D',
+    'Wraith'  :'- :- :20:16:13:10:7 :4 :T :T :D',
+    'Mummy'   :'- :- :- :19:16:13:10:7 :4 :T :D',
+    'Spectre' :'- :- :- :20:19:16:13:10:7 :T :T',
+    'Vampire' :'- :- :- :- :20:19:16:13:10:7 :4',
+    'Ghost'   :'- :- :- :- :- :20:19:16:13:10:7',
+    'Lich'    :'- :- :- :- :- :- :20:19:16:13:10',
+    'Fiend'   :'- :- :- :- :- :- :- :20:19:16:13'
   };
   for(let u in turningTable) {
     rules.defineRule('turnUndead.' + u,
@@ -3159,17 +3159,17 @@ OSRIC.classRulesExtra = function(rules, name) {
   } else if(name == 'Paladin') {
 
     // Override casterLevel calculations from classRules
-    rules.defineRule('casterLevel.C',
+    rules.defineRule('casterLevels.C',
       classLevel, '^=', 'source<9 ? null : Math.min(source - 8, 8)'
     );
 
   } else if(name == 'Ranger') {
 
     // Override casterLevel calculations from classRules
-    rules.defineRule('casterLevel.D',
+    rules.defineRule('casterLevels.D',
       classLevel, '^=', 'source<9 ? null : Math.min(Math.floor((source - 6) / 2), 6)'
     );
-    rules.defineRule('casterLevel.M',
+    rules.defineRule('casterLevels.M',
       classLevel, '^=', 'source<9 ? null : Math.min(Math.floor((source - 6) / 2), 6)'
     );
     rules.defineRule('maximumHenchmen',
@@ -3422,13 +3422,6 @@ OSRIC.skillRules = function(rules, name, ability, classes) {
     return;
   }
 
-  for(let i = 0; i < classes.length; i++) {
-    let clas = classes[i];
-    if(clas == 'all')
-      rules.defineRule('classSkill.' + name, 'level', '=', '1');
-    else
-      rules.defineRule('classSkill.' + name, 'levels.' + clas, '=', '1');
-  }
   rules.defineRule('skillModifier.' + name,
     'skills.' + name, '=', null,
     'skillNotes.dexteritySkillModifiers', '+',
