@@ -111,7 +111,7 @@ progression is regular through level 18, this sequence to be shortened to "10
 8@4 ... -1@19".
 </p><p>
 The example shows entries for a Necromancer class that has similar features to
-the core Illusionist class. Instead of the high dexiterity score required by
+the core Illusionist class. Instead of the high dexterity score required by
 the Illusionist class, this Necromancer class requires a high charisma score,
 and it gains the ability to turn undead as a cleric at level 10.
 </p>
@@ -228,8 +228,8 @@ requirements for player characters: dwarfs must have a strength of at least 8
 and a constitution of 12 or more; elves require a minimum dexterity of 7 and a
 score of at least 8 in constitution, intelligence, and charisma; and so on.
 We can give the Lizard Man homebrew race a similar requirement&mdash;for
-example, a minimum dexterity of 7 and constution of 10&mdash;by adding text to
-the race's Prerequisite field:
+example, a minimum dexterity of 7 and constitution of 10&mdash;by adding text
+to the race's Prerequisite field:
 </p>
 <img src='../Images/hbos-attr-1.jpg' alt='Lizard Man minimum attributes'/>
 
@@ -308,7 +308,7 @@ values and skill modifiers by referencing the save type or skill name directly;
 the saves. and skillModifiers. prefixes are not necessary. For example,
 features with the following two notes will automatically subtract one from the
 character's required saving throws vs. wands and add 5 and 10 to the
-character's chance of success when climbining walls and hiding in shadows:
+character's chance of success when climbing walls and hiding in shadows:
 </p>
 
 <code>-1 Wands</code><br/>
@@ -336,12 +336,11 @@ note might appear on the sheet as
 <code>+6 melee damage vs. evil humanoids and giantish foes</code>
 </p><p>
 Beyond simple references, Quilvyn supports performing calculations within
-embedded references. The note for the assassin's Assassination feature looks
-like this:
+embedded references. The note for the Assassination feature of the assassin
+class looks like this:
 </p><p>
 <code>%{levels.Assassin*5+50}% - 5%/2 foe levels chance that a strike kills a surprised target</code>
 </p><p>
-TODO
 As this note shows, individual notes and descriptions can contain multiple
 embedded references, and individual references can use multiple attributes.
 </p><p>
@@ -351,35 +350,31 @@ Within embedded references, Quilvyn supports the common comparison operators
 and integer division (//). It also supports the ternary if-then-else operator
 (?:) and the operators &lt;? and &gt;?, which return the smaller and larger
 of their two operands, respectively. Using these operators, we can define the
-note for the barbarian Rage feature as follows, which takes into account the
-fact that the larger constitution bonuses of the Greater Rage and Mighty Rage
-features extend the duration of the rage:
-</p>
-
-<code>+4 Str, +4 Con, +2 Will, -2 AC for %{constitutionModifier + 5 + (features.Greater Rage ? 1 : 0) + (features.Mighty Rage ? 1 : 0)} rd %{1 + levels.Barbarian // 4}/dy</code>
-
-<p>
+note for the assassin Bonus Languages feature as follows, taking into account
+that the number of languages depends both upon the assassin's level and their
+intelligence:
+</p><p>
+<code>May learn %{levels.Assassin-8&lt;?4&lt;?intelligence-14} additional choices from alignment languages, druidic, or thieves\' cant</code>
+</p><p>
 Within spell descriptions, in addition to <a href="#attrs">common character
 attributes</a>, Quilvyn makes available the special character attribute lvl.
 This variable refers to the caster level appropriate to the specific spell:
-casterLevels.Cleric for the C1 spell <i>Bane</i>, casterLevels.Bard for the B0
-spell <i>Dancing Lights</i>, casterLevels.Sorcerer for the S2 spell <i>Arcane
-Lock</i>, and so on. Using the lvl attribute allows you to incorporate the
-caster level into a spell description that works for multiple classes. The
-description of the <i>Enhance Skill</i> spell example from
+casterLevels.Cleric for the C1 spell <i>Bless</i>, casterLevels.Druid for the
+D4 spell <i>Call Woodland Beings</i>, casterLevels.Illusionist for the I2 spell
+<i>Deafness</i>, and so on. Using the lvl attribute allows you to incorporate
+the caster level into a spell description that works for multiple classes. The
+description of the <i>Enhance Ability</i> spell example from
 <a href="#spell">adding a spell</a> reads:
-</p>
-
-<code>R%{25+lvl//2*5}' Target gains +4 on chosen skill for %{lvl} rd</code>
-
-<p>
+</p><p>
+<code>R30' Increases target's chosen ability by 4 for %{lvl} rd</code>
+</p><p>
 When showing this description on the character sheet, Quilvyn will replace the
-references to lvl with the character's cleric, sorcerer, or wizard level, as
-appropriate. For example, the description for the S3 <i>Enhance Skill</i>
-spell for a level 7 sorcerer will read:
+reference to lvl with the character's cleric or magic user level, as
+appropriate. For example, the description for the M3 <i>Enhance Skill</i>
+spell for a level 7 magic user will read:
 </p>
 
-<code>R40' Target gains +4 on chosen skill for 7 rd</code>
+<code>R30' Increases target's chosen ability by 4 for 7 rd</code>
 
 <hr style="width: 100%"/>
 
