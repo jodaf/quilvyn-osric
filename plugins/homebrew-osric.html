@@ -107,7 +107,7 @@ be shown as "3 4@5 ... 6@13". As another example, consider the THAC10 value for
 the cleric class&mdash;10 at level 1, then reducing by 2 every three levels
 through level 18, then dropping to -1 for all higher levels. Spelled out, this
 progression would be "10 8@4 6@7 4@10 2@13 0@16 -1@19". However, since the
-progression is regular through level 18, this sequence to be shortened to "10
+progression is regular through level 18, this sequence can be shortened to "10
 8@4 ... -1@19".
 </p><p>
 The example shows entries for a Necromancer class that has similar features to
@@ -127,7 +127,7 @@ and it gains the ability to turn undead as a cleric at level 10.
 <p>
 In Quilvyn, <i>features</i> describe the effects of class and racial features.
 When adding a homebrew feature, enter the section of the character sheet (one
-of ability, combat, feature, magic, or save) where the note for the feature
+of Ability, Combat, Feature, Magic, or Save) where the note for the feature
 should appear, then enter the note text. You can enter multiple sections and
 notes, but the number of sections entered must equal the number of notes.
 Feature notes can both reference and modify character attributes; see the
@@ -149,7 +149,7 @@ Adding a homebrew language requires only specifying the name. Once added,
 languages can be added to a character by selecting from the language list and
 can be included in the list of languages automatically known by homebrew races.
 </p><p>
-The examples shows the entries for a language called Scaletongue.
+The example shows the entries for a language called Scaletongue.
 </p>
 </td></tr>
 
@@ -165,8 +165,8 @@ will require <a href="#feature">adding a feature</a> to describe its effects.
 The Languages field lists the languages that characters of this race know
 automatically.
 </p><p>
-The example shows an entry that allows players to choose the Lizard Man race
-from the Monsters section of the core rules for their characters. Features for
+The example shows an entry that allows players to create characters with the
+Lizard Man race from the Monsters section of the OSRIC rules. Features for
 this race are Natural Swimmer, Natural Weapons, Slow, Tough Hide, and Lizard
 Man Ability Adjustment. The corresponding feature entries for the first two of
 these are <a href="#feature">shown above</a>.
@@ -341,9 +341,6 @@ class looks like this:
 </p><p>
 <code>%{levels.Assassin*5+50}% - 5%/2 foe levels chance that a strike kills a surprised target</code>
 </p><p>
-As this note shows, individual notes and descriptions can contain multiple
-embedded references, and individual references can use multiple attributes.
-</p><p>
 Within embedded references, Quilvyn supports the common comparison operators
 (&lt;, &lt;=, &gt;, &gt;=, ==, !=), the common arithmetic operators
 (+, -, *, /, unary -), AND (&amp;&amp;), OR (||), matching (=~, !~),
@@ -359,11 +356,11 @@ intelligence:
 Within spell descriptions, in addition to <a href="#attrs">common character
 attributes</a>, Quilvyn makes available the special character attribute lvl.
 This variable refers to the caster level appropriate to the specific spell:
-casterLevels.Cleric for the C1 spell <i>Bless</i>, casterLevels.Druid for the
-D4 spell <i>Call Woodland Beings</i>, casterLevels.Illusionist for the I2 spell
-<i>Deafness</i>, and so on. Using the lvl attribute allows you to incorporate
-the caster level into a spell description that works for multiple classes. The
-description of the <i>Enhance Ability</i> spell example from
+casterLevels.C for the C1 spell <i>Bless</i>, casterLevels.D for the D4 spell
+<i>Call Woodland Beings</i>, casterLevels.I for the I2 spell <i>Deafness</i>,
+and so on. Using the lvl attribute allows you to incorporate the caster level
+into a spell description that works for multiple classes. The description of
+the <i>Enhance Ability</i> spell example from
 <a href="#spell">adding a spell</a> reads:
 </p><p>
 <code>R30' Increases target's chosen ability by 4 for %{lvl} rd</code>
@@ -412,7 +409,9 @@ useful in entering homebrew features, classes, and races.
 </ul>
 </td><td>
 <ul style="padding-left: 15px; margin-top: 0">
+<li>armor</li>
 <li>armorClass</li>
+<li>armorWeight</li>
 <li>attacksPerRound</li>
 <li>hitDice</li>
 <li>hitPoints</li>
@@ -420,6 +419,7 @@ useful in entering homebrew features, classes, and races.
 <li>save.&lt;type&gt;, e.g.,<br/>
   save.Spell<br/>
   save.Wand</li>
+<li>shield</li>
 <li>speed</li>
 <li>surviveResurrection</li>
 <li>surviveSystemShock</li>
@@ -434,6 +434,7 @@ useful in entering homebrew features, classes, and races.
 <li>weapons.&lt;name&gt;, e.g.,<br/>
   weapons.Longsword</br>
   weapons.Light Crossbow</li>
+<li>weaponNonProficiencyPenalty</li>
 <li>weaponProficiencyCount</li>
 </ul>
 </td><td>
@@ -453,14 +454,14 @@ useful in entering homebrew features, classes, and races.
   features.Bow Precision</li>
 <li>languageCount</li>
 <li>languages.&lt;name&gt;, e.g.,<br/>
-  languages.Abyssal<br/>
+  languages.Common<br/>
   languages.Halfling</li>
 <li>skills.&lt;name&gt;, e.g.,<br/>
-  skills.Handle Animal<br/>
-  skills.Ride</li>
+  skills.Climb Walls<br/>
+  skills.Pick Pockets</li>
 <li>skillModifier.&lt;name&gt;, e.g.,<br/>
-  skillModifier.Intimidate<br/>
-  skillModifier.Survival</li>
+  skillModifier.Climb Walls<br/>
+  skillModifier.Pick Pockets</li>
 <li>skillPoints</li>
 </ul>
 </td>
