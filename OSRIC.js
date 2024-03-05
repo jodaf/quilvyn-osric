@@ -2322,7 +2322,7 @@ OSRIC.SPELLS = {
     'School=Conjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"R80\' Creates briars in a %{lvl*100}\' cu that inflict 8+Armor Class HP for %{lvl} tn"',
+      '"R80\' Creates briers in a %{lvl*100}\' cu that inflict 8+Armor Class HP for %{lvl} tn"',
   'Warp Wood':
     'School=Alteration ' +
     'Level=D2 ' +
@@ -3556,7 +3556,17 @@ OSRIC.weaponRules = function(rules, name, category, damage, range) {
 };
 
 /*
- * TODO
+ * Returns a character-level-indexed array built from the specification #steps#.
+ * #steps# is a string of elements separated by runs of spaces or semicolons;
+ * each element has the format N@L or L=N, when L is the character level and
+ * N the value at that level. For example, the specification for a Paladin's
+ * C1 spells slots is "1@9 2@10 3@14 4@21", indicating 1 C1 spell slot at level
+ * 9, 2 at level 10, etc. If a progression is regular, intermediate elements
+ * may be replaced by "...". For example, the specification for a Cleric's
+ * weapon proficiency count is "2@1 3@4 4@7 5@10 6@13 7@16 8@19 9@22". Since
+ * this is a regular progression (+1 every 3 levels), it can be shortened to
+ * "2@1 3@4 ... 9@22". The "@1" can also be dropped, since the first element is
+ * assumed to apply to level 1.
  */
 OSRIC.progressTable = function(steps) {
   let mostRecentRun = 1;
@@ -3897,6 +3907,11 @@ OSRIC.ruleNotes = function() {
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
+    '  Quilvyn generally uses American spellings for character attributes.' +
+    '  For example, Quilvyn\'s character sheet displays the character\'s' +
+    '  "armor class" instead of OSRIC\'s "armour class". Spell names retain' +
+    '  the spellings from the OSRIC rules, e.g., <i>Colour Spray</i>.\n'+
+    '  </li><li>\n' +
     '  For convenience, Quilvyn reports THAC0 values for OSRIC characters. It' +
     '  also reports THAC10 ("To Hit Armor Class 10"), which can be more' +
     '  useful with characters who need a 20 to hit AC 0.\n'+
@@ -3904,10 +3919,6 @@ OSRIC.ruleNotes = function() {
     '  The OSRIC rules discuss illusionist scrolls, but do not give the' +
     '  minimum level required to create them. Quilvyn uses the 1E PHB limit' +
     '  of level 10.\n' +
-    '  </li><li>\n' +
-    '  The OSRIC rules mention that Magic Users of levels 7 through 10 can' +
-    '  create scrolls and potions only with the aid of an alchemist; at level' +
-    '  11 they can do such crafting unaided.\n' +
     '  </li><li>\n' +
     '  The OSRIC rules are unclear as to whether or not the Fighting the' +
     '  Unskilled feature applies to Paladins and Rangers. Quilvyn assumes' +
