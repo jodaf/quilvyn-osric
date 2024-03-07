@@ -3789,17 +3789,14 @@ OSRIC.randomizeOneAttribute = function(attributes, attribute) {
     for(attr in classes) {
       if(!('levels.' + attr in attributes))
         continue;
-      // Calculate experience needed for this and prior levels to assign a
-      // random experience value that will yield this level.
-      attrs = this.applyRules(attributes);
-      let max = attrs['experiencePoints.' + attr + '.1'];
-      let min;
-      do {
-        attributes['levels.' + attr]--;
-        attrs = this.applyRules(attributes);
-        min = attrs['experiencePoints.' + attr + '.1'];
-      } while(min == '-');
-      max = max != '-' ? max - 1 : (min + 1);
+      // Determine the experience needed for this level and the next level to
+      // assign a random experience value that will yield this level.
+      let level = attributes['levels.' + attr] - 0;
+      let exprProgress =
+        OSRIC.progressTable(QuilvynUtils.getAttrValue(classes[attr], 'Experience') || '0');
+      let min =
+        exprProgress[level >= exprProgress.length ? exprProgress.length - 1 : level];
+      let max = (exprProgress[level + 1] || min + 2) - 1;
       delete attributes['levels.' + attr];
       attributes['experiencePoints.' + attr] = QuilvynUtils.random(min, max);
     }
