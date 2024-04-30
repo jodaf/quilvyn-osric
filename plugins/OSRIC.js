@@ -69,7 +69,7 @@ function OSRIC(edition) {
 
 }
 
-OSRIC.VERSION = '2.4.1.0';
+OSRIC.VERSION = '2.4.1.1';
 
 /* List of choices that can be expanded by house rules. */
 OSRIC.CHOICES = [
@@ -3630,7 +3630,8 @@ OSRIC.choiceEditorElements = function(rules, type) {
     result.push(
       ['AC', 'AC Bonus', 'select-one',
        [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]],
-      ['Move', 'Max Movement', 'select-one', [120, 90, 60]]
+      ['Move', 'Max Movement', 'select-one', [120, 90, 60]],
+      ['Weight', 'Weight', 'text', [3]]
     );
   else if(type == 'Class')
     result.push(
@@ -3666,7 +3667,8 @@ OSRIC.choiceEditorElements = function(rules, type) {
   else if(type == 'Shield')
     result.push(
       ['AC', 'AC Bonus', 'select-one',
-       [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]]
+       [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]],
+      ['Weight', 'Weight', 'text', [3]]
     );
   else if(type == 'Spell')
     result.push(
